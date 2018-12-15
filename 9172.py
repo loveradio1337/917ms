@@ -4439,4 +4439,9 @@ async def ship(ctx, user: discord.Member = None, *, user2: discord.Member = None
             await bot.say(embed=embed)
 
 
+@bot.event
+async def on_message(message):
+	await bot.process_commands(message)
+
+
 bot.run(os.environ['Token1'])
