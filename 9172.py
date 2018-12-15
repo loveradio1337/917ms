@@ -940,7 +940,7 @@ async def secretkick(ctx, user: discord.Member = None):
 @bot.command(pass_context=True)
 
 
-async def say(ctx, what_to_say : str):
+async def say(ctx, *, what_to_say : str):
 
     await bot.say(what_to_say)
 
@@ -954,7 +954,7 @@ async def say(ctx, what_to_say : str):
 @bot.command(pass_context=True)
 
 
-async def embed(ctx, what_to_say : str):
+async def embed(ctx, *, what_to_say : str):
 
 
     colors = [0x7a58d4, 0xff0027, 0x00fff2, 0x00ff09, 0xb5fff8, 0xb5b8ff, 0xffc300, 0xff99b8]
@@ -963,7 +963,7 @@ async def embed(ctx, what_to_say : str):
     randomizer = random.choice(colors)
 
 
-    embed2 = discord.Embed(title=f"{ctx.message.author.name} Said : ", description=what_to_say, color=0x7a58d4)
+    embed2 = discord.Embed(title=f"{ctx.message.author.name} Said : ", description=what_to_say, color=randomizer)
 
 
     await bot.delete_message(ctx.message)
@@ -4438,73 +4438,5 @@ async def ship(ctx, user: discord.Member = None, *, user2: discord.Member = None
             embed.set_image(url=res['message'])
             await bot.say(embed=embed)
 
-@bot.command(pass_context=True)
-async def windowsupdate(ctx):
-    try:
-        lol = 0.80
-        await bot.say("Checking for updates!")
-        await bot.say("Updates found")
-        msg1 = await bot.say("Downloading Updates : █")
-        msg2 = await bot.edit_message(msg1, "Downloading Updates : ██")
-        await asyncio.sleep(lol)
-        msg3 = await bot.edit_message(msg2, "Downloading Updates : █████")
-        await asyncio.sleep(lol)
-        msg4 = await bot.edit_message(msg3, "Downloading Updates : ████████")
-        await asyncio.sleep(lol)
-        msg5 = await bot.edit_message(msg4, "Downloading Updates : ███████████")
-        await asyncio.sleep(lol)
-        msg6 = await bot.edit_message(msg5, "Downloading Updates : ██████████████")
-        await asyncio.sleep(lol)
-        msg7 = await bot.edit_message(msg6, "Downloading Updates : ██████████████████")
-        await asyncio.sleep(lol)
-        msg8 = await bot.edit_message(msg7, "Downloading Updates : █████████████████████")
-        await asyncio.sleep(lol)
-        msg9 = await bot.edit_message(msg8, "Downloading Updates : ████████████████████████")
-        await asyncio.sleep(lol)
-        msg10 = await bot.edit_message(msg9, "Downloading Updates : ██████████████████████████")
-        await asyncio.sleep(lol)
-        msg11 = await bot.edit_message(msg10, "Downloading Updates : ████████████████████████████")
-        await asyncio.sleep(lol)
-        msg12 = await bot.edit_message(msg11, "Downloading Updates : ███████████████████████████████")
-        await asyncio.sleep(lol)
-        msg13 = await bot.edit_message(msg12, "Downloading Updates : ██████████████████████████████████")
-        await asyncio.sleep(lol)
-        msg14 = await bot.edit_message(msg13, "Downloading Updates : █████████████████████████████████████")
-        await asyncio.sleep(lol)
-        msg15 = await bot.edit_message(msg14, "Downloading Updates : ███████████████████████████████████████")
-        await asyncio.sleep(lol)
-        msg16 = await bot.edit_message(msg15, "Downloading Updates : ████████████████████████████████████████████")
-        await asyncio.sleep(lol)
-        msg17 = await bot.edit_message(msg16, "Downloading Updates : ██████████████████████████████████████████████")
-        await asyncio.sleep(lol)
-        msg18 = await bot.edit_message(msg17, "Downloading Updates : ███████████████████████████████████████████████")
-        await asyncio.sleep(lol)
-        msg19 = await bot.edit_message(msg18, "Downloading Updates : █████████████████████████████████████████████████")
-        await asyncio.sleep(lol)
-        msg20 = await bot.edit_message(msg19, "Downloading Updates : ███████████████████████████████████████████████████")
-        await asyncio.sleep(lol)
-        msg21 = await bot.edit_message(msg20, "Downloading Updates : ██████████████████████████████████████████████████████")
-        await asyncio.sleep(lol)
-        msg22 = await bot.edit_message(msg21, "Downloading Updates : ████████████████████████████████████████████████████████")
-        await asyncio.sleep(lol)
-        msg23 = await bot.edit_message(msg22, "Downloading Updates : ████████████████████████████████████████████████████████████")
-        await asyncio.sleep(lol)
-        msg24 = await bot.edit_message(msg23, "Downloading Updates : ███████████████████████████████████████████████████████████████")
-        await asyncio.sleep(lol)
-        msg25 = await bot.edit_message(msg24, "Downloading Updates : █████████████████████████████████████████████████████████████████")
-        await bot.say("Successfully downloaded the updates")
-        msg26 = await bot.say("Installing the updates : Updates failed to install")
-        await asyncio.sleep(lol)
-        await bot.say("Retrying")
-        await asyncio.sleep(lol)
-        await bot.say("Failed trying to re-install the updates")
-        await asyncio.sleep(lol)
-        await bot.say("Your computer will now restart")
-        await asyncio.sleep(lol)
-        await bot.say("Computer failed to restart")
-        await asyncio.sleep(lol)
-        await bot.say("Deleting system32 for a force restart")
-        await asyncio.sleep(lol)
-        await bot.say("Successfully deleted system32, Bye Bye BOI...")
 
 bot.run(os.environ['Token1'])
