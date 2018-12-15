@@ -4411,7 +4411,7 @@ async def tweet(ctx, usernamename:str, *, txt:str):
             res = await r.json()
             embed = discord.Embed(color=0xDEADBF)
             embed.set_image(url=res['message'])
-            embed.title = f"{usernamename} **tweets about** {txt}"
+            embed.title = f"{usernamename}'s TWEET."
             await bot.say(embed=embed)
 
 @bot.command(pass_context=True)
