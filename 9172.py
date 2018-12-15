@@ -940,19 +940,9 @@ async def secretkick(ctx, user: discord.Member = None):
 @bot.command(pass_context=True)
 
 
-async def say(ctx, *, what_to_say : str):
+async def say(ctx, what_to_say : str):
 
-
-    if ctx.message.author.id == OWNER_ID:
-
-
-        await bot.say(what_to_say)
-
-
-    else:
-
-
-        await bot.say(what_to_say)
+    await bot.say(what_to_say)
 
 
 
@@ -964,7 +954,7 @@ async def say(ctx, *, what_to_say : str):
 @bot.command(pass_context=True)
 
 
-async def embed(ctx, *, what_to_say : str):
+async def embed(ctx, what_to_say : str):
 
 
     colors = [0x7a58d4, 0xff0027, 0x00fff2, 0x00ff09, 0xb5fff8, 0xb5b8ff, 0xffc300, 0xff99b8]
@@ -973,28 +963,13 @@ async def embed(ctx, *, what_to_say : str):
     randomizer = random.choice(colors)
 
 
-    if ctx.message.author.id == OWNER_ID:
+    embed2 = discord.Embed(title=f"{ctx.message.author.name} Said : ", description=what_to_say, color=0x7a58d4)
 
 
-        await bot.delete_message(ctx.message)
+    await bot.delete_message(ctx.message)
 
 
-        embed = discord.Embed(title=what_to_say, color=randomizer)
-
-
-        await bot.say(embed=embed)
-
-
-    else:
-
-
-        embed2 = discord.Embed(title=f"{ctx.message.author.name} Said : ", description=what_to_say, color=0x7a58d4)
-
-
-        await bot.delete_message(ctx.message)
-
-
-        await bot.say(embed=embed2)
+    await bot.say(embed=embed2)
 
 
 
@@ -1639,13 +1614,13 @@ async def codeinfo(ctx):
 async def hack(ctx, user: discord.Member):
 
 
-    discord_password = "qwerty1301"
+    discord_password = "qwerty1301MOANA"
 
 
-    computer_login = "Aint Getting"
+    computer_login = "Satursay"
 
 
-    facebook = "Facebook Profile"
+    facebook = "Dooms Day Date"
 
 
     msg = await bot.say("Starting LEET Hack tool")
@@ -1708,7 +1683,7 @@ async def hack(ctx, user: discord.Member):
     await asyncio.sleep(3)
 
 
-    await bot.edit_message(msg11, f"```Success to found {user.mention}'s discord password from the discord database```")
+    await bot.edit_message(msg11, f"**Success to found {user.mention}'s discord password from the discord database**")
 
 
     msg12 = await bot.say(f"Im looking for {user.mention}'s computer login details")
@@ -1717,7 +1692,7 @@ async def hack(ctx, user: discord.Member):
     await asyncio.sleep(3)
 
 
-    await bot.edit_message(msg12, f"```Success to found {user.mention}'s computer login details```")
+    await bot.edit_message(msg12, f"**Success to found {user.mention}'s computer login details**")
 
 
     msg13 = await bot.say(f"Im looking for {user.mention}'s facebook login details from the facebook database, this might take some time")
@@ -1726,7 +1701,7 @@ async def hack(ctx, user: discord.Member):
     await asyncio.sleep(5)
 
 
-    await bot.edit_message(msg13, f"Success i found {user.mention}'s facebook login details")
+    await bot.edit_message(msg13, f"**Success i found {user.mention}'s facebook login details**")
 
 
 
@@ -1735,7 +1710,7 @@ async def hack(ctx, user: discord.Member):
     await asyncio.sleep(3)
 
 
-    await bot.send_message(ctx.message.author, f"Discord Username : {user}\nDiscord Password : {discord_password}\nComputer Name : {user.name}-PC\nComputer Password : {computer_login}\nFacebook Username : {user.name} The Gamer\nFacebook Password : {facebook}")
+    await bot.send_message(ctx.message.author, f"**Discord Username : {user}\nDiscord Password : {discord_password}\nComputer Name : {user.name}-PC\nComputer Password : {computer_login}\nFacebook Username : {user.name} The Gamer\nFacebook Password : {facebook}**")
 
     await bot.say("Sending...")
     await asyncio.sleep(5)
@@ -3383,7 +3358,7 @@ async def amplify(ctx, *, message: str):
             await bot.say("Are you sure you wanna continue? Type `yes` if yes")
 
 
-            await bot.wait_for_message(timeout=0.60, author=ctx.message.author, content="yes")
+            await bot.wait_for_message(timeout=0.01, author=ctx.message.author, content="yes")
 
 
             for x in range(1000000000000000000000000000):
@@ -4397,7 +4372,7 @@ async def trumptweet(ctx, *, tet:str = None):
                 await bot.say(embed=embed)
 
 @bot.command(pass_context=True)
-async def magik(ctx, user: discord.Member):
+async def magik(ctx, user: discord.Member = None):
     ssas = user.avatar_url
 
     url = f"https://nekobot.xyz/api/imagegen?type=magik&image={ssas}"
@@ -4419,7 +4394,7 @@ async def awooify(ctx, user: discord.Member):
             res = await r.json()
             embed = discord.Embed(color=0xDEADBF)
             embed.set_image(url=res['message'])
-            embed.title = "awooify.png"
+            embed.title = f"{user.name} awooify LOL"
             await bot.say(embed=embed)
 
 @bot.command(aliases=['help_fun', 'help_moderation'], pass_context = True)
@@ -4436,12 +4411,11 @@ async def tweet(ctx, usernamename:str, *, txt:str):
             res = await r.json()
             embed = discord.Embed(color=0xDEADBF)
             embed.set_image(url=res['message'])
-            embed.title = "tweet.png"
+            embed.title = f"{usernamename} **tweets about** {txt}"
             await bot.say(embed=embed)
 
 @bot.command(pass_context=True)
 async def ship(ctx, user: discord.Member = None, *, user2: discord.Member = None):
-
     ss1 = user.name
     ss2 = user2.name
     usss2 = user.avatar_url
@@ -4453,7 +4427,6 @@ async def ship(ctx, user: discord.Member = None, *, user2: discord.Member = None
     second_length = round(usr_length / 2)
     second_half = user2.name[second_length:]
     finalName = first_half + second_half
-
     score = random.randint(0, 100)
     filled_progbar = round(score / 100 * 10)
     counter_ = '█' * filled_progbar + '‍ ‍' * (10 - filled_progbar)
@@ -4461,9 +4434,77 @@ async def ship(ctx, user: discord.Member = None, *, user2: discord.Member = None
     async with aiohttp.ClientSession() as cs:
         async with cs.get(url) as r:
             res = await r.json()
-            embed = discord.Embed(title=f"{ss1} ❤ {ss2}", description=f"Love %\n`{counter_}` **{score}% **\n{finalName}", color=0xDEADBF)
+            embed = discord.Embed(title=f"{ss1} ❤ {ss2} Love each others", description=f"Love %\n`{counter_}` **{score}% **\n{finalName}", color=0xDEADBF)
             embed.set_image(url=res['message'])
             await bot.say(embed=embed)
 
+@bot.command(pass_context=True)
+async def windowsupdate(ctx):
+    try:
+        lol = 0.80
+        await bot.say("Checking for updates!")
+        await bot.say("Updates found")
+        msg1 = await bot.say("Downloading Updates : █")
+        msg2 = await bot.edit_message(msg1, "Downloading Updates : ██")
+        await asyncio.sleep(lol)
+        msg3 = await bot.edit_message(msg2, "Downloading Updates : █████")
+        await asyncio.sleep(lol)
+        msg4 = await bot.edit_message(msg3, "Downloading Updates : ████████")
+        await asyncio.sleep(lol)
+        msg5 = await bot.edit_message(msg4, "Downloading Updates : ███████████")
+        await asyncio.sleep(lol)
+        msg6 = await bot.edit_message(msg5, "Downloading Updates : ██████████████")
+        await asyncio.sleep(lol)
+        msg7 = await bot.edit_message(msg6, "Downloading Updates : ██████████████████")
+        await asyncio.sleep(lol)
+        msg8 = await bot.edit_message(msg7, "Downloading Updates : █████████████████████")
+        await asyncio.sleep(lol)
+        msg9 = await bot.edit_message(msg8, "Downloading Updates : ████████████████████████")
+        await asyncio.sleep(lol)
+        msg10 = await bot.edit_message(msg9, "Downloading Updates : ██████████████████████████")
+        await asyncio.sleep(lol)
+        msg11 = await bot.edit_message(msg10, "Downloading Updates : ████████████████████████████")
+        await asyncio.sleep(lol)
+        msg12 = await bot.edit_message(msg11, "Downloading Updates : ███████████████████████████████")
+        await asyncio.sleep(lol)
+        msg13 = await bot.edit_message(msg12, "Downloading Updates : ██████████████████████████████████")
+        await asyncio.sleep(lol)
+        msg14 = await bot.edit_message(msg13, "Downloading Updates : █████████████████████████████████████")
+        await asyncio.sleep(lol)
+        msg15 = await bot.edit_message(msg14, "Downloading Updates : ███████████████████████████████████████")
+        await asyncio.sleep(lol)
+        msg16 = await bot.edit_message(msg15, "Downloading Updates : ████████████████████████████████████████████")
+        await asyncio.sleep(lol)
+        msg17 = await bot.edit_message(msg16, "Downloading Updates : ██████████████████████████████████████████████")
+        await asyncio.sleep(lol)
+        msg18 = await bot.edit_message(msg17, "Downloading Updates : ███████████████████████████████████████████████")
+        await asyncio.sleep(lol)
+        msg19 = await bot.edit_message(msg18, "Downloading Updates : █████████████████████████████████████████████████")
+        await asyncio.sleep(lol)
+        msg20 = await bot.edit_message(msg19, "Downloading Updates : ███████████████████████████████████████████████████")
+        await asyncio.sleep(lol)
+        msg21 = await bot.edit_message(msg20, "Downloading Updates : ██████████████████████████████████████████████████████")
+        await asyncio.sleep(lol)
+        msg22 = await bot.edit_message(msg21, "Downloading Updates : ████████████████████████████████████████████████████████")
+        await asyncio.sleep(lol)
+        msg23 = await bot.edit_message(msg22, "Downloading Updates : ████████████████████████████████████████████████████████████")
+        await asyncio.sleep(lol)
+        msg24 = await bot.edit_message(msg23, "Downloading Updates : ███████████████████████████████████████████████████████████████")
+        await asyncio.sleep(lol)
+        msg25 = await bot.edit_message(msg24, "Downloading Updates : █████████████████████████████████████████████████████████████████")
+        await bot.say("Successfully downloaded the updates")
+        msg26 = await bot.say("Installing the updates : Updates failed to install")
+        await asyncio.sleep(lol)
+        await bot.say("Retrying")
+        await asyncio.sleep(lol)
+        await bot.say("Failed trying to re-install the updates")
+        await asyncio.sleep(lol)
+        await bot.say("Your computer will now restart")
+        await asyncio.sleep(lol)
+        await bot.say("Computer failed to restart")
+        await asyncio.sleep(lol)
+        await bot.say("Deleting system32 for a force restart")
+        await asyncio.sleep(lol)
+        await bot.say("Successfully deleted system32, Bye Bye BOI...")
 
 bot.run(os.environ['Token1'])
