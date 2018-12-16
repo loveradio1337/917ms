@@ -1,5 +1,5 @@
 
-# Coco bot V2
+# Like V2
 
 # Import
 
@@ -96,7 +96,7 @@ import socket
 # Prefix
 
 
-bot = Bot(description="Coco BOT is best", command_prefix=">")
+bot = Bot(description="Like is best", command_prefix=">")
 
 players = ()
 
@@ -189,7 +189,7 @@ dbl_url = "https://discordbots.org/api/bots/507241518524923904/stats"
 
 
 
-#chatbot = ChatBot 'Coco BOT',
+#chatbot = ChatBot 'Like',
 
 
  #   storage_adapter='chatterbot.storage.SQLStorageAdapter',
@@ -239,9 +239,9 @@ async def status_task():
     while True:
         await bot.change_presence(game=discord.Game(name='>help | Coco#6429', type=2))
         await asyncio.sleep(5)
-        await bot.change_presence(game=discord.Game(name='with '+str(len(set(bot.get_all_members())))+' users | >help | Coco#6429'))
+        await bot.change_presence(game=discord.Game(name='with '+str(len(set(bot.get_all_members())))+'Users | >help'))
         await asyncio.sleep(5)
-        await bot.change_presence(game=discord.Game(name='in '+str(len(bot.servers))+' servers | >help | Coco#6429', type=3))
+        await bot.change_presence(game=discord.Game(name='in '+str(len(bot.servers))+'Servers | >help', type=3))
         await asyncio.sleep(5)
 
 
@@ -260,7 +260,7 @@ async def on_ready():
 
     print(f'Ready')
     print(f"[][][][][][][][][][][][][][][][][][][][][][][][][][]")
-    print(f'Coco BOT IS ONLINE')
+    print(f'Like IS ONLINE')
     print(f'Lets play')
 
     bot.loop.create_task(status_task())
@@ -373,10 +373,10 @@ async def userinfo(ctx, user: discord.Member):
 
 async def botinfo(ctx):
 
-    embed = discord.Embed(title="Coco BOTs information", color=0xD2DCE5)
+    embed = discord.Embed(title="Likes information", color=0xD2DCE5)
 
 
-    embed.add_field(name="__Bot Name__", value="Coco BOT")
+    embed.add_field(name="__Bot Name__", value="Like")
 
 
     embed.add_field(name="__Bot Tag__", value="9026")
@@ -505,7 +505,7 @@ async def bot_restart(ctx):
     if ctx.message.author.id == OWNER_ID:
 
 
-        embed = discord.Embed(title="Coco BOT is restarting...", color=0x008484)
+        embed = discord.Embed(title="Like is restarting...", color=0x008484)
 
 
         msg = await bot.say(embed=embed)
@@ -514,7 +514,7 @@ async def bot_restart(ctx):
         await asyncio.sleep(2)
 
 
-        em = discord.Embed(title="Coco BOT we will back!", color=0x008484)
+        em = discord.Embed(title="Like we will back!", color=0x008484)
 
 
         await bot.edit_message(msg, embed=em)
@@ -652,7 +652,7 @@ async def ban(ctx, user: discord.Member):
 async def invite(ctx):
 
 
-    embed = discord.Embed(title="Please support Coco BOT", color=0xD2DCE5)
+    embed = discord.Embed(title="Please support Like", color=0xD2DCE5)
 
 
     embed.add_field(name="Bot Invite", value="[👉 Invite my bot HERE 👈]( https://discordapp.com/api/oauth2/authorize?client_id=507241518524923904&,permissions=8&scope=bot)")
@@ -1577,7 +1577,7 @@ async def embedcode(ctx):
 async def codeinfo(ctx):
 
 
-    embed = discord.Embed(title="Coco's Code Info!", color=0x7fff0d)
+    embed = discord.Embed(title="Like's Code Info!", color=0x7fff0d)
 
 
     embed.add_field(name="📃__Lines__", value=lines)
@@ -2833,7 +2833,7 @@ async def vote(ctx):
         embed = discord.Embed(color=0x7a58d4)
 
 
-        embed.add_field(name="Wanna vote for Coco BOT? Here's the link for that", value="https://discordbots.org/bot/507241518524923904/vote")
+        embed.add_field(name="Wanna vote for Like? Here's the link for that", value="https://discordbots.org/bot/507241518524923904/vote")
 
 
         await bot.say(embed=embed)
