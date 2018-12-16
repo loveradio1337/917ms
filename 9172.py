@@ -4306,7 +4306,7 @@ async def poll(ctx, question, *options: str):
         for x, option in enumerate(options):
             description += '\n {} {}'.format(reactions[x], option)
             r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
-        embed = discord.Embed(title=question, description=''.join(description), color=2C2F33)
+        embed = discord.Embed(title=question, description=''.join(description), color=0xDEADBF)
         react_message = await bot.say(embed=embed)
         for reaction in reactions[:len(options)]:
             await bot.add_reaction(react_message, reaction)
