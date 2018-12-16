@@ -239,9 +239,9 @@ async def status_task():
     while True:
         await bot.change_presence(game=discord.Game(name='>help | Coco#6429', type=2))
         await asyncio.sleep(5)
-        await bot.change_presence(game=discord.Game(name='with '+str(len(set(bot.get_all_members())))+'Users | >help'))
+        await bot.change_presence(game=discord.Game(name='with '+str(len(set(bot.get_all_members())))+' Users | >help'))
         await asyncio.sleep(5)
-        await bot.change_presence(game=discord.Game(name='in '+str(len(bot.servers))+'Servers | >help', type=3))
+        await bot.change_presence(game=discord.Game(name='in '+str(len(bot.servers))+' Servers | >help', type=3))
         await asyncio.sleep(5)
 
 
