@@ -4395,7 +4395,7 @@ async def help_general(ctx):
 
 @bot.command(pass_context=True)
 async def tweet(ctx, usernamename:str, *, txt:str):
-
+    user = ctx.message.author
     time = str(server.created_at); time = time.split(' '); time= time[0];
     url = f"https://nekobot.xyz/api/imagegen?type=tweet&username={usernamename}&text={txt}"
 
@@ -4403,7 +4403,7 @@ async def tweet(ctx, usernamename:str, *, txt:str):
         async with cs.get(url) as r:
             res = await r.json()
             embed = discord.Embed(color=0xDEADBF)
-            embed.set_footer("%s Requested by: %s %s" % (user.avatar.url, user.name, time)) embed.set_image(url=res['message'])
+            embed.set_footer("Requested by: %s %s" % (user.name, time)) embed.set_image(url=res['message'])
             embed.title = f"{usernamename}'s TWEET."
             await bot.say(embed=embed)
 
