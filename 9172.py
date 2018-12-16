@@ -174,14 +174,6 @@ secondnoperm = "You probally have no permission to use this command or i don't h
 
 botavatar = "https://cdn.discordapp.com/avatars/507241518524923904/dea61e2eb1de8f94e8460d707bfe0d08.webp?size=1024"
 
-
-
-
-
-
-
-
-
 dbl_url = "https://discordbots.org/api/bots/507241518524923904/stats"
 
 
@@ -4314,7 +4306,7 @@ async def poll(ctx, question, *options: str):
         for x, option in enumerate(options):
             description += '\n {} {}'.format(reactions[x], option)
             r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
-        embed = discord.Embed(title=question, description=''.join(description), color = discord.Color((r << 16) + (g << 8) + b))
+        embed = discord.Embed(title=question, description=''.join(description), color=2C2F33)
         react_message = await bot.say(embed=embed)
         for reaction in reactions[:len(options)]:
             await bot.add_reaction(react_message, reaction)
@@ -4404,18 +4396,20 @@ async def help_general(ctx):
 @bot.command(pass_context=True)
 async def tweet(ctx, usernamename:str, *, txt:str):
 
+    time = str(server.created_at); time = time.split(' '); time= time[0];
     url = f"https://nekobot.xyz/api/imagegen?type=tweet&username={usernamename}&text={txt}"
 
     async with aiohttp.ClientSession() as cs:
         async with cs.get(url) as r:
             res = await r.json()
             embed = discord.Embed(color=0xDEADBF)
-            embed.set_image(url=res['message'])
+            embed.set_footer("%s Requested by: %s %s" % (user.avatar.url, user.name, time)) embed.set_image(url=res['message'])
             embed.title = f"{usernamename}'s TWEET."
             await bot.say(embed=embed)
 
 @bot.command(pass_context=True)
 async def ship(ctx, user: discord.Member = None, *, user2: discord.Member = None):
+    time = str(server.created_at); time = time.split(' '); time= time[0];
     ss1 = user.name
     ss2 = user2.name
     usss2 = user.avatar_url
@@ -4435,7 +4429,8 @@ async def ship(ctx, user: discord.Member = None, *, user2: discord.Member = None
         async with cs.get(url) as r:
             res = await r.json()
             embed = discord.Embed(title=f"{ss1} ❤ {ss2} Love each others", description=f"Love\n`{counter_}` **{score}% **\nTheir love name was **{finalName}**", color=0xDEADBF)
-            embed.set_image(url=res['message'])
+             embed.set_image(url=res['message'])
+            embed.set_footer('%s Requested by: %s %s' % (ctx.message.author.avatar_url, ctx.message.name, time))
             await bot.say(embed=embed)
 
 
