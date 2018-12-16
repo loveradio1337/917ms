@@ -4306,7 +4306,7 @@ async def poll(ctx, question, *options: str):
         for x, option in enumerate(options):
             description += '\n {} {}'.format(reactions[x], option)
             r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
-        embed = discord.Embed(title=question, description=''.join(description), color=0xDEADBF)
+        embed = discord.Embed(title=question, description=''.join(description), color= 0xDEADBF)
         react_message = await bot.say(embed=embed)
         for reaction in reactions[:len(options)]:
             await bot.add_reaction(react_message, reaction)
@@ -4395,22 +4395,19 @@ async def help_general(ctx):
 
 @bot.command(pass_context=True)
 async def tweet(ctx, usernamename:str, *, txt:str):
-    user = ctx.message.author
-    time = str(server.created_at); time = time.split(' '); time= time[0];
+
     url = f"https://nekobot.xyz/api/imagegen?type=tweet&username={usernamename}&text={txt}"
 
     async with aiohttp.ClientSession() as cs:
         async with cs.get(url) as r:
             res = await r.json()
             embed = discord.Embed(color=0xDEADBF)
-            embed.set_footer('Requested by: {} | {}'.format(user.name, time)) 
             embed.set_image(url=res['message'])
             embed.title = f"{usernamename}'s TWEET."
             await bot.say(embed=embed)
 
 @bot.command(pass_context=True)
 async def ship(ctx, user: discord.Member = None, *, user2: discord.Member = None):
-    time = str(server.created_at); time = time.split(' '); time= time[0];
     ss1 = user.name
     ss2 = user2.name
     usss2 = user.avatar_url
@@ -4430,8 +4427,7 @@ async def ship(ctx, user: discord.Member = None, *, user2: discord.Member = None
         async with cs.get(url) as r:
             res = await r.json()
             embed = discord.Embed(title=f"{ss1} ❤ {ss2} Love each others", description=f"Love\n`{counter_}` **{score}% **\nTheir love name was **{finalName}**", color=0xDEADBF)
-             embed.set_image(url=res['message'])
-            embed.set_footer('%s Requested by: %s %s' % (ctx.message.author.avatar_url, ctx.message.name, time))
+            embed.set_image(url=res['message'])
             await bot.say(embed=embed)
 
 
