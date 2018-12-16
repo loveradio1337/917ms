@@ -4403,7 +4403,7 @@ async def tweet(ctx, usernamename:str, *, txt:str):
         async with cs.get(url) as r:
             res = await r.json()
             embed = discord.Embed(color=0xDEADBF)
-            embed.set_footer("Requested by: %s %s" % (user.name, time)) embed.set_image(url=res['message'])
+            embed.set_footer('Requested by: %s %s' % (user.name, time)) embed.set_image(url=res['message'])
             embed.title = f"{usernamename}'s TWEET."
             await bot.say(embed=embed)
 
