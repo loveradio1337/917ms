@@ -172,7 +172,7 @@ key = 'q8Di3LCIL0Qny7IiwN3jxfyBuY37c9nk'
 secondnoperm = "You probally have no permission to use this command or i don't have permission to do what you want me to do"
 
 
-botavatar = "https://cdn.discordapp.com/avatars/507241518524923904/83965f296e833a36b92930974277fe1b.webp?size=1024"
+botavatar = "https://cdn.discordapp.com/avatars/507241518524923904/dea61e2eb1de8f94e8460d707bfe0d08.webp?size=1024"
 
 
 
