@@ -4434,7 +4434,7 @@ async def ship(ctx, user: discord.Member = None, *, user2: discord.Member = None
     async with aiohttp.ClientSession() as cs:
         async with cs.get(url) as r:
             res = await r.json()
-            embed = discord.Embed(title=f"{ss1} ❤ {ss2} Love each others", description=f"Love %\n`{counter_}` **{score}% **\n{finalName}", color=0xDEADBF)
+            embed = discord.Embed(title=f"{ss1} ❤ {ss2} Love each others", description=f"Love\n`{counter_}` **{score}% **\nTheir love name was **{finalName}**", color=0xDEADBF)
             embed.set_image(url=res['message'])
             await bot.say(embed=embed)
 
