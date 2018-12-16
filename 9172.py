@@ -172,7 +172,7 @@ key = 'q8Di3LCIL0Qny7IiwN3jxfyBuY37c9nk'
 secondnoperm = "You probally have no permission to use this command or i don't have permission to do what you want me to do"
 
 
-botavatar = "https://cdn.discordapp.com/avatars/507241518524923904/d17a39fdd2440df7a59dd86e3a78fafd.webp?size=1024"
+botavatar = "https://cdn.discordapp.com/avatars/507241518524923904/83965f296e833a36b92930974277fe1b.webp?size=1024"
 
 
 
@@ -376,35 +376,35 @@ async def botinfo(ctx):
     embed = discord.Embed(title="Likes information", color=0xD2DCE5)
 
 
-    embed.add_field(name="__Bot Name__", value="Like")
+    embed.add_field(name="👤 __Bot Name__ 👤", value="Like")
 
 
-    embed.add_field(name="__Bot Tag__", value="9026")
+    embed.add_field(name="✍ __Bot Tag__ ✍", value="9026")
 
 
-    embed.add_field(name="__Bot ID__", value=botid)
+    embed.add_field(name="🎰 __Bot ID__ 🎰", value=botid)
 
 
-    embed.add_field(name="__Bot Owner__", value="Coco#6429")
+    embed.add_field(name="👨 __Bot Owner__ 👨", value="Coco#6429")
 
 
-    embed.add_field(name="__Bot Prefix__", value=">")
+    embed.add_field(name="📍 __Bot Prefix__ 📍", value=">")
 
-    embed.add_field(name="__Bot Language__", value="Python")
-
-
-    embed.add_field(name="__Bot Servers__", value=len(bot.servers))
+    embed.add_field(name="📚 __Bot Language__ 📚", value="Python")
 
 
-    embed.add_field(name="__Bot Users__", value=(len(set(bot.get_all_members()))))
+    embed.add_field(name="📊 __Bot Servers__ 📊", value=len(bot.servers))
 
 
-    embed.add_field(name="__Bot Commands__", value=(str(len(bot.commands))))
+    embed.add_field(name="📈 __Bot Users__ 📈", value=(len(set(bot.get_all_members()))))
 
 
-    embed.add_field(name="__Bot Invite__", value="[👉 Invite my bot HERE 👈]( https://discordapp.com/api/oauth2/authorize?client_id=507241518524923904&,permissions=8&scope=bot)")
+    embed.add_field(name="📋 __Bot Commands__ 📋", value=(str(len(bot.commands))))
 
-    embed.add_field(name="__Donation Link__", value="[Support our bot by Donating us HERE](https://paypal.me/CocoGT)")
+
+    embed.add_field(name="📉 __Bot Invite__ 📉", value="[👉 Invite my bot HERE 👈]( https://discordapp.com/api/oauth2/authorize?client_id=507241518524923904&,permissions=8&scope=bot)")
+
+    embed.add_field(name="🔮 __Donation Link__ 🔮", value="[Support our bot by Donating us HERE](https://paypal.me/CocoGT)")
 
     embed.set_thumbnail(url=botavatar)
 
@@ -2682,7 +2682,7 @@ async def serverowner(ctx):
                     roles = "None"
 
 
-                embed.add_field(name="__Roles__", value=roles)
+                embed.add_field(name="📑 __Roles__ 📑", value=roles)
 
 
         except:
@@ -4438,10 +4438,6 @@ async def ship(ctx, user: discord.Member = None, *, user2: discord.Member = None
             embed.set_image(url=res['message'])
             await bot.say(embed=embed)
 
-
-@bot.event
-async def on_message(message):
-	await bot.process_commands(message)
 
 
 bot.run(os.environ['Token1'])
