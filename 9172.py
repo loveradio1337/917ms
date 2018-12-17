@@ -4446,6 +4446,6 @@ async def roast(ctx, user: discord.Member):
 
     roastss = [roasts, roasts1, roasts2, roasts3]
 
-        await bot.say("**{}** | {}".format(user.name, random.choice(roastss)) 
+    await bot.say("**{}** | {}".random.choice(roastss)) 
 
 bot.run(os.environ['Token1'])
