@@ -4427,7 +4427,9 @@ async def meme(ctx):
      async with aiohttp.ClientSession() as session:
         async with session.get("https://api.reddit.com/r/me_irl/random") as r:
             data = await r.json()
-            await bot.say(data[0]["data"]["children"][0]["data"]["url"])
+            embed = discord.Embed(title='Meme', description=data[0]["data"]["children"][0]["data"]["url"], color=0xC72323)
+            embed.set_footer(text=f'Requested by: {ctx.message.author.display_name}', icon_url=f'{ctx.message.author.avatar_url}')
+            await bot.say(embed=embed)
 
 #@bot.commands(pass_context=True)
 #async def face(ctx):
