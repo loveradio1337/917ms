@@ -267,7 +267,7 @@ async def on_ready():
 async def userinfo(ctx, user: discord.Member):
 
 
-    embed = discord.Embed(title="{}'s information".format(user.name), color=0xD2DCE5)
+    embed = discord.Embed(title="{}'s information".format(user.name), color=0xC72323)
 
 
     embed.add_field(name="👤 __Name__ 👤", value=user.mention, inline=True)
@@ -365,7 +365,7 @@ async def userinfo(ctx, user: discord.Member):
 
 async def botinfo(ctx):
 
-    embed = discord.Embed(title="Likes information", color=0xD2DCE5)
+    embed = discord.Embed(title="Likes information", color=0xC72323)
 
 
     embed.add_field(name="👤 __Bot Name__ 👤", value="Like")
@@ -426,7 +426,7 @@ async def serverinfo(ctx):
 
 
 
-    embed = discord.Embed(name="{} Server information".format(ctx.message.server.name), color=0xffe5f3)
+    embed = discord.Embed(name="{} Server information".format(ctx.message.server.name), color=0xC72323)
 
 
     embed.add_field(name="__Server name__", value=ctx.message.server.name, inline=True)
@@ -497,7 +497,7 @@ async def bot_restart(ctx):
     if ctx.message.author.id == OWNER_ID:
 
 
-        embed = discord.Embed(title="Like is restarting...", color=0x008484)
+        embed = discord.Embed(title="Like is restarting...", color=0xC72323)
 
 
         msg = await bot.say(embed=embed)
@@ -506,7 +506,7 @@ async def bot_restart(ctx):
         await asyncio.sleep(2)
 
 
-        em = discord.Embed(title="Like we will back!", color=0x008484)
+        em = discord.Embed(title="Like we will back!", color=0xC72323)
 
 
         await bot.edit_message(msg, embed=em)
@@ -518,7 +518,7 @@ async def bot_restart(ctx):
     else:
 
 
-        emd = discord.Embed(title=noperm, color=0xD2DCE5)
+        emd = discord.Embed(title=noperm, color=0xC72323)
 
 
         await bot.say(embed=emd)
@@ -563,7 +563,7 @@ async def servers(ctx):
     else:
 
 
-        emd = discord.Embed(title=noperm, color=0xD2DCE5)
+        emd = discord.Embed(title=noperm, color=0xC72323)
 
 
         await bot.say(embed=emd)
@@ -584,7 +584,7 @@ async def kick(ctx, user: discord.Member):
     if ctx.message.author.server_permissions.kick_members:
 
 
-        embed = discord.Embed(title="Successfully kicked {} from ".format(user.name) + (ctx.message.server.name), color=0x96bef0)
+        embed = discord.Embed(title="Successfully kicked {} from ".format(user.name) + (ctx.message.server.name), color=0xC72323)
 
 
         await bot.kick(user)
@@ -596,7 +596,7 @@ async def kick(ctx, user: discord.Member):
     else:
 
 
-        emd = discord.Embed(title=noperm, color=0xD2DCE5)
+        emd = discord.Embed(title=noperm, color=0xC72323)
 
 
         await bot.say(embed=emd)
@@ -617,7 +617,7 @@ async def ban(ctx, user: discord.Member):
     if ctx.message.author.server_permissions.ban_members:
 
 
-        embed = discord.Embed(title="Successfully banned {} from ".format(user.name) + (ctx.message.server.name), color=0xff6666)
+        embed = discord.Embed(title="Successfully banned {} from ".format(user.name) + (ctx.message.server.name), color=0xC72323)
 
 
         await bot.ban(user)
@@ -629,7 +629,7 @@ async def ban(ctx, user: discord.Member):
     else:
 
 
-        emd = discord.Embed(title=noperm, color=0xD2DCE5)
+        emd = discord.Embed(title=noperm, color=0xC72323)
 
 
         await bot.say(embed=emd)
@@ -644,7 +644,7 @@ async def ban(ctx, user: discord.Member):
 async def invite(ctx):
 
 
-    embed = discord.Embed(title="Please support Like", color=0xD2DCE5)
+    embed = discord.Embed(title="Please support Like", color=0xC72323)
 
 
     embed.add_field(name="Bot Invite", value="[👉 Invite my bot HERE 👈]( https://discordapp.com/api/oauth2/authorize?client_id=507241518524923904&,permissions=8&scope=bot)")
@@ -668,7 +668,7 @@ async def invite(ctx):
 async def membercount(ctx):
 
 
-    embed = discord.Embed(title="The total amount of members in {}".format(ctx.message.server.name), description=len(ctx.message.server.members), color=0xD2DCE5)
+    embed = discord.Embed(title="The total amount of members in {}".format(ctx.message.server.name), description=len(ctx.message.server.members), color=0xC72323)
 
 
     embed.set_thumbnail(url=ctx.message.server.icon_url)
@@ -689,7 +689,7 @@ async def membercount(ctx):
 async def servercount(ctx):
 
 
-    embed = discord.Embed(title="Server Counter", description=len(bot.servers), color=0xD2DCE5)
+    embed = discord.Embed(title="Server Counter", description=len(bot.servers), color=0xC72323)
 
 
     await bot.say(embed=embed)
@@ -704,7 +704,7 @@ async def servercount(ctx):
 async def avatar(ctx, user: discord.Member):
 
 
-    embed = discord.Embed(title="This is the avatar of {}".format(user.name), color=0xfff799)
+    embed = discord.Embed(title="This is the avatar of {}".format(user.name), color=0xC72323)
 
 
     embed.set_image(url=user.avatar_url)
@@ -728,7 +728,7 @@ async def slowvlear(ctx):
             async for msg in bot.logs_from(ctx.message.channel):
                 await bot.delete_message(msg)
         else:
-            emd = discord.Embed(title=noperm, color=0xD2DCE5)
+            emd = discord.Embed(title=noperm, color=0xC72323)
             await bot.say(embed=emd)
     except Exception as e:
         await bot.say(e)
@@ -764,7 +764,7 @@ async def warn(ctx, member : discord.Member = None, *, message):
     else:
 
 
-        emd = discord.Embed(title=noperm, color=0xD2DCE5)
+        emd = discord.Embed(title=noperm, color=0xC72323)
 
 
         await bot.say(embed=emd)
@@ -803,7 +803,7 @@ async def dm(ctx, member : discord.Member = None, *, message):
     else:
 
 
-        emd = discord.Embed(title=noperm, color=0xD2DCE5)
+        emd = discord.Embed(title=noperm, color=0xC72323)
 
 
         await bot.say(embed=emd)
@@ -827,7 +827,7 @@ async def decide(ctx):
         decided = ["Ban him", "Kick him", "Do whatever you wanna do!"]
 
 
-        embed = discord.Embed(title=random.choice(decided), color=0xff9c9c)
+        embed = discord.Embed(title=random.choice(decided), color=0xC72323)
 
 
         await bot.say(embed=embed)
@@ -836,7 +836,7 @@ async def decide(ctx):
     else:
 
 
-        emd = discord.Embed(title=noperm, color=0xD2DCE5)
+        emd = discord.Embed(title=noperm, color=0xC72323)
 
 
         await bot.say(embed=emd)
@@ -872,7 +872,7 @@ async def secretban(ctx, user: discord.Member = None):
     else:
 
 
-        emd = discord.Embed(title=noperm, color=0xD2DCE5)
+        emd = discord.Embed(title=noperm, color=0xC72323)
 
 
         await bot.say(embed=emd)
@@ -911,7 +911,7 @@ async def secretkick(ctx, user: discord.Member = None):
         else:
 
 
-            emd = discord.Embed(title=noperm, color=0xD2DCE5)
+            emd = discord.Embed(title=noperm, color=0xC72323)
 
 
             await bot.say(embed=emd)
@@ -949,7 +949,7 @@ async def say(ctx, *, what_to_say : str):
 async def embed(ctx, *, what_to_say : str):
 
 
-    colors = [0x7a58d4, 0xff0027, 0x00fff2, 0x00ff09, 0xb5fff8, 0xb5b8ff, 0xffc300, 0xff99b8]
+    colors = [0xC72323]
 
 
     randomizer = random.choice(colors)
@@ -985,7 +985,7 @@ async def qr(ctx, *, message: str):
 
 
 
-    embed = discord.Embed(color=0xe73131)
+    embed = discord.Embed(color=0xC72323)
 
 
     embed.set_image(url=url)
@@ -1048,7 +1048,7 @@ async def youtube(ctx, *, message: str):
 async def ask(ctx, *, question: str):
     answer = [":8ball: It is certain.", ":8ball: It is decidedly so.", "Without a doubt.", ":8ball:Yes definitely.", ":8ball: You may rely on it.", ":8ball: As I see it, yes.", ":8ball: Most likely.", ":8ball:Outlook good.", ":8ball: Yes.", ":8ball:Signs point to yes.", ":8ball: Reply hazy, try again.", ":8ball: Ask again later.", ":8ball: Better not tell you now.", ":8ball: Cannot predict now.", ":8ball:Concentrate and ask again.", ":8ball: Don't count on it.", ":8ball: My reply is no.", ":8ball: My sources say no.", ":8ball:Outlook not so good.", ":8ball: Very doubtful."]
     randomizer = random.choice(answer)
-    embed = discord.Embed(title=question, description=f"{randomizer}", color=0xefff00)
+    embed = discord.Embed(title=question, description=f"{randomizer}", color=0xC72323)
     await bot.say(embed=embed)
 
 #@bot.command(pass_context=True)
@@ -1059,7 +1059,7 @@ async def ask(ctx, *, question: str):
     #randomizer = random.choice(answer)
 
 
-    #embed = discord.Embed(title=question, description=f"{randomizer}", color=0xefff00)
+    #embed = discord.Embed(title=question, description=f"{randomizer}", color=0xC72323)
 
 
     #await bot.say(embed=embed)
@@ -1095,7 +1095,7 @@ async def hug(ctx, user: discord.Member):
             randomurl = ["http://gifimage.net/wp-content/uploads/2017/09/anime-hug-gif-5.gif", "https://media1.tenor.com/images/595f89fa0ea06a5e3d7ddd00e920a5bb/tenor.gif?itemid=7919037", "https://media.giphy.com/media/NvkwNVuHdLRSw/giphy.gif"]
 
 
-            embed = discord.Embed(title=f"{user.name} You just got a hug from {ctx.message.author.name}", color=0xafeeee)
+            embed = discord.Embed(title=f"{user.name} You just got a hug from {ctx.message.author.name}", color=0xC72323)
 
 
             embed.set_image(url=random.choice(randomurl))
@@ -1128,7 +1128,7 @@ async def gender(ctx, user: discord.Member):
     if user == ctx.message.author:
 
 
-        embed = discord.Embed(title="You should know your own gender", color=0xfff47d)
+        embed = discord.Embed(title="You should know your own gender", color=0xC72323)
 
 
         await bot.say(embed=embed)
@@ -1137,7 +1137,7 @@ async def gender(ctx, user: discord.Member):
     else:
 
 
-        embed = discord.Embed(color=0xfff47d)
+        embed = discord.Embed(color=0xC72323)
 
 
         embed.add_field(name=f"{user.name}'s gender check results", value=f"{randomizer}")
@@ -1269,7 +1269,7 @@ async def joke(ctx):
     joke = ["What do you call a frozen dog?\nA pupsicle", "What do you call a dog magician?\nA labracadabrador", "What do you call a large dog that meditates?\nAware wolf", "How did the little scottish dog feel when he saw a monster\nTerrier-fied!", "Why did the computer show up at work late?\nBecause it had a hard drive", "Autocorrect has become my worst enime", "What do you call an IPhone that isn't kidding around\nDead Siri-ous", "The guy who invented auto-correct for smartphones passed away today\nRestaurant in peace", "You know you're texting too much when you say LOL in real life, instead of laughing", "I have a question = I have 18 Questions\nI'll look into it = I've already forgotten about it", "Knock Knock!\nWho's there?\Owls say\nOwls say who?\nYes they do.", "Knock Knock!\nWho's there?\nWill\nWill who?\nWill you just open the door already?", "Knock Knock!\nWho's there?\nAlpaca\nAlpaca who?\nAlpaca the suitcase, you load up the car.", "Yo momma's teeth is so yellow, when she smiled at traffic, it slowed down.", "Yo momma's so fat, she brought a spoon to the super bowl.", "Yo momma's so fat, when she went to the beach, all the whales started singing 'We are family'", "Yo momma's so stupid, she put lipstick on her forehead to make up her mind.", "Yo momma's so fat, even Dora can't explore her.", "Yo momma's so old, her breast milk is actually powder", "Yo momma's so fat, she has to wear six different watches: one for each time zone", "Yo momma's so dumb, she went to the dentist to get a bluetooth", "Yo momma's so fat, the aliens call her 'the mothership'", "Yo momma's so ugly, she made an onion cry.", "Yo momma's so fat, the only letters she knows in the alphabet are K.F.C", "Yo momma's so ugly, she threw a boomerang and it refused to come back", "Yo momma's so fat, Donald trump used her as a wall", "Sends a cringey joke\nTypes LOL\nFace in real life : Serious AF", "I just got fired from my job at the keyboard factory. They told me I wasn't putting enough shifts.", "Thanks to autocorrect, 1 in 5 children will be getting a visit from Satan this Christmas.", "Have you ever heard about the new restaurant called karma?\nThere's no menu, You get what you deserve.", "Did you hear about the claustrophobic astronaut?\nHe just needed a little space", "Why don't scientists trust atoms?\nBecase they make up everything", "How did you drown a hipster?\nThrow him in the mainstream", "How does moses make tea?\nHe brews", "A man tells his doctor\n'DOC, HELP ME. I'm addicted to twitter!'\nThe doctor replies\n'Sorry i don't follow you...'", "I told my wife she was drawing her eyebrows too high. She looked surprised.", "I threw a boomeranga a few years ago. I now live in constant fear"]
 
 
-    embed = discord.Embed(color=0x5e72a2)
+    embed = discord.Embed(color=0xC72323)
 
 
     embed.add_field(name=f"Here is a random joke that {ctx.message.author.name} requested", value=random.choice(joke))
@@ -1293,7 +1293,7 @@ async def dadjoke(ctx):
     dadjoke = ["Why did the girl show her boobs to the paper factory?\nTo make flash paper", "My dad literally told me this one last week: 'Did you hear about the guy who invented Lifesavers? They say he made a mint.", "A ham sandwich walks into a bar and orders a beer. Bartender says, 'Sorry we don't serve food here.", "Me: 'Dad, make me a sandwich!' Dad: 'Poof, You’re a sandwich!'", "Why did the Clydesdale give the pony a glass of water?  Because he was a little horse!", "How do you make a Kleenex dance? Put a little boogie in it!", "Two peanuts were walking down the street. One was a salted.", "What time did the man go to the dentist? Tooth hurt-y.", "I'm reading a book about anti-gravity. It's impossible to put down!", "You're American when you go into the bathroom, and you're American when you come out, but do you know what you are while you're in there? European.", "Did you know the first French fries weren't actually cooked in France? They were cooked in Greece.", "Want to hear a joke about a piece of paper? Never mind... it's tearable.", "I just watched a documentary about beavers. It was the best dam show I ever saw!", "If you see a robbery at an Apple Store does that make you an iWitness?", "Spring is here! I got so excited I wet my plants!", "A ham sandwich walks into a bar and orders a beer. The bartender says, 'Sorry we dont serverserver food here.", "What’s Forrest Gump’s password? 1forrest1", "Why did the Clydesdale give the pony a glass of water?  Because he was a little horse!", "Did you hear about the guy who invented Lifesavers? They say he made a mint.", "I bought some shoes from a drug dealer. I don't know what he laced them with, but I was tripping all day!", "Why do chicken coops only have two doors? Because if they had four, they would be chicken sedans!", "What do you call a factory that sells passable products? A satisfactory.", "How do you make a Kleenex dance? Put a little boogie in it!", "When a dad drives past a graveyard: Did you know that's a popular cemetery? Yep, people are just dying to get in there!", "Two peanuts were walking down the street. One was a salted.", "Why did the invisible man turn down the job offer? He couldn't see himself doing it.", "I used to have a job at a calendar factory but I got the sack because I took a couple of days off.", "How do you make holy water? You boil the hell out of it.", "When you ask a dad if he's alright: 'No, I’m half left.'", "I had a dream that I was a muffler last night. I woke up exhausted!", "Did you hear the news? FedEx and UPS are merging. They’re going to go by the name Fed-Up from now on.", "5/4 of people admit that they’re bad with fractions.", "MOM : How do i look?\nDad : With your eyes.", "What is Beethoven’s favorite fruit? A ba-na-na-na.", "Two guys walk into a bar, the third one ducks.", "What do you call a masturbating cow? Beef Stroganoff.", "Did you hear about the circus fire? It was in tents!", "Don't trust atoms. They make up everything!", "What do you call a cow with two legs? Lean beef. If the cow has no legs, then it’s ground beef.", "What do you get when you cross an elephant with a rhino? Elephino.", "How many tickles does it take to make an octopus laugh? Ten-tickles.", "I’m only familiar with 25 letters in the English language. I don’t know why.", "What's the best part about living in Switzerland? I don't know, but the flag is a big plus."]
 
 
-    embed = discord.Embed(color=0x20bb2a)
+    embed = discord.Embed(color=0xC72323)
 
 
     embed.add_field(name=f"Here is a random joke that {ctx.message.author.name} requested", value=random.choice(dadjoke))
@@ -1311,7 +1311,7 @@ async def dadjoke(ctx):
             res = await r.json()
 
 
-            embed = discord.Embed(description=res['joke'], color=0xf45f5f)
+            embed = discord.Embed(description=res['joke'], color=0xC72323)
 
 
             await bot.say(embed=embed)
@@ -1338,7 +1338,7 @@ async def skincolor(ctx, user: discord.Member):
     if user == ctx.message.author:
 
 
-        embed2 = discord.Embed(title="You should know your own skin color", color=0xcb287a)
+        embed2 = discord.Embed(title="You should know your own skin color", color=0xC72323)
 
 
         await bot.say(embed=embed2)
@@ -1347,7 +1347,7 @@ async def skincolor(ctx, user: discord.Member):
     else:
 
 
-        embed = discord.Embed(color=0xcb287a)
+        embed = discord.Embed(color=0xC72323)
 
 
         embed.add_field(name=f"{user.name}'s skin color", value=random.choice(skins))
@@ -1370,7 +1370,7 @@ async def encode(ctx, *, encode_to: str):
         encoded = hashlib.md5(encode_to.encode('utf-8')).hexdigest()
 
 
-        await bot.say(embed=discord.Embed(color=0xD2DCE5, title=f"{encode_to} has been encoded to md5 results are below",
+        await bot.say(embed=discord.Embed(color=0xC72323, title=f"{encode_to} has been encoded to md5 results are below",
 
 
                                         description=f"{encoded}"))
@@ -1406,7 +1406,7 @@ async def clear(ctx, amount = 1000):
     else:
 
 
-        emd = discord.Embed(title=noperm, color=0xD2DCE5)
+        emd = discord.Embed(title=noperm, color=0xC72323)
 
 
         await bot.say(embed=emd)
@@ -1420,7 +1420,7 @@ async def clear(ctx, amount = 1000):
 async def sapnupuas(ctx):
 
 
-    embed = discord.Embed(color=0xD2DCE5)
+    embed = discord.Embed(color=0xC72323)
 
 
     embed.add_field(name="Meanwhile in Mccdonald's secret area", value=f"{ctx.message.author.name} : hai gerl ples kiss 1 fut penus and show vagen ples\n\nHailey : You wanna see what?\n\n{ctx.message.author.name} : ples bobs vagen insert 1 fut penus big and fell good\n\nHailey : Sorry i cannot understand you, please fix your english\n\n{ctx.message.author.name} : I came from a different planet and i am here to tell you that we are all going to die and there is only one way to survive and you will have to send me a picture of your boobs and vagina so that we won't die please send it right now, i don't want to die")
@@ -1439,7 +1439,7 @@ async def sapnupuas(ctx):
 async def randomint(ctx):
 
 
-    embed = discord.Embed(color=0x67f413)
+    embed = discord.Embed(color=0xC72323)
 
 
     rand = "{}".format(str(random.randint(0, 100)))
@@ -1463,7 +1463,7 @@ async def randomint(ctx):
 async def customint(ctx, first: int, second: int):
 
 
-    embed = discord.Embed(color=0xcf8fff)
+    embed = discord.Embed(color=0xC72323)
 
 
     rand = "{}".format(str(random.randint(first, second)))
@@ -1483,26 +1483,26 @@ async def customint(ctx, first: int, second: int):
 async def howgay(ctx, user: discord.Member = None):
     random.seed(user.id)
     if user.id == OWNER_ID:
-        embed = discord.Embed(color=0xbef482)
+        embed = discord.Embed(color=0xC72323)
         embed.add_field(name=f"{user.name}'s Howgay results", value="1% Gay")
         await bot.say(embed=embed)
     else:
         if user.id == "335460741958336512":
-            embed = discord.Embed(color=0xbef482)
+            embed = discord.Embed(color=0xC72323)
             embed.add_field(name=f"{user.name}'s Howgay results", value="100000000% Gay")
             await bot.say(embed=embed)
         else:
             if user.id == "327072337432150036":
-                embed = discord.Embed(color=0xbef482)
+                embed = discord.Embed(color=0xC72323)
                 embed.add_field(name=f"{user.name}'s Howgay results", value="Not Gay At All")
                 await bot.say(embed=embed)
             else:
                 if user.id == "316181702391365632":
-                    embed = discord.Embed(color=0xbef482)
+                    embed = discord.Embed(color=0xC72323)
                     embed.add_field(name=f"{user.name}'s Howgay results", value="The howgay results cannot be detected beacause that user has a gender that is out of this world.")
                     await bot.say(embed=embed)
                 else:
-                    embed = discord.Embed(color=0xbef482)
+                    embed = discord.Embed(color=0xC72323)
                     randomizer = "{}% Gay".format(str(random.randint(20, 100)))
                     embed.add_field(name=f"{user.name}'s Howgay results", value=randomizer)
                     await bot.say(embed=embed)
@@ -1521,7 +1521,7 @@ async def howgay(ctx, user: discord.Member = None):
 async def embedcode(ctx):
 
 
-    embed = discord.Embed(title="burger king foot lettuce", url="https://example.com", description="yo mam prety", color=0xD2DCE5)
+    embed = discord.Embed(title="burger king foot lettuce", url="https://example.com", description="yo mam prety", color=0xC72323)
 
 
     embed.set_author(name="black guy", url="http://example.com", icon_url="https://i.imgflip.com/1jqcf8.jpg?a422784")
@@ -1536,7 +1536,7 @@ async def embedcode(ctx):
     embed.set_footer(text="ples no normes allowed")
 
 
-    await bot.say('```py\nembed=discord.Embed(title="burger king foot lettuce", url="https://example.com", description="yo mam gey", color=0xD2DCE5)\n'
+    await bot.say('```py\nembed=discord.Embed(title="burger king foot lettuce", url="https://example.com", description="yo mam gey", color=0xC72323)\n'
 
 
                                                         'embed.set_author(name="black guy", url="http://example.com", icon_url="https://i.imgflip.com/1jqcf8.jpg?a422784")\n'
@@ -1569,7 +1569,7 @@ async def embedcode(ctx):
 async def codeinfo(ctx):
 
 
-    embed = discord.Embed(title="Like's Code Info!", color=0x7fff0d)
+    embed = discord.Embed(title="Like's Code Info!", color=0xC72323)
 
 
     embed.add_field(name="📃__Lines__", value=lines)
@@ -1741,7 +1741,7 @@ async def stringgen(ctx, n: int=None):
             generator_string = ''.join(random.choice(string.ascii_uppercase + string.ascii_lowercase + string.digits) for i in range(n))
 
 
-            embed = discord.Embed(color=0xc0c5ff)
+            embed = discord.Embed(color=0xC72323)
 
 
             embed.add_field(name="__String Generator__", value=generator_string)
@@ -1899,7 +1899,7 @@ async def gban(ctx, user: discord.Member, *, reason: str):
         await bot.ban(user)
 
 
-        embed = discord.Embed(title=f"Successfully banned {user.name} from {ctx.message.server.name}", description=f"Reason : {reason}", color=0x890fe3)
+        embed = discord.Embed(title=f"Successfully banned {user.name} from {ctx.message.server.name}", description=f"Reason : {reason}", color=0xC72323)
 
 
         await bot.say(embed=embed)
@@ -1908,7 +1908,7 @@ async def gban(ctx, user: discord.Member, *, reason: str):
     else:
 
 
-        embed = discord.Embed(title=noperm, color=0xD2DCE5)
+        embed = discord.Embed(title=noperm, color=0xC72323)
 
 
         await bot.say(embed=embed)
@@ -1928,7 +1928,7 @@ async def gkick(ctx, user: discord.Member, *, reason: str):
         await bot.kick(user)
 
 
-        embed = discord.Embed(title=f"Successfully kicked {user.name} from {ctx.message.server.name}", description=f"Reason : {reason}", color=0x890fe3)
+        embed = discord.Embed(title=f"Successfully kicked {user.name} from {ctx.message.server.name}", description=f"Reason : {reason}", color=0xC72323)
 
 
         await bot.say(embed=embed)
@@ -1937,7 +1937,7 @@ async def gkick(ctx, user: discord.Member, *, reason: str):
     else:
 
 
-        embed = discord.Embed(title=noperm, color=0xD2DCE5)
+        embed = discord.Embed(title=noperm, color=0xC72323)
 
 
         await bot.say(embed=embed)
@@ -1967,7 +1967,7 @@ async def slap(ctx, user: discord.Member = None):
     else:
 
 
-        embed = discord.Embed(title=f"{ctx.message.author.name} Just slapped the shit out of {user.name}!", color=0xc7ff00)
+        embed = discord.Embed(title=f"{ctx.message.author.name} Just slapped the shit out of {user.name}!", color=0xC72323)
 
 
         embed.set_image(url=random.choice(gifs))
@@ -2008,7 +2008,7 @@ async def report(ctx, user: discord.Member = None, *, reason: str = None):
             chan = bot.get_channel("520901548575031296")
 
 
-            embed = discord.Embed(title=f"{ctx.message.author.name}'s Report", color=0xc0c5ff)
+            embed = discord.Embed(title=f"{ctx.message.author.name}'s Report", color=0xC72323)
 
 
             embed.add_field(name="Reported User", value=f"Username : {user}\n"
@@ -2081,7 +2081,7 @@ async def whois(ctx, user: discord.Member = None):
 
         random.seed(user.id)
 
-        embed = discord.Embed(title=f"{user.name} {random.choice(lolwho)}", color=0xD2DCE5)
+        embed = discord.Embed(title=f"{user.name} {random.choice(lolwho)}", color=0xC72323)
 
 
         await bot.say(embed=embed)
@@ -2099,7 +2099,7 @@ async def rolldice(ctx):
     dice = ["1", "2", "3", "4", "5", "6"]
 
 
-    embed = discord.Embed(title=f"{ctx.message.author.name} Just rolled the dice and got {random.choice(dice)}", color=0xeed27b)
+    embed = discord.Embed(title=f"{ctx.message.author.name} Just rolled the dice and got {random.choice(dice)}", color=0xC72323)
 
 
     await bot.say(embed=embed)
@@ -2138,7 +2138,7 @@ async def hairdye(ctx, user: discord.Member = None, *, color: str = None):
             if user.id == ctx.message.author.id:
 
 
-                em = discord.Embed(title=f"{ctx.message.author.name} Just dyed his/her own hair {color}", color=0xD2DCE5)
+                em = discord.Embed(title=f"{ctx.message.author.name} Just dyed his/her own hair {color}", color=0xC72323)
 
 
                 await bot.say(embed=em)
@@ -2150,7 +2150,7 @@ async def hairdye(ctx, user: discord.Member = None, *, color: str = None):
                 if user.id == botid:
 
 
-                    em = discord.Embed(title="You cannot dye a robot's hair", color=0xD2DCE5)
+                    em = discord.Embed(title="You cannot dye a robot's hair", color=0xC72323)
 
 
                     await bot.say(embed=em)
@@ -2159,7 +2159,7 @@ async def hairdye(ctx, user: discord.Member = None, *, color: str = None):
                 else:
 
 
-                    em = discord.Embed(title=f"{ctx.message.author.name} Just dyed {user.name}'s hair {color}", color=0xD2DCE5)
+                    em = discord.Embed(title=f"{ctx.message.author.name} Just dyed {user.name}'s hair {color}", color=0xC72323)
 
 
                     await bot.say(embed=em)
@@ -2184,7 +2184,7 @@ async def start(ctx):
     else:
 
 
-        embed = discord.Embed(title=noperm, color=0xD2DCE5)
+        embed = discord.Embed(title=noperm, color=0xC72323)
 
 
         await bot.say(embed=embed)
@@ -2220,7 +2220,7 @@ async def height(ctx, user: discord.Member = None):
                 random.seed(user.id)
 
 
-                embed = discord.Embed(color=0xfff47d)
+                embed = discord.Embed(color=0xC72323)
 
 
                 embed.add_field(name=f"{user.name}'s height results", value="1337 Cm")
@@ -2241,7 +2241,7 @@ async def height(ctx, user: discord.Member = None):
                 else:
 
 
-                    embed = discord.Embed(color=0xfff47d)
+                    embed = discord.Embed(color=0xC72323)
 
 
                     embed.add_field(name=f"{user.name}'s height results", value=randomizer)
@@ -2259,7 +2259,7 @@ async def height(ctx, user: discord.Member = None):
 
 @bot.command(pass_context=True)
 async def damn(ctx):
-    embed = discord.Embed(title="DAMNNNNNNNN!!", color=0xf45f5f)
+    embed = discord.Embed(title="DAMNNNNNNNN!!", color=0xC72323)
     embed.set_image(url="http://i.imgur.com/OKMogWM.gif")
     await bot.say(embed=embed)
     await bot.delete_message(ctx.message)
@@ -2268,7 +2268,7 @@ async def damn(ctx):
 
 @bot.command(pass_context=True)
 async def burned(ctx):
-    embed = discord.Embed(color=0xD2DCE5)
+    embed = discord.Embed(color=0xC72323)
     embed.set_image(url="https://i.imgur.com/wY4xbak.gif")
     await bot.say(embed=embed)
     await bot.delete_message(ctx.message)
@@ -2297,7 +2297,7 @@ async def talentcheck(ctx, user: discord.Member = None):
             try:
 
 
-                embed = discord.Embed(title=f"Here is the special talent of {user.name}", description="He can't be gay", color=0xD2DCE5)
+                embed = discord.Embed(title=f"Here is the special talent of {user.name}", description="He can't be gay", color=0xC72323)
 
 
                 await bot.say(embed=embed)
@@ -2318,7 +2318,7 @@ async def talentcheck(ctx, user: discord.Member = None):
                 try:
 
 
-                    embed = discord.Embed(color=0xD2DCE5)
+                    embed = discord.Embed(color=0xC72323)
 
 
                     embed.add_field(name=f"Here is your special talent {user.name}", value=f"You must know your talent")
@@ -2348,7 +2348,7 @@ async def talentcheck(ctx, user: discord.Member = None):
                     try:
 
 
-                        embed = discord.Embed(color=0xD2DCE5)
+                        embed = discord.Embed(color=0xC72323)
 
 
                         embed.add_field(name=f"Here is the special talent of {user.name}", value=f"{user.name} Can Read")
@@ -2386,7 +2386,7 @@ async def shoot(ctx, user: discord.Member = None):
 
 
                 images2 = ['https://media.giphy.com/media/GrdvdNF9cuRrO/giphy.gif', 'https://media.giphy.com/media/oW1egQoq8su4M/giphy.gif', 'https://media1.tenor.com/images/abcdc3fdefc7510bab0c8e8a64b37c91/tenor.gif?itemid=4975230', 'https://media1.tenor.com/images/b9ebfbf0e8060ab57071dea8e537b05c/tenor.gif?itemid=5922988']
-                embed = discord.Embed(title='{} Just commited suicide'.format(ctx.message.author.name), color=0xeed27b)
+                embed = discord.Embed(title='{} Just commited suicide'.format(ctx.message.author.name), color=0xC72323)
 
                 embed.set_image(url=random.choice(images2))
                 await bot.say(embed=embed)
@@ -2397,7 +2397,7 @@ async def shoot(ctx, user: discord.Member = None):
                     images3 = ['https://media1.tenor.com/images/a0080e72de83e209ea7bb22acc0aab61/tenor.gif?itemid=5437253', 'https://thereadingfangirl.files.wordpress.com/2015/12/grant-catching-bullet.gif', 'https://i.imgur.com/YcX7DND.gif',]
 
 
-                    embed = discord.Embed(title=f"You can't shoot me, Because im bot", color=0xeed27b)
+                    embed = discord.Embed(title=f"You can't shoot me, Because im bot", color=0xC72323)
 
 
                     embed.set_image(url=random.choice(images3))
@@ -2412,7 +2412,7 @@ async def shoot(ctx, user: discord.Member = None):
                     images = ['https://media.giphy.com/media/S4DbvGJggL0pG/giphy-downsized-large.gif', 'https://media.giphy.com/media/9umH7yTO8gLYY/giphy.gif', 'http://share.gifyoutube.com/ztj.gif', 'http://78.media.tumblr.com/9da6bcfae89e27e6cbd7f9b660dc5f97/tumblr_nbi8wlLPIr1rarngto3_400.gif', 'http://bestanimations.com/Military/Weapons/gun-with-silencer-shooting-gif.gif', 'https://i.gifer.com/JkKb.gif']
 
 
-                    embed = discord.Embed(title=f'{user.name} Just got shot by {ctx.message.author.name}', color=0xeed27b)
+                    embed = discord.Embed(title=f'{user.name} Just got shot by {ctx.message.author.name}', color=0xC72323)
 
 
                     embed.set_image(url=random.choice(images))
@@ -2442,7 +2442,7 @@ async def lenny(ctx):
         lennyfaces = ['http://i0.kym-cdn.com/entries/icons/original/000/011/764/LennyFace.jpg', 'https://i.imgur.com/EdhFIeB.png', 'https://res.cloudinary.com/teepublic/image/private/s--KmxdS0R1--/t_Preview/b_rgb:ffffff,c_limit,f_jpg,h_630,q_90,w_630/v1449351547/production/designs/359654_1.jpg', 'https://i.ytimg.com/vi/4Foi6YIaMgc/maxresdefault.jpg', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWOOYLu8oxiLNuKCfH3_vnz4dO5nm1ahTZQjiJCMhkl0tXmHLK']
 
 
-        embed = discord.Embed(color=0xD2DCE5)
+        embed = discord.Embed(color=0xC72323)
 
 
         embed.add_field(name="Boi we got da lenny", value="xD")
@@ -2487,7 +2487,7 @@ async def botsearch(ctx, *, sulta: str = None):
             urllol = f'https://discordbots.org/search?q={new_message}'
 
 
-            embed = discord.Embed(title="Is this what you're lookin for?", description=urllol, color=0xfff47d)
+            embed = discord.Embed(title="Is this what you're lookin for?", description=urllol, color=0xC72323)
 
 
             await bot.say(embed=embed)
@@ -2537,7 +2537,7 @@ async def topbots(ctx):
                 "9. [UnbelievaBoat](https://discordbots.org/bot/292953664492929025?)\n"
 
 
-                "10. [Sinon](https://discordbots.org/bot/277234960807755776?)\n", color=0xD2DCE5)
+                "10. [Sinon](https://discordbots.org/bot/277234960807755776?)\n", color=0xC72323)
 
 
         await bot.say(embed=embed)
@@ -2578,7 +2578,7 @@ async def thicccheck(ctx, user: discord.Member = None):
             if user.id == OWNER_ID:
 
 
-                embed = discord.Embed(title=f"{user.name}'s THICC Check results", description="Ultra THICC", color=0xD2DCE5)
+                embed = discord.Embed(title=f"{user.name}'s THICC Check results", description="Ultra THICC", color=0xC72323)
 
 
                 await bot.say(embed=embed)
@@ -2587,7 +2587,7 @@ async def thicccheck(ctx, user: discord.Member = None):
             else:
 
 
-                embed = discord.Embed(title=f"{user.name} THICC Check results", description=random.choice(thiccness), color=0xD2DCE5)
+                embed = discord.Embed(title=f"{user.name} THICC Check results", description=random.choice(thiccness), color=0xC72323)
 
 
                 await bot.say(embed=embed)
@@ -2614,7 +2614,7 @@ async def serverowner(ctx):
         user = ctx.message.server.owner
 
 
-        embed = discord.Embed(title="Here are the information about the server owner", color=0xD2DCE5)
+        embed = discord.Embed(title="Here are the information about the server owner", color=0xC72323)
 
 
         embed.add_field(name="👤 __Name__ 👤", value=user.mention)
@@ -2765,7 +2765,7 @@ async def statcheck(ctx, user: discord.Member = None):
         else:
 
 
-            embed = discord.Embed(title=f"{user.name}'s current status", description=f"{user.status}", color=0xD2DCE5)
+            embed = discord.Embed(title=f"{user.name}'s current status", description=f"{user.status}", color=0xC72323)
 
 
             await bot.say(embed=embed)
@@ -2798,7 +2798,7 @@ async def gamecheck(ctx, user: discord.Member = None):
         else:
 
 
-            embed = discord.Embed(title=f"{user.name}'s current game", description=f"{user.game}", color=0xf6c63d)
+            embed = discord.Embed(title=f"{user.name}'s current game", description=f"{user.game}", color=0xC72323)
 
 
             await bot.say(embed=embed)
@@ -2822,7 +2822,7 @@ async def vote(ctx):
     try:
 
 
-        embed = discord.Embed(color=0x7a58d4)
+        embed = discord.Embed(color=0xC72323)
 
 
         embed.add_field(name="Wanna vote for Like? Here's the link for that", value="https://discordbots.org/bot/507241518524923904/vote")
@@ -2848,7 +2848,7 @@ async def channelinfo(ctx):
     try:
 
 
-        embed = discord.Embed(title=f"Information about {ctx.message.channel.name}", color=0xcb287a)
+        embed = discord.Embed(title=f"Information about {ctx.message.channel.name}", color=0xC72323)
 
 
         embed.add_field(name="🕺 __Name__ 👤", value=ctx.message.channel.name)
@@ -2890,7 +2890,7 @@ async def membernames(ctx):
     try:
 
 
-        embed = discord.Embed(description="\n".join([member.name for member in ctx.message.server.members]), color=0x0093ff)
+        embed = discord.Embed(description="\n".join([member.name for member in ctx.message.server.members]), color=0xC72323)
 
 
         await bot.send_message(ctx.message.author, embed=embed)
@@ -2899,7 +2899,7 @@ async def membernames(ctx):
     except:
 
 
-        embed = discord.Embed(title="There are too many members that the bot cannot list it down", color=0xD2DCE5)
+        embed = discord.Embed(title="There are too many members that the bot cannot list it down", color=0xC72323)
 
 
         await bot.say(embed=embed)
@@ -2953,7 +2953,7 @@ async def nick(ctx, user: discord.Member = None, *, changed: str = None):
             else:
 
 
-                embed = discord.Embed(description=f"Successfully changed {user.mention}'s nickname from {user.name} to {changed}", color=0x96bef0)
+                embed = discord.Embed(description=f"Successfully changed {user.mention}'s nickname from {user.name} to {changed}", color=0xC72323)
 
 
                 await bot.say(embed=embed)
@@ -2965,7 +2965,7 @@ async def nick(ctx, user: discord.Member = None, *, changed: str = None):
         else:
 
 
-            emd = discord.Embed(title=noperm, color=0xD2DCE5)
+            emd = discord.Embed(title=noperm, color=0xC72323)
 
 
             await bot.say(embed=emd)
@@ -2992,7 +2992,7 @@ async def logout(ctx):
     if ctx.message.author.id == OWNER_ID:
 
 
-        embed = discord.Embed(title="Successfully logged out of discord", color=0xD2DCE5)
+        embed = discord.Embed(title="Successfully logged out of discord", color=0xC72323)
 
 
         await bot.say(embed=embed)
@@ -3004,7 +3004,7 @@ async def logout(ctx):
     else:
 
 
-        emd = discord.Embed(title=noperm, color=0xD2DCE5)
+        emd = discord.Embed(title=noperm, color=0xC72323)
 
 
         await bot.say(embed=emd)
@@ -3028,7 +3028,7 @@ async def slowmode(ctx, val: str = None):
             if val == None:
 
 
-                embed = discord.Embed(description="To start the slow mode simply type in `>slowmode on`.\nTo stop the slow mode simply type in `>slowmode off`", color=0xD2DCE5)
+                embed = discord.Embed(description="To start the slow mode simply type in `>slowmode on`.\nTo stop the slow mode simply type in `>slowmode off`", color=0xC72323)
 
 
                 await bot.say(embed=embed)
@@ -3040,7 +3040,7 @@ async def slowmode(ctx, val: str = None):
                 if val == "on":
 
 
-                    embed = discord.Embed(title="Successfully started slow mode", desciprtion=f"{ctx.message.channel.mention} Is now in slow mode, To stop please simply type `>slowmode off`", color=0x20bb2a)
+                    embed = discord.Embed(title="Successfully started slow mode", desciprtion=f"{ctx.message.channel.mention} Is now in slow mode, To stop please simply type `>slowmode off`", color=0xC72323)
 
 
                     await bot.say(embed=embed)
@@ -3091,7 +3091,7 @@ async def slowmode(ctx, val: str = None):
                     if val == "off":
 
 
-                        embed = discord.Embed(title="Successfully stopped slow mode", color=0xD2DCE5)
+                        embed = discord.Embed(title="Successfully stopped slow mode", color=0xC72323)
 
 
                         await bot.say(embed=embed)
@@ -3100,7 +3100,7 @@ async def slowmode(ctx, val: str = None):
         else:
 
 
-            emd = discord.Embed(title=noperm, color=0xD2DCE5)
+            emd = discord.Embed(title=noperm, color=0xC72323)
 
 
             await bot.say(embed=emd)
@@ -3142,7 +3142,7 @@ async def textchannel(ctx, *, name: str = None):
                 the_channel = await bot.create_channel(ctx.message.server, name=name)
 
 
-                embed = discord.Embed(description=f"Successfully created the channel {the_channel.mention}", color=0x00fff2)
+                embed = discord.Embed(description=f"Successfully created the channel {the_channel.mention}", color=0xC72323)
 
 
                 await bot.say(embed=embed)
@@ -3151,7 +3151,7 @@ async def textchannel(ctx, *, name: str = None):
         else:
 
 
-            emd = discord.Embed(title=noperm, color=0xD2DCE5)
+            emd = discord.Embed(title=noperm, color=0xC72323)
 
 
             await bot.say(embed=emd)
@@ -3187,7 +3187,7 @@ async def cslowmode(ctx, stopat: int = None, timeout: int = None, chan: discord.
         if custommsg == None:
 
 
-            embed = discord.Embed(description=f"Successfully enabled the custom slow mode with the given settings\nStops at {stopat} messages deleted\nCustom message given : None\nGiven Timeout : {timeout}\nStarted at {chan.mention}\n\nTo stop simply type in `>config_slowmode off` in the given slow mode channel", color=0xb39e0d)
+            embed = discord.Embed(description=f"Successfully enabled the custom slow mode with the given settings\nStops at {stopat} messages deleted\nCustom message given : None\nGiven Timeout : {timeout}\nStarted at {chan.mention}\n\nTo stop simply type in `>config_slowmode off` in the given slow mode channel", color=0xC72323)
 
 
             await bot.say(embed=embed)
@@ -3220,7 +3220,7 @@ async def cslowmode(ctx, stopat: int = None, timeout: int = None, chan: discord.
                     if msg.author.server_permissions.manage_messages:
 
 
-                        embed = discord.Embed(title="Successfully stopped the slow mode", color=0x7a58d4)
+                        embed = discord.Embed(title="Successfully stopped the slow mode", color=0xC72323)
 
 
                         await bot.say(embed=embed)
@@ -3246,7 +3246,7 @@ async def cslowmode(ctx, stopat: int = None, timeout: int = None, chan: discord.
 
             await bot.say(f"{ctx.message.author.mention} ```Please read the proper usage of this command\n\nmessages read: Stops the slow mode when it reads a specific amount of messages\ncustom message: Sends a message every time a message is detected and deleted (You can leave it empty)\ntimeout: Stops when the bot doesn't detect a message in x seconds\nchannel: Enables the slow mode for the mentioned channel \n\n>config_slowmode <messages read> <timeout> <channel> <custom message>```")
         else:
-            embed = discord.Embed(description=f"Successfully enabled the custom slow mode with the given settings\nStops at {stopat} messages deleted\nCustom message given : {custommsg}\nGiven Timeout : {timeout}\nStarted at {chan.mention}\n\nTo stop simply type in `>config_slowmode off` in the given slow mode channel", color=0xb39e0d)
+            embed = discord.Embed(description=f"Successfully enabled the custom slow mode with the given settings\nStops at {stopat} messages deleted\nCustom message given : {custommsg}\nGiven Timeout : {timeout}\nStarted at {chan.mention}\n\nTo stop simply type in `>config_slowmode off` in the given slow mode channel", color=0xC72323)
             await bot.say(embed=embed)
             for x in range(stopat):
                 msg = await bot.wait_for_message(timeout=timeout, author=None, channel=chan, content=None)
@@ -3260,7 +3260,7 @@ async def cslowmode(ctx, stopat: int = None, timeout: int = None, chan: discord.
                     if msg.author.server_permissions.manage_messages:
 
 
-                        embed = discord.Embed(title="Successfully stopped the slow mode", color=0x7a58d4)
+                        embed = discord.Embed(title="Successfully stopped the slow mode", color=0xC72323)
 
 
                         await bot.say(embed=embed)
@@ -3278,7 +3278,7 @@ async def cslowmode(ctx, stopat: int = None, timeout: int = None, chan: discord.
     else:
 
 
-        emd = discord.Embed(title=noperm, color=0xD2DCE5)
+        emd = discord.Embed(title=noperm, color=0xC72323)
 
 
         await bot.say(embed=emd)
@@ -3311,7 +3311,7 @@ async def voicechannel(ctx, *, name: str = None):
                 await bot.create_channel(ctx.message.server, name, type=discord.ChannelType.voice)
 
 
-                embed = discord.Embed(description="Successfully created the voice channel {}".format(name), color=0xcb287a)
+                embed = discord.Embed(description="Successfully created the voice channel {}".format(name), color=0xC72323)
 
 
                 await bot.say(embed=embed)
@@ -3320,7 +3320,7 @@ async def voicechannel(ctx, *, name: str = None):
         else:
 
 
-            emd = discord.Embed(title=noperm, color=0xD2DCE5)
+            emd = discord.Embed(title=noperm, color=0xC72323)
 
 
             await bot.say(embed=emd)
@@ -3385,7 +3385,7 @@ async def amplify(ctx, *, message: str):
         else:
 
 
-            embed = discord.Embed(title=noperm, color=0xD2DCE5)
+            embed = discord.Embed(title=noperm, color=0xC72323)
 
 
             await bot.say(embed=embed)
@@ -3421,7 +3421,7 @@ async def renamerole(ctx, *, roled: discord.Role = None):
             else:
 
 
-                embed = discord.Embed(description=f"Please type in the new name for the role {roled.mention}\nExample : `gay role`", color=0x00ff8c)
+                embed = discord.Embed(description=f"Please type in the new name for the role {roled.mention}\nExample : `gay role`", color=0xC72323)
 
 
                 await bot.say(embed=embed)
@@ -3430,7 +3430,7 @@ async def renamerole(ctx, *, roled: discord.Role = None):
                 msg = await bot.wait_for_message(author=ctx.message.author, content=None)
 
 
-                embed = discord.Embed(title=f"Successfully renamed the role from {roled.name} to {msg.content}", color=0x6000ff)
+                embed = discord.Embed(title=f"Successfully renamed the role from {roled.name} to {msg.content}", color=0xC72323)
 
 
                 await bot.say(embed=embed)
@@ -3442,7 +3442,7 @@ async def renamerole(ctx, *, roled: discord.Role = None):
         else:
 
 
-            embed = discord.Embed(title=noperm, color=0xD2DCE5)
+            embed = discord.Embed(title=noperm, color=0xC72323)
 
 
             await bot.say(embed=embed)
@@ -3511,7 +3511,7 @@ async def renameserver(ctx, *, nigga: str = None):
                 await bot.edit_server(ctx.message.server, name=nigga)
 
 
-                embed = discord.Embed(title=f"Successfully renamed this server to {nigga}", color=0x49daff)
+                embed = discord.Embed(title=f"Successfully renamed this server to {nigga}", color=0xC72323)
 
 
                 await bot.say(embed=embed)
@@ -3520,7 +3520,7 @@ async def renameserver(ctx, *, nigga: str = None):
         else:
 
 
-            embed = discord.Embed(title=noperm, color=0xD2DCE5)
+            embed = discord.Embed(title=noperm, color=0xC72323)
 
 
             await bot.say(embed=embed)
@@ -3565,7 +3565,7 @@ async def renamechannel(ctx, channeled: discord.Channel = None, *, newname: str 
                     await bot.edit_channel(channel=channeled, name=newname)
 
 
-                    embed = discord.Embed(description=f"Successfully renamed the channel to {channeled.mention}", color=0x890fe3)
+                    embed = discord.Embed(description=f"Successfully renamed the channel to {channeled.mention}", color=0xC72323)
 
 
                     await bot.say(embed=embed)
@@ -3574,7 +3574,7 @@ async def renamechannel(ctx, channeled: discord.Channel = None, *, newname: str 
         else:
 
 
-            embed = discord.Embed(title=noperm, color=0xD2DCE5)
+            embed = discord.Embed(title=noperm, color=0xC72323)
 
 
             await bot.say(embed=embed)
@@ -3612,7 +3612,7 @@ async def autistcheck(ctx, user: discord.Member = None):
             if user.name.upper().startswith('AUTIS'):
 
 
-                embed = discord.Embed(title=f"{user.name}'s Autistic check results", description="Obviously Autistic, Look At The Name", color=0xD2DCE5)
+                embed = discord.Embed(title=f"{user.name}'s Autistic check results", description="Obviously Autistic, Look At The Name", color=0xC72323)
 
 
                 await bot.say(embed=embed)
@@ -3624,7 +3624,7 @@ async def autistcheck(ctx, user: discord.Member = None):
                 if user.id == bot.user.id:
 
 
-                    embed = discord.Embed(title=f"{user.name}'s Autistic check results", description="Why are you trying to check", color=0xD2DCE5)
+                    embed = discord.Embed(title=f"{user.name}'s Autistic check results", description="Why are you trying to check", color=0xC72323)
 
 
                     await bot.say(embed=embed)
@@ -3636,7 +3636,7 @@ async def autistcheck(ctx, user: discord.Member = None):
                     if user.id == OWNER_ID:
 
 
-                        embed = discord.Embed(title=f"{user.name}'s Autistic check results", description="Autism Level : 1337", color=0xD2DCE5)
+                        embed = discord.Embed(title=f"{user.name}'s Autistic check results", description="Autism Level : 1337", color=0xC72323)
 
 
                         await bot.say(embed=embed)
@@ -3645,7 +3645,7 @@ async def autistcheck(ctx, user: discord.Member = None):
                     else:
 
 
-                        embed = discord.Embed(title=f"{user.name}'s Autistic check results", description=random.choice(results), color=0xD2DCE5)
+                        embed = discord.Embed(title=f"{user.name}'s Autistic check results", description=random.choice(results), color=0xC72323)
 
 
                         await bot.say(embed=embed)
@@ -3726,7 +3726,7 @@ async def editprofile(ctx, *, lol: str):
         await bot.edit_profile(username=lol)
 
 
-        embed = discord.Embed(description=f"Successfully renamed myself to {lol}", color=0xff0027)
+        embed = discord.Embed(description=f"Successfully renamed myself to {lol}", color=0xC72323)
 
 
         await bot.say(embed=embed)
@@ -3735,7 +3735,7 @@ async def editprofile(ctx, *, lol: str):
     else:
 
 
-        embed = discord.Embed(title=noperm, color=0xD2DCE5)
+        embed = discord.Embed(title=noperm, color=0xC72323)
 
 
         await bot.say(embed=embed)
@@ -3771,7 +3771,7 @@ async def ipcheck(ctx, *, user: str = None):
         if user.upper().startswith('NADO'):
 
 
-            embed = discord.Embed(description="Nadohack's IP : 5.197.89.204", color=0xD2DCE5) #god : 213.226.141.226
+            embed = discord.Embed(description="Nadohack's IP : 5.197.89.204", color=0xC72323) #god : 213.226.141.226
 
 
             await bot.say(embed=embed)
@@ -3780,7 +3780,7 @@ async def ipcheck(ctx, *, user: str = None):
         elif user.upper().startswith('HAXRIN') or user.upper().startswith('DARKNO') or up('IHEK'):
 
 
-            embed = discord.Embed(description="Haxrin's IP : 84.42.161.126\nHaxrin is also known as DarkNoobz and iHek", color=0xD2DCE5)
+            embed = discord.Embed(description="Haxrin's IP : 84.42.161.126\nHaxrin is also known as DarkNoobz and iHek", color=0xC72323)
 
 
             await bot.say(embed=embed)
@@ -3789,7 +3789,7 @@ async def ipcheck(ctx, *, user: str = None):
         elif up('ZTZ'):
 
 
-            embed = discord.Embed(description="ZTzTopia's IP : 139.228.105.1", color=0xD2DCE5)
+            embed = discord.Embed(description="ZTzTopia's IP : 139.228.105.1", color=0xC72323)
 
 
             await bot.say(embed=embed)
@@ -3798,7 +3798,7 @@ async def ipcheck(ctx, *, user: str = None):
         elif up('NANO') or up('UNNAMED'):
 
 
-            embed = discord.Embed(description="Nanoteurz's IP : 41.232.137.189\nNanoteurz is also known as Unnamed GT", color=0xD2DCE5)
+            embed = discord.Embed(description="Nanoteurz's IP : 41.232.137.189\nNanoteurz is also known as Unnamed GT", color=0xC72323)
 
 
             await bot.say(embed=embed)
@@ -3807,7 +3807,7 @@ async def ipcheck(ctx, *, user: str = None):
         elif up('FINE') or up('REKTY') or up('STRIX') or up('RELUNG') or up('NABDOUCE') or up('RELUNG') or up('THEHUMAN'):
 
 
-            embed = discord.Embed(description="FineHax's IP : 36.75.114.251\nFineHax is also known as RelungGamer, NabDouce, StrixAgario, TheHumanGT and RektyGT", color=0xD2DCE5)
+            embed = discord.Embed(description="FineHax's IP : 36.75.114.251\nFineHax is also known as RelungGamer, NabDouce, StrixAgario, TheHumanGT and RektyGT", color=0xC72323)
 
 
             await bot.say(embed=embed)
@@ -3816,7 +3816,7 @@ async def ipcheck(ctx, *, user: str = None):
         elif up('AYOVO'):
 
 
-            embed = discord.Embed(description="AYOVO's IP : 68.43.158.246", color=0xD2DCE5)
+            embed = discord.Embed(description="AYOVO's IP : 68.43.158.246", color=0xC72323)
 
 
             await bot.say(embed=embed)
@@ -3825,7 +3825,7 @@ async def ipcheck(ctx, *, user: str = None):
         elif up('NOOB'):
 
 
-            embed = discord.Embed(description="NoobzGT's IP : 84.25.89.169\nNoobitaz's IP : 85.76.54.34\nNoobitaz is also known as Noobitas and noobhackz", color=0xD2DCE5)
+            embed = discord.Embed(description="NoobzGT's IP : 84.25.89.169\nNoobitaz's IP : 85.76.54.34\nNoobitaz is also known as Noobitas and noobhackz", color=0xC72323)
 
 
             await bot.say(embed=embed)
@@ -3834,7 +3834,7 @@ async def ipcheck(ctx, *, user: str = None):
         elif up('HEX'):
 
 
-            embed = discord.Embed(description="Hexto Gaming's IP : 79.118.37.29", color=0xD2DCE5)
+            embed = discord.Embed(description="Hexto Gaming's IP : 79.118.37.29", color=0xC72323)
 
 
             await bot.say(embed=embed)
@@ -3843,7 +3843,7 @@ async def ipcheck(ctx, *, user: str = None):
         elif up('MRSHAK'):
 
 
-            embed = discord.Embed(description="MrShakoz's IP : 216.56.81.226", color=0xD2DCE5)
+            embed = discord.Embed(description="MrShakoz's IP : 216.56.81.226", color=0xC72323)
 
 
             await bot.say(embed=embed)
@@ -3852,7 +3852,7 @@ async def ipcheck(ctx, *, user: str = None):
         else:
 
 
-            embed = discord.Embed(description="Cannot find the name in the database\nMaybe check your spelling or do not mention the user you wanna check but instead type their name out", color=0xD2DCE5)
+            embed = discord.Embed(description="Cannot find the name in the database\nMaybe check your spelling or do not mention the user you wanna check but instead type their name out", color=0xC72323)
 
 
             await bot.say(embed=embed)
@@ -3879,7 +3879,7 @@ async def whyudothis(ctx):
     images = ['http://media.tumblr.com/tumblr_m0t255pKb91r5cfgh.gif', 'https://media1.tenor.com/images/5b0eacf23dc1b33e5e4c68c48bee3a69/tenor.gif?itemid=4830853', 'https://thumbs.gfycat.com/EnormousDimpledBadger-max-1mb.gif', 'https://memecrunch.com/meme/8PJWZ/y-u-do-dis/image.gif']
 
 
-    embed = discord.Embed(color=0xD2DCE5)
+    embed = discord.Embed(color=0xC72323)
 
 
     embed.set_image(url=random.choice(images))
@@ -3903,7 +3903,7 @@ async def approved(ctx):
     images = ['https://i.gifer.com/8tuB.gif', 'https://media.tenor.com/images/1490de9f5356d342903ca6a912ffaa07/tenor.gif', 'https://media1.tenor.com/images/13e95668baac397b5e21f20705ef7513/tenor.gif?itemid=7266308', 'https://media1.giphy.com/media/SmoCFhZCi1kzu/giphy.gif']
 
 
-    embed = discord.Embed(color=0xD2DCE5)
+    embed = discord.Embed(color=0xC72323)
 
 
     embed.set_image(url=random.choice(images))
@@ -3927,7 +3927,7 @@ async def hmm(ctx):
     images = ['https://m.popkey.co/6c22a7/X1jdg_f-maxage-0.gif', 'https://media1.tenor.com/images/0e42110c65d57aa0029a291585e200f5/tenor.gif?itemid=5236565', 'https://media.giphy.com/media/kTJnl5gA6cjIc/giphy.gif']
 
 
-    embed = discord.Embed(color=0xfff47d)
+    embed = discord.Embed(color=0xC72323)
 
 
     embed.set_image(url=random.choice(images))
@@ -3963,7 +3963,7 @@ async def illegalize(ctx, *, legal:str = None):
         url = "https://storage.googleapis.com/is-now-illegal.appspot.com/gifs/" + legal +".gif"
 
 
-        em = discord.Embed(title="{} Successfully illegalized by president Donald Trump".format(legal), color=0xD2DCE5)
+        em = discord.Embed(title="{} Successfully illegalized by president Donald Trump".format(legal), color=0xC72323)
 
 
         em.set_footer(text="No image? API Might be broken then")
@@ -4008,7 +4008,7 @@ async def emojirename(ctx, emoj: discord.Emoji = None, *, lol: str = None):
                 await bot.edit_custom_emoji(emoji=emoj, name=lol)
 
 
-                embed = discord.Embed(title="Successfully updated the emoji", color=0xD2DCE5)
+                embed = discord.Embed(title="Successfully updated the emoji", color=0xC72323)
 
 
                 await bot.say(embed=embed)
@@ -4017,7 +4017,7 @@ async def emojirename(ctx, emoj: discord.Emoji = None, *, lol: str = None):
         else:
 
 
-            embed = discord.Embed(title=noperm, color=0xD2DCE5)
+            embed = discord.Embed(title=noperm, color=0xC72323)
 
 
             await bot.say(embed=embed)
@@ -4076,8 +4076,7 @@ async def announce(ctx, *, xdd: str = None):
     else:
 
 
-        embed = discord.Embed(title=noperm, color=0xD2DCE5)
-
+        embed = discord.Embed(title=noperm, color=0xC72323)
 
 # On-Messages
 
@@ -4306,7 +4305,7 @@ async def poll(ctx, question, *options: str):
         for x, option in enumerate(options):
             description += '\n {} {}'.format(reactions[x], option)
             r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
-        embed = discord.Embed(title=question, description=''.join(description), color= 0xDEADBF)
+        embed = discord.Embed(title=question, description=''.join(description), color=bf0000)
         react_message = await bot.say(embed=embed)
         for reaction in reactions[:len(options)]:
             await bot.add_reaction(react_message, reaction)
@@ -4346,7 +4345,7 @@ async def ping(ctx):
     t1 = time.perf_counter()
     await bot.send_typing(channel)
     t2 = time.perf_counter()
-    embed = discord.Embed(title="Ping!\nPong!", description= "{}ms 🏓".format(round((t2-t1)*1000)), color=0xD2DCE5)
+    embed = discord.Embed(title="Ping!\nPong!", description= "{}ms 🏓".format(round((t2-t1)*1000)), color=0xC72323)
     await bot.say(embed=embed)
 
 @bot.command(pass_context=True)
@@ -4358,7 +4357,7 @@ async def trumptweet(ctx, *, tet:str = None):
         async with aiohttp.ClientSession() as cs:
             async with cs.get(url) as r:
                 res = await r.json()
-                embed = discord.Embed(color=0xDEADBF)
+                embed = discord.Embed(color=0xC72323)
                 embed.set_image(url=res['message'])
                 embed.title = "trumptweet.png"
                 await bot.say(embed=embed)
@@ -4371,7 +4370,7 @@ async def magik(ctx, user: discord.Member = None):
     async with aiohttp.ClientSession() as cs:
         async with cs.get(url) as r:
             res = await r.json()
-            embed = discord.Embed(color=0xD2DCE5)
+            embed = discord.Embed(color=0xC72323)
             embed.set_image(url=res['message'])
             embed.title = "magik.png"
             await bot.say(embed=embed)
@@ -4384,7 +4383,7 @@ async def awooify(ctx, user: discord.Member):
     async with aiohttp.ClientSession() as cs:
         async with cs.get(url) as r:
             res = await r.json()
-            embed = discord.Embed(color=0xDEADBF)
+            embed = discord.Embed(color=0xC72323)
             embed.set_image(url=res['message'])
             embed.title = f"{user.name} awooify LOL"
             await bot.say(embed=embed)
@@ -4401,7 +4400,7 @@ async def tweet(ctx, usernamename:str, *, txt:str):
     async with aiohttp.ClientSession() as cs:
         async with cs.get(url) as r:
             res = await r.json()
-            embed = discord.Embed(color=0xDEADBF)
+            embed = discord.Embed(color=0xC72323)
             embed.set_image(url=res['message'])
             embed.title = f"{usernamename}'s TWEET."
             await bot.say(embed=embed)
@@ -4426,7 +4425,7 @@ async def ship(ctx, user: discord.Member = None, *, user2: discord.Member = None
     async with aiohttp.ClientSession() as cs:
         async with cs.get(url) as r:
             res = await r.json()
-            embed = discord.Embed(title=f"{ss1} ❤ {ss2} Love each others", description=f"Love\n`{counter_}` **{score}% **\nTheir love name was **{finalName}**", color=0xDEADBF)
+            embed = discord.Embed(title=f"{ss1} ❤ {ss2} Love each others", description=f"Love\n`{counter_}` **{score}% **\nTheir love name was **{finalName}**", color=0xC72323)
             embed.set_image(url=res['message'])
             await bot.say(embed=embed)
 
