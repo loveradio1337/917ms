@@ -4434,7 +4434,7 @@ async def meme(ctx):
 
 @bot.command(pass_context=True)
 async def inviteinfo(ctx, invite: discord.Invite):
-    invite.max_age = invite.max_age if invite.max_age is not None else 0
+    invite.max_age = 0
     m, s = divmod(invite.max_age, 60)
     h, m = divmod(m, 60)
     d, h = divmod(h, 24)
