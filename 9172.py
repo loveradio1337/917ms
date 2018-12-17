@@ -4375,9 +4375,9 @@ async def awooify(ctx, user: discord.Member):
             await bot.say(embed=embed)
 
 @bot.command(pass_context = True)
-async def help(ctx, user: discord.Member):
+async def help(ctx):
      await bot.delete_message(ctx.message)
-     await bot.say(f'{user.mention}\n {DMs}')
+     await bot.say(DMs)
      await asyncio.sleep(5)
      await bot.delete_message(message)
 
