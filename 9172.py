@@ -4441,19 +4441,17 @@ async def inviteinfo(ctx, invite: discord.Invite):
     w, d = divmod(d, 7)
     em = discord.Embed(title="Info for Invite {}:".format(invite.code), color=0xC72323)
     try:
-        em.set_thumbnail(url=invite.guild.icon_url)
-    except AttributeError:
-        pass
-    em.add_field(name="Server:", value="{} (ID: {})".format(invite.guild.name, invite.guild.id), inline=False)
-    em.add_field(name="Channel:", value="#{} (ID: {})".format(invite.channel.name, invite.channel.id), inline=False)
-    em.add_field(name="Inviter:", value="{} (ID: {})".format(invite.inviter.name, invite.inviter.id), inline=False)
-    em.add_field(name="Created At:", value=str(invite.created_at), inline=True)
-    em.add_field(name="Temporary?:", value=str(invite.temporary), inline=True)
-    em.add_field(name="Uses:", value=invite.uses, inline=True)
-    em.add_field(name="Max Uses:", value=invite.max_uses if invite.max_uses else "Infinite", inline=True)
-    embed.set_footer(text=f'Requested by: {ctx.message.author.display_name}', icon_url=f'{ctx.message.author.avatar_url}')
-    em.add_field(name="Expires In:", value=f"{int(w)}w : {int(d)}d : {int(h)}h : {int(m)}m : {int(s)}s" if
-    invite.max_age > 0 else "Never")
-    await bot.say(embed=em)
+        em.set_thumbnail(url=invite.server.icon_url)
+        em.add_field(name="Server:", value="{} (ID: {})".format(invite.server.name, invite.server.id))
+        em.add_field(name="Channel:", value="#{} (ID: {})".format(invite.channel.name, invite.channel.id), inline=False)
+        em.add_field(name="Inviter:", value="{} (ID: {})".format(invite.inviter.name, invite.inviter.id), inline=False)
+        em.add_field(name="Created At:", value=str(invite.created_at), inline=True)
+        em.add_field(name="Temporary?:", value=str(invite.temporary), inline=True)
+        em.add_field(name="Uses:", value=invite.uses, inline=True)
+        em.add_field(name="Max Uses:", value=invite.max_uses if invite.max_uses else "Infinite", inline=True)
+        embed.set_footer(text=f'Requested by: {ctx.message.author.display_name}', icon_url=f'{ctx.message.author.avatar_url}')
+        em.add_field(name="Expires In:", value=f"{int(w)}w : {int(d)}d : {int(h)}h : {int(m)}m : {int(s)}s" if
+        invite.max_age > 0 else "Never")
+        await bot.say(embed=em)
 
 bot.run(os.environ['Token1'])
