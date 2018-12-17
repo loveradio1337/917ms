@@ -2684,55 +2684,6 @@ async def serverowner(ctx):
         await bot.say(f"```{e}```\nPlease DM Coco#6429 to get this problem fixed")
 
 
-@bot.command(pass_context = True)
-async def join(ctx):
-    channel = ctx.message.author.voice.voice_channel
-    embed = discord.Embed(
-        title = 'Voice channel',
-        description = 'commands for the voice channel.',
-        colour = discord.Colour.blue()
-    )
-
-    embed.add_field(name = '>play', value = '>play (Youtube link to music)', inline = True)
-    embed.add_field(name = '>pause', value = 'pauses audio', inline = True)
-    embed.add_field(name = '>resume', value = 'resumes audio', inline = True)
-    embed.add_field(name = '>leave', value = 'leave voice channel', inline = True)
-
-    await bot.say(embed=embed)
-    await bot.join_voice_channel(channel)
-
-
-@bot.command(pass_context = True)
-async def leave(ctx):
-    server = ctx.message.server
-    voice_bot = bot.voice_bot_in(server)
-    await voice_bot.disconnect()
-
-
-@bot.command(pass_context = True)
-async def play(ctx, url):
-    server = ctx.message.server
-    voice_bot = bot.voice_bot_in(server)
-    player = await voice_bot.create_ytdl_player(url)
-    players[server.id] = player
-    player.start()
-
-@bot.command(pass_context = True)
-async def pause(ctx):
-    id = ctx.message.server.id
-    players[id].pause()
-
-@bot.command(pass_context = True)
-async def resume(ctx):
-    id = ctx.message.server.id
-    players[id].resume()
-
-@bot.command(pass_context = True)
-async def stop(ctx):
-    id = ctx.message.server.id
-    players[id].stop()
-
-
 @bot.command(pass_context=True)
 
 
@@ -4431,21 +4382,5 @@ async def meme(ctx):
             embed.set_image(url=data[0]["data"]["children"][0]["data"]["url"])
             embed.set_footer(text=f'Requested by: {ctx.message.author.display_name}', icon_url=f'{ctx.message.author.avatar_url}')
             await bot.say(embed=embed)
-
-@bot.command(pass_context=True)
-async def inviteinfo(ctx, invite: discord.Invite):
-    m, s = divmod(invite.max_age, 60)
-    h, m = divmod(m, 60)
-    d, h = divmod(h, 24)
-    w, d = divmod(d, 7)
-    em = discord.Embed(title="Info for Invite {}:".format(invite.code), color=0xC72323)
-    em.set_thumbnail(url=invite.server.icon_url)
-    em.add_field(name="Inviter:", value="{} (ID: {})".format(invite.inviter.name, invite.inviter.id))
-    em.add_field(name="Created At:", value=str(invite.created_at))
-    em.add_field(name="Temporary?:", value=str(invite.temporary))
-    em.add_field(name="Uses:", value=invite.uses)
-    em.add_field(name="Max Uses:", value=invite.max_uses if invite.max_uses else "Infinite")
-    em.add_field(name="Expires In:", value=f"{int(w)}w : {int(d)}d : {int(h)}h : {int(m)}m : {int(s)}s")
-    await bot.say(embed=em)
 
 bot.run(os.environ['Token1'])
