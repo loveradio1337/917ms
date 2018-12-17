@@ -4388,7 +4388,7 @@ async def dank_meme(ctx):
      async with aiohttp.ClientSession() as session:
         async with session.get("https://www.reddit.com/r/dankmemes/top.json?sort=top&t=day&limit=500") as r:   
             data = await r.json()
-            data = box.Box(r)
+            r = box.Box(r)
             data = random.choice(r.data.children).data
             img = data.url
             title = data.title
