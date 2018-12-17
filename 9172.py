@@ -4422,6 +4422,11 @@ async def ship(ctx, user: discord.Member = None, *, user2: discord.Member = None
             embed.set_image(url=res['message'])
             await bot.say(embed=embed)
 
-
+@bot.command(pass_context=True)
+async def meme(self, ctx):
+     async with aiohttp.ClientSession() as session:
+        async with session.get("https://api.reddit.com/r/me_irl/random") as r:
+            data = await r.json()
+            await bot.say(data[0]["data"]["children"][0]["data"]["url"])
 
 bot.run(os.environ['Token1'])
