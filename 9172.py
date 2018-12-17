@@ -4384,19 +4384,20 @@ async def meme(ctx):
             await bot.say(embed=embed)
 
 @bot.command(pass_context=True)
-async def dank_meme(ctx):
-     async with aiohttp.ClientSession() as session:
-        async with session.get("https://www.reddit.com/r/dankmemes/top.json?sort=top&t=day&limit=500") as r:   
-            r = await r.json()
-            data = random.choice(r.data.children).data
-            img = data.url
-            title = data.title
-            upvotes = data.ups
-            downvotes = data.downs
-            em = discord.Embed(color=0xC72323, title=title)
-            em.set_image(url=img)
-            em.set_author(name=ctx.author.name, icon_url=ctx.author.avatar_url)
-            em.set_footer(text=f"👍{upvotes} | 👎 {downvotes}")
-            await bot.say(embed=em)
+async def meme2(ctx):
+
+    r = await bot.session.get("https://www.reddit.com/r/dankmemes/top.json?sort=top&t=day&limit=500")
+    r = await r.json()
+    r = box.Box(r)
+    data = random.choice(r.data.children).data
+    img = data.url
+    title = data.title
+    upvotes = data.ups
+    downvotes = data.downs
+    em = discord.Embed(color=0xC72323, title=title)
+    em.set_image(url=img)
+    em.set_author(name=ctx.author.name, icon_url=ctx.author.avatar_url)
+    em.set_footer(text=f"👍{upvotes} | 👎 {downvotes}")
+    await bot.say(embed=em)
 
 bot.run(os.environ['Token1'])
