@@ -4427,28 +4427,33 @@ async def meme(ctx):
      async with aiohttp.ClientSession() as session:
         async with session.get("https://api.reddit.com/r/me_irl/random") as r:
             data = await r.json()
-            embed = discord.Embed(title='Meme', description='', color=0xC72323)
+            embed = discord.Embed(title='Random memes 😂', description='', color=0xC72323)
             embed.set_image(url=data[0]["data"]["children"][0]["data"]["url"])
             embed.set_footer(text=f'Requested by: {ctx.message.author.display_name}', icon_url=f'{ctx.message.author.avatar_url}')
             await bot.say(embed=embed)
 
-#@bot.commands(pass_context=True)
-#async def face(ctx):
-    #faces = ["¯\_(ツ)_/¯", "̿̿ ̿̿ ̿̿ ̿'̿'\̵͇̿̿\З= ( ▀ ͜͞ʖ▀) =Ε/̵͇̿̿/’̿’̿ ̿ ̿̿ ̿̿ ̿̿", "( ͡°( ͡° ͜ʖ( ͡° ͜ʖ ͡°)ʖ ͡°) ͡°)", "ʕ•ᴥ•ʔ", "(▀̿Ĺ̯▀̿ ̿)", "(ง ͠° ͟ل͜ ͡°)ง", "༼ つ ◕_◕ ༽つ", "ಠ_ಠ", "(づ｡◕‿‿◕｡)づ", "̿'̿'\̵͇̿̿\З=( ͠° ͟ʖ ͡°)=Ε/̵͇̿̿/'̿̿ ̿ ̿ ̿ ̿ ̿", "(ﾉ◕ヮ◕)ﾉ*:･ﾟ✧ ✧ﾟ･: *ヽ(◕ヮ◕ヽ)", "┬┴┬┴┤ ͜ʖ ͡°) ├┬┴┬┴", "( ͡°╭͜ʖ╮͡° )", "(͡ ͡° ͜ つ ͡͡°)", "(• ε •)", "(ง'̀-'́)ง", "(ಥ﹏ಥ)", "(ノಠ益ಠ)ノ彡┻━┻", "[̲̅$̲̅(̲̅ ͡° ͜ʖ ͡°̲̅)̲̅$̲̅]", "(ﾉ◕ヮ◕)ﾉ*:･ﾟ✧", "(☞ﾟ∀ﾟ)☞", "| (• ◡•)| (❍ᴥ❍ʋ)", "(◕‿◕✿)", "(ᵔᴥᵔ)", "(¬‿¬)", "(☞ﾟヮﾟ)☞ ☜(ﾟヮﾟ☜)", "(づ￣ ³￣)づ", "ლ(ಠ益ಠლ)", "ಠ╭╮ಠ", "̿ ̿ ̿'̿'\̵͇̿̿\з=(•_•)=ε/̵͇̿̿/'̿'̿ ̿", "(;´༎ຶД༎ຶ`)", "༼ つ  ͡° ͜ʖ ͡° ༽つ", "(╯°□°）╯︵ ┻━┻"]
-
-    #await bot.say(random.choice(faces)
-
-
-#@bot.commands(pass_context=True)
-#async def roast(ctx, user: discord.Member):
-
-    #roasts = ["your ass must be pretty jealous of all the shit that comes out of your mouth.", "some day you'll go far, and I hope you stay there.", "I'm trying my absolute hardest to see things from your perspective, but I just can't get my head that far up my ass.", "I'm not a protocolgist, but I know an asshole when I see one.", "Do yourself a favor and ignore anyone who tels you to be yourself. Bad idea in your case.", "Everyone's entitled to act stupid once in awhile, but you really abuse the privilege."]
-    #roasts3 = ["Can you die of constipation? I ask because I'm worried about how full of shit you are.", "Sorry, I didn't get that. I don't speak bullshit.", "There are some remarkably dumb people in this world. Thanks for helping me understand that.", "I could eat a bowl of alphabet soup and shit out a smarter statement than whatever you just said.", "You always bring me so much joy, as soon as you leave the room."]
-    #roasts1 = ["I'd tell you how I really feel, but I wasn't born with enough middle fingers to express myself in this case.", "You have the right to remain silent because whatever you say will probably be stupid anyway.", "your family tree must be a cactuss because you're all a bunch of pricks.", "You'll never be the man your mom is.", "If laughter is the best medicine, your face must be curing the world."]
-    #roasts2 = ["scientists say the universe is made up of neutrons, protons and electrons. They forgot to mention morons, as you are one.", "if you really want to know about mistakes, you should ask your parents.", "I thought of you today. It reminded me to take the garbage out.", "you're such a beautiful, intelligent, wonderful person. Oh I'm sorry, I thought we were having a lying competition.", "I may love to shop but I'm not buying your bullshit.", "I just stepped in something that was smarter than you, and smelled better too."]
-
-    #roastss = [roasts, roasts1, roasts2, roasts3]
-
-    #await bot.say("**{}** | {}".random.choice(roastss)) 
+@bot.command(pass_context=True)
+async def inviteinfo(ctx, invite: discord.Invite):
+    invite.max_age = invite.max_age if invite.max_age is not None else 0
+    m, s = divmod(invite.max_age, 60)
+    h, m = divmod(m, 60)
+    d, h = divmod(h, 24)
+    w, d = divmod(d, 7)
+    em = discord.Embed(title="Info for Invite {}:".format(invite.code), color=0xC72323)
+    try:
+        em.set_thumbnail(url=invite.guild.icon_url)
+    except AttributeError:
+        pass
+    em.add_field(name="Server:", value="{} (ID: {})".format(invite.guild.name, invite.guild.id), inline=False)
+    em.add_field(name="Channel:", value="#{} (ID: {})".format(invite.channel.name, invite.channel.id), inline=False)
+    em.add_field(name="Inviter:", value="{} (ID: {})".format(invite.inviter.name, invite.inviter.id), inline=False)
+    em.add_field(name="Created At:", value=str(invite.created_at), inline=True)
+    em.add_field(name="Temporary?:", value=str(invite.temporary), inline=True)
+    em.add_field(name="Uses:", value=invite.uses, inline=True)
+    em.add_field(name="Max Uses:", value=invite.max_uses if invite.max_uses else "Infinite", inline=True)
+    embed.set_footer(text=f'Requested by: {ctx.message.author.display_name}', icon_url=f'{ctx.message.author.avatar_url}')
+    em.add_field(name="Expires In:", value=f"{int(w)}w : {int(d)}d : {int(h)}h : {int(m)}m : {int(s)}s" if
+    invite.max_age > 0 else "Never")
+    await bot.say(embed=em)
 
 bot.run(os.environ['Token1'])
