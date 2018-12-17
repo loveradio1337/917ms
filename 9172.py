@@ -704,7 +704,7 @@ async def servercount(ctx):
 async def avatar(ctx, user: discord.Member):
 
 
-    embed = discord.Embed(title="This is the avatar of {}".format(user.name), color=0xC72323)
+    embed = discord.Embed(title="{}'s Avatar.'".format(user.name), color=0xC72323)
 
 
     embed.set_image(url=user.avatar_url)
@@ -722,7 +722,7 @@ async def avatar(ctx, user: discord.Member):
 
 # Slow Purge
 @bot.command(pass_context=True)
-async def slowvlear(ctx):
+async def slowclear(ctx):
     try:
         if ctx.message.author.server_permissions.manage_messages:
             async for msg in bot.logs_from(ctx.message.channel):
@@ -737,12 +737,7 @@ async def slowvlear(ctx):
 
 
 @bot.command(pass_context=True)
-
-
-
 async def warn(ctx, member : discord.Member = None, *, message):
-
-
     if ctx.message.author.server_permissions.ban_members:
 
 
@@ -762,23 +757,14 @@ async def warn(ctx, member : discord.Member = None, *, message):
 
 
     else:
-
-
         emd = discord.Embed(title=noperm, color=0xC72323)
-
-
         await bot.say(embed=emd)
-
-
-
 
 
 # Dm
 
 
 @bot.command(pass_context=True)
-
-
 async def dm(ctx, member : discord.Member = None, *, message):
 
 
@@ -824,7 +810,7 @@ async def decide(ctx):
     if ctx.message.author.server_permissions.kick_members:
 
 
-        decided = ["Ban him", "Kick him", "Do whatever you wanna do!"]
+        decided = ["Ban him/her", "Kick him/her", "Do whatever you wanna do!", "Warn him/her", "Mute him/her"]
 
 
         embed = discord.Embed(title=random.choice(decided), color=0xC72323)
