@@ -4375,10 +4375,11 @@ async def awooify(ctx, user: discord.Member):
             await bot.say(embed=embed)
 
 @bot.command(pass_context = True)
-async def (ctx, user: discord.Member):
+async def help(ctx, user: discord.Member):
+     await bot.delete_message(ctx.message)
      await bot.say(f'{user.mention}\n {DMs}')
      await asyncio.sleep(5)
-     await bot.delete_message(ctx.message)
+     await bot.delete_message(message)
 
 @bot.command(pass_context=True)
 async def tweet(ctx, usernamename:str, *, txt:str):
