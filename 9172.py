@@ -4445,11 +4445,7 @@ async def roast(ctx, user: discord.Member):
     roasts2 = ["scientists say the universe is made up of neutrons, protons and electrons. They forgot to mention morons, as you are one.", "if you really want to know about mistakes, you should ask your parents.", "I thought of you today. It reminded me to take the garbage out.", "you're such a beautiful, intelligent, wonderful person. Oh I'm sorry, I thought we were having a lying competition.", "I may love to shop but I'm not buying your bullshit.", "I just stepped in something that was smarter than you, and smelled better too."]
 
     roastss = [roasts, roasts1, roasts2, roasts3]
-    
 
-    if user.id == OWNER_ID:
-        await bot.say(f"**{ctx.author.name}** I aint going to roast myself faggot!")
-    else:
         await bot.say("**{}** | {}".format(user.name, random.choice(roastss)) 
 
 bot.run(os.environ['Token1'])
