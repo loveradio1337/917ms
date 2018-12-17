@@ -4383,4 +4383,21 @@ async def meme(ctx):
             embed.set_footer(text=f'Requested by: {ctx.message.author.display_name}', icon_url=f'{ctx.message.author.avatar_url}')
             await bot.say(embed=embed)
 
+@bot.command(pass_context=True)
+async def dank_meme(ctx):
+
+    r = await self.bot.session.get("https://www.reddit.com/r/dankmemes/top.json?sort=top&t=day&limit=500")
+    r = await r.json()
+    r = box.Box(r)
+    data = random.choice(r.data.children).data
+    img = data.url
+    title = data.title
+    upvotes = data.ups
+    downvotes = data.downs
+    em = discord.Embed(color=0xC72323, title=title)
+    em.set_image(url=img)
+    em.set_author(name=ctx.author.name, icon_url=ctx.author.avatar_url)
+    em.set_footer(text=f"👍{upvotes} | 👎 {downvotes}")
+    await bot.say(embed=em)
+
 bot.run(os.environ['Token1'])
