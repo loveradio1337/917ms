@@ -4293,12 +4293,11 @@ async def poll(ctx, question, *options: str):
         description = []
         for x, option in enumerate(options):
             description += '\n {} {}'.format(reactions[x], option)
-            r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
-        embed = discord.Embed(title=question, description=''.join(description), color=bf0000)
+        embed = discord.Embed(title=question, description=''.join(description), color=0xC72323)
         react_message = await bot.say(embed=embed)
         for reaction in reactions[:len(options)]:
             await bot.add_reaction(react_message, reaction)
-        embed.set_footer(text='Poll ID: {}'.format(react_message.id))
+        embed.set_footer(text='Poll ID: {}'.format(react_message.id), icon_url=f'{ctx.message.author.avatar_url}')
         await bot.edit_message(react_message, embed=embed)
 
 
