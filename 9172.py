@@ -4392,7 +4392,7 @@ async def dank_meme(ctx):
             data = random.choice(r.data.children).data
             img = data.url
             title = data.title
-            upvotes = data.ups$
+            upvotes = data.ups
             downvotes = data.downs
             em = discord.Embed(color=0xC72323, title=title)
             em.set_image(url=img)
