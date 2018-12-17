@@ -4351,7 +4351,7 @@ async def trumptweet(ctx, *, tet:str = None):
                 await bot.say(embed=embed)
 
 @bot.command(pass_context=True)
-async def magik(ctx, user: discord.Member = None):
+async def magik(ctx, user: discord.Member):
     ssas = user.avatar_url
 
     url = f"https://nekobot.xyz/api/imagegen?type=magik&image={ssas}"
