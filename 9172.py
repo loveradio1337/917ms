@@ -4333,6 +4333,7 @@ async def ping(ctx):
     await bot.send_typing(channel)
     t2 = time.perf_counter()
     embed = discord.Embed(title="Ping!\nPong!", description= "{}ms 🏓".format(round((t2-t1)*1000)), color=0xC72323)
+    embed.set_footer(text=f'Requested by: {ctx.message.author.display_name}', icon_url=f'{ctx.message.author.avatar_url}')
     await bot.say(embed=embed)
 
 @bot.command(pass_context=True)
@@ -4347,6 +4348,7 @@ async def trumptweet(ctx, *, tet:str = None):
                 embed = discord.Embed(color=0xC72323)
                 embed.set_image(url=res['message'])
                 embed.title = "trumptweet.png"
+                embed.set_footer(text=f'Requested by: {ctx.message.author.display_name}', icon_url=f'{ctx.message.author.avatar_url}')
                 await bot.say(embed=embed)
 
 @bot.command(pass_context=True)
@@ -4360,6 +4362,7 @@ async def magik(ctx, user: discord.Member = None):
             embed = discord.Embed(color=0xC72323)
             embed.set_image(url=res['message'])
             embed.title = "magik.png"
+            embed.set_footer(text=f'Requested by: {ctx.message.author.display_name}', icon_url=f'{ctx.message.author.avatar_url}')
             await bot.say(embed=embed)
 
 @bot.command(pass_context=True)
