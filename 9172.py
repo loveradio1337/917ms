@@ -4392,6 +4392,7 @@ async def tweet(ctx, usernamename:str, *, txt:str):
             embed = discord.Embed(color=0xC72323)
             embed.set_image(url=res['message'])
             embed.title = f"{usernamename}'s TWEET."
+            embed.set_footer(text=f'Requested by: {ctx.message.author.display_name}', icon_url=f'{ctx.message.author.avatar_url}')
             await bot.say(embed=embed)
 
 @bot.command(pass_context=True)
@@ -4415,6 +4416,7 @@ async def ship(ctx, user: discord.Member = None, *, user2: discord.Member = None
         async with cs.get(url) as r:
             res = await r.json()
             embed = discord.Embed(title=f"{ss1} ❤ {ss2} Love each others", description=f"Love\n`{counter_}` **{score}% **\nTheir love name was **{finalName}**", color=0xC72323)
+            embed.set_footer(text=f'Requested by: {ctx.message.author.display_name}', icon_url=f'{ctx.message.author.avatar_url}')
             embed.set_image(url=res['message'])
             await bot.say(embed=embed)
 
