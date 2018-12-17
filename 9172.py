@@ -649,7 +649,7 @@ async def invite(ctx):
 
     embed.add_field(name="Bot Invite", value="[👉 Invite my bot HERE 👈]( https://discordapp.com/api/oauth2/authorize?client_id=507241518524923904&,permissions=8&scope=bot)")
 
-    embed.add_field(name="Donation Link", value="[Support our bot by Donating us HERE](https://paypal.me/CocoGT)")
+    embed.add_field(name="Donation Link", value="[HERE](https://paypal.me/CocoGT)")
 
     embed.set_thumbnail(url=botavatar)
 
@@ -2811,7 +2811,7 @@ async def vote(ctx):
         embed = discord.Embed(color=0xC72323)
 
 
-        embed.add_field(name="Wanna vote for Like? Here's the link for that", value="https://discordbots.org/bot/507241518524923904/vote")
+        embed.add_field(name="Wanna vote for Like?", value="[👉 UPVOTE ME PLEASE 👈](https://discordbots.org/bot/507241518524923904/vote)")
 
 
         await bot.say(embed=embed)
@@ -4374,9 +4374,11 @@ async def awooify(ctx, user: discord.Member):
             embed.title = f"{user.name} awooify LOL"
             await bot.say(embed=embed)
 
-@bot.command(aliases=['help_fun', 'help_moderation'], pass_context = True)
-async def help_general(ctx):
-      await bot.say(DMs)
+@bot.command(pass_context = True)
+async def (ctx, user: discord.Member):
+     await bot.say(f'{user.mention}\n {DMs}')
+     await asyncio.sleep(5)
+     await bot.delete_message(ctx.message)
 
 @bot.command(pass_context=True)
 async def tweet(ctx, usernamename:str, *, txt:str):
@@ -4406,7 +4408,7 @@ async def ship(ctx, user: discord.Member = None, *, user2: discord.Member = None
     finalName = first_half + second_half
     score = random.randint(0, 100)
     filled_progbar = round(score / 100 * 10)
-    counter_ = '█' * filled_progbar + '‍ ‍' * (10 - filled_progbar)
+    counter_ = '█' * filled_progbar + '‍ ‍' * (20 - filled_progbar)
     url = f"https://nekobot.xyz/api/imagegen?type=ship&user1={usss2}&user2={usss}"
     async with aiohttp.ClientSession() as cs:
         async with cs.get(url) as r:
