@@ -4113,7 +4113,10 @@ async def on_message(message):
 
         await bot.delete_message(message)
 
+    if message.content.startswith(">help"):
 
+
+        await bot.delete_message(message)
 
 
 
@@ -4302,24 +4305,22 @@ async def poll(ctx, question, *options: str):
 @bot.event
 async def on_member_join(member):
     for channel in member.server.channels:
-        if channel.name == '🎊welcome🎊':
-            r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
-            embed = discord.Embed(title=f'🎉Welcome {member.name} to {member.server.name}🎉', description='Please 🙏 do not forget to read the rules and dont try to break any one of them👼', color = discord.Color((r << 16) + (g << 8) + b))
+        if channel.name == '》welcome♤':
+            embed = discord.Embed(title=f'🎉Welcome {member.name} to {member.server.name}🎉', description='Please 🙏 do not forget to read the rules and dont try to break any one of them👼', color=0xC72323)
             embed.add_field(name='__Thanks for joining__', value='**I hope you will be active here.😉**', inline=True)
             embed.set_thumbnail(url='https://media.giphy.com/media/OkJat1YNdoD3W/giphy.gif') 
             embed.set_image(url = member.avatar_url)
             embed.add_field(name='__Join position__', value='{}'.format(str(member.server.member_count)), inline=True)
-            embed.add_field(name='Time of joining here', value=member.joined_at)
             await bot.send_message(channel, embed=embed) 
+            nickname= '✴🔆 ' + member.name + ' 🔆✴'
+            await client.change_nickname(member, nickname)
 
 @bot.event
 async def on_member_remove(member):
     for channel in member.server.channels:
-        if channel.name == '🎊welcome🎊':
-            r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
-            embed = discord.Embed(title=f'{member.name} just left {member.server.name}', description='Good bye 👋! We will gonna miss you 😢', color = discord.Color((r << 16) + (g << 8) + b))
+        if channel.name == '》left♤':
+            embed = discord.Embed(title=f'{member.name} just left {member.server.name}', description='Good bye 👋! We will gonna miss you 😢', color=0xC72323)
             embed.add_field(name='__User left__', value='**We hope you will be back soon 🙋.**', inline=True)
-            embed.add_field(name='**Your join position was**', value=member.joined_at)
             embed.set_thumbnail(url=member.avatar_url)
             await bot.send_message(channel, embed=embed)
 
@@ -4376,7 +4377,6 @@ async def awooify(ctx, user: discord.Member):
 
 @bot.command(pass_context = True)
 async def help(ctx):
-     await bot.delete_message(ctx.message)
      await bot.say(DMs)
      await asyncio.sleep(5)
      await bot.delete_message(message)
@@ -4409,7 +4409,7 @@ async def ship(ctx, user: discord.Member = None, *, user2: discord.Member = None
     finalName = first_half + second_half
     score = random.randint(0, 100)
     filled_progbar = round(score / 100 * 10)
-    counter_ = '█' * filled_progbar + '‍ ‍' * (20 - filled_progbar)
+    counter_ = '█' * filled_progbar + '‍ ‍' * (10 - filled_progbar)
     url = f"https://nekobot.xyz/api/imagegen?type=ship&user1={usss2}&user2={usss}"
     async with aiohttp.ClientSession() as cs:
         async with cs.get(url) as r:
