@@ -4384,17 +4384,22 @@ async def meme(ctx):
             await bot.say(embed=embed)
 
 @bot.command(pass_context=True)
-async def meme2(ctx):
-
+async def asktrump(ctx, *, question):
      async with aiohttp.ClientSession() as session:
-        async with session.get("https://www.reddit.com/r/dankmemes/top.json?sort=top&t=day&limit=500") as r:
-            data = await r.json()
+        async with session.get(f"https://api.whatdoestrumpthink.com/api/v1/quotes/personalized?q={question}") as r:
+    data = await r.json()
+    em = discord.Embed(color=0xC72323, title="What did Trump say?")
+    em.description = f"**You:** {question}\n\n**Trump:** {res['message']}"
+    em.set_thumbnail(url=https://d.ibtimes.co.uk/en/full/1571929/donald-trump.jpg)
+    em.set_footer(text=f'Requested by: {ctx.message.author.display_name}', icon_url=f'{ctx.message.author.avatar_url}')
+    await bot.say(embed=em)
 
-            title = data.title
-            upvotes = data.ups
-            downvotes = data.downs
-            embed = discord.Embed(title=title, description='', color=0xC72323)
-            embed.set_image(url=data[0]["data"]["children"][0]["data"]["url"])
-            embed.set_footer(text=f"👍{upvotes} | 👎 {downvotes}")
+@bot.command(pass_context = True)
+async def flipcoin(ctx):
+    choice = random.randint(1, 2)
+    if choice == 1:
+        await bot.add_reaction(ctx.message, 'ðŸŒž')
+    if choice == 2:
+        await bot.add_reaction(ctx.message, 'ðŸŒš')
 
 bot.run(os.environ['Token1'])
