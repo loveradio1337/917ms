@@ -4297,7 +4297,8 @@ async def help(ctx):
     em.add_field(name"🎲 __Games__", value="``>help games``\n ")
     em.add_field(name"🆗 __Text__", value="``>help games``\n ")
     em.set_thumbnail(url='https://image.ibb.co/caM2BK/help.gif')
-    await bot.say(embex=embed)
+    await bot.say(embed=em)
+
 @bot.command(pass_context=True)
 async def tweet(ctx, usernamename:str, *, txt:str):
 
