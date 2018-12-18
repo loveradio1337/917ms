@@ -4443,7 +4443,7 @@ async def tableflip(ctx):
     await asyncio.sleep(1)
     msg = await bot.edit_message(x, '(°-°)\\ ┬─┬')
     await asyncio.sleep(1)
-    msg2 = await bot.edit_message(msg, '(╯°□°)╯    ]')
+    msg1 = await bot.edit_message(msg, '(╯°□°)╯    ]')
     await asyncio.sleep(0.2)
     await bot.edit_message(msg1, '(╯°□°)╯  ︵  ┻━┻')
 
@@ -4454,34 +4454,36 @@ async def on_message(message):
 @bot.command(pass_context=True)
 async def pun(ctx):
 
-	pun_url = 'http://www.punoftheday.com/cgi-bin/arandompun.pl'
-	async with aiohttp.ClientSession() as session:
-		async with session.get(pun_url) as data:
-			pun_req = await data.text()
-			pun_text = pun_req.split('&quot;')[1]
-	embed = discord.Embed(color=0xC72323)
-	embed.add_field(name='Have A Pun', value='```\n' + pun_text + '\n```')
-	await bot.say(embed=embed)
+    pun_url = 'http://www.punoftheday.com/cgi-bin/arandompun.pl'
+    async with aiohttp.ClientSession() as session:
+        async with session.get(pun_url) as data:
+            pun_req = await data.text()
+            pun_text = pun_req.split('&quot;')[1]
+    embed = discord.Embed(color=0xC72323)
+    embed.add_field(name='Have A Pun', value='```\n' + pun_text + '\n```')
+    embed.set_footer(text=f'Requested by: {ctx.message.author.display_name}', icon_url=f'{ctx.message.author.avatar_url}')
+    await bot.say(embed=embed)
 		
 @bot.command(pass_context=True)
 async def yomomma(ctx):
-	resource = 'http://api.yomomma.info/'
-	async with aiohttp.ClientSession() as session:
-		async with session.get(resource) as data:
-			data = await data.read()
-			data = json.loads(data)
-	joke = data['joke']
-	if not joke.endswith('.'):
-			joke += '.'
-	embed = discord.Embed(color=0xC72323)
-	embed.add_field(name='A Yo Momma Joke', value='```\n' + joke + '\n```')
-	await bot.say(embed=embed)
+    resource = 'http://api.yomomma.info/'
+    async with aiohttp.ClientSession() as session:
+        async with session.get(resource) as data:
+            data = await data.read()
+            data = json.loads(data)
+    joke = data['joke']
+    if not joke.endswith('.'):
+            joke += '.'
+    embed = discord.Embed(color=0xC72323)
+    embed.add_field(name='A Yo Momma Joke', value='```\n' + joke + '\n```')
+    embed.set_footer(text=f'Requested by: {ctx.message.author.display_name}', icon_url=f'{ctx.message.author.avatar_url}')
+    await bot.say(embed=embed)
 
 @bot.command(pass_context=True)
 async def dog(ctx):
     page = requests.get("https://random.dog/woof.json")
     url = (page.json().get('url'))
-    embed=discord.Embed(title="I found a random dog 🐶", url=url, color=0xC72323)
+    embed=discord.Embed(title="Dog", url=url, color=0xC72323)
     embed.set_image(url=url)
     await bot.say(embed=embed)
 
@@ -4489,16 +4491,18 @@ async def dog(ctx):
 async def duck(ctx):
     page = requests.get("https://random-d.uk/api/v1/random")
     url = (page.json().get('url'))
-    embed=discord.Embed(title="I found a random duck 🦆", url=url, color=0xC72323)
+    embed=discord.Embed(title="Duck", url=url, color=0xC72323)
     embed.set_image(url=url)
+    embed.set_footer(text=f'Requested by: {ctx.message.author.display_name}', icon_url=f'{ctx.message.author.avatar_url}')
     await bot.say(embed=embed)
 
 @bot.command(pass_context=True)
 async def pug(ctx):
     page = requests.get("http://pugme.herokuapp.com/random")
     url = (page.json().get('pug'))
-    embed=discord.Embed(title="I found a random pug 🐕", url=url, color=0xC72323)
+    embed=discord.Embed(title="Pug", url=url, color=0xC72323)
     embed.set_image(url=url)
+    embed.set_footer(text=f'Requested by: {ctx.message.author.display_name}', icon_url=f'{ctx.message.author.avatar_url}')
     await bot.say(embed=embed)
 
 #@bot.command(pass_context=True)
@@ -4516,16 +4520,18 @@ async def pug(ctx):
 async def fox(ctx):
     page = requests.get("https://wohlsoft.ru/images/foxybot/randomfox.php")
     url = (page.json().get('file'))
-    embed=discord.Embed(title="I found a random fox 🦊", url=url, color=0xC72323)
+    embed=discord.Embed(title="Fox", url=url, color=0xC72323)
     embed.set_image(url=url)
+    embed.set_footer(text=f'Requested by: {ctx.message.author.display_name}', icon_url=f'{ctx.message.author.avatar_url}')
     await bot.say(embed=embed)
 
 @bot.command(pass_context=True)
 async def bird(ctx):
     page = requests.get("http://shibe.online/api/birds?count=1")
     url = (page.json())[0]
-    embed=discord.Embed(title="I found a random bird 🦅", url=url, color=0xC72323)
+    embed=discord.Embed(title="Bird", url=url, color=0xC72323)
     embed.set_image(url=url)
+    embed.set_footer(text=f'Requested by: {ctx.message.author.display_name}', icon_url=f'{ctx.message.author.avatar_url}')
     await bot.say(embed=embed)
 
 bot.run(os.environ['Token1'])
