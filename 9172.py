@@ -96,8 +96,7 @@ import socket
 # Prefix
 
 
-bot = Bot(description="Like is best", command_prefix=">")
-
+bot = Bot(description="Like is best", command_prefix=commands.when_mentioned_or(">"))
 players = ()
 
 print(f"Connecting your bot to discord!")
@@ -1004,13 +1003,13 @@ async def google(ctx, *, message):
 
 
 
-# Youtube
+# ytsearch
 
 
 @bot.command(pass_context=True)
 
 
-async def youtube(ctx, *, message: str):
+async def ytsearch(ctx, *, message: str):
 
 
     new_message = message.replace(" ", "+")
@@ -1018,16 +1017,7 @@ async def youtube(ctx, *, message: str):
 
     url = f"https://www.youtube.com/results?search_query={new_message}"
 
-
-
-
-
     await bot.say(url)
-
-
-
-
-
 
 # 8ball
 @bot.command(aliases=['8ball', '8_ball'], pass_context=True)
@@ -1408,7 +1398,7 @@ async def sapnupuas(ctx):
 @bot.command(pass_context=True)
 
 
-async def guess(ctx):
+async def randomnumber(ctx):
 
 
     embed = discord.Embed(color=0xC72323)
@@ -1432,7 +1422,7 @@ async def guess(ctx):
 @bot.command(pass_context=True)
 
 
-async def customguess(ctx, first: int, second: int):
+async def customrandomnumber(ctx, first: int, second: int):
 
 
     embed = discord.Embed(color=0xC72323)
@@ -1855,67 +1845,6 @@ async def bomb(ctx, user: discord.Member = None):
 
 
         await bot.send_message(user, ":boom::boom::boom::boom::boom::boom::boom::boom::boom:")
-
-# G-Ban
-
-
-@bot.command(pass_context=True)
-
-
-async def gban(ctx, user: discord.Member, *, reason: str):
-
-
-    if ctx.message.author.id == OWNER_ID:
-
-
-        await bot.ban(user)
-
-
-        embed = discord.Embed(title=f"Successfully banned {user.name} from {ctx.message.server.name}", description=f"Reason : {reason}", color=0xC72323)
-
-
-        await bot.say(embed=embed)
-
-
-    else:
-
-
-        embed = discord.Embed(title=noperm, color=0xC72323)
-
-
-        await bot.say(embed=embed)
-
-# G-Kick
-
-
-@bot.command(pass_context=True)
-
-
-async def gkick(ctx, user: discord.Member, *, reason: str):
-
-
-    if ctx.message.author.id == OWNER_ID:
-
-
-        await bot.kick(user)
-
-
-        embed = discord.Embed(title=f"Successfully kicked {user.name} from {ctx.message.server.name}", description=f"Reason : {reason}", color=0xC72323)
-
-
-        await bot.say(embed=embed)
-
-
-    else:
-
-
-        embed = discord.Embed(title=noperm, color=0xC72323)
-
-
-        await bot.say(embed=embed)
-
-
-
 
 
 # Slap
@@ -3092,7 +3021,7 @@ async def textchannel(ctx, *, name: str = None):
 
 
 
-@bot.command(aliase=['config_slowmode'], pass_context=True)
+@bot.command(aliase=['cslowmode'], pass_context=True)
 
 
 async def cslowmode(ctx, stopat: int = None, timeout: int = None, chan: discord.Channel = None, *, custommsg: str = None):
@@ -3104,13 +3033,13 @@ async def cslowmode(ctx, stopat: int = None, timeout: int = None, chan: discord.
         if stopat == None:
 
 
-            await bot.say(f"{ctx.message.author.mention} ```Please read the proper usage of this command\n\nmessages read: Stops the slow mode when it reads a specific amount of messages\ncustom message: Sends a message every time a message is detected and deleted (You can leave it empty)\ntimeout: Stops when the bot doesn't detect a message in x seconds\nchannel: Enables the slow mode for the mentioned channel \n\n>config_slowmode <messages read> <timeout> <channel> <custom message>```")
+            await bot.say(f"{ctx.message.author.mention} ```Please read the proper usage of this command\n\nmessages read: Stops the slow mode when it reads a specific amount of messages\ncustom message: Sends a message every time a message is detected and deleted (You can leave it empty)\ntimeout: Stops when the bot doesn't detect a message in x seconds\nchannel: Enables the slow mode for the mentioned channel \n\n>cslowmode <messages read> <timeout> <channel> <custom message>```")
 
 
         if custommsg == None:
 
 
-            embed = discord.Embed(description=f"Successfully enabled the custom slow mode with the given settings\nStops at {stopat} messages deleted\nCustom message given : None\nGiven Timeout : {timeout}\nStarted at {chan.mention}\n\nTo stop simply type in `>config_slowmode off` in the given slow mode channel", color=0xC72323)
+            embed = discord.Embed(description=f"Successfully enabled the custom slow mode with the given settings\nStops at {stopat} messages deleted\nCustom message given : None\nGiven Timeout : {timeout}\nStarted at {chan.mention}\n\nTo stop simply type in `>cslowmode off` in the given slow mode channel", color=0xC72323)
 
 
             await bot.say(embed=embed)
@@ -3137,7 +3066,7 @@ async def cslowmode(ctx, stopat: int = None, timeout: int = None, chan: discord.
                     await bot.delete_message(msg)
 
 
-                if msg.content == ">config_slowmode off":
+                if msg.content == ">cslowmode off":
 
 
                     if msg.author.server_permissions.manage_messages:
@@ -3161,15 +3090,15 @@ async def cslowmode(ctx, stopat: int = None, timeout: int = None, chan: discord.
         if timeout == None:
 
 
-            await bot.say(f"{ctx.message.author.mention} ```Please read the proper usage of this command\n\nmessages read: Stops the slow mode when it reads a specific amount of messages\ncustom message: Sends a message every time a message is detected and deleted (You can leave it empty)\ntimeout: Stops when the bot doesn't detect a message in x seconds\nchannel: Enables the slow mode for the mentioned channel \n\n>config_slowmode <messages read> <timeout> <channel> <custom message>```")
+            await bot.say(f"{ctx.message.author.mention} ```Please read the proper usage of this command\n\nmessages read: Stops the slow mode when it reads a specific amount of messages\ncustom message: Sends a message every time a message is detected and deleted (You can leave it empty)\ntimeout: Stops when the bot doesn't detect a message in x seconds\nchannel: Enables the slow mode for the mentioned channel \n\n>cslowmode <messages read> <timeout> <channel> <custom message>```")
 
 
         if chan == None:
 
 
-            await bot.say(f"{ctx.message.author.mention} ```Please read the proper usage of this command\n\nmessages read: Stops the slow mode when it reads a specific amount of messages\ncustom message: Sends a message every time a message is detected and deleted (You can leave it empty)\ntimeout: Stops when the bot doesn't detect a message in x seconds\nchannel: Enables the slow mode for the mentioned channel \n\n>config_slowmode <messages read> <timeout> <channel> <custom message>```")
+            await bot.say(f"{ctx.message.author.mention} ```Please read the proper usage of this command\n\nmessages read: Stops the slow mode when it reads a specific amount of messages\ncustom message: Sends a message every time a message is detected and deleted (You can leave it empty)\ntimeout: Stops when the bot doesn't detect a message in x seconds\nchannel: Enables the slow mode for the mentioned channel \n\n>cslowmode <messages read> <timeout> <channel> <custom message>```")
         else:
-            embed = discord.Embed(description=f"Successfully enabled the custom slow mode with the given settings\nStops at {stopat} messages deleted\nCustom message given : {custommsg}\nGiven Timeout : {timeout}\nStarted at {chan.mention}\n\nTo stop simply type in `>config_slowmode off` in the given slow mode channel", color=0xC72323)
+            embed = discord.Embed(description=f"Successfully enabled the custom slow mode with the given settings\nStops at {stopat} messages deleted\nCustom message given : {custommsg}\nGiven Timeout : {timeout}\nStarted at {chan.mention}\n\nTo stop simply type in `>cslowmode off` in the given slow mode channel", color=0xC72323)
             await bot.say(embed=embed)
             for x in range(stopat):
                 msg = await bot.wait_for_message(timeout=timeout, author=None, channel=chan, content=None)
@@ -3179,7 +3108,7 @@ async def cslowmode(ctx, stopat: int = None, timeout: int = None, chan: discord.
                 else:
                     await asyncio.sleep(0.60)
                     await bot.delete_message(msg)
-                if msg.content == ">config_slowmode off":
+                if msg.content == ">cslowmode off":
                     if msg.author.server_permissions.manage_messages:
 
 
@@ -3392,7 +3321,7 @@ async def emojis(ctx):
         lol = ctx.message.server
 
 
-        embed = discord.Embed(title=f"Emojis for {ctx.message.server.name}. Total emojis : {len(lol.emojis)}", description="\n".join([str(xd) for xd in lol.emojis]), color=0x17e170)
+        embed = discord.Embed(title=f"Emojis for {ctx.message.server.name}. Total emojis : {len(lol.emojis)}", description="\n".join([str(xd) for xd in lol.emojis]), color=0xC72323)
 
 
         await bot.send_message(ctx.message.author, embed=embed)
@@ -3904,7 +3833,7 @@ async def illegalize(ctx, *, legal:str = None):
 @bot.command(pass_context=True)
 
 
-async def emojirename(ctx, emoj: discord.Emoji = None, *, lol: str = None):
+async def renameemoji(ctx, emoj: discord.Emoji = None, *, lol: str = None):
 
 
     try:
@@ -4055,10 +3984,45 @@ async def on_message(message):
 
         await bot.delete_message(message)
 
+    if message.content == ">help moderation":
 
+        embed = discord.Embed(title="🔨 Moderation Commands 🔨", description="kick, ban, slowclear, warn, decide, secretkick, secretban, clear, slowmode, cslowmode, renamerole, renameserver, nick, textchannel, voicechannel, nickall, renamechannel, emojirename, announce.", color=0xC72323)
+        embed.set_footer(text="Use > before each commands!")
+        await bot.send_message(message.channel, embed=embed)
+
+    if message.content == ">help utility":
+
+        embed = discord.Embed(title="🛠 Utility Commands 🛠", description="userinfo, botinfo, serverinfo, servercount, embedcode, codeinfo, serverowner, statcheck, gamecheck, channelinfo, emojis, membernames, invite, randomnumber, customrandomnumber, stringgen, avatar, qr, ytsearch, google , encode, poll, botsearch, topbots, say, embed vote", color=0xC72323)
+        embed.set_footer(text="Use > before each commands!")
+
+        await bot.send_message(message.channel, embed=embed)
+
+
+    if message.content == ">help fun":
+        embed = discord.Embed(title="😁 Fun Commands 😁", description="8ball, gender, fbi, skincolor, hack, bomb, whois, hairdye, heigth, talentcheck, howto, autistcheck, asktrump, howgay, dicksize", color=0xC72323)
+        embed.set_footer(text="Use > before each commands!")
+        await bot.send_message(message.channel, embed=embed)
+
+    if message.content == ">help memes":
+        embed = discord.Embed(title="😂 Memes Command 😂", description="yomomma, joke, dadjoke, meme, pun", color=0xC72323)
+        embed.set_footer(text="Use > before each commands!")
+        await bot.send_message(message.channel, embed=embed)
+
+    if message.content == ">help image":
+        embed = discord.Embed(title="📷 Image Commands 📷", description="tweet, trumptweet, ship, awooify, damn, burned, hug", color=0xC72323)
+        embed.set_footer(text="Use > before each commands!")
+        await bot.send_message(message.channel, embed=embed)
+    if message.content == ">help animals":
+        embed = discord.Embed(title="🐕 Animals Commands 🐈", description="cat, dog, pug, fox, bird, duck", color=0xC72323)
+        embed.set_footer(text="Use > before each commands!")
+        await bot.send_message(message.channel, embed=embed)
+
+    if message.content == ">help games":
+        embed = discord.Embed(title="🎲 Games Commands 🎲", description="rolldice, flipcoin, slots,", color=0xC72323)
+        embed.set_footer(text="Use > before each commands!")
+        await bot.send_message(message.channel, embed=embed)
 
     if message.content == ">kick":
-
 
         await bot.send_message(message.channel, "{} ```Proper usage is\n\n>kick <mention a user>```".format(message.author.mention))
     if message.content == ">ban":
@@ -4118,10 +4082,10 @@ async def on_message(message):
 
 
 
-    if message.content == ">youtube":
+    if message.content == ">ytsearch":
 
 
-        await bot.send_message(message.channel, "{} ```Proper usage is\n\n>youtube <what do you wanna search on youtube>```".format(message.author.mention))
+        await bot.send_message(message.channel, "{} ```Proper usage is\n\n>ytsearch <what do you wanna search on youtube>```".format(message.author.mention))
 
 
 
@@ -4316,9 +4280,17 @@ async def awooify(ctx, user: discord.Member):
 
 @bot.command(pass_context = True)
 async def help(ctx):
-     await bot.say(DMs)
-     await asyncio.sleep(5)
-     await bot.delete_message(message)
+    em = discord.Embed(title="Like 2018", description='The prefix is > or mention me')
+    em.add_field(name="Invite Link:", value="[Here]( https://discordapp.com/api/oauth2/authorize?client_id=507241518524923904&,permissions=8&scope=bot)")
+    em.add_field(name="Wanna vote for Like?", value="[Upvote me here](https://discordbots.org/bot/507241518524923904/vote)")
+    em.add_field(name"📷 __Image__", value="``>help image``\n ")
+    em.add_field(name="🔨 __Moderation", value="``>help moderation``\n ")
+    em.add_field(name"😂 __Memes__", value="``>help memes``\n ")
+    em.add_field(name"🛠 __Utility__", value="``>help utility``\n ")
+    em.add_field(name"😁 __Fun__", value="``>help fun``\n ")
+    em.add_field(name"🐶 __Animals__", value="``>help animals``\n ")
+    em.add_field(name"🎲 __Games__", value="``>help games``\n ")
+    em.set_thumbnail(url='https://image.ibb.co/caM2BK/help.gif')
 
 @bot.command(pass_context=True)
 async def tweet(ctx, usernamename:str, *, txt:str):
@@ -4388,15 +4360,6 @@ async def flipcoin(ctx):
     await bot.say(embed=em)
 
 @bot.command(pass_context=True)
-async def stats(ctx):
-    embed = discord.Embed(color=0xC72323)
-    embed.title = 'This is my status'
-    embed.set_thumbnail(url=botavatar)
-    embed.set_image(url='https://discordbots.org/api/widget/507241518524923904.svg')
-    embed.set_footer(text=f'Requested by: {ctx.message.author.display_name}', icon_url=f'{ctx.message.author.avatar_url}')
-    bot.say(embed=embed)
-
-@bot.command(pass_context=True)
 async def slots(ctx):
     emojis = "💩🛡🎅🎃💗"
     a = random.choice(emojis)
@@ -4417,7 +4380,7 @@ async def cat(ctx):
      async with aiohttp.ClientSession() as session:
         async with session.get("https://catapi.glitch.me/") as r:
             data = await r.json()
-            em = discord.Embed(color=0xC72323, title="This is a random cat i found. 😺")
+            em = discord.Embed(color=0xC72323, title="Cat")
             em.set_image(url=data['url'])
             em.set_footer(text=f'Requested by: {ctx.message.author.display_name}', icon_url=f'{ctx.message.author.avatar_url}')
             await bot.say(embed=em)
@@ -4458,7 +4421,7 @@ async def pun(ctx):
     async with aiohttp.ClientSession() as session:
         async with session.get(pun_url) as data:
             pun_req = await data.text()
-            pun_text = pun_req.split('&quot;')[1]
+            pun_text = pun_req.split(' ')[1]
     embed = discord.Embed(color=0xC72323)
     embed.add_field(name='Have A Pun', value='```\n' + pun_text + '\n```')
     embed.set_footer(text=f'Requested by: {ctx.message.author.display_name}', icon_url=f'{ctx.message.author.avatar_url}')
@@ -4531,6 +4494,15 @@ async def bird(ctx):
     url = (page.json())[0]
     embed=discord.Embed(title="Bird", url=url, color=0xC72323)
     embed.set_image(url=url)
+    embed.set_footer(text=f'Requested by: {ctx.message.author.display_name}', icon_url=f'{ctx.message.author.avatar_url}')
+    await bot.say(embed=embed)
+
+@bot.command(pass_context=True)
+async def dicksize(ctx, user: discord.Member):
+    random.seed(user.id)
+    dong = "8{}D".format("=" * random.randint(0, 20))
+    embed = discord.Embed(color=0xC72323)
+    embed.add_field(name=f"{user.name}'s Dick size according to my calculation", value=dong)
     embed.set_footer(text=f'Requested by: {ctx.message.author.display_name}', icon_url=f'{ctx.message.author.avatar_url}')
     await bot.say(embed=embed)
 
