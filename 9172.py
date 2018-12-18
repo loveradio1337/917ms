@@ -4412,15 +4412,7 @@ async def slots(ctx):
     else:
         await bot.say(f"{slotmachine} `rip` ")
 
-@bot.command(pass_context=True)
-async def cat(ctx, *, question):
-     async with aiohttp.ClientSession() as session:
-        async with session.get("https://catapi.glitch.me/") as r:
-            data = await r.json()
-            em = discord.Embed(color=0xC72323, title="This is a random cat i found. 😺")
-            em.set_image(url=data['url'])
-            em.set_footer(text=f'Requested by: {ctx.message.author.display_name}', icon_url=f'{ctx.message.author.avatar_url}')
-            await bot.say(embed=em)
+
 
 
 @bot.command(pass_context=True)
@@ -4452,14 +4444,14 @@ async def on_message(message):
     await bot.process_commands(message)
 
 @bot.command(pass_context=True)
-async def pun(self, ctx):
+async def pun(ctx):
 
 	pun_url = 'http://www.punoftheday.com/cgi-bin/arandompun.pl'
 	async with aiohttp.ClientSession() as session:
 		async with session.get(pun_url) as data:
 			pun_req = await data.text()
 			pun_text = pun_req.split('&quot;')[1]
-	embed = discord.Embed(color=0x1abc9c)
+	embed = discord.Embed(color=0xC72323)
 	embed.add_field(name='ðŸ˜’ Have A Pun', value='```\n' + pun_text + '\n```')
 	await bot.say(embed=embed)
 		
@@ -4473,8 +4465,59 @@ async def yomomma(ctx):
 	joke = data['joke']
 	if not joke.endswith('.'):
 			joke += '.'
-	embed = discord.Embed(color=0x1abc9c)
+	embed = discord.Embed(color=0xC72323)
 	embed.add_field(name='ðŸ˜‚ A Yo Momma Joke', value='```\n' + joke + '\n```')
 	await bot.say(embed=embed)
+
+@bot.command(pass_context=True)
+async def dog(ctx):
+    page = requests.get("https://random.dog/woof.json")
+    url = (page.json().get('url'))
+    embed=discord.Embed(title="Dog", url=url, color=0xC72323)
+    embed.set_image(url=url)
+    await bot.say(embed=embed)
+
+@bot.command(pass_context=True)
+async def duck(ctx):
+    page = requests.get("https://random-d.uk/api/v1/random")
+    url = (page.json().get('url'))
+    embed=discord.Embed(title="Duck", url=url, color=0xC72323)
+    embed.set_image(url=url)
+    await bot.say(embed=embed)
+
+@bot.command(pass_context=True)
+async def pug(ctx):
+    page = requests.get("http://pugme.herokuapp.com/random")
+    url = (page.json().get('pug'))
+    embed=discord.Embed(title="Pug", url=url, color=0xC72323)
+    embed.set_image(url=url)
+    await bot.say(embed=embed)
+
+@bot.command(pass_context=True)
+async def cat(ctx):
+    try:
+        page = requests.get("http://shibe.online/api/cats?count=1")
+        url = (page.json().get('file'))
+        embed=discord.Embed(title="Cat", url=url, color=0xC72323)
+        embed.set_image(url=url)
+        await bot.say(embed=embed)
+    except:
+        await bot.say("Api may be down, Try again later", delete_after=2)
+
+@bot.command(pass_context=True)
+async def fox(ctx):
+    page = requests.get("https://wohlsoft.ru/images/foxybot/randomfox.php")
+    url = (page.json().get('file'))
+    embed=discord.Embed(title="Fox", url=url, color=0xC72323)
+    embed.set_image(url=url)
+    await bot.say(embed=embed)
+
+@bot.command(pass_context=True)
+async def bird(ctx):
+    page = requests.get("http://shibe.online/api/birds?count=1")
+    url = (page.json())[0]
+    embed=discord.Embed(title="Bird", url=url, color=0xC72323)
+    embed.set_image(url=url)
+    await bot.say(embed=embed)
 
 bot.run(os.environ['Token1'])
