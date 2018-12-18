@@ -4439,7 +4439,7 @@ async def meme2(ctx):
 @bot.command(pass_context=True)
 async def tableflip(ctx):
 
-    x = await ctx.send(content="┬─┬ノ( º _ ºノ)")
+    x = await bot.say(content="┬─┬ノ( º _ ºノ)")
     await asyncio.sleep(1)
     await x.edit(content='(°-°)\\ ┬─┬')
     await asyncio.sleep(1)
@@ -4450,10 +4450,10 @@ async def tableflip(ctx):
 @bot.command(pass_context=True)
 async def yomomma(ctx):
      async with aiohttp.ClientSession() as session:
-        async with session.get("http://api.yomomma.info/") as r:
+        async with session.get("http://api.yomomma.info") as r:
             res = await r.json()
 
-            embed = discord.Embed(description=res['joke'], color=0xC72323)
+            embed = discord.Embed(title='I found that', description=res['joke'], color=0xC72323)
             embed.set_footer(text=f'Requested by: {ctx.message.author.display_name}', icon_url=f'{ctx.message.author.avatar_url}')
             await bot.say(embed=embed)
 @bot.event
