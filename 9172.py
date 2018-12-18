@@ -1030,27 +1030,13 @@ async def youtube(ctx, *, message: str):
 
 
 # 8ball
-@bot.command(aliases=['8ball'], pass_context=True)
+@bot.command(aliases=['8ball', '8_ball'], pass_context=True)
 async def ask(ctx, *, question: str):
-    answer = [":8ball: It is certain.", ":8ball: It is decidedly so.", "Without a doubt.", ":8ball:Yes definitely.", ":8ball: You may rely on it.", ":8ball: As I see it, yes.", ":8ball: Most likely.", ":8ball:Outlook good.", ":8ball: Yes.", ":8ball:Signs point to yes.", ":8ball: Reply hazy, try again.", ":8ball: Ask again later.", ":8ball: Better not tell you now.", ":8ball: Cannot predict now.", ":8ball:Concentrate and ask again.", ":8ball: Don't count on it.", ":8ball: My reply is no.", ":8ball: My sources say no.", ":8ball:Outlook not so good.", ":8ball: Very doubtful."]
+    answer = [":8ball: It is certain.", ":8ball: It is decidedly so.", ":8ball: Without a doubt.", ":8ball:Yes definitely.", ":8ball: You may rely on it.", ":8ball: As I see it, yes.", ":8ball: Most likely.", ":8ball:Outlook good.", ":8ball: Yes.", ":8ball:Signs point to yes.", ":8ball: Reply hazy, try again.", ":8ball: Ask again later.", ":8ball: Better not tell you now.", ":8ball: Cannot predict now.", ":8ball:Concentrate and ask again.", ":8ball: Don't count on it.", ":8ball: My reply is no.", ":8ball: My sources say no.", ":8ball:Outlook not so good.", ":8ball: Very doubtful."]
     randomizer = random.choice(answer)
     embed = discord.Embed(title=question, description=f"{randomizer}", color=0xC72323)
+    embed.set_thumbnail(url='https://vignette.wikia.nocookie.net/battlefordreamislandfanfiction/images/5/53/8-ball_my_friend.png/revision/latest?cb=20161109021012')
     await bot.say(embed=embed)
-
-#@bot.command(pass_context=True)
-#async def 8ball(ctx, *, question: str):
-
-    #answer = [":8ball: It is certain.", ":8ball: It is decidedly so.", "Without a doubt.", ":8ball:Yes definitely.", ":8ball: You may rely on it.", ":8ball: As I see it, yes.", ":8ball: Most likely.", ":8ball:Outlook good.", ":8ball: Yes.", ":8ball:Signs point to yes.", ":8ball: Reply hazy, try again.", ":8ball: Ask again later.", ":8ball: Better not tell you now.", ":8ball: Cannot predict now.", ":8ball:Concentrate and ask again.", ":8ball: Don't count on it.", ":8ball: My reply is no.", ":8ball: My sources say no.", ":8ball:Outlook not so good.", ":8ball: Very doubtful."]
-
-    #randomizer = random.choice(answer)
-
-
-    #embed = discord.Embed(title=question, description=f"{randomizer}", color=0xC72323)
-
-
-    #await bot.say(embed=embed)
-
-
 # Hug
 
 
@@ -4432,7 +4418,6 @@ async def cat(ctx, *, question):
         async with session.get("https://catapi.glitch.me/") as r:
             data = await r.json()
             em = discord.Embed(color=0xC72323, title="This is a random cat i found. 😺")
-            em.set_thumbnail(url='https://d.ibtimes.co.uk/en/full/1571929/donald-trump.jpg')
             em.set_image(url=data['url'])
             em.set_footer(text=f'Requested by: {ctx.message.author.display_name}', icon_url=f'{ctx.message.author.avatar_url}')
             await bot.say(embed=em)
@@ -4442,18 +4427,34 @@ async def cat(ctx, *, question):
 async def meme2(ctx):
      async with aiohttp.ClientSession() as session:
         async with session.get("https://www.reddit.com/r/dankmemes/top.json?sort=top&t=day&limit=500") as r:
-            res = await r.json()
-            res = box.Box(r)
-            data = random.choice(res.data.children).data
+            r = await r.json()
+            data = random.choice(r.data.children).data
             img = data.url
             title = data.title
-            upvotes = data.ups
-            downvotes = data.downs
             em = discord.Embed(color=0xC72323, title=title)
             em.set_image(url=img)
             em.set_author(name=ctx.author.name, icon_url=ctx.author.avatar_url)
-            em.set_footer(text=f"👍{upvotes} | 👎 {downvotes}")
             await bot.say(embed=em)
 
+@bot.command(pass_context=True)
+async def tableflip(ctx):
+
+    x = await ctx.send(content="┬─┬ノ( º _ ºノ)")
+    await asyncio.sleep(1)
+    await x.edit(content='(°-°)\\ ┬─┬')
+    await asyncio.sleep(1)
+    await x.edit(content='(╯°□°)╯    ]')
+    await asyncio.sleep(0.2)
+    await x.edit(content='(╯°□°)╯  ︵  ┻━┻')
+
+@bot.command(pass_context=True)
+async def yomomma(ctx):
+     async with aiohttp.ClientSession() as session:
+        async with session.get("http://api.yomomma.info/") as r:
+            res = await r.json()
+
+            embed = discord.Embed(description=res['joke'], color=0xC72323)
+            embed.set_footer(text=f'Requested by: {ctx.message.author.display_name}', icon_url=f'{ctx.message.author.avatar_url}')
+            await bot.say(embed=embed)
 
 bot.run(os.environ['Token1'])
