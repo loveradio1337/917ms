@@ -368,35 +368,35 @@ async def botinfo(ctx):
     embed = discord.Embed(title="Likes information", color=0xC72323)
 
 
-    embed.add_field(name="👤 __Bot Name__ 👤", value="Like")
+    embed.add_field(name="👤 __Bot Name__", value="Like")
 
 
-    embed.add_field(name="✍ __Bot Tag__ ✍", value="9026")
+    embed.add_field(name="✍ __Bot Tag__", value="9026")
 
 
-    embed.add_field(name="🎰 __Bot ID__ 🎰", value=botid)
+    embed.add_field(name="🎰 __Bot ID__", value=botid)
 
 
-    embed.add_field(name="👨 __Bot Owner__ 👨", value="Coco#6429")
+    embed.add_field(name="👨 __Bot Owner__", value="Coco#6429")
 
 
-    embed.add_field(name="📍 __Bot Prefix__ 📍", value=">")
+    embed.add_field(name="📍 __Bot Prefix__", value=">")
 
-    embed.add_field(name="📚 __Bot Language__ 📚", value="Python")
-
-
-    embed.add_field(name="📊 __Bot Servers__ 📊", value=len(bot.servers))
+    embed.add_field(name="📚 __Bot Language__", value="Python")
 
 
-    embed.add_field(name="📈 __Bot Users__ 📈", value=(len(set(bot.get_all_members()))))
+    embed.add_field(name="📊 __Bot Servers__", value=len(bot.servers))
 
 
-    embed.add_field(name="📋 __Bot Commands__ 📋", value=(str(len(bot.commands))))
+    embed.add_field(name="📈 __Bot Users__", value=(len(set(bot.get_all_members()))))
 
 
-    embed.add_field(name="📉 __Bot Invite__ 📉", value="[👉 Invite my bot HERE 👈]( https://discordapp.com/api/oauth2/authorize?client_id=507241518524923904&,permissions=8&scope=bot)")
+    embed.add_field(name="📋 __Bot Commands__", value=(str(len(bot.commands))))
 
-    embed.add_field(name="🔮 __Donation Link__ 🔮", value="[Support our bot by Donating us HERE](https://paypal.me/CocoGT)")
+
+    embed.add_field(name="📉 __Bot Invite__", value="[👉 Invite my bot HERE 👈]( https://discordapp.com/api/oauth2/authorize?client_id=507241518524923904&,permissions=8&scope=bot)")
+
+    embed.add_field(name="🔮 __Donation Link__", value="[Support our bot by Donating us HERE](https://paypal.me/CocoGT)")
 
     embed.set_thumbnail(url=botavatar)
 
@@ -429,49 +429,49 @@ async def serverinfo(ctx):
     embed = discord.Embed(name="{} Server information".format(ctx.message.server.name), color=0xC72323)
 
 
-    embed.add_field(name="__Server name__", value=ctx.message.server.name, inline=True)
+    embed.add_field(name="📃__Server name__", value=ctx.message.server.name, inline=True)
 
 
-    embed.add_field(name="__Owner__", value=ctx.message.server.owner.mention)
+    embed.add_field(name="👤__Owner__", value=ctx.message.server.owner.mention)
 
 
-    embed.add_field(name="__Server ID__", value=ctx.message.server.id, inline=True)
+    embed.add_field(name="🎫__Server ID__", value=ctx.message.server.id, inline=True)
 
 
-    embed.add_field(name="__Roles__", value=len(ctx.message.server.roles), inline=True)
+    embed.add_field(name="🎴__Roles__", value=len(ctx.message.server.roles), inline=True)
 
 
-    embed.add_field(name="__Members__", value=len(ctx.message.server.members), inline=True)
+    embed.add_field(name="👥__Members__", value=len(ctx.message.server.members), inline=True)
 
 
-    embed.add_field(name="Online", value=f"**{online}/{len(ctx.message.server.members)}**")
+    embed.add_field(name="👌__Online__", value=f"**{online}/{len(ctx.message.server.members)}**")
 
 
-    embed.add_field(name="__Created at__", value=ctx.message.server.created_at.strftime("%d %b %Y %H:%M"))
+    embed.add_field(name="📆__Created at__", value=ctx.message.server.created_at.strftime("%d %b %Y %H:%M"))
 
 
-    embed.add_field(name="__Emojis__", value=f"{len(ctx.message.server.emojis)}/100")
+    embed.add_field(name="🤗__Emojis__", value=f"{len(ctx.message.server.emojis)}/100")
 
 
-    embed.add_field(name="__Server Region__", value=str(ctx.message.server.region).title())
+    embed.add_field(name="🤔__Server Region__", value=str(ctx.message.server.region).title())
 
 
-    embed.add_field(name="__Total Channels__", value=len(ctx.message.server.channels))
+    embed.add_field(name="📜__Total Channels__", value=len(ctx.message.server.channels))
 
 
-    embed.add_field(name="__AFK Channel__", value=str(ctx.message.server.afk_channel))
+    embed.add_field(name="📚__AFK Channel__", value=str(ctx.message.server.afk_channel))
 
 
-    embed.add_field(name="__AFK Timeout__", value=ctx.message.server.afk_timeout)
+    embed.add_field(name="🕯__AFK Timeout__", value=ctx.message.server.afk_timeout)
 
 
-    embed.add_field(name="__Verification Level__", value=ctx.message.server.verification_level)
+    embed.add_field(name="🔐__Verification Level__", value=ctx.message.server.verification_level)
 
 
     try:
 
 
-        embed.add_field(name="__Role Names__", value=", ".join([role.name for role in ctx.message.server.roles if role.name != "@everyone"]))
+        embed.add_field(name="🗒__Role Names__", value=", ".join([role.name for role in ctx.message.server.roles if role.name != "@everyone"]))
 
 
     except:
@@ -491,7 +491,7 @@ async def serverinfo(ctx):
 @bot.command(pass_context=True)
 
 
-async def bot_restart(ctx):
+async def restart(ctx):
 
 
     if ctx.message.author.id == OWNER_ID:
@@ -1422,7 +1422,7 @@ async def sapnupuas(ctx):
 @bot.command(pass_context=True)
 
 
-async def randomint(ctx):
+async def guess(ctx):
 
 
     embed = discord.Embed(color=0xC72323)
@@ -1446,7 +1446,7 @@ async def randomint(ctx):
 @bot.command(pass_context=True)
 
 
-async def customint(ctx, first: int, second: int):
+async def customguess(ctx, first: int, second: int):
 
 
     embed = discord.Embed(color=0xC72323)
@@ -1489,7 +1489,7 @@ async def howgay(ctx, user: discord.Member = None):
                     await bot.say(embed=embed)
                 else:
                     embed = discord.Embed(color=0xC72323)
-                    randomizer = "{}% Gay".format(str(random.randint(20, 100)))
+                    randomizer = "{}% Gay".format(str(random.randint(10, 100)))
                     embed.add_field(name=f"{user.name}'s Howgay results", value=randomizer)
                     await bot.say(embed=embed)
 
@@ -4401,5 +4401,13 @@ async def flipcoin(ctx):
         await bot.add_reaction(ctx.message, 'ðŸŒž')
     if choice == 2:
         await bot.add_reaction(ctx.message, 'ðŸŒš')
+
+@bot.command(pass_context=True)
+async def stats(ctx):
+    embed = discord.Embed(title='This is my status'color=0xC72323)
+    embed.set_thumbnail(url=botavatar)
+    embed.set_image(url='https://discordbots.org/api/widget/507241518524923904.svg')
+    em.set_footer(text=f'Requested by: {ctx.message.author.display_name}', icon_url=f'{ctx.message.author.avatar_url}')
+    bot.say(embed=embed)
 
 bot.run(os.environ['Token1'])
