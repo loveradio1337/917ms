@@ -4396,18 +4396,35 @@ async def asktrump(ctx, *, question):
 
 @bot.command(pass_context = True)
 async def flipcoin(ctx):
-    choice = random.randint(1, 2)
-    if choice == 1:
-        await bot.add_reaction(ctx.message, 'ðŸŒž')
-    if choice == 2:
-        await bot.add_reaction(ctx.message, 'ðŸŒš')
+    choices = ['Heads', 'Tails', 'Coin self-destructed.']
+    em=discord.Embed(color=0xC72323, title='Flipped a coin!')
+    em.description = random.choice(choices)
+    await bot.say(embed=em)
 
 @bot.command(pass_context=True)
 async def stats(ctx):
-    embed = discord.Embed(title='This is my status'color=0xC72323)
+    embed = discord.Embed(title='This is my status', color=0xC72323)
     embed.set_thumbnail(url=botavatar)
     embed.set_image(url='https://discordbots.org/api/widget/507241518524923904.svg')
     em.set_footer(text=f'Requested by: {ctx.message.author.display_name}', icon_url=f'{ctx.message.author.avatar_url}')
     bot.say(embed=embed)
+
+@bot.command(pass_context=True)
+async def slots(ctx):
+    emojis = "👹🤡🤖👻👿"
+    a = random.choice(emojis)
+    b = random.choice(emojis)
+    c = random.choice(emojis)
+
+    slotmachine = f"**[ {a} {b} {c} ]  **,"
+
+    if (a == b == c):
+        await bot.say(f"{slotmachine} `All matching!`  ")
+    elif (a == b) or (a == c) or (b == c):
+        await bot.say(f"{slotmachine} `2 in a row`  ")
+    else:
+        await bot.say(f"{slotmachine} `rip` ")
+
+
 
 bot.run(os.environ['Token1'])
