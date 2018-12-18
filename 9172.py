@@ -4390,7 +4390,7 @@ async def asktrump(ctx, *, question):
             data = await r.json()
             em = discord.Embed(color=0xC72323, title="What did Trump say?")
             em.description = f"**You:** {question}\n\n**Trump:** {res['message']}"
-            em.set_thumbnail(url=https://d.ibtimes.co.uk/en/full/1571929/donald-trump.jpg)
+            em.set_thumbnail(url='https://d.ibtimes.co.uk/en/full/1571929/donald-trump.jpg')
             em.set_footer(text=f'Requested by: {ctx.message.author.display_name}', icon_url=f'{ctx.message.author.avatar_url}')
             await bot.say(embed=em)
 
