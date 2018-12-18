@@ -4412,7 +4412,7 @@ async def stats(ctx):
 
 @bot.command(pass_context=True)
 async def slots(ctx):
-    emojis = "👹🤡🤖👻👿"
+    emojis = "💩🛡🎅🎃💗"
     a = random.choice(emojis)
     b = random.choice(emojis)
     c = random.choice(emojis)
@@ -4426,6 +4426,34 @@ async def slots(ctx):
     else:
         await bot.say(f"{slotmachine} `rip` ")
 
+@bot.command(pass_context=True)
+async def asktrump(ctx, *, question):
+     async with aiohttp.ClientSession() as session:
+        async with session.get("https://catapi.glitch.me/") as r:
+            data = await r.json()
+            em = discord.Embed(color=0xC72323, title="This is a random cat i found. 😺")
+            em.set_thumbnail(url='https://d.ibtimes.co.uk/en/full/1571929/donald-trump.jpg')
+            em.set_image(url=data['url'])
+            em.set_footer(text=f'Requested by: {ctx.message.author.display_name}', icon_url=f'{ctx.message.author.avatar_url}')
+            await bot.say(embed=em)
+
+
+@bot.command(pass_context=True)
+async def meme2(ctx):
+     async with aiohttp.ClientSession() as session:
+        async with session.get("https://www.reddit.com/r/dankmemes/top.json?sort=top&t=day&limit=500") as r:
+            res = await r.json()
+            res = box.Box(r)
+            data = random.choice(res.data.children).data
+            img = data.url
+            title = data.title
+            upvotes = data.ups
+            downvotes = data.downs
+            em = discord.Embed(color=0xC72323, title=title)
+            em.set_image(url=img)
+            em.set_author(name=ctx.author.name, icon_url=ctx.author.avatar_url)
+            em.set_footer(text=f"👍{upvotes} | 👎 {downvotes}")
+            await bot.say(embed=em)
 
 
 bot.run(os.environ['Token1'])
