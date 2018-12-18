@@ -4427,7 +4427,7 @@ async def slots(ctx):
         await bot.say(f"{slotmachine} `rip` ")
 
 @bot.command(pass_context=True)
-async def asktrump(ctx, *, question):
+async def cat(ctx, *, question):
      async with aiohttp.ClientSession() as session:
         async with session.get("https://catapi.glitch.me/") as r:
             data = await r.json()
