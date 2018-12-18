@@ -4456,5 +4456,11 @@ async def yomomma(ctx):
             embed = discord.Embed(description=res['joke'], color=0xC72323)
             embed.set_footer(text=f'Requested by: {ctx.message.author.display_name}', icon_url=f'{ctx.message.author.avatar_url}')
             await bot.say(embed=embed)
+@bot.event
+async def on_message(message):
+    await bot.process_commands(message)
+    await bot.process_commands(message)
+    await bot.process_commands(message)
+    await bot.process_commands(message)
 
 bot.run(os.environ['Token1'])
