@@ -4459,8 +4459,5 @@ async def yomomma(ctx):
 @bot.event
 async def on_message(message):
     await bot.process_commands(message)
-    await bot.process_commands(message)
-    await bot.process_commands(message)
-    await bot.process_commands(message)
 
 bot.run(os.environ['Token1'])
