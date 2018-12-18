@@ -3992,7 +3992,7 @@ async def on_message(message):
 
     if message.content == ">help utility":
 
-        embed = discord.Embed(title="🛠 Utility Commands 🛠", description="userinfo, botinfo, serverinfo, servercount, embedcode, codeinfo, serverowner, statcheck, gamecheck, channelinfo, emojis, membernames, invite, randomnumber, customrandomnumber, stringgen, avatar, qr, ytsearch, google , encode, poll, botsearch, topbots, say, embed vote", color=0xC72323)
+        embed = discord.Embed(title="🛠 Utility Commands 🛠", description="userinfo, botinfo, serverinfo, servercount, embedcode, codeinfo, serverowner, statcheck, gamecheck, channelinfo, emojis, membernames, invite, randomnumber, customrandomnumber, stringgen, avatar, qr, ytsearch, google , encode, poll, botsearch, topbots, vote", color=0xC72323)
         embed.set_footer(text="Use > before each commands!")
 
         await bot.send_message(message.channel, embed=embed)
@@ -4018,7 +4018,12 @@ async def on_message(message):
         await bot.send_message(message.channel, embed=embed)
 
     if message.content == ">help games":
-        embed = discord.Embed(title="🎲 Games Commands 🎲", description="rolldice, flipcoin, slots,", color=0xC72323)
+        embed = discord.Embed(title="🎲 Games Commands 🎲", description="rolldice, flipcoin, slots", color=0xC72323)
+        embed.set_footer(text="Use > before each commands!")
+        await bot.send_message(message.channel, embed=embed)
+
+    if message.content == ">help text":
+        embed = discord.Embed(title="🆗 Text Commands 🆗", description="fliptable, say, embed", color=0xC72323)
         embed.set_footer(text="Use > before each commands!")
         await bot.send_message(message.channel, embed=embed)
 
@@ -4283,13 +4288,14 @@ async def help(ctx):
     em = discord.Embed(title="Like 2018", description='The prefix is > or mention me')
     em.add_field(name="Invite Link:", value="[Here]( https://discordapp.com/api/oauth2/authorize?client_id=507241518524923904&,permissions=8&scope=bot)")
     em.add_field(name="Wanna vote for Like?", value="[Upvote me here](https://discordbots.org/bot/507241518524923904/vote)")
-    em.add_field(name"📷 __Image__", value="``>help image``\n ")
-    em.add_field(name="🔨 __Moderation", value="``>help moderation``\n ")
+    em.add_field(name"📷 __Image__", value="``>help image``")
+    em.add_field(name="🔨 __Moderation", value="``>help moderation``")
     em.add_field(name"😂 __Memes__", value="``>help memes``\n ")
-    em.add_field(name"🛠 __Utility__", value="``>help utility``\n ")
-    em.add_field(name"😁 __Fun__", value="``>help fun``\n ")
-    em.add_field(name"🐶 __Animals__", value="``>help animals``\n ")
-    em.add_field(name"🎲 __Games__", value="``>help games``\n ")
+    em.add_field(name"🛠 __Utility__", value="``>help utility``")
+    em.add_field(name"😁 __Fun__", value="``>help fun``")
+    em.add_field(name"🐶 __Animals__", value="``>help animals``")
+    em.add_field(name"🎲 __Games__", value="``>help games``")
+    em.add_field(name"🆗 __Text__", value="``>help games``")
     em.set_thumbnail(url='https://image.ibb.co/caM2BK/help.gif')
 
 @bot.command(pass_context=True)
