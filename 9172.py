@@ -4447,15 +4447,6 @@ async def tableflip(ctx):
     await asyncio.sleep(0.2)
     await bot.edit_message(msg1, '(╯°□°)╯  ︵  ┻━┻')
 
-@bot.command(pass_context=True)
-async def yomomma(ctx):
-     async with aiohttp.ClientSession() as session:
-        async with session.get("http://api.yomomma.info") as r:
-            res = await r.json()
-
-            embed = discord.Embed(title='I found that', description=res['joke'], color=0xC72323)
-            embed.set_footer(text=f'Requested by: {ctx.message.author.display_name}', icon_url=f'{ctx.message.author.avatar_url}')
-            await bot.say(embed=embed)
 @bot.event
 async def on_message(message):
     await bot.process_commands(message)
