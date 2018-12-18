@@ -4403,7 +4403,8 @@ async def flipcoin(ctx):
 
 @bot.command(pass_context=True)
 async def stats(ctx):
-    embed = discord.Embed(title='This is my status', color=0xC72323)
+    embed = discord.Embed(color=0xC72323)
+    embed.title = 'This is my status'
     embed.set_thumbnail(url=botavatar)
     embed.set_image(url='https://discordbots.org/api/widget/507241518524923904.svg')
     em.set_footer(text=f'Requested by: {ctx.message.author.display_name}', icon_url=f'{ctx.message.author.avatar_url}')
