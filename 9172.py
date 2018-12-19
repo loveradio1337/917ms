@@ -4679,7 +4679,7 @@ async def rainbow(ctx):
 @bot.command(aliases=['rockpaperscissor'], pass_context=True)
 async def rps(ctx):
     userChoice = ctx.message.content.split(" ", 1)
-   userChoice = userChoice[1].lower()
+    userChoice = userChoice[1].lower()
 
     if userChoice != "rock" and userChoice != "paper" and userChoice != "scissors":
         await bot.say("You can only choose from rock, paper or scissors")
