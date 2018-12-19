@@ -4149,7 +4149,7 @@ async def poll(ctx, question, *options: str):
 
         if len(options) == 2 and options[0] == 'yes' and options[1] == 'no':
             reactions = ['☑', '❎']
-\        else:
+        else:
             reactions = [ '1\u20e3', '2\u20e3', '3\u20e3', '4\u20e3', '5\u20e3', '6\u20e3', '7\u20e3', '8\u20e3', '9\u20e3', '\U0001f51f']
 
         description = []
@@ -4189,7 +4189,7 @@ async def on_member_remove(member):
 @bot.command(pass_context=True)
 async def help(ctx):
 
-    embed = discord.Embed(title="Like Command List", description="Use > for each commands.")
+    embed = discord.Embed(title="Like Command List", description="Use > before each commands.")
     embed.add_field(name="Invite Link:", value="[Here]( https://discordapp.com/api/oauth2/authorize?client_id=507241518524923904&,permissions=8&scope=bot)")
     embed.add_field(name="Wanna vote for Like?", value="[Here](https://discordbots.org/bot/507241518524923904/vote)")
     embed.add_field(name="🔨 Moderation Commands ", value="kick, ban, slowclear, warn, decide, secretkick, secretban, clear, slowmode, cslowmode, renamerole, renameserver, nick, textchannel, voicechannel, nickall, renamechannel, emojirename, announce.")
@@ -4200,6 +4200,8 @@ async def help(ctx):
     embed.add_field(name="🐕 Animals Commands ", value="cat, dog, pug, fox, bird, duck")
     embed.add_field(name="🎲 Games Commands ", value="rolldice, flipcoin, slots")
     embed.add_field(name="🆗 Text Commands ", value="fliptable, say, embed")
+    embed.set_footer(text="Use > before each commands!")
+    embed.set_thumbnail(url=botavatar)
     await bot.say(embed=embed)
 
 @bot.command(pass_context = True)
