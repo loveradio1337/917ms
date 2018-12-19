@@ -4189,7 +4189,7 @@ async def on_member_remove(member):
 @bot.command(pass_context=True)
 async def help(ctx):
 
-    embed = discord.Embed(title="Like Command List", description="Use > before each commands.")
+    embed = discord.Embed(title="Like Command List", description="Use > before each commands.", color=0xC72323)
     embed.add_field(name="Invite Link:", value="[Here]( https://discordapp.com/api/oauth2/authorize?client_id=507241518524923904&,permissions=8&scope=bot)")
     embed.add_field(name="Wanna vote for Like?", value="[Here](https://discordbots.org/bot/507241518524923904/vote)")
     embed.add_field(name="🔨 Moderation Commands ", value="kick, ban, slowclear, warn, decide, secretkick, secretban, clear, slowmode, cslowmode, renamerole, renameserver, nick, textchannel, voicechannel, nickall, renamechannel, emojirename, announce.")
@@ -4475,19 +4475,14 @@ async def dicksize(ctx, user: discord.Member):
 @bot.command(pass_context=True)
 async def achievement(ctx, *, achievement: str):
 
-    try:
-        url = f"https://dev.anidiots.guide/generators/achievement?avatar={ctx.message.author.avatar_url_as(format='png')}&text={achievement}"
-        async with aiohttp.ClientSession() as cs:
-            async with cs.get(url, headers={"Authorization": config.idiotic_api}) as r:
-                res = await r.json()
-        file = discord.File(BytesIO(bytes(res["data"])), filename="image.png")
-        em = discord.Embed(color=0xDEADBF)
-        await bot.say(file=file, embed=em.set_image(url="attachment://image.png"))
-        try:
-            await bot.delete_message()
-        except:
-            pass
-    except:
-        await bot.say(f"Failed to get data, `{res['errors'][0]['message']}`")
+    url = f"https://dev.anidiots.guide/generators/achievement?avatar={ctx.message.author.avatar_url_as(format='png')}&text={achievement}"
+    async with aiohttp.ClientSession() as cs:
+        async with cs.get(url, headers={"Authorization": config.idiotic_api}) as r:
+            res = await r.json()
+    file = discord.File(BytesIO(bytes(res["data"])), filename="image.png")
+    em = discord.Embed(color=0xC72323, title="Achievements")
+    em.set_image(url="attachment://image.png")
+    await bot.say(file=file, embed=em)
+
 
 bot.run(os.environ['Token1'])
