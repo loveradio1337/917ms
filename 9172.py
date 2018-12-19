@@ -4475,7 +4475,7 @@ async def dicksize(ctx, user: discord.Member):
 @bot.command(pass_context=True)
 async def achievement(ctx, *, achievement: str):
 
-    url = f"https://dev.anidiots.guide/generators/achievement?avatar={ctx.message.author.avatar_url_as(format='png')}&text={achievement}"
+    url = f"https://dev.anidiots.guide/generators/achievement?avatar={ctx.message.author.avatar_url}&text={achievement}"
     async with aiohttp.ClientSession() as cs:
         async with cs.get(url, headers={"Authorization": config.idiotic_api}) as r:
             res = await r.json()
