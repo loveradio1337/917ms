@@ -1850,31 +1850,31 @@ async def bomb(ctx, user: discord.Member = None):
 # Slap
 
 
-@bot.command(pass_context=True)
+#@bot.command(pass_context=True)
 
 
-async def slap(ctx, user: discord.Member = None):
+#async def slap(ctx, user: discord.Member = None):
 
 
-    gifs = ["http://rs20.pbsrc.com/albums/b217/strangething/flurry-of-blows.gif?w=280&h=210&fit=crop", "https://media.giphy.com/media/LB1kIoSRFTC2Q/giphy.gif", "https://i.imgur.com/4MQkDKm.gif"]
+    #gifs = ["http://rs20.pbsrc.com/albums/b217/strangething/flurry-of-blows.gif?w=280&h=210&fit=crop", "https://media.giphy.com/media/LB1kIoSRFTC2Q/giphy.gif", "https://i.imgur.com/4MQkDKm.gif"]
 
 
-    if user == None:
+    #if user == None:
 
 
-        await bot.say(f"{ctx.message.author.mention} ```Proper usage is\n\n>slap <mention a user>```")
+        #await bot.say(f"{ctx.message.author.mention} ```Proper usage is\n\n>slap <mention a user>```")
 
 
-    else:
+    #else:
 
 
-        embed = discord.Embed(title=f"{ctx.message.author.name} Just slapped the shit out of {user.name}!", color=0xC72323)
+        #embed = discord.Embed(title=f"{ctx.message.author.name} Just slapped the shit out of {user.name}!", color=0xC72323)
 
 
-        embed.set_image(url=random.choice(gifs))
+        #embed.set_image(url=random.choice(gifs))
 
 
-        await bot.say(embed=embed)
+        #await bot.say(embed=embed)
 
 # Report
 
@@ -4193,13 +4193,13 @@ async def help(ctx):
     embed.add_field(name="Invite Link:", value="[Here]( https://discordapp.com/api/oauth2/authorize?client_id=507241518524923904&,permissions=8&scope=bot)")
     embed.add_field(name="Wanna vote for Like?", value="[Here](https://discordbots.org/bot/507241518524923904/vote)")
     embed.add_field(name="🔨 Moderation Commands ", value="kick, ban, slowclear, warn, decide, secretkick, secretban, clear, slowmode, cslowmode, renamerole, renameserver, nick, textchannel, voicechannel, nickall, renamechannel, emojirename, announce.")
-    embed.add_field(name="🛠 Utility Commands ", value="userinfo, botinfo, serverinfo, servercount, embedcode, codeinfo, serverowner, statcheck, gamecheck, channelinfo, emojis, membernames, invite, randomnumber, customrandomnumber, stringgen, avatar, qr, ytsearch, google , encode, poll, botsearch, topbots, vote")
+    embed.add_field(name="🛠 Utility Commands ", value="userinfo, botinfo, serverinfo, servercount, embedcode, codeinfo, serverowner, statcheck, gamecheck, channelinfo, emojis, membernames, invite, randomnumber, customrandomnumber, stringgen, avatar, qr, ytsearch, google , encode, poll, botsearch, topbots, vote, choose")
     embed.add_field(name="😁 Fun Commands ", value="8ball, gender, fbi, skincolor, hack, bomb, whois, hairdye, heigth, talentcheck, howto, autistcheck, asktrump, howgay, dicksize")
     embed.add_field(name="😂 Memes Command ", value="yomomma, joke, dadjoke, meme, pun")
-    embed.add_field(name="📷 Image Commands ", value="tweet, trumptweet, ship, awooify, damn, burned, hug, achievement")
+    embed.add_field(name="📷 Image Commands ", value="tweet, trumptweet, ship, awooify, damn, burned, hug, slap, kill")
     embed.add_field(name="🐕 Animals Commands ", value="cat, dog, pug, fox, bird, duck")
     embed.add_field(name="🎲 Games Commands ", value="rolldice, flipcoin, slots")
-    embed.add_field(name="🆗 Text Commands ", value="fliptable, say, embed")
+    embed.add_field(name="🆗 Text Commands ", value="fliptable, say, embed, face")
     embed.set_footer(text="Use > before each commands!")
     embed.set_thumbnail(url=botavatar)
     await bot.say(embed=embed)
@@ -4481,6 +4481,52 @@ async def spam(ctx, count: int, *, mspam: str):
             await bot.say(mspam)
     else:
         embed = discord.Embed(title=noperm, color=0xC72323)
+        await bot.say(embed=embed)
+
+@bot.command(pass_context=True)
+async def face(ctx):
+    faces=["¯\_(ツ)_/¯", "̿̿ ̿̿ ̿̿ ̿'̿'\̵͇̿̿\З= ( ▀ ͜͞ʖ▀) =Ε/̵͇̿̿/’̿’̿ ̿ ̿̿ ̿̿ ̿̿", "( ͡°( ͡° ͜ʖ( ͡° ͜ʖ ͡°)ʖ ͡°) ͡°)", "ʕ•ᴥ•ʔ", "(▀̿Ĺ̯▀̿ ̿)", "(ง ͠° ͟ل͜ ͡°)ง", "༼ つ ◕_◕ ༽つ", "ಠ_ಠ", "(づ｡◕‿‿◕｡)づ", "̿'̿'\̵͇̿̿\З=( ͠° ͟ʖ ͡°)=Ε/̵͇̿̿/'̿̿ ̿ ̿ ̿ ̿ ̿", "(ﾉ◕ヮ◕)ﾉ*:･ﾟ✧ ✧ﾟ･: *ヽ(◕ヮ◕ヽ)", "┬┴┬┴┤ ͜ʖ ͡°) ├┬┴┬┴", "( ͡°╭͜ʖ╮͡° )", "(͡ ͡° ͜ つ ͡͡°)", "(• ε •)", "(ง'̀-'́)ง", "(ಥ﹏ಥ)", "(ノಠ益ಠ)ノ彡┻━┻", "[̲̅$̲̅(̲̅ ͡° ͜ʖ ͡°̲̅)̲̅$̲̅]", "(ﾉ◕ヮ◕)ﾉ*:･ﾟ✧", "(☞ﾟ∀ﾟ)☞", "| (• ◡•)| (❍ᴥ❍ʋ)", "(◕‿◕✿)", "(ᵔᴥᵔ)", "(¬‿¬)", "(☞ﾟヮﾟ)☞ ☜(ﾟヮﾟ☜)", "(づ￣ ³￣)づ", "ლ(ಠ益ಠლ)", "ಠ╭╮ಠ", "̿ ̿ ̿'̿'\̵͇̿̿\з=(•_•)=ε/̵͇̿̿/'̿'̿ ̿", "(;´༎ຶД༎ຶ`)", "༼ つ  ͡° ͜ʖ ͡° ༽つ", "(╯°□°）╯︵ ┻━┻"]
+    face=random.choice(faces)
+    await bot.say(face)
+
+@bot.command(pass_context=True)
+async def choose(ctx, *, choices : str):
+    await bot.say(random.choice(choices))
+
+@bot.command(pass_context=True)
+async def kill(ctx, *, member: discord.Member = None):
+    if member is None:
+        embed=discord.Embed(title="No one to kill!", description="You havent mentioned anyone to kill!", color=0xC72323)
+        embed.set_thumbnail(url="http://i.imgur.com/6YToyEF.png")
+        await bot.say(embed=embed)
+    elif member.id == ctx.message.author.id:
+        embed=discord.Embed(title="Call this number", description="1-800-784-2433", color=0xC72323)
+        embed.set_thumbnail(url="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/NHS-Logo.svg/1200px-NHS-Logo.svg.png")
+        embed.set_image(url="http://4.bp.blogspot.com/-FL6mKTZOk94/UBb_9EuAYNI/AAAAAAAAOco/JWsTlyInMeQ/s400/Jean+Reno.gif")
+        embed.set_footer(text=f'Requested by: {ctx.message.author.display_name}', icon_url=f'{ctx.message.author.avatar_url}')
+        await bot.say(embed=embed)
+    else:
+        embed=discord.Embed(title="Killed!", description="{} Was killed by {} OOF ".format(member.mention, ctx.message.author.name),color=0xC72323)
+        embed.set_image(url="https://media.giphy.com/media/kOA5F569qO4RG/giphy.gif")
+        await bot.say(embed=embed)
+
+@bot.command(pass_context=True)
+async def slap(ctx, *, member: discord.Member = None):
+    if member is None:
+        embed=discord.Embed(title="No one to slap!", description="You havent mentioned anyone to slap!", color=0xC72323)
+        embed.set_thumbnail(url="http://i.imgur.com/6YToyEF.png")
+        embed.set_footer(text=f'Requested by: {ctx.message.author.display_name}', icon_url=f'{ctx.message.author.avatar_url}')
+        await bot.say(embed=embed)
+    elif member.id == ctx.message.author.id:
+        embed=discord.Embed(title="Call this number", description="1-800-784-2433", color=0xC72323)
+        embed.set_thumbnail(url="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/NHS-Logo.svg/1200px-NHS-Logo.svg.png")
+        embed.set_image(url="https://media.giphy.com/media/pVi6sMBJhJ0E8/giphy.gif")
+        embed.set_footer(text=f'Requested by: {ctx.message.author.display_name}', icon_url=f'{ctx.message.author.avatar_url}')
+        await bot.say(embed=embed)
+    else:
+        embed=discord.Embed(title="slapped!", description="{} Was slapped by {} OOF ".format(member.mention, ctx.message.author.name),color=0xC72323)
+        embed.set_image(url="https://media.giphy.com/media/jLeyZWgtwgr2U/giphy.gif")
+        embed.set_footer(text=f'Requested by: {ctx.message.author.display_name}', icon_url=f'{ctx.message.author.avatar_url}')
         await bot.say(embed=embed)
 
 bot.run(os.environ['Token1'])
