@@ -4195,8 +4195,8 @@ async def help(ctx):
     embed = discord.Embed(title="Like Command List", description="Use > before each commands.", color=0xC72323)
     embed.add_field(name="Invite Link:", value="[Here]( https://discordapp.com/api/oauth2/authorize?client_id=507241518524923904&,permissions=8&scope=bot)")
     embed.add_field(name="Wanna vote for Like?", value="[Here](https://discordbots.org/bot/507241518524923904/vote)")
-    embed.add_field(name="🔨 Moderation Commands ", value="kick, ban, slowclear, warn, decide, secretkick, secretban, clear, slowmode, cslowmode, renamerole, renameserver, nick, textchannel, voicechannel, nickall, renamechannel, emojirename, announce, rainbow")
-    embed.add_field(name="🛠 Utility Commands ", value="userinfo, botinfo, serverinfo, servercount, embedcode, codeinfo, serverowner, statcheck, gamecheck, channelinfo, emojis, membernames, roleinfo, invite, randomnumber, customrandomnumber, stringgen, avatar, qr, ytsearch, google , encode, poll, botsearch, topbots, vote, choose")
+    embed.add_field(name="🔨 Moderation Commands ", value="kick, ban, slowclear, warn, decide, secretkick, secretban, clear, slowmode, cslowmode, renamerole, renameserver, nick, textchannel, voicechannel, nickall, renamechannel, emojirename, announce")
+    embed.add_field(name="🛠 Utility Commands ", value="userinfo, botinfo, serverinfo, servercount, embedcode, codeinfo, serverowner, statcheck, gamecheck, channelinfo, emojis, membernames, roleinfo, invite, randomnumber, customrandomnumber, stringgen, avatar, qr, ytsearch, google , encode, poll, botsearch, topbots, vote, choose, rainbow")
     embed.add_field(name="😁 Fun Commands ", value="8ball, gender, fbi, skincolor, hack, virus, bomb, whois, hairdye, heigth, talentcheck, howto, autistcheck, asktrump, howgay, dicksize")
     embed.add_field(name="😂 Memes Command ", value="yomomma, joke, dadjoke, meme, pun")
     embed.add_field(name="📷 Image Commands ", value="tweet, trumptweet, ship, awooify, damn, burned, hug, slap, kill")
@@ -4494,7 +4494,10 @@ async def face(ctx):
 
 @bot.command(pass_context=True)
 async def choose(ctx, *, choices : str):
-    await bot.say(random.choice(choices))
+    t = str(ctx.message.content).split(" ", 1)[1]
+    temp = t.split(",")
+    r = random.randint(0, len(temp) - 1)
+    await bot.say("I choose... **{}** :thinking:".format(temp[r]))
 
 @bot.command(pass_context=True)
 async def kill(ctx, *, member: discord.Member = None):
@@ -4666,13 +4669,46 @@ async def virus(ctx, user: discord.Member=None, *, hack=None):
         await bot.send_message(name,'**Alert!**\n``You may have been hacked. {}-virus.exe has been found in your system\'s operating system.\nYour data may have been compromised. Please re-install your OS immediately.``'.format(hack))
 
 @bot.command(pass_context=True)
-async def rainbow(ctx, *, role: discord.Role):
+async def rainbow(ctx):
+    role = discord.utils.get(ctx.message.server.roles, name='Rainbow')
 
-    if ctx.message.author.server_permissions.manage_roles:
+    r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
 
-    colour = ''.join([choice('0123456789ABCDEF') for x in range(6)])
-    colour = int(colour, 16)
-    await bot.edit_role(ctx.message.server, role, colour=discord.Colour(value=colour))
-    await asyncio.sleep(5.0)
+    await bot.edit_role(role, ctx.message.server, color = discord.Color((r << 16) + (g << 8) + b))	
+
+@bot.command(aliases=['rockpaperscissor']pass_context=True)
+async def rps(ctx):
+    userChoice = ctx.message.content.split(" ", 1)
+   userChoice = userChoice[1].lower()
+
+    if userChoice != "rock" and userChoice != "paper" and userChoice != "scissors":
+        await bot.say("You can only choose from rock, paper or scissors")
+    else:
+        temp = random.randint(1, 3)
+        if temp == 1:
+            botChoice = "rock"
+        elif temp == 2:
+            botChoice = "paper"
+        elif temp == 3:
+            botChoice = "scissors"
+
+       #This is kind of ugly but it works
+        if userChoice == botChoice:
+            await bot.say("I choose **{}**. The game was a tie!".format(botChoice))
+        elif userChoice == "rock":
+            if botChoice == "paper":
+                await bot.say("I choose **{}**. I win!".format(botChoice))
+            elif botChoice == "scissors":
+                await bot.say("I choose **{}**. You win!".format(botChoice))
+        elif userChoice == "paper":
+            if botChoice == "scissors":
+                await bot.say("I choose **{}**. I win!".format(botChoice))
+            elif botChoice == "rock":
+                await bot.say("I choose **{}**. You win!".format(botChoice))
+        elif userChoice == "scissors":
+            if botChoice == "rock":
+                await bot.say("I choose **{}**. I win!".format(botChoice))
+            elif botChoice == "paper":
+                await bot.say("I choose **{}**. You win!".format(botChoice))
 
 bot.run(os.environ['Token1'])
