@@ -142,9 +142,7 @@ total_variables = "Undefined"
 total_imports = "Undefined"
 
 
-total_dogs = "872"
-
-DMs = "```I just wrote 📝 you the information, Please check your DMs 💌```"
+DMs = "`I just wrote 📝 you the information, Please check your DMs?)`"
 
 
 
@@ -152,7 +150,7 @@ total_links = "Undefined"
 
 
 
-total_dad_jokes = "382"
+total_dad_jokes = "10k+"
 
 
 changelogs = "To view the change log please use the command `>changelog`"
@@ -171,52 +169,9 @@ key = 'q8Di3LCIL0Qny7IiwN3jxfyBuY37c9nk'
 secondnoperm = "You probally have no permission to use this command or i don't have permission to do what you want me to do"
 
 
-botavatar = "https://cdn.discordapp.com/avatars/507241518524923904/dea61e2eb1de8f94e8460d707bfe0d08.webp?size=1024"
+botavatar = 'https://cdn.discordapp.com/avatars/507241518524923904/dea61e2eb1de8f94e8460d707bfe0d08.webp?size=1024'
 
 dbl_url = "https://discordbots.org/api/bots/507241518524923904/stats"
-
-
-
-
-
-
-#chatbot = ChatBot 'Like',
-
-
- #   storage_adapter='chatterbot.storage.SQLStorageAdapter',
-
-
-  #  trainer='chatterbot.trainers.ChatterBotCorpusTrainer',
-
-
-   # #input_adapter='chatterbot.input.TerminalAdapter',
-
-
-    ##output_adapter='chatterbot.output.TerminalAdapter',
-
-
-    #logic_adapters=[
-
-
-     #   'chatterbot.logic.MathematicalEvaluation',
-
-
-    #    'chatterbot.logic.TimeLogicAdapter',
-
-
-     #   "chatterbot.logic.BestMatch"
-
-
-    #],
-
-
-    #database='./database.sqlite3',
-
-
-#)
-
-
-
 
 
 # Remove help
@@ -703,7 +658,7 @@ async def servercount(ctx):
 async def avatar(ctx, user: discord.Member):
 
 
-    embed = discord.Embed(title="{}'s Avatar.'".format(user.name), color=0xC72323)
+    embed = discord.Embed(title="{}'s Avatar.".format(user.name), color=0xC72323)
 
 
     embed.set_image(url=user.avatar_url)
@@ -941,11 +896,6 @@ async def embed(ctx, *, what_to_say : str):
 
 
     embed2 = discord.Embed(title=f"{ctx.message.author.name} Said : ", description=what_to_say, color=randomizer)
-
-
-    await bot.delete_message(ctx.message)
-
-
     await bot.say(embed=embed2)
 
 
@@ -1343,7 +1293,7 @@ async def encode(ctx, *, encode_to: str):
 
         await bot.say(f"Could not encode.\n`{e}`")
 
-
+@bot.command(pass_context=True)
 async def clear(ctx, amount = 1000):
 
 
@@ -1363,7 +1313,7 @@ async def clear(ctx, amount = 1000):
 
 
         await bot.delete_messages(mgs)
-        await bot.say(str(amount) + ' messages got deleted...')
+        await bot.say(str(amount) + ' messages got deleted...', delete_after=5)
 
     else:
 
@@ -1975,16 +1925,14 @@ async def whois(ctx, user: discord.Member = None):
     else:
 
 
-        lolwho = ["Is a worker at Mcdonalds", "Is the person staring at you right now", "Is behind you", "Is your mom", "Is your dad",
-                  "Is the random guy you see in the streets everyday", "Is your past life", "Is me", "Is the person who took your virginity",
-                  "Is the guy who get all the bitches", "Is gay", "Is a boy", "Is a girl", "Is about to die", "Is retarded", "Hates you",
-                  "Is the guy next to your house", "Is the guy who stole your girl"]
+        lolwho = ["Is a worker at Mcdonalds", "Is the person staring at you right now", "Is behind you", "Is your mom", "Is your dad", "Is the random guy you see in the streets everyday", "Is your past life", "Is me", "Is the person who took your virginity", "Is the guy who get all the bitches", "Is gay", "Is a boy", "Is a girl", "Is about to die", "Is retarded", "Hates you", "Is the guy next to your house", "Is the guy who stole your girl", "Is suck"]
 
         random.seed(user.id)
 
-        embed = discord.Embed(title=f"{user.name} {random.choice(lolwho)}", color=0xC72323)
-
-
+        embed = discord.Embed(color=0xC72323)
+        embed.set_author=f"{user.name}", icon_url=f"{user.avatar_url}"
+        embed.description = f"{random.choice(lolwho)}"
+        footer(f"Requested by: {ctx.message.author.display_name}", embed), icon_url=f'{ctx.message.author.avatar_url}')
         await bot.say(embed=embed)
 
 
@@ -2000,9 +1948,10 @@ async def rolldice(ctx):
     dice = ["1", "2", "3", "4", "5", "6"]
 
 
-    embed = discord.Embed(title=f"{ctx.message.author.name} Just rolled the dice and got {random.choice(dice)}", color=0xC72323)
-
-
+    embed = discord.Embed(color=0xC72323)
+            embed.set_author=f"{ctx.message.author.name} Just rolled the dice and got", icon_url=f"{ctx.message.author.avatar_url}"
+    embed.description = f"{random.choice(dice)}"
+    embed.set_thumbnail(url"https://giphy.com/stickers/rae-sremmurd-JCkYmo4PFYxK8")
     await bot.say(embed=embed)
 
 
@@ -4196,12 +4145,12 @@ async def help(ctx):
     embed.add_field(name="Invite Link:", value="[Here]( https://discordapp.com/api/oauth2/authorize?client_id=507241518524923904&,permissions=8&scope=bot)")
     embed.add_field(name="Wanna vote for Like?", value="[Here](https://discordbots.org/bot/507241518524923904/vote)")
     embed.add_field(name="🔨 Moderation Commands ", value="kick, ban, slowclear, warn, decide, secretkick, secretban, clear, slowmode, cslowmode, renamerole, renameserver, nick, textchannel, voicechannel, nickall, renamechannel, emojirename, announce")
-    embed.add_field(name="🛠 Utility Commands ", value="userinfo, botinfo, serverinfo, servercount, embedcode, codeinfo, serverowner, statcheck, gamecheck, channelinfo, emojis, membernames, roleinfo, invite, randomnumber, customrandomnumber, stringgen, avatar, qr, ytsearch, google , encode, poll, botsearch, topbots, vote, choose, rainbow")
+    embed.add_field(name="🛠 Utility Commands ", value="userinfo, botinfo, serverinfo, servercount, embedcode, codeinfo, serverowner, statcheck, gamecheck, channelinfo, emojis, membernames, roleinfo, invite, randomnumber, customrandomnumber, stringgen, avatar, qr, ytsearch, google , encode, poll, botsearch, topbots, vote, choose")
     embed.add_field(name="😁 Fun Commands ", value="8ball, gender, fbi, skincolor, hack, virus, bomb, whois, hairdye, heigth, talentcheck, howto, autistcheck, asktrump, howgay, dicksize")
     embed.add_field(name="😂 Memes Command ", value="yomomma, joke, dadjoke, meme, pun")
     embed.add_field(name="📷 Image Commands ", value="tweet, trumptweet, ship, awooify, damn, burned, hug, slap, kill")
     embed.add_field(name="🐕 Animals Commands ", value="cat, dog, pug, fox, bird, duck")
-    embed.add_field(name="🎲 Games Commands ", value="rolldice, flipcoin, slots")
+    embed.add_field(name="🎲 Games Commands ", value="rolldice, flipcoin, slots, rps")
     embed.add_field(name="🆗 Text Commands ", value="fliptable, say, embed, face")
     embed.set_footer(text="Use > before each commands!")
     embed.set_thumbnail(url=botavatar)
@@ -4636,7 +4585,7 @@ async def virus(ctx, user: discord.Member=None, *, hack=None):
         hack = hack.replace(' ','_')
     channel = ctx.message.channel
     vrs = await bot.send_message(channel, '``[▓▓▓                    ] / {}-virus.exe Packing files.``'.format(hack))
-    await asyncio.sleep(1.5)
+    await asyncio.sleep(1)
     vrs = await bot.edit_message(vrs,'``[▓▓▓▓▓▓▓                ] - {}-virus.exe Packing files..``'.format(hack))
     await asyncio.sleep(0.3)
     vrs = await bot.edit_message(vrs,'``[▓▓▓▓▓▓▓▓▓▓▓▓           ] \ {}-virus.exe Packing files...``'.format(hack))
@@ -4644,7 +4593,7 @@ async def virus(ctx, user: discord.Member=None, *, hack=None):
     vrs = await bot.edit_message(vrs,'``[▓▓▓▓▓▓▓▓▓▓▓▓▓▓         ] | {}-virus.exe Initializing code.``'.format(hack))
     await asyncio.sleep(1)
     vrs = await bot.edit_message(vrs,'``[▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓      ] / {}-virus.exe Initializing code..``'.format(hack))
-    await asyncio.sleep(1.5)
+    await asyncio.sleep(1)
     vrs = await bot.edit_message(vrs,'``[▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓   ] - {}-virus.exe Finishing.``'.format(hack))
     await asyncio.sleep(1)
     vrs = await bot.edit_message(vrs,'``[▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ ] \ {}-virus.exe Finishing..``'.format(hack))
@@ -4658,23 +4607,16 @@ async def virus(ctx, user: discord.Member=None, *, hack=None):
     vrs = await bot.edit_message(vrs,'``Injecting virus... -``')
     await asyncio.sleep(0.5)
     vrs = await bot.edit_message(vrs,'``Injecting virus....\``')
-    await bot.delete_message(x)
+    await bot.delete_message(vrs)
     await bot.delete_message(ctx.message)
         
     if user:
         await bot.say('`{}-virus.exe` successfully injected into **{}**\'s system.'.format(hack,user.name))
-        await bot.send_message(user,'**Alert!**\n``You may have been hacked. {}-virus.exe has been found in your system\'s operating system.\nYour data may have been compromised. Please re-install your OS immediately.``'.format(hack))
+        await bot.send_message(user, '**Alert!**\n``You may have been hacked. {}-virus.exe has been found in your system\'s operating system.\nYour data may have been compromised. Please re-install your OS immediately.``'.format(hack))
     else:
         await bot.say('**{}** has hacked himself ¯\_(ツ)_/¯.'.format(name.name))
         await bot.send_message(name,'**Alert!**\n``You may have been hacked. {}-virus.exe has been found in your system\'s operating system.\nYour data may have been compromised. Please re-install your OS immediately.``'.format(hack))
-
-@bot.command(pass_context=True)
-async def rainbow(ctx):
-    role = discord.utils.get(ctx.message.server.roles, name='Rainbow')
-
-    r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
-
-    await bot.edit_role(role, ctx.message.server, color = discord.Color((r << 16) + (g << 8) + b))	
+	
 
 @bot.command(aliases=['rockpaperscissor'], pass_context=True)
 async def rps(ctx):
@@ -4682,7 +4624,7 @@ async def rps(ctx):
     userChoice = userChoice[1].lower()
 
     if userChoice != "rock" and userChoice != "paper" and userChoice != "scissors":
-        await bot.say("You can only choose from rock, paper or scissors")
+        await bot.say("You can only choose from `rock`, `paper` or `scissors`", delete_after=5)
     else:
         temp = random.randint(1, 3)
         if temp == 1:
