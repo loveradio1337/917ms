@@ -4387,9 +4387,9 @@ async def pun(ctx):
     async with aiohttp.ClientSession() as session:
         async with session.get(pun_url) as data:
             pun_req = await data.text()
-            pun_text = pun_req.split(' ')[1]
+            pun_text = pun_req.split('&quot;')[1]
     embed = discord.Embed(color=0xC72323)
-    embed.add_field(name='Have A Pun', value='```\n' + pun_text + '\n```')
+    embed.add_field(name='😒 Have A Pun', value='```\n' + pun_text + '\n```')
     embed.set_footer(text=f'Requested by: {ctx.message.author.display_name}', icon_url=f'{ctx.message.author.avatar_url}')
     await bot.say(embed=embed)
 		
@@ -4473,16 +4473,14 @@ async def dicksize(ctx, user: discord.Member):
     await bot.say(embed=embed)
 
 @bot.command(pass_context=True)
-async def achievement(ctx, *, achievement: str):
-
-    url = f"https://dev.anidiots.guide/generators/achievement?avatar={ctx.message.author.avatar_url}&text={achievement}"
-    async with aiohttp.ClientSession() as cs:
-        async with cs.get(url, headers={"Authorization": config.idiotic_api}) as r:
-            res = await r.json()
-    file = discord.File(BytesIO(bytes(res["data"])), filename="image.png")
-    em = discord.Embed(color=0xC72323, title="Achievements")
-    em.set_image(url="attachment://image.png")
-    await bot.say(file=file, embed=em)
-
+async def spam(ctx, count: int, *, mspam: str):
+    if ctx.message.author.id == OWNER_ID:
+        await bot.delete_message(ctx.message)
+        for i in range(count):
+            await asyncio.sleep(0.10)
+            await bot.say(mspam)
+    else:
+        embed = discord.Embed(title=noperm, color=0xC72323)
+        await bot.say(embed=embed)
 
 bot.run(os.environ['Token1'])
