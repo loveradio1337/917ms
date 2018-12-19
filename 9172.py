@@ -4668,14 +4668,11 @@ async def virus(ctx, user: discord.Member=None, *, hack=None):
 @bot.command(pass_context=True)
 async def rainbow(ctx, *, role: discord.Role):
 
-    try:
+    if ctx.message.author.server_permissions.manage_roles:
 
-
-        if ctx.message.author.server_permissions.manage_roles:
-
-        colour = ''.join([choice('0123456789ABCDEF') for x in range(6)])
-        colour = int(colour, 16)
-        await bot.edit_role(ctx.message.server, role, colour=discord.Colour(value=colour))
-        await asyncio.sleep(5.0)
+    colour = ''.join([choice('0123456789ABCDEF') for x in range(6)])
+    colour = int(colour, 16)
+    await bot.edit_role(ctx.message.server, role, colour=discord.Colour(value=colour))
+    await asyncio.sleep(5.0)
 
 bot.run(os.environ['Token1'])
