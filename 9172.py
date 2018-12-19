@@ -4133,7 +4133,10 @@ async def on_message(message):
 
         await bot.send_message(message.channel, '{} ```Proper usage is\n\n>poll "Add title" "Option 1" "Option 2" "up to 10 Options only"```'.format(message.author.mention))
 
+    if message.content == ">rainbow":
 
+
+        await bot.send_message(message.channel, '{} ```Proper usage is\n\n>rainbow <mention a role>\n\nMake sure capitalization and everything else is correct```'.format(message.author.mention))
 
     await bot.process_commands(message)
 
@@ -4192,7 +4195,7 @@ async def help(ctx):
     embed = discord.Embed(title="Like Command List", description="Use > before each commands.", color=0xC72323)
     embed.add_field(name="Invite Link:", value="[Here]( https://discordapp.com/api/oauth2/authorize?client_id=507241518524923904&,permissions=8&scope=bot)")
     embed.add_field(name="Wanna vote for Like?", value="[Here](https://discordbots.org/bot/507241518524923904/vote)")
-    embed.add_field(name="🔨 Moderation Commands ", value="kick, ban, slowclear, warn, decide, secretkick, secretban, clear, slowmode, cslowmode, renamerole, renameserver, nick, textchannel, voicechannel, nickall, renamechannel, emojirename, announce.")
+    embed.add_field(name="🔨 Moderation Commands ", value="kick, ban, slowclear, warn, decide, secretkick, secretban, clear, slowmode, cslowmode, renamerole, renameserver, nick, textchannel, voicechannel, nickall, renamechannel, emojirename, announce, rainbow")
     embed.add_field(name="🛠 Utility Commands ", value="userinfo, botinfo, serverinfo, servercount, embedcode, codeinfo, serverowner, statcheck, gamecheck, channelinfo, emojis, membernames, roleinfo, invite, randomnumber, customrandomnumber, stringgen, avatar, qr, ytsearch, google , encode, poll, botsearch, topbots, vote, choose")
     embed.add_field(name="😁 Fun Commands ", value="8ball, gender, fbi, skincolor, hack, virus, bomb, whois, hairdye, heigth, talentcheck, howto, autistcheck, asktrump, howgay, dicksize")
     embed.add_field(name="😂 Memes Command ", value="yomomma, joke, dadjoke, meme, pun")
@@ -4661,5 +4664,18 @@ async def virus(ctx, user: discord.Member=None, *, hack=None):
     else:
         await bot.say('**{}** has hacked himself ¯\_(ツ)_/¯.'.format(name.name))
         await bot.send_message(name,'**Alert!**\n``You may have been hacked. {}-virus.exe has been found in your system\'s operating system.\nYour data may have been compromised. Please re-install your OS immediately.``'.format(hack))
+
+@bot.command(pass_context=True)
+async def rainbow(ctx, *, role: discord.Role):
+
+    try:
+
+
+        if ctx.message.author.server_permissions.manage_roles:
+
+        colour = ''.join([choice('0123456789ABCDEF') for x in range(6)])
+        colour = int(colour, 16)
+        await bot.edit_role(ctx.message.server, role, colour=discord.Colour(value=colour))
+        await asyncio.sleep(5.0)
 
 bot.run(os.environ['Token1'])
