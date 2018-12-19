@@ -3978,64 +3978,10 @@ async def on_message(message):
 
 
         await bot.delete_message(message)
-
-    if message.content == ">help moderation":
-
-        embed = discord.Embed(title="🔨 Moderation Commands 🔨", description="kick, ban, slowclear, warn, decide, secretkick, secretban, clear, slowmode, cslowmode, renamerole, renameserver, nick, textchannel, voicechannel, nickall, renamechannel, emojirename, announce.", color=0xC72323)
-        embed.set_footer(text="Use > before each commands!")
-        await bot.send_message(embed=embed)
-
-    if message.content == ">help utility":
-
-        embed = discord.Embed(title="🛠 Utility Commands 🛠", description="userinfo, botinfo, serverinfo, servercount, embedcode, codeinfo, serverowner, statcheck, gamecheck, channelinfo, emojis, membernames, invite, randomnumber, customrandomnumber, stringgen, avatar, qr, ytsearch, google , encode, poll, botsearch, topbots, vote", color=0xC72323)
-        embed.set_footer(text="Use > before each commands!")
-
-        await bot.send_message(embed=embed)
+    if message.content.startswith(">help"):
 
 
-    if message.content == ">help fun":
-        embed = discord.Embed(title="😁 Fun Commands 😁", description="8ball, gender, fbi, skincolor, hack, bomb, whois, hairdye, heigth, talentcheck, howto, autistcheck, asktrump, howgay, dicksize", color=0xC72323)
-        embed.set_footer(text="Use > before each commands!")
-        await bot.send_message(embed=embed)
-
-    if message.content == ">help memes":
-        embed = discord.Embed(title="😂 Memes Command 😂", description="yomomma, joke, dadjoke, meme, pun", color=0xC72323)
-        embed.set_footer(text="Use > before each commands!")
-        await bot.send_message(embed=embed)
-
-    if message.content == ">help image":
-        embed = discord.Embed(title="📷 Image Commands 📷", description="tweet, trumptweet, ship, awooify, damn, burned, hug", color=0xC72323)
-        embed.set_footer(text="Use > before each commands!")
-        await bot.send_message(message.channel, embed=embed)
-    if message.content == ">help animals":
-        embed = discord.Embed(title="🐕 Animals Commands 🐈", description="cat, dog, pug, fox, bird, duck", color=0xC72323)
-        embed.set_footer(text="Use > before each commands!")
-        await bot.send_message(embed=embed)
-
-    if message.content == ">help games":
-        embed = discord.Embed(title="🎲 Games Commands 🎲", description="rolldice, flipcoin, slots", color=0xC72323)
-        embed.set_footer(text="Use > before each commands!")
-        await bot.send_message(embed=embed)
-
-    if message.content == ">help":
-        embed = discord.Embed(title="Like Help Commands 2018", description='The prefix is > or mention me', color=0xC72323)
-        embed.add_field(name="Invite Link:", value="[Here]( https://discordapp.com/api/oauth2/authorize?client_id=507241518524923904&,permissions=8&scope=bot)")
-        embed.add_field(name="Wanna vote for Like?", value="[Upvote me here](https://discordbots.org/bot/507241518524923904/vote)")
-        embed.add_field(name="📷 __Image__", value="`>help image`\n ")
-        embed.add_field(name="🔨 __Moderation__", value="`>help moderation`\n ")
-        embed.add_field(name="😂 __Memes__", value="`>help memes`\n ")
-        embed.add_field(name="🛠 __Utility__", value="`>help utility`\n ")
-        embed.add_field(name="😁 __Fun__", value="`>help fun`")
-        embed.add_field(name="🐶 __Animals__", value="`>help animals`\n ")
-        embed.add_field(name="🎲 __Games__", value="`>help games`\n ")
-        embed.add_field(name="🆗 __Text__", value="`>help games`\n ")
-        embed.set_thumbnail(url='https://image.ibb.co/caM2BK/help.gif')
-        await bot.send_message(embed=embed)
-
-    if message.content == ">help text":
-        embed = discord.Embed(title="🆗 Text Commands 🆗", description="fliptable, say, embed", color=0xC72323)
-        embed.set_footer(text="Use > before each commands!")
-        await bot.send_message(embed=embed)
+        await bot.delete_message(message)
 
     if message.content == ">kick":
 
@@ -4202,8 +4148,8 @@ async def poll(ctx, question, *options: str):
             return
 
         if len(options) == 2 and options[0] == 'yes' and options[1] == 'no':
-            reactions = ['👍', '👎']
-        else:
+            reactions = ['☑', '❎']
+\        else:
             reactions = [ '1\u20e3', '2\u20e3', '3\u20e3', '4\u20e3', '5\u20e3', '6\u20e3', '7\u20e3', '8\u20e3', '9\u20e3', '\U0001f51f']
 
         description = []
@@ -4238,6 +4184,23 @@ async def on_member_remove(member):
             embed.add_field(name='__User left__', value='**We hope you will be back soon 🙋.**', inline=True)
             embed.set_thumbnail(url=member.avatar_url)
             await bot.send_message(channel, embed=embed)
+
+# help
+@bot.command(pass_context=True)
+async def help(ctx):
+
+    embed = discord.Embed(title="Like Command List", description="Use > for each commands.")
+    embed.add_field(name="Invite Link:", value="[Here]( https://discordapp.com/api/oauth2/authorize?client_id=507241518524923904&,permissions=8&scope=bot)")
+    embed.add_field(name="Wanna vote for Like?", value="[Here](https://discordbots.org/bot/507241518524923904/vote)")
+    embed.add_field(name="🔨 Moderation Commands ", value="kick, ban, slowclear, warn, decide, secretkick, secretban, clear, slowmode, cslowmode, renamerole, renameserver, nick, textchannel, voicechannel, nickall, renamechannel, emojirename, announce.")
+    embed.add_field(name="🛠 Utility Commands ", value="userinfo, botinfo, serverinfo, servercount, embedcode, codeinfo, serverowner, statcheck, gamecheck, channelinfo, emojis, membernames, invite, randomnumber, customrandomnumber, stringgen, avatar, qr, ytsearch, google , encode, poll, botsearch, topbots, vote")
+    embed.add_field(name="😁 Fun Commands ", value="8ball, gender, fbi, skincolor, hack, bomb, whois, hairdye, heigth, talentcheck, howto, autistcheck, asktrump, howgay, dicksize")
+    embed.add_field(name="😂 Memes Command ", value="yomomma, joke, dadjoke, meme, pun")
+    embed.add_field(name="📷 Image Commands ", value="tweet, trumptweet, ship, awooify, damn, burned, hug, achievement")
+    embed.add_field(name="🐕 Animals Commands ", value="cat, dog, pug, fox, bird, duck")
+    embed.add_field(name="🎲 Games Commands ", value="rolldice, flipcoin, slots")
+    embed.add_field(name="🆗 Text Commands ", value="fliptable, say, embed")
+    await bot.say(embed=embed)
 
 @bot.command(pass_context = True)
 async def ping(ctx):
@@ -4506,5 +4469,23 @@ async def dicksize(ctx, user: discord.Member):
     embed.add_field(name=f"{user.name}'s Dick size according to my calculation", value=dong)
     embed.set_footer(text=f'Requested by: {ctx.message.author.display_name}', icon_url=f'{ctx.message.author.avatar_url}')
     await bot.say(embed=embed)
+
+@bot.command(pass_context=True)
+async def achievement(ctx, *, achievement: str):
+
+    try:
+        url = f"https://dev.anidiots.guide/generators/achievement?avatar={ctx.message.author.avatar_url_as(format='png')}&text={achievement}"
+        async with aiohttp.ClientSession() as cs:
+            async with cs.get(url, headers={"Authorization": config.idiotic_api}) as r:
+                res = await r.json()
+        file = discord.File(BytesIO(bytes(res["data"])), filename="image.png")
+        em = discord.Embed(color=0xDEADBF)
+        await bot.say(file=file, embed=em.set_image(url="attachment://image.png"))
+        try:
+            await bot.delete_message()
+        except:
+            pass
+    except:
+        await bot.say(f"Failed to get data, `{res['errors'][0]['message']}`")
 
 bot.run(os.environ['Token1'])
