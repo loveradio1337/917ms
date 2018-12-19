@@ -4676,7 +4676,7 @@ async def rainbow(ctx):
 
     await bot.edit_role(role, ctx.message.server, color = discord.Color((r << 16) + (g << 8) + b))	
 
-@bot.command(aliases=['rockpaperscissor']pass_context=True)
+@bot.command(aliases=['rockpaperscissor'], pass_context=True)
 async def rps(ctx):
     userChoice = ctx.message.content.split(" ", 1)
    userChoice = userChoice[1].lower()
