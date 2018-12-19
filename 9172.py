@@ -1030,40 +1030,40 @@ async def ask(ctx, *, question: str):
 # Hug
 
 
-@bot.command(pass_context=True)
+#@bot.command(pass_context=True)
 
 
-async def hug(ctx, user: discord.Member):
+#async def hug(ctx, user: discord.Member):
 
 
-    if user.id == ctx.message.author.id:
+#    if user.id == ctx.message.author.id:
 
 
-        await bot.say("{} Wanted to hug his self, good luck on that you will look like an idiot trying to do it".format(user.mention))
+#        await bot.say("{} Wanted to hug his self, good luck on that you will look like an idiot trying to do it".format(user.mention))
 
 
-    else:
+#    else:
 
 
-        if user.id == botid:
+#        if user.id == botid:
 
 
-            await bot.say("You will turn into a metal if you hug me")
+#            await bot.say("You will turn into a metal if you hug me")
 
 
-        else:
+#        else:
 
 
-            randomurl = ["http://gifimage.net/wp-content/uploads/2017/09/anime-hug-gif-5.gif", "https://media1.tenor.com/images/595f89fa0ea06a5e3d7ddd00e920a5bb/tenor.gif?itemid=7919037", "https://media.giphy.com/media/NvkwNVuHdLRSw/giphy.gif"]
+#            randomurl = ["http://gifimage.net/wp-content/uploads/2017/09/anime-hug-gif-5.gif", "https://media1.tenor.com/images/595f89fa0ea06a5e3d7ddd00e920a5bb/tenor.gif?itemid=7919037", "https://media.giphy.com/media/NvkwNVuHdLRSw/giphy.gif"]
 
 
-            embed = discord.Embed(title=f"{user.name} You just got a hug from {ctx.message.author.name}", color=0xC72323)
+#            embed = discord.Embed(title=f"{user.name} You just got a hug from {ctx.message.author.name}", color=0xC72323)
 
 
-            embed.set_image(url=random.choice(randomurl))
+#            embed.set_image(url=random.choice(randomurl))
 
 
-            await bot.say(embed=embed)
+#            await bot.say(embed=embed)
 
 
 
@@ -4061,10 +4061,10 @@ async def on_message(message):
 
 
 
-    if message.content == ">hug":
+  #  if message.content == ">hug":
 
 
-        await bot.send_message(message.channel, "{} ```Proper usage is\n\n>hug <mention a user>```".format(message.author.mention))
+      #  await bot.send_message(message.channel, "{} ```Proper usage is\n\n>hug <mention a user>```".format(message.author.mention))
 
 
 
@@ -4193,8 +4193,8 @@ async def help(ctx):
     embed.add_field(name="Invite Link:", value="[Here]( https://discordapp.com/api/oauth2/authorize?client_id=507241518524923904&,permissions=8&scope=bot)")
     embed.add_field(name="Wanna vote for Like?", value="[Here](https://discordbots.org/bot/507241518524923904/vote)")
     embed.add_field(name="🔨 Moderation Commands ", value="kick, ban, slowclear, warn, decide, secretkick, secretban, clear, slowmode, cslowmode, renamerole, renameserver, nick, textchannel, voicechannel, nickall, renamechannel, emojirename, announce.")
-    embed.add_field(name="🛠 Utility Commands ", value="userinfo, botinfo, serverinfo, servercount, embedcode, codeinfo, serverowner, statcheck, gamecheck, channelinfo, emojis, membernames, invite, randomnumber, customrandomnumber, stringgen, avatar, qr, ytsearch, google , encode, poll, botsearch, topbots, vote, choose")
-    embed.add_field(name="😁 Fun Commands ", value="8ball, gender, fbi, skincolor, hack, bomb, whois, hairdye, heigth, talentcheck, howto, autistcheck, asktrump, howgay, dicksize")
+    embed.add_field(name="🛠 Utility Commands ", value="userinfo, botinfo, serverinfo, servercount, embedcode, codeinfo, serverowner, statcheck, gamecheck, channelinfo, emojis, membernames, roleinfo, invite, randomnumber, customrandomnumber, stringgen, avatar, qr, ytsearch, google , encode, poll, botsearch, topbots, vote, choose")
+    embed.add_field(name="😁 Fun Commands ", value="8ball, gender, fbi, skincolor, hack, virus, bomb, whois, hairdye, heigth, talentcheck, howto, autistcheck, asktrump, howgay, dicksize")
     embed.add_field(name="😂 Memes Command ", value="yomomma, joke, dadjoke, meme, pun")
     embed.add_field(name="📷 Image Commands ", value="tweet, trumptweet, ship, awooify, damn, burned, hug, slap, kill")
     embed.add_field(name="🐕 Animals Commands ", value="cat, dog, pug, fox, bird, duck")
@@ -4485,7 +4485,7 @@ async def spam(ctx, count: int, *, mspam: str):
 
 @bot.command(pass_context=True)
 async def face(ctx):
-    faces=["¯\_(ツ)_/¯", "̿̿ ̿̿ ̿̿ ̿'̿'\̵͇̿̿\З= ( ▀ ͜͞ʖ▀) =Ε/̵͇̿̿/’̿’̿ ̿ ̿̿ ̿̿ ̿̿", "( ͡°( ͡° ͜ʖ( ͡° ͜ʖ ͡°)ʖ ͡°) ͡°)", "ʕ•ᴥ•ʔ", "(▀̿Ĺ̯▀̿ ̿)", "(ง ͠° ͟ل͜ ͡°)ง", "༼ つ ◕_◕ ༽つ", "ಠ_ಠ", "(づ｡◕‿‿◕｡)づ", "̿'̿'\̵͇̿̿\З=( ͠° ͟ʖ ͡°)=Ε/̵͇̿̿/'̿̿ ̿ ̿ ̿ ̿ ̿", "(ﾉ◕ヮ◕)ﾉ*:･ﾟ✧ ✧ﾟ･: *ヽ(◕ヮ◕ヽ)", "┬┴┬┴┤ ͜ʖ ͡°) ├┬┴┬┴", "( ͡°╭͜ʖ╮͡° )", "(͡ ͡° ͜ つ ͡͡°)", "(• ε •)", "(ง'̀-'́)ง", "(ಥ﹏ಥ)", "(ノಠ益ಠ)ノ彡┻━┻", "[̲̅$̲̅(̲̅ ͡° ͜ʖ ͡°̲̅)̲̅$̲̅]", "(ﾉ◕ヮ◕)ﾉ*:･ﾟ✧", "(☞ﾟ∀ﾟ)☞", "| (• ◡•)| (❍ᴥ❍ʋ)", "(◕‿◕✿)", "(ᵔᴥᵔ)", "(¬‿¬)", "(☞ﾟヮﾟ)☞ ☜(ﾟヮﾟ☜)", "(づ￣ ³￣)づ", "ლ(ಠ益ಠლ)", "ಠ╭╮ಠ", "̿ ̿ ̿'̿'\̵͇̿̿\з=(•_•)=ε/̵͇̿̿/'̿'̿ ̿", "(;´༎ຶД༎ຶ`)", "༼ つ  ͡° ͜ʖ ͡° ༽つ", "(╯°□°）╯︵ ┻━┻"]
+    faces=["¯\_(ツ)_/¯", "̿̿ ̿̿ ̿̿ ̿'̿'\̵͇̿̿\З= ( ▀ ͜͞ʖ▀) =Ε/̵͇̿̿/’̿’̿ ̿ ̿̿ ̿̿ ̿̿", "( ͡°( ͡° ͜ʖ( ͡° ͜ʖ ͡°)ʖ ͡°) ͡°)", "ʕ•ᴥ•ʔ", "(▀̿Ĺ̯▀̿ ̿)", "(ง ͠° ͟ل͜ ͡°)ง", "༼ つ ◕_◕ ༽つ", "ಠ_ಠ", "(づ｡◕‿‿◕｡)づ", "̿'̿'\̵͇̿̿\З=( ͠° ͟ʖ ͡°)=Ε/̵͇̿̿/'̿̿ ̿ ̿ ̿ ̿ ̿", "(ﾉ◕ヮ◕)ﾉ*:･ﾟ✧ ✧ﾟ･: *ヽ(◕ヮ◕ヽ)", "┬┴┬┴┤ ͜ʖ ͡°) ├┬┴┬┴", "( ͡°╭͜ʖ╮͡° )", "(͡ ͡° ͜ つ ͡͡°)", "(• ε •)", "(ง'̀-'́)ง", "(ಥ﹏ಥ)", "(ノಠ益ಠ)ノ彡┻━┻", "[̲̅$̲̅(̲̅ ͡° ͜ʖ ͡°̲̅)̲̅$̲̅]", "(ﾉ◕ヮ◕)ﾉ*:･ﾟ✧", "(☞ﾟ∀ﾟ)☞", "| (• ◡•)| (❍ᴥ❍ʋ)", "(◕‿◕✿)", "(ᵔᴥᵔ)", "(¬‿¬)", "(☞ﾟヮﾟ)☞ ☜(ﾟヮﾟ☜)", "(づ￣ ³￣)づ", "ლ(ಠ益ಠლ)", "ಠ╭╮ಠ", "̿ ̿ ̿'̿'\̵͇̿̿\з=(•_•)=ε/̵͇̿̿/'̿'̿ ̿", "(;´༎ຶД༎ຶ`)", "༼ つ  ͡° ͜ʖ ͡° ༽つ", "(╯°□°）╯︵ ┻━┻", "( ͡ʘ ͜ʖ ͡ʘ)", "(☞ﾟヮﾟ)☞ ☜(ﾟヮﾟ☜)", "(ಠ‿ಠ)", "ಠ╭╮ಠ", "(︶︿︶)", "ರ_ರ", "(⊙ω⊙)", "(._.) ( l: ) ( .-. ) ( :l ) (._.)", "(*≧▽≦)", "ಠoಠ", "[̲̅$̲̅(̲̅5̲̅)̲̅$̲̅]", "( ﾟヮﾟ)", "(´・ω・)っ由", "ಠ_ಥ", "(ಥ﹏ಥ)", "☜(⌒▽⌒)☞", "⊙﹏⊙", "ᕙ(⇀‸↼‶)ᕗ"]
     face=random.choice(faces)
     await bot.say(face)
 
@@ -4528,5 +4528,138 @@ async def slap(ctx, *, member: discord.Member = None):
         embed.set_image(url="https://media.giphy.com/media/jLeyZWgtwgr2U/giphy.gif")
         embed.set_footer(text=f'Requested by: {ctx.message.author.display_name}', icon_url=f'{ctx.message.author.avatar_url}')
         await bot.say(embed=embed)
+
+@bot.command(pass_context=True)
+async def roleinfo(ctx, *, rolename):
+    try:
+        role = discord.utils.get(ctx.message.guild.roles, name=rolename)
+    except:
+        return await bot.say(f"Role could not be found. The system IS case sensitive!")
+
+    em = discord.Embed(description=f'Role ID: {str(role.id)}', color=0xC72323)
+    em.title = role.name
+    perms = ""
+    if role.permissions.administrator:
+        perms += "Administrator, "
+    if role.permissions.create_instant_invite:
+        perms += "Create Instant Invite, "
+    if role.permissions.kick_members:
+        perms += "Kick Members, "
+    if role.permissions.ban_members:
+        perms += "Ban Members, "
+    if role.permissions.manage_channels:
+        perms += "Manage Channels, "
+    if role.permissions.manage_guild:
+        perms += "Manage Guild, "
+    if role.permissions.add_reactions:
+        perms += "Add Reactions, "
+    if role.permissions.view_audit_log:
+        perms += "View Audit Log, "
+    if role.permissions.read_messages:
+        perms += "Read Messages, "
+    if role.permissions.send_messages:
+        perms += "Send Messages, "
+    if role.permissions.send_tts_messages:
+        perms += "Send TTS Messages, "
+    if role.permissions.manage_messages:
+        perms += "Manage Messages, "
+    if role.permissions.embed_links:
+        perms += "Embed Links, "
+    if role.permissions.attach_files:
+        perms += "Attach Files, "
+    if role.permissions.read_message_history:
+        perms += "Read Message History, "
+    if role.permissions.mention_everyone:
+        perms += "Mention Everyone, "
+    if role.permissions.external_emojis:
+        perms += "Use External Emojis, "
+    if role.permissions.connect:
+        perms += "Connect to Voice, "
+    if role.permissions.speak:
+        perms += "Speak, "
+    if role.permissions.mute_members:
+        perms += "Mute Members, "
+    if role.permissions.deafen_members:
+        perms += "Deafen Members, "
+    if role.permissions.move_members:
+        perms += "Move Members, "
+    if role.permissions.use_voice_activation:
+        perms += "Use Voice Activation, "
+    if role.permissions.change_nickname:
+        perms += "Change Nickname, "
+    if role.permissions.manage_nicknames:
+        perms += "Manage Nicknames, "
+    if role.permissions.manage_roles:
+        perms += "Manage Roles, "
+    if role.permissions.manage_webhooks:
+        perms += "Manage Webhooks, "
+    if role.permissions.manage_emojis:
+        perms += "Manage Emojis, "
+
+    if perms is None:
+        perms = "None"
+    else:
+        perms = perms.strip(", ")
+            
+    thing = str(role.created_at.__format__('%A, %B %d, %Y'))
+
+    em.add_field(name='Hoisted', value=str(role.hoist))
+    em.add_field(name='Position from bottom', value=str(role.position))
+    em.add_field(name='Managed by Integration', value=str(role.managed))
+    em.add_field(name='Mentionable', value=str(role.mentionable))
+    em.add_field(name='People in this role', value=str(len(role.members)))
+    em.set_footer(text=f'Created At: {thing}')
+    await bot.say(embed=em)
+
+@bot.command(pass_context=True)
+async def hug(ctx, *,member : discord.Member = None):
+    if member is None:
+        await bot.say(ctx.message.author.mention + " has been hugged! 💘 ")
+    else:
+        if member.id == ctx.message.author.id:
+            await bot.say (ctx.message.author.mention + " hugged themselve because they are a loner 🤦 ")
+        else:
+            await bot.say(member.mention + " was hugged by " + ctx.message.author.mention + " 💝 ")
+
+@bot.command(pass_context=True)
+async def virus(ctx, user: discord.Member=None, *, hack=None):
+    name = ctx.message.author
+    if not hack:
+        hack = 'discord'
+    else:
+        hack = hack.replace(' ','_')
+    channel = ctx.message.channel
+    vrs = await bot.send_message(channel, '``[▓▓▓                    ] / {}-virus.exe Packing files.``'.format(hack))
+    await asyncio.sleep(1.5)
+    vrs = await bot.edit_message(vrs,'``[▓▓▓▓▓▓▓                ] - {}-virus.exe Packing files..``'.format(hack))
+    await asyncio.sleep(0.3)
+    vrs = await bot.edit_message(vrs,'``[▓▓▓▓▓▓▓▓▓▓▓▓           ] \ {}-virus.exe Packing files...``'.format(hack))
+    await asyncio.sleep(1.2)
+    vrs = await bot.edit_message(vrs,'``[▓▓▓▓▓▓▓▓▓▓▓▓▓▓         ] | {}-virus.exe Initializing code.``'.format(hack))
+    await asyncio.sleep(1)
+    vrs = await bot.edit_message(vrs,'``[▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓      ] / {}-virus.exe Initializing code..``'.format(hack))
+    await asyncio.sleep(1.5)
+    vrs = await bot.edit_message(vrs,'``[▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓   ] - {}-virus.exe Finishing.``'.format(hack))
+    await asyncio.sleep(1)
+    vrs = await bot.edit_message(vrs,'``[▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ ] \ {}-virus.exe Finishing..``'.format(hack))
+    await asyncio.sleep(1)
+    vrs = await bot.edit_message(vrs,'``Successfully downloaded {}-virus.exe``'.format(hack))
+    await asyncio.sleep(2)
+    vrs = await bot.edit_message(vrs,'``Injecting virus.   |``')
+    await asyncio.sleep(0.5)
+    vrs = await bot.edit_message(vrs,'``Injecting virus..  /``')
+    await asyncio.sleep(0.5)
+    vrs = await bot.edit_message(vrs,'``Injecting virus... -``')
+    await asyncio.sleep(0.5)
+    vrs = await bot.edit_message(vrs,'``Injecting virus....\``')
+    await bot.delete_message(x)
+    await bot.delete_message(ctx.message)
+        
+    if user:
+        await bot.say('`{}-virus.exe` successfully injected into **{}**\'s system.'.format(hack,user.name))
+        await bot.send_message(user,'**Alert!**\n``You may have been hacked. {}-virus.exe has been found in your system\'s operating system.\nYour data may have been compromised. Please re-install your OS immediately.``'.format(hack))
+    else:
+        await bot.say('**{}** has hacked himself ¯\_(ツ)_/¯.'.format(name.name))
+        await bot.send_message(name,'**Alert!**\n``You may have been hacked. {}-virus.exe has been found in your system\'s operating system.\nYour data may have been compromised. Please re-install your OS immediately.``'.format(hack))
 
 bot.run(os.environ['Token1'])
