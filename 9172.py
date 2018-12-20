@@ -4638,7 +4638,7 @@ async def virus(ctx, user: discord.Member = None, *, hack = None):
     else:
         hack = hack.replace(' ','_')
     channel = ctx.message.channel
-    x = await client.send_message(channel, '``[▓▓▓                    ] / {}-virus.exe Packing files.``'.format(hack))
+    x = await bot.send_message(channel, '``[▓▓▓                    ] / {}-virus.exe Packing files.``'.format(hack))
     await asyncio.sleep(1.5)
     x = await bot.edit_message(x,'``[▓▓▓▓▓▓▓                ] - {}-virus.exe Packing files..``'.format(hack))
     await asyncio.sleep(0.3)
