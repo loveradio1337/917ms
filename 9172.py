@@ -108,20 +108,22 @@ print(f"Connecting your bot to discord!")
 # Variables
 
 
-copyright = "Copyright © 2018 Coco"
+copyright = "Copyright © 2018 Like and Coco"
 
 
 OWNER_ID = "351390806101327883"
 
 
-noperm = "Sorry but you do not have permission to use that command!"
+noperm = "Sorry but you do not have permission to use this command..."
 
 
 botid = "507241518524923904"
 
+reddit = praw.Reddit(client_id='G-SK66FZT8at9g',
+                     client_secret='DLqIkkdoD0K8xKpxuaMAhRscrS0',
+                     user_agent='android:com.G-SK66FZT8at9g.SolarBot:v1.2.3 (by /u/LaidDownRepaer)')
 
-
-lines = "3.5k+"
+lines = "4.5k+"
 
 
 if_statements = "Undefined"
@@ -133,7 +135,7 @@ else_statements = "Undefined"
 total_commands = str(len(bot.commands))
 
 
-total_embeds = "154"
+total_embeds = "150+"
 
 
 total_variables = "Undefined"
@@ -152,8 +154,6 @@ total_links = "Undefined"
 
 total_dad_jokes = "10k+"
 
-
-changelogs = "To view the change log please use the command `>changelog`"
 
 
 no_work = f"This command is currently not working, Please DM Coco#6429 about the command so he can fix this issue"
@@ -800,7 +800,7 @@ async def secretban(ctx, user: discord.Member = None):
         if user == None:
 
 
-            await bot.send_message(ctx.message.author, "```Proper usage is\n\n>secretban <mention a user to secretly ban```>")
+            await bot.send_message(ctx.message.author, "```The proper usage is\n>secretban <mention a user to secretly ban```>")
 
 
         else:
@@ -1294,7 +1294,7 @@ async def encode(ctx, *, encode_to: str):
         await bot.say(f"Could not encode.\n`{e}`")
 
 @bot.command(pass_context=True)
-async def clear(ctx, amount = 1000):
+async def clear(ctx, amount = 10000):
 
 
     if ctx.message.author.server_permissions.manage_messages or ctx.message.author.id == OWNER_ID:
@@ -1313,7 +1313,10 @@ async def clear(ctx, amount = 1000):
 
 
         await bot.delete_messages(mgs)
-        await bot.say(str(amount) + ' messages got deleted...', delete_after=5)
+        embed = discord.Embed(color=0xC72323)
+        embed.set_author(name="{ctx.message.author.display_name}", icon_url="{ctx.message.author.avatar_url}")
+        embed.description = "Deleted" + str(amount) + "messages..."
+        await bot.say(embed=embed, delete_after=8)
 
     else:
 
@@ -1635,7 +1638,7 @@ async def stringgen(ctx, n: int=None):
     if n==None:
 
 
-        await bot.say(f"{ctx.message.author.mention} ```Proper usage is\n\n>stringgen <Give a number>```")
+        await bot.say(f"{ctx.message.author.mention} ```The proper usage is\n>stringgen <Give a number>```")
 
 
     else:
@@ -1675,7 +1678,7 @@ async def bomb(ctx, user: discord.Member = None):
     if user == None:
 
 
-        await bot.say(f"{ctx.message.author.mention} ```Proper usage is\n\n>bomb <mention a user>```")
+        await bot.say(f"{ctx.message.author.mention} ```The proper usage is\n>bomb <mention a user>```")
 
     else:
 
@@ -1812,7 +1815,7 @@ async def bomb(ctx, user: discord.Member = None):
     #if user == None:
 
 
-        #await bot.say(f"{ctx.message.author.mention} ```Proper usage is\n\n>slap <mention a user>```")
+        #await bot.say(f"{ctx.message.author.mention} ```The proper usage is\n>slap <mention a user>```")
 
 
     #else:
@@ -1838,7 +1841,7 @@ async def report(ctx, user: discord.Member = None, *, reason: str = None):
     if user == None:
 
 
-        await bot.say(f"{ctx.message.author.mention} ```Proper usage is\n\n>report <user to report> <reason of why you are reporting him>```")
+        await bot.say(f"{ctx.message.author.mention} ```The proper usage is\n>report <user to report> <reason of why you are reporting him>```")
 
 
     else:
@@ -1847,7 +1850,7 @@ async def report(ctx, user: discord.Member = None, *, reason: str = None):
         if reason == None:
 
 
-            await bot.say(f"{ctx.message.author.mention} ```Proper usage is\n\n>report <user to report> <reason of why you are reporting him>```")
+            await bot.say(f"{ctx.message.author.mention} ```The proper usage is\n>report <user to report> <reason of why you are reporting him>```")
 
 
         else:
@@ -1970,7 +1973,7 @@ async def hairdye(ctx, user: discord.Member = None, *, color: str = None):
     if user == None:
 
 
-        await bot.say(f"{ctx.message.author.mention} ```Proper usage is\n\n>hairdye <mention a user> <color>```")
+        await bot.say(f"{ctx.message.author.mention} ```The proper usage is\n>hairdye <mention a user> <color>```")
 
 
     else:
@@ -1979,7 +1982,7 @@ async def hairdye(ctx, user: discord.Member = None, *, color: str = None):
         if color == None:
 
 
-            await bot.say(f"{ctx.message.author.mention} ```Proper usage is\n\n>hairdye <mention a user> <color>```")
+            await bot.say(f"{ctx.message.author.mention} ```The proper usage is\n>hairdye <mention a user> <color>```")
 
 
         else:
@@ -2058,7 +2061,7 @@ async def height(ctx, user: discord.Member = None):
         if user == None:
 
 
-            await bot.say(f"{ctx.message.author.mention} ```Proper usage is\n\n>height <mention a user>```")
+            await bot.say(f"{ctx.message.author.mention} ```The proper usage is\n>height <mention a user>```")
 
 
         else:
@@ -2135,7 +2138,7 @@ async def talentcheck(ctx, user: discord.Member = None):
     if user == None:
 
 
-        await bot.say(f"{ctx.message.author.mention} ```Proper usage is\n\n>talentcheck <mention a user>```")
+        await bot.say(f"{ctx.message.author.mention} ```The proper usage is\n>talentcheck <mention a user>```")
 
 
     else:
@@ -2226,7 +2229,7 @@ async def shoot(ctx, user: discord.Member = None):
         if user == None:
 
 
-            await bot.say(f"{ctx.message.author.mention} ```Proper usage is\n\n>shoot <mention a user>```")
+            await bot.say(f"{ctx.message.author.mention} ```The proper usage is\n>shoot <mention a user>```")
 
 
         else:
@@ -2259,7 +2262,7 @@ async def shoot(ctx, user: discord.Member = None):
                 else:
 
 
-                    images = ['https://media.giphy.com/media/S4DbvGJggL0pG/giphy-downsized-large.gif', 'https://media.giphy.com/media/9umH7yTO8gLYY/giphy.gif', 'http://share.gifyoutube.com/ztj.gif', 'http://78.media.tumblr.com/9da6bcfae89e27e6cbd7f9b660dc5f97/tumblr_nbi8wlLPIr1rarngto3_400.gif', 'http://bestanimations.com/Military/Weapons/gun-with-silencer-shooting-gif.gif', 'https://i.gifer.com/JkKb.gif']
+                    images = ['https://media.giphy.com/media/S4DbvGJggL0pG/giphy-downsized-large.gif', 'https://media.giphy.com/media/9umH7yTO8gLYY/giphy.gif', 'http://share.gifyoutube.com/ztj.gif', 'http://78.media.tumblr.com/9da6bcfae89e27e6cbd7f9b660dc5f97/tumblr_nbi8wlLPIr1rarngto3_400.gif', 'http://bestanimations.com/Military/Weapons/gun-with-silencer-shooting-gif.gif', 'https://i.gifer.com/JkKb.gif', 'https://giphy.com/gifs/spoiler-snape-dumbledore-QC5fTsMSpFLYQ']
 
 
                     embed = discord.Embed(title=f'{user.name} Just got shot by {ctx.message.author.name}', color=0xC72323)
@@ -2325,7 +2328,7 @@ async def botsearch(ctx, *, sulta: str = None):
         if sulta == None:
 
 
-            await bot.say(f"{ctx.message.author.mention} ```Proper usage is\n\n>botsearch <Name of a bot>```")
+            await bot.say(f"{ctx.message.author.mention} ```The proper usage is\n>botsearch <Name of a bot>```")
 
 
         else:
@@ -2419,7 +2422,7 @@ async def thicccheck(ctx, user: discord.Member = None):
         if user == None:
 
 
-            await bot.say(f"{ctx.message.author.mention} ```Proper usage is\n\n>thicccheck <mention a user>```")
+            await bot.say(f"{ctx.message.author.mention} ```The proper usage is\n>thicccheck <mention a user>```")
 
 
         else:
@@ -2560,7 +2563,7 @@ async def statcheck(ctx, user: discord.Member = None):
         if user == None:
 
 
-            await bot.say(f"{ctx.message.author.mention} ```Proper usage is\n\n>statcheck <mention a user>```")
+            await bot.say(f"{ctx.message.author.mention} ```The proper usage is\n>statcheck <mention a user>```")
 
 
         else:
@@ -2593,7 +2596,7 @@ async def gamecheck(ctx, user: discord.Member = None):
         if user == None:
 
 
-            await bot.say(f"{ctx.message.author.mention} ```Proper usage is\n\n>gamecheck <mention a user>```")
+            await bot.say(f"{ctx.message.author.mention} ```The proper usage is\n>gamecheck <mention a user>```")
 
 
         else:
@@ -2736,7 +2739,7 @@ async def nick(ctx, user: discord.Member = None, *, changed: str = None):
             if user == None:
 
 
-                await bot.say(f"{ctx.message.author.mention} ```Proper usage is\n\n >nick <mention a user> <new nickname>```")
+                await bot.say(f"{ctx.message.author.mention} ```The proper usage is\n >nick <mention a user> <new nickname>```")
 
 
 
@@ -2745,7 +2748,7 @@ async def nick(ctx, user: discord.Member = None, *, changed: str = None):
             if changed == None:
 
 
-                await bot.say(f"{ctx.message.author.mention} ```Proper usage is\n\n >nick <mention a user> <new nickname>```")
+                await bot.say(f"{ctx.message.author.mention} ```The proper usage is\n >nick <mention a user> <new nickname>```")
 
 
 
@@ -2934,7 +2937,7 @@ async def textchannel(ctx, *, name: str = None):
             if name == None:
 
 
-                await bot.say(f"{ctx.message.author.mention} ```Proper usage is\n\n>textchannel <channel name>```")
+                await bot.say(f"{ctx.message.author.mention} ```The proper usage is\n>textchannel <channel name>```")
 
 
             else:
@@ -3103,7 +3106,7 @@ async def voicechannel(ctx, *, name: str = None):
             if name == None:
 
 
-                await bot.say(f"{ctx.message.author.mention} ```Proper usage is\n\n>voicechannel <name of the channel you wanna make>```")
+                await bot.say(f"{ctx.message.author.mention} ```The proper usage is\n>voicechannel <name of the channel you wanna make>```")
 
 
             else:
@@ -3216,7 +3219,7 @@ async def renamerole(ctx, *, roled: discord.Role = None):
             if roled == None:
 
 
-                await bot.say(f"{ctx.message.author.mention} ```Proper usage is\n\n>renamerole <mention a role>\n\nMake sure capitalization and everything else is correct```")
+                await bot.say(f"{ctx.message.author.mention} ```The proper usage is\n>renamerole <mention a role>\n\nMake sure capitalization and everything else is correct```")
 
 
             else:
@@ -3303,7 +3306,7 @@ async def renameserver(ctx, *, nigga: str = None):
             if nigga == None:
 
 
-                await bot.say(f"{ctx.message.author.mention} ```Proper usage is\n\n>renameserver <new name for the server>```")
+                await bot.say(f"{ctx.message.author.mention} ```The proper usage is\n>renameserver <new name for the server>```")
 
 
             else:
@@ -3348,7 +3351,7 @@ async def renamechannel(ctx, channeled: discord.Channel = None, *, newname: str 
             if channeled == None:
 
 
-                await bot.say(f"{ctx.message.author.mention} ```Proper usage is\n\n>renamechannel <mention a channel> <new name for the channel>```")
+                await bot.say(f"{ctx.message.author.mention} ```The proper usage is\n>renamechannel <mention a channel> <new name for the channel>```")
 
 
             else:
@@ -3357,7 +3360,7 @@ async def renamechannel(ctx, channeled: discord.Channel = None, *, newname: str 
                 if newname == None:
 
 
-                    await bot.say(f"{ctx.message.author.mention} ```Proper usage is\n\n>renamechannel <mention a channel> <new name for the channel>```")
+                    await bot.say(f"{ctx.message.author.mention} ```The proper usage is\n>renamechannel <mention a channel> <new name for the channel>```")
 
 
                 else:
@@ -3401,7 +3404,7 @@ async def autistcheck(ctx, user: discord.Member = None):
         if user == None:
 
 
-            await bot.say(f"{ctx.message.author.mention} ```Proper usage is\n\n>autistcheck <mention a user>```")
+            await bot.say(f"{ctx.message.author.mention} ```The proper usage is\n>autistcheck <mention a user>```")
 
 
         else:
@@ -3473,7 +3476,7 @@ async def kickme(ctx, *, reason: str = None):
         if reason == None:
 
 
-            await bot.say(f"{ctx.message.author.mention} ```Proper usage is\n\n>kickme <reason>```")
+            await bot.say(f"{ctx.message.author.mention} ```The proper usage is\n>kickme <reason>```")
 
 
             return
@@ -3554,7 +3557,7 @@ async def ipcheck(ctx, *, user: str = None):
     if user == None:
 
 
-        await bot.say(f"{ctx.message.author.mention} ```Proper usage is\n\n>userip <name a user (do not mention)>``")
+        await bot.say(f"{ctx.message.author.mention} ```The proper usage is\n>userip <name a user (do not mention)>``")
 
 
         return
@@ -3746,7 +3749,7 @@ async def illegalize(ctx, *, legal:str = None):
     if legal == None:
 
 
-        await bot.say(f"{ctx.message.author.mention} ```Proper usage is\n\n>illegalize <text>```")
+        await bot.say(f"{ctx.message.author.mention} ```The proper usage is\n>illegalize <text>```")
 
 
     else:
@@ -3794,13 +3797,13 @@ async def renameemoji(ctx, emoj: discord.Emoji = None, *, lol: str = None):
             if lol == None:
 
 
-                await bot.say(f"{ctx.message.author.mention} ```Proper usage is\n\n>emojirename <Emoji Name> <New Name>```")
+                await bot.say(f"{ctx.message.author.mention} ```The proper usage is\n>emojirename <Emoji Name> <New Name>```")
 
 
             elif emoj == None:
 
 
-                await bot.say(f"{ctx.message.author.mention} ```Proper usage is\n\n>emojirename <Emoji Name> <New Name>```")
+                await bot.say(f"{ctx.message.author.mention} ```The proper usage is\n>emojirename <Emoji Name> <New Name>```")
 
 
             else:
@@ -3844,7 +3847,7 @@ async def announce(ctx, *, xdd: str = None):
         if xdd == None:
 
 
-            await bot.say(f"{ctx.message.author.mention} ```Proper usage is\n\n>announce <Message to announce>```")
+            await bot.say(f"{ctx.message.author.mention} ```The proper usage is\n>announce <Message to announce>```")
 
 
         else:
@@ -3934,19 +3937,19 @@ async def on_message(message):
 
     if message.content == ">kick":
 
-        await bot.send_message(message.channel, "{} ```Proper usage is\n\n>kick <mention a user>```".format(message.author.mention))
+        await bot.send_message(message.channel, "{} ```The proper usage is\n>kick <mention a user>```".format(message.author.mention))
     if message.content == ">ban":
-        await bot.send_message(message.channel, "{} ```Proper usage is\n\n>ban <mention a user>```".format(message.author.mention))
+        await bot.send_message(message.channel, "{} ```The proper usage is\n>ban <mention a user>```".format(message.author.mention))
     if message.content == ">warn":
         await bot.send_message(message.channel, "{} ```Proper usage is\n>warn <mention a user>```".format(message.author.mention))
     if message.content == ">avatar":
-        await bot.send_message(message.channel, "{} ```Proper usage is\n\n>avatar <mention a user>```".format(message.author.mention))
+        await bot.send_message(message.channel, "{} ```The proper usage is\n>avatar <mention a user>```".format(message.author.mention))
     if message.content == ">userinfo":
-        await bot.send_message(message.channel, "{} ```Proper usage is\n\n>userinfo <mention a user>```".format(message.author.mention))
+        await bot.send_message(message.channel, "{} ```The proper usage is\n>userinfo <mention a user>```".format(message.author.mention))
     if message.content == ">8ball":
-        await bot.send_message(message.channel, "{} ```Proper usage is\n\n>8ball <question>```".format(message.author.mention))
+        await bot.send_message(message.channel, "{} ```The proper usage is\n>8ball <question>```".format(message.author.mention))
     if message.content == ">magik":
-        await bot.send_message(message.channel, "{} ```Proper usage is\n\n>magik <mention a user>```".format(message.author.mention))
+        await bot.send_message(message.channel, "{} ```The proper usage is\n>magik <mention a user>```".format(message.author.mention))
 
 
 
@@ -3954,7 +3957,7 @@ async def on_message(message):
     if message.content == ">say":
 
 
-        await bot.send_message(message.channel, "{} ```Proper usage is\n\n>say <message>```".format(message.author.mention))
+        await bot.send_message(message.channel, "{} ```The proper usage is\n>say <message>```".format(message.author.mention))
 
 
 
@@ -3963,7 +3966,7 @@ async def on_message(message):
     if message.content == ">embed":
 
 
-        await bot.send_message(message.channel, "{} ```Proper usage is\n\n>embed <message>```".format(message.author.mention))
+        await bot.send_message(message.channel, "{} ```The proper usage is\n>embed <message>```".format(message.author.mention))
 
 
 
@@ -3972,12 +3975,12 @@ async def on_message(message):
     if message.content == ">qr":
 
 
-        await bot.send_message(message.channel, "{} ```Proper usage is\n\n>qr <message>```".format(message.author.mention))
+        await bot.send_message(message.channel, "{} ```The proper usage is\n>qr <message>```".format(message.author.mention))
 
     if message.content == ">encode":
 
 
-        await bot.send_message(message.channel, "{} ```Proper usage is\n\n>encode <message>```".format(message.author.mention))
+        await bot.send_message(message.channel, "{} ```The proper usage is\n>encode <message>```".format(message.author.mention))
 
 
 
@@ -3986,7 +3989,7 @@ async def on_message(message):
     if message.content == ">google":
 
 
-        await bot.send_message(message.channel, "{} ```Proper usage is\n\n>google <what do you wanna search on google>```".format(message.author.mention))
+        await bot.send_message(message.channel, "{} ```The proper usage is\n>google <what do you wanna search on google>```".format(message.author.mention))
 
 
 
@@ -3995,7 +3998,7 @@ async def on_message(message):
     if message.content == ">ytsearch":
 
 
-        await bot.send_message(message.channel, "{} ```Proper usage is\n\n>ytsearch <what do you wanna search on youtube>```".format(message.author.mention))
+        await bot.send_message(message.channel, "{} ```The proper usage is\n>ytsearch <what do you wanna search on youtube>```".format(message.author.mention))
 
 
 
@@ -4004,7 +4007,7 @@ async def on_message(message):
     if message.content == ">kiss":
 
 
-        await bot.send_message(message.channel, "{} ```Proper usage is\n\n>kiss <mention a user>```".format(message.author.mention))
+        await bot.send_message(message.channel, "{} ```The proper usage is\n>kiss <mention a user>```".format(message.author.mention))
 
 
 
@@ -4013,7 +4016,7 @@ async def on_message(message):
   #  if message.content == ">hug":
 
 
-      #  await bot.send_message(message.channel, "{} ```Proper usage is\n\n>hug <mention a user>```".format(message.author.mention))
+      #  await bot.send_message(message.channel, "{} ```The proper usage is\n>hug <mention a user>```".format(message.author.mention))
 
 
 
@@ -4022,12 +4025,12 @@ async def on_message(message):
     if message.content == ">gender":
 
 
-        await bot.send_message(message.channel, "{} ```Proper usage is\n\n>gender <mention a user>```".format(message.author.mention))
+        await bot.send_message(message.channel, "{} ```The proper usage is\n>gender <mention a user>```".format(message.author.mention))
 
     if message.content == ">skincolor":
 
 
-        await bot.send_message(message.channel, "{} ```Proper usage is\n\n>skincolor <mention a user>```".format(message.author.mention))
+        await bot.send_message(message.channel, "{} ```The proper usage is\n>skincolor <mention a user>```".format(message.author.mention))
 
 
 
@@ -4036,7 +4039,7 @@ async def on_message(message):
     if message.content == ">clear":
 
 
-        await bot.send_message(message.channel, "{} ```Proper usage is\n\n>clear <pick amount of message 1-1000>```".format(message.author.mention))
+        await bot.send_message(message.channel, "{} ```The proper usage is\n>clear <pick amount of message 1 to 100>```".format(message.author.mention))
 
 
 
@@ -4045,7 +4048,7 @@ async def on_message(message):
     if message.content == ">startdox":
 
 
-        await bot.send_message(message.channel, "{} ```Proper usage is\n\n>startdox <mention a user>```".format(message.author.mention))
+        await bot.send_message(message.channel, "{} ```The proper usage is\n>startdox <mention a user>```".format(message.author.mention))
 
 
 
@@ -4054,7 +4057,7 @@ async def on_message(message):
     if message.content == ">customint":
 
 
-        await bot.send_message(message.channel, "{} ```Proper usage is\n\n>customint <first number> <second number>```".format(message.author.mention))
+        await bot.send_message(message.channel, "{} ```The proper usage is\n>customint <first number> <second number>```".format(message.author.mention))
 
 
 
@@ -4063,29 +4066,29 @@ async def on_message(message):
     if message.content == ">howgay":
 
 
-        await bot.send_message(message.channel, "{} ```Proper usage is\n\n>howgay <mention a user>```".format(message.author.mention))
+        await bot.send_message(message.channel, "{} ```The proper usage is\n>howgay <mention a user>```".format(message.author.mention))
 
 
     if message.content == ">ship":
 
 
-        await bot.send_message(message.channel, "{} ```Proper usage is\n\n>ship <mention a user> <mention a second user>```".format(message.author.mention))
+        await bot.send_message(message.channel, "{} ```The proper usage is\n>ship <mention a user> <mention a second user>```".format(message.author.mention))
 
 
     if message.content == ">hack":
 
 
-        await bot.send_message(message.channel, "{} ```Proper usage is\n\n>hack <mention a user>```".format(message.author.mention))
+        await bot.send_message(message.channel, "{} ```The proper usage is\n>hack <mention a user>```".format(message.author.mention))
 
     if message.content == ">poll":
 
 
-        await bot.send_message(message.channel, '{} ```Proper usage is\n\n>poll "Add title" "Option 1" "Option 2" "up to 10 Options only"```'.format(message.author.mention))
+        await bot.send_message(message.channel, '{} ```The proper usage is\n>poll "Add title" "Option 1" "Option 2" "up to 10 Options only"```'.format(message.author.mention))
 
     if message.content == ">rainbow":
 
 
-        await bot.send_message(message.channel, '{} ```Proper usage is\n\n>rainbow <mention a role>\n\nMake sure capitalization and everything else is correct```'.format(message.author.mention))
+        await bot.send_message(message.channel, '{} ```The proper usage is\n>rainbow <mention a role>\n\nMake sure capitalization and everything else is correct```'.format(message.author.mention))
 
     await bot.process_commands(message)
 
@@ -4147,8 +4150,8 @@ async def help(ctx):
     embed.add_field(name="🔨 Moderation Commands ", value="kick, ban, slowclear, warn, decide, secretkick, secretban, clear, slowmode, cslowmode, renamerole, renameserver, nick, textchannel, voicechannel, nickall, renamechannel, emojirename, announce")
     embed.add_field(name="🛠 Utility Commands ", value="userinfo, botinfo, serverinfo, servercount, embedcode, codeinfo, serverowner, statcheck, gamecheck, channelinfo, emojis, membernames, roleinfo, invite, randomnumber, customrandomnumber, stringgen, avatar, qr, ytsearch, google , encode, poll, botsearch, topbots, vote, choose")
     embed.add_field(name="😁 Fun Commands ", value="8ball, gender, fbi, skincolor, hack, virus, bomb, whois, hairdye, heigth, talentcheck, howto, autistcheck, asktrump, howgay, dicksize")
-    embed.add_field(name="😂 Memes Command ", value="yomomma, joke, dadjoke, meme, pun")
-    embed.add_field(name="📷 Image Commands ", value="tweet, trumptweet, ship, awooify, damn, burned, hug, slap, kill")
+    embed.add_field(name="😂 Memes Command ", value="yomomma, joke, dadjoke, meme, pun, animemes")
+    embed.add_field(name="📷 Image Commands ", value="tweet, trumptweet, ship, awooify, damn, burned, hug, slap, kill, shoot")
     embed.add_field(name="🐕 Animals Commands ", value="cat, dog, pug, fox, bird, duck")
     embed.add_field(name="🎲 Games Commands ", value="rolldice, flipcoin, slots, rps")
     embed.add_field(name="🆗 Text Commands ", value="fliptable, say, embed, face")
@@ -4171,7 +4174,7 @@ async def ping(ctx):
 @bot.command(pass_context=True)
 async def trumptweet(ctx, *, tet:str = None):
     if tet == None:
-        await bot.say(f"{ctx.message.author} ```Proper usage is\n\n>trumptweet <text>```")
+        await bot.say(f"{ctx.message.author} ```The proper usage is\n>trumptweet <text>```")
     else:
         url = f"https://nekobot.xyz/api/imagegen?type=trumptweet&text={tet}"
         async with aiohttp.ClientSession() as cs:
@@ -4462,7 +4465,7 @@ async def kill(ctx, *, member: discord.Member = None):
         await bot.say(embed=embed)
     else:
         embed=discord.Embed(title="Killed!", description="{} Was killed by {} OOF ".format(member.mention, ctx.message.author.name),color=0xC72323)
-        embed.set_image(url="https://media.giphy.com/media/kOA5F569qO4RG/giphy.gif")
+        embed.set_image(url="https://giphy.com/gifs/goodfellas-kevin-smith-whocaresaboutactresses-SOd4ewl3JNTck")
         await bot.say(embed=embed)
 
 @bot.command(pass_context=True)
@@ -4485,7 +4488,7 @@ async def slap(ctx, *, member: discord.Member = None):
         await bot.say(embed=embed)
 
 @bot.command(pass_context=True)
-async def roleinfo(ctx, *, rolename):
+async def roleinfo(ctx, *, rolename: discord.Role):
     try:
         role = discord.utils.get(ctx.message.guild.roles, name=rolename)
     except:
@@ -4576,46 +4579,46 @@ async def hug(ctx, *,member : discord.Member = None):
         else:
             await bot.say(member.mention + " was hugged by " + ctx.message.author.mention + " 💝 ")
 
-@bot.command(pass_context=True)
-async def virus(ctx, user: discord.Member=None, *, hack=None):
-    name = ctx.message.author
+@bot.command(pass_context = True)
+async def virus(ctx, user: discord.Member = None, *, hack = None):
+    nome = ctx.message.author
     if not hack:
         hack = 'discord'
     else:
         hack = hack.replace(' ','_')
     channel = ctx.message.channel
-    vrs = await bot.send_message(channel, '``[▓▓▓                    ] / {}-virus.exe Packing files.``'.format(hack))
-    await asyncio.sleep(1)
-    vrs = await bot.edit_message(vrs,'``[▓▓▓▓▓▓▓                ] - {}-virus.exe Packing files..``'.format(hack))
+    x = await client.send_message(channel, '``[▓▓▓                    ] / {}-virus.exe Packing files.``'.format(hack))
+    await asyncio.sleep(1.5)
+    x = await bot.edit_message(x,'``[▓▓▓▓▓▓▓                ] - {}-virus.exe Packing files..``'.format(hack))
     await asyncio.sleep(0.3)
-    vrs = await bot.edit_message(vrs,'``[▓▓▓▓▓▓▓▓▓▓▓▓           ] \ {}-virus.exe Packing files...``'.format(hack))
+    x = await bot.edit_message(x,'``[▓▓▓▓▓▓▓▓▓▓▓▓           ] \ {}-virus.exe Packing files...``'.format(hack))
     await asyncio.sleep(1.2)
-    vrs = await bot.edit_message(vrs,'``[▓▓▓▓▓▓▓▓▓▓▓▓▓▓         ] | {}-virus.exe Initializing code.``'.format(hack))
+    x = await bot.edit_message(x,'``[▓▓▓▓▓▓▓▓▓▓▓▓▓▓         ] | {}-virus.exe Initializing code.``'.format(hack))
     await asyncio.sleep(1)
-    vrs = await bot.edit_message(vrs,'``[▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓      ] / {}-virus.exe Initializing code..``'.format(hack))
+    x = await bot.edit_message(x,'``[▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓      ] / {}-virus.exe Initializing code..``'.format(hack))
+    await asyncio.sleep(1.5)
+    x = await bot.edit_message(x,'``[▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓   ] - {}-virus.exe Finishing.``'.format(hack))
     await asyncio.sleep(1)
-    vrs = await bot.edit_message(vrs,'``[▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓   ] - {}-virus.exe Finishing.``'.format(hack))
+    x = await bot.edit_message(x,'``[▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ ] \ {}-virus.exe Finishing..``'.format(hack))
     await asyncio.sleep(1)
-    vrs = await bot.edit_message(vrs,'``[▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ ] \ {}-virus.exe Finishing..``'.format(hack))
-    await asyncio.sleep(1)
-    vrs = await bot.edit_message(vrs,'``Successfully downloaded {}-virus.exe``'.format(hack))
+    x = await bot.edit_message(x,'``Successfully downloaded {}-virus.exe``'.format(hack))
     await asyncio.sleep(2)
-    vrs = await bot.edit_message(vrs,'``Injecting virus.   |``')
+    x = await bot.edit_message(x,'**Sending the virus**    ``|``')
     await asyncio.sleep(0.5)
-    vrs = await bot.edit_message(vrs,'``Injecting virus..  /``')
+    x = await bot.edit_message(x,'**Sending the virus**    ``/``')
     await asyncio.sleep(0.5)
-    vrs = await bot.edit_message(vrs,'``Injecting virus... -``')
+    x = await bot.edit_message(x,'**Sending the virus**    ``-``')
     await asyncio.sleep(0.5)
-    vrs = await bot.edit_message(vrs,'``Injecting virus....\``')
-    await bot.delete_message(vrs)
+    x = await bot.edit_message(x,'**Sending the virus** ``\``')
+    await bot.delete_message(x)
     await bot.delete_message(ctx.message)
         
     if user:
-        await bot.say('`{}-virus.exe` successfully injected into **{}**\'s system.'.format(hack,user.name))
-        await bot.send_message(user, '**Alert!**\n``You may have been hacked. {}-virus.exe has been found in your system\'s operating system.\nYour data may have been compromised. Please re-install your OS immediately.``'.format(hack))
+        await bot.say('`{}-virus.exe` successfully sent into **{}**\'s system.'.format(hack,user.name))
+        await client.send_message(user,'**Alert!**\n``You may have been hacked. {}-virus.exe has been found in your system\'s operating system.\nYour data may have been compromised. Please re-install your OS immediately.``'.format(hack))
     else:
-        await bot.say('**{}** has hacked himself ¯\_(ツ)_/¯.'.format(name.name))
-        await bot.send_message(name,'**Alert!**\n``You may have been hacked. {}-virus.exe has been found in your system\'s operating system.\nYour data may have been compromised. Please re-install your OS immediately.``'.format(hack))
+        await bot.say('**{}** hacked itself ▄︻̷̿┻̿═━一'.format(name.name))
+        await bot.send_message(name,'__Alert!__\n**You may have been hacked. {}-virus.exe has been found in your system\'s operating system.\nYour data may have been compromised. Please re-install your OS immediately.**'.format(hack))
 	
 
 @bot.command(aliases=['rockpaperscissor'], pass_context=True)
@@ -4652,5 +4655,14 @@ async def rps(ctx):
                 await bot.say("I choose **{}**. I win!".format(botChoice))
             elif botChoice == "paper":
                 await bot.say("I choose **{}**. You win!".format(botChoice))
+
+@bot.command()
+async def animemes():
+    animememes_submissions = reddit.subreddit('Animemes').hot()
+    post_to_pick = random.randint(1, 100)
+    for i in range(0, post_to_pick):
+        submission = next(x for x in animememes_submissions if not x.stickied)
+
+    await bot.say(submission.url)
 
 bot.run(os.environ['Token1'])
