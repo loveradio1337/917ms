@@ -4162,7 +4162,7 @@ async def help(ctx):
     embed.add_field(name="📷 Image Commands ", value="tweet, trumptweet, ship, awooify, damn, burned, hug, slap, kill, shoot")
     embed.add_field(name="🐕 Animals Commands ", value="cat, dog, pug, fox, bird, duck")
     embed.add_field(name="🎲 Games Commands ", value="rolldice, flipcoin, slots, rps")
-    embed.add_field(name="🆗 Text Commands ", value="fliptable, say, embed, face")
+    embed.add_field(name="🆗 Text Commands ", value="tableflip, say, embed, face")
     embed.set_footer(text="Use > before each commands!")
     embed.set_thumbnail(url=botavatar)
     embed.timestamp = datetime.datetime.utcnow()
@@ -4342,7 +4342,7 @@ async def meme2(ctx):
             em.set_author(name=ctx.author.name, icon_url=ctx.author.avatar_url)
             await bot.say(embed=em)
 
-@bot.command(pass_context=True)
+@bot.command(aliases=["fliptable"], pass_context=True)
 async def tableflip(ctx):
 
     x = await bot.say(content="┬─┬ノ( º _ ºノ)")
