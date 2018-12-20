@@ -4126,7 +4126,7 @@ async def on_member_join(member):
             embed.add_field(name='__Join position__', value='{}'.format(str(member.server.member_count)), inline=True)
             await bot.send_message(channel, embed=embed) 
             nickname= '✴🔆 ' + member.name + ' 🔆✴'
-            await client.change_nickname(member, nickname)
+            await bot.change_nickname(member, nickname)
 
 @bot.event
 async def on_member_remove(member):
@@ -4484,87 +4484,104 @@ async def slap(ctx, *, member: discord.Member = None):
         embed.set_footer(text=f'Requested by: {ctx.message.author.display_name}', icon_url=f'{ctx.message.author.avatar_url}')
         await bot.say(embed=embed)
 
-@bot.command(pass_context=True)
-async def roleinfo(ctx, *, rolename: discord.Role):
-    try:
-        role = discord.utils.get(ctx.message.guild.roles, name=rolename)
-    except:
-        return await bot.say(f"Role could not be found. The system IS case sensitive!")
+@bot.command(pass_context=True,aliases=['role'])
+async def roleinfo(self, ctx, rolename):
+		
+	rolen=0
+	for memb in ctx.message.server.members:
+		for mrole in memb.roles:
+				
+			if mrole.name.lower() == rolename.lower():
+				rolen += 1
+				break
+		
+		
+	for arole in ctx.message.server.roles:
+		if rolename.lower() == arole.name.lower():
+			role=arole
+			break
+			
 
-    em = discord.Embed(description=f'Role ID: {str(role.id)}', color=0xC72323)
-    em.title = role.name
-    perms = ""
-    if role.permissions.administrator:
-        perms += "Administrator, "
-    if role.permissions.create_instant_invite:
-        perms += "Create Instant Invite, "
-    if role.permissions.kick_members:
-        perms += "Kick Members, "
-    if role.permissions.ban_members:
-        perms += "Ban Members, "
-    if role.permissions.manage_channels:
-        perms += "Manage Channels, "
-    if role.permissions.manage_guild:
-        perms += "Manage Guild, "
-    if role.permissions.add_reactions:
-        perms += "Add Reactions, "
-    if role.permissions.view_audit_log:
-        perms += "View Audit Log, "
-    if role.permissions.read_messages:
-        perms += "Read Messages, "
-    if role.permissions.send_messages:
-        perms += "Send Messages, "
-    if role.permissions.send_tts_messages:
-        perms += "Send TTS Messages, "
-    if role.permissions.manage_messages:
-        perms += "Manage Messages, "
-    if role.permissions.embed_links:
-        perms += "Embed Links, "
-    if role.permissions.attach_files:
-        perms += "Attach Files, "
-    if role.permissions.read_message_history:
-        perms += "Read Message History, "
-    if role.permissions.mention_everyone:
-        perms += "Mention Everyone, "
-    if role.permissions.external_emojis:
-        perms += "Use External Emojis, "
-    if role.permissions.connect:
-        perms += "Connect to Voice, "
-    if role.permissions.speak:
-        perms += "Speak, "
-    if role.permissions.mute_members:
-        perms += "Mute Members, "
-    if role.permissions.deafen_members:
-        perms += "Deafen Members, "
-    if role.permissions.move_members:
-        perms += "Move Members, "
-    if role.permissions.use_voice_activation:
-        perms += "Use Voice Activation, "
-    if role.permissions.change_nickname:
-        perms += "Change Nickname, "
-    if role.permissions.manage_nicknames:
-        perms += "Manage Nicknames, "
-    if role.permissions.manage_roles:
-        perms += "Manage Roles, "
-    if role.permissions.manage_webhooks:
-        perms += "Manage Webhooks, "
-    if role.permissions.manage_emojis:
-        perms += "Manage Emojis, "
+	"""try:
+		role = discord.utils.get(ctx.message.server.roles, name=rolename)
+	except:
+		await bot.say(f"Role could not be found. The system IS case sensitive!")
+"""
+	em = discord.Embed( color=role.color)
+	em.title = role.name
+	em.set_footer(text = f"[ID: {str(role.id)}]")
+	perms = ""
+	if role.permissions.administrator:
+		perms += "Administrator, "
+	if role.permissions.create_instant_invite:
+		perms += "Create Instant Invite, "
+	if role.permissions.kick_members:
+		perms += "Kick Members, "
+	if role.permissions.ban_members:
+		perms += "Ban Members, "
+	if role.permissions.manage_channels:
+		perms += "Manage Channels, "
+	if role.permissions.manage_server:
+   	perms += "Manage Server, "
+	if role.permissions.add_reactions:
+		perms += "Add Reactions, "
+	if role.permissions.view_audit_logs:
+		perms += "View Audit Log, "
+	if role.permissions.read_messages:
+		perms += "Read Messages, "
+	if role.permissions.send_messages:
+		perms += "Send Messages, "
+	if role.permissions.send_tts_messages:
+		perms += "Send TTS Messages, "
+	if role.permissions.manage_messages:
+		perms += "Manage Messages, "
+	if role.permissions.embed_links:
+		perms += "Embed Links, "
+	if role.permissions.attach_files:
+		perms += "Attach Files, "
+	if role.permissions.read_message_history:
+		perms += "Read Message History, "
+	if role.permissions.mention_everyone:
+		perms += "Mention Everyone, "
+	if role.permissions.external_emojis:
+		perms += "Use External Emojis, "
+	if role.permissions.connect:
+		perms += "Connect to Voice, "
+	if role.permissions.speak:
+		perms += "Speak, "
+	if role.permissions.mute_members:
+		perms += "Mute Members, "
+	if role.permissions.deafen_members:
+		perms += "Deafen Members, "
+	if role.permissions.move_members:
+		perms += "Move Members, "
+	if role.permissions.use_voice_activation:
+		perms += "Use Voice Activation, "
+	if role.permissions.change_nickname:
+		perms += "Change Nickname, "
+	if role.permissions.manage_nicknames:
+		perms += "Manage Nicknames, "
+	if role.permissions.manage_roles:
+		perms += "Manage Roles, "
+	if role.permissions.manage_webhooks:
+		perms += "Manage Webhooks, "
+	if role.permissions.manage_emojis:
+		perms += "Manage Emojis, "
+			
+	if perms is None:
+		perms = "None"
+	else:perms = perms.strip(", ")
 
-    if perms is None:
-        perms = "None"
-    else:
-        perms = perms.strip(", ")
-            
-    thing = str(role.created_at.__format__('%A, %B %d, %Y'))
+	em.add_field(name='Hoisted', value=str(role.hoist))
+	em.add_field(name='Position from bottom', value=str(role.position))
+	em.add_field(name='Managed by Integration', value=str(role.managed))
+	em.add_field(name='Mentionable', value=str(role.mentionable))
+		
+	em.add_field(name='People in this role', value=str(rolen))
 
-    em.add_field(name='Hoisted', value=str(role.hoist))
-    em.add_field(name='Position from bottom', value=str(role.position))
-    em.add_field(name='Managed by Integration', value=str(role.managed))
-    em.add_field(name='Mentionable', value=str(role.mentionable))
-    em.add_field(name='People in this role', value=str(len(role.members)))
-    em.set_footer(text=f'Created At: {thing}')
-    await bot.say(embed=em)
+	em.add_field(name='Permissions', value=perms)
+
+	await bot.say(embed= em)
 
 @bot.command(pass_context=True)
 async def hug(ctx, *,member : discord.Member = None):
@@ -4612,7 +4629,7 @@ async def virus(ctx, user: discord.Member = None, *, hack = None):
         
     if user:
         await bot.say('`{}-virus.exe` successfully sent into **{}**\'s system.'.format(hack,user.name))
-        await client.send_message(user,'**Alert!**\n``You may have been hacked. {}-virus.exe has been found in your system\'s operating system.\nYour data may have been compromised. Please re-install your OS immediately.``'.format(hack))
+        await bot.send_message(user,'**Alert!**\n``You may have been hacked. {}-virus.exe has been found in your system\'s operating system.\nYour data may have been compromised. Please re-install your OS immediately.``'.format(hack))
     else:
         await bot.say('**{}** hacked itself ▄︻̷̿┻̿═━一'.format(name.name))
         await bot.send_message(name,'__Alert!__\n**You may have been hacked. {}-virus.exe has been found in your system\'s operating system.\nYour data may have been compromised. Please re-install your OS immediately.**'.format(hack))
