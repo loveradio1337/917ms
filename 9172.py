@@ -1932,7 +1932,7 @@ async def whois(ctx, user: discord.Member = None):
         embed = discord.Embed(color=0xC72323)
         embed.set_author=f"{user.name}", icon_url=f"{user.avatar_url}"
         embed.description = f"{random.choice(lolwho)}"
-        embed.set_footer(f"Requested by: {ctx.message.author.display_name}"), icon_url=f'{ctx.message.author.avatar_url}')
+        embed.set_footer(text = f"Requested by: {ctx.message.author.display_name}"), icon_url=f'{ctx.message.author.avatar_url}')
         await bot.say(embed=embed)
 
 
