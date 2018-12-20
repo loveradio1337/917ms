@@ -4522,7 +4522,7 @@ async def roleinfo(self, ctx, rolename):
 	if role.permissions.manage_channels:
 		perms += "Manage Channels, "
 	if role.permissions.manage_server:
-   	perms += "Manage Server, "
+		perms += "Manage Server, "
 	if role.permissions.add_reactions:
 		perms += "Add Reactions, "
 	if role.permissions.view_audit_logs:
