@@ -4653,8 +4653,8 @@ async def rps(ctx):
             elif botChoice == "paper":
                 await bot.say("I choose **{}**. You win!".format(botChoice))
 
-@bot.command()
-async def animemes():
+@bot.command(pass_context=True)
+async def animemes(ctx):
     animememes_submissions = reddit.subreddit('Animemes').hot()
     post_to_pick = random.randint(1, 100)
     for i in range(0, post_to_pick):
