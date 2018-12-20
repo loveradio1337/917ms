@@ -119,9 +119,7 @@ noperm = "Sorry but you do not have permission to use this command..."
 
 botid = "507241518524923904"
 
-reddit = praw.Reddit(client_id='G-SK66FZT8at9g',
-                     client_secret='DLqIkkdoD0K8xKpxuaMAhRscrS0',
-                     user_agent='android:com.G-SK66FZT8at9g.SolarBot:v1.2.3 (by /u/LaidDownRepaer)')
+reddit = praw.Reddit(client_id='G-SK66FZT8at9g'
 
 lines = "4.5k+"
 
