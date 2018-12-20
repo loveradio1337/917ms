@@ -4301,25 +4301,25 @@ async def flipcoin(ctx):
 
 @bot.command(aliases=["slots"], pass_context=True)
 async def slot(ctx):
-	emojis = "🍎🍊🍐🍋🍉🍇🍓🍒"
-	a = random.choice(emojis)
-	b = random.choice(emojis)
-	c = random.choice(emojis)
-	user=ctx.message.author.mention
+    emojis = "🍎🍊🍐🍋🍉🍇🍓🍒"
+    a = random.choice(emojis)
+    b = random.choice(emojis)
+    c = random.choice(emojis)
+    user=ctx.message.author.mention
         
-	embed=discord.Embed(color=0xC72323)
-	slot=f"**[ {a} {b} {c} ]**"
+    embed=discord.Embed(color=0xC72323)
+    slot=f"**[ {a} {b} {c} ]**"
 		
 		
-	if (a == b == c):
-		embed.add_field( name=slot, value= f"**{user}**, All matching, Jackpot! <a:shake:475305983195742211> ")
-	elif (a == b) or (a == c) or (b == c):
-		embed.add_field( name= slot, value= f"**{user}**, 2 in a row, you won! <a:grin:475304794958069760> ")
-	else:
-		embed.add_field( name= slot, value= f"**{user}**, No match, you lost <a:triggered:475838149692751873> ")
-    embed.set_thumbnail(url="https://previews.123rf.com/images/happyvector071/happyvector0711806/happyvector071180600693/103170071-creative-vector-illustration-of-3d-gambling-reel-casino-slot-machine-isolated-on-transparent-backgro.jpg")
-    embed.timestamp = datetime.datetime.utcnow()
-	await bot.say(embed=embed)
+    if (a == b == c):
+        embed.add_field( name=slot, value= f"**{user}**, All matching, Jackpot! <a:shake:475305983195742211> ")
+    elif (a == b) or (a == c) or (b == c):
+        embed.add_field( name= slot, value= f"**{user}**, 2 in a row, you won! <a:grin:475304794958069760> ")
+    else:
+        embed.add_field( name= slot, value= f"**{user}**, No match, you lost <a:triggered:475838149692751873> ")
+        embed.set_thumbnail(url="https://previews.123rf.com/images/happyvector071/happyvector0711806/happyvector071180600693/103170071-creative-vector-illustration-of-3d-gambling-reel-casino-slot-machine-isolated-on-transparent-backgro.jpg")
+        embed.timestamp = datetime.datetime.utcnow()
+        await bot.say(embed=embed)
 
 @bot.command(pass_context=True)
 async def cat(ctx):
