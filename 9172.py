@@ -4317,7 +4317,7 @@ async def slot(ctx):
 		embed.add_field( name= slot, value= f"**{user}**, 2 in a row, you won! <a:grin:475304794958069760> ")
 	else:
 		embed.add_field( name= slot, value= f"**{user}**, No match, you lost <a:triggered:475838149692751873> ")
-    embed.set_thumbnail(url"https://previews.123rf.com/images/happyvector071/happyvector0711806/happyvector071180600693/103170071-creative-vector-illustration-of-3d-gambling-reel-casino-slot-machine-isolated-on-transparent-backgro.jpg")
+    embed.set_thumbnail(url="https://previews.123rf.com/images/happyvector071/happyvector0711806/happyvector071180600693/103170071-creative-vector-illustration-of-3d-gambling-reel-casino-slot-machine-isolated-on-transparent-backgro.jpg")
     embed.timestamp = datetime.datetime.utcnow()
 	await bot.say(embed=embed)
 
