@@ -4085,7 +4085,17 @@ async def on_message(message):
     if message.content == ">rainbow":
 
 
-        await bot.send_message(message.channel, '{} ```The proper usage is\n>rainbow <mention a role>\n\nMake sure capitalization and everything else is correct```'.format(message.author.mention))
+        await bot.send_message(message.channel, '{} ```The proper usage is\n>rainbow <name a role>\n\nMake sure capitalization and everything else is correct```'.format(message.author.mention))
+
+    if message.content == ">choose":
+
+
+        await bot.send_message(message.channel, '{} ```The proper usage is\n>choose apple,orange,girl\nThe bot will pick like apple```'.format(message.author.mention))
+
+    if message.content == ">rps":
+
+
+        await bot.send_message(message.channel, '{} ```The proper usage is\n>rps <rock> or <paper> or <scissors>```'.format(message.author.mention))
 
     await bot.process_commands(message)
 
@@ -4112,6 +4122,7 @@ async def poll(ctx, question, *options: str):
         for reaction in reactions[:len(options)]:
             await bot.add_reaction(react_message, reaction)
         embed.set_footer(text='Poll ID: {}'.format(react_message.id), icon_url=f'{ctx.message.author.avatar_url}')
+        embed.timestamp = datetime.datetime.utcnow()
         await bot.edit_message(react_message, embed=embed)
 
 
@@ -4154,6 +4165,7 @@ async def help(ctx):
     embed.add_field(name="🆗 Text Commands ", value="fliptable, say, embed, face")
     embed.set_footer(text="Use > before each commands!")
     embed.set_thumbnail(url=botavatar)
+    embed.timestamp = datetime.datetime.utcnow()
     await bot.say(embed=embed)
 
 @bot.command(pass_context = True)
@@ -4166,6 +4178,7 @@ async def ping(ctx):
     t2 = time.perf_counter()
     embed = discord.Embed(title="Ping!\nPong!", description= "{}ms 🏓".format(round((t2-t1)*1000)), color=0xC72323)
     embed.set_footer(text=f'Requested by: {ctx.message.author.display_name}', icon_url=f'{ctx.message.author.avatar_url}')
+    embed.timestamp = datetime.datetime.utcnow()
     await bot.say(embed=embed)
 
 @bot.command(pass_context=True)
@@ -4181,6 +4194,7 @@ async def trumptweet(ctx, *, tet:str = None):
                 embed.set_image(url=res['message'])
                 embed.title = "trumptweet.png"
                 embed.set_footer(text=f'Requested by: {ctx.message.author.display_name}', icon_url=f'{ctx.message.author.avatar_url}')
+                embed.timestamp = datetime.datetime.utcnow()
                 await bot.say(embed=embed)
 
 @bot.command(pass_context=True)
@@ -4195,6 +4209,7 @@ async def magik(ctx, user: discord.Member):
             embed.set_image(url=res['message'])
             embed.title = "magik.png"
             embed.set_footer(text=f'Requested by: {ctx.message.author.display_name}', icon_url=f'{ctx.message.author.avatar_url}')
+            embed.timestamp = datetime.datetime.utcnow()
             await bot.say(embed=embed)
 
 @bot.command(pass_context=True)
@@ -4206,8 +4221,10 @@ async def awooify(ctx, user: discord.Member):
         async with cs.get(url) as r:
             res = await r.json()
             embed = discord.Embed(color=0xC72323)
+            embed.set_footer(text=f'Requested by: {ctx.message.author.display_name}', icon_url=f'{ctx.message.author.avatar_url}')
             embed.set_image(url=res['message'])
             embed.title = f"{user.name} awooify LOL"
+            embed.timestamp = datetime.datetime.utcnow()
             await bot.say(embed=embed)
 
 @bot.command(pass_context=True)
@@ -4222,6 +4239,7 @@ async def tweet(ctx, usernamename:str, *, txt:str):
             embed.set_image(url=res['message'])
             embed.title = f"{usernamename}'s TWEET."
             embed.set_footer(text=f'Requested by: {ctx.message.author.display_name}', icon_url=f'{ctx.message.author.avatar_url}')
+            embed.timestamp = datetime.datetime.utcnow()
             await bot.say(embed=embed)
 
 @bot.command(pass_context=True)
@@ -4246,6 +4264,7 @@ async def ship(ctx, user: discord.Member = None, *, user2: discord.Member = None
             res = await r.json()
             embed = discord.Embed(title=f"{ss1} ❤ {ss2} Love each others", description=f"Love\n`{counter_}` **{score}% **\nTheir love name was **{finalName}**", color=0xC72323)
             embed.set_footer(text=f'Requested by: {ctx.message.author.display_name}', icon_url=f'{ctx.message.author.avatar_url}')
+            embed.timestamp = datetime.datetime.utcnow()
             embed.set_image(url=res['message'])
             await bot.say(embed=embed)
 
@@ -4257,6 +4276,7 @@ async def meme(ctx):
             embed = discord.Embed(title='Random memes 😂', description='', color=0xC72323)
             embed.set_image(url=data[0]["data"]["children"][0]["data"]["url"])
             embed.set_footer(text=f'Requested by: {ctx.message.author.display_name}', icon_url=f'{ctx.message.author.avatar_url}')
+            embed.timestamp = datetime.datetime.utcnow()
             await bot.say(embed=embed)
 
 @bot.command(pass_context=True)
@@ -4268,13 +4288,17 @@ async def asktrump(ctx, *, question):
             em.description = f"**You:** {question}\n\n**Trump:** {res['message']}"
             em.set_thumbnail(url='https://d.ibtimes.co.uk/en/full/1571929/donald-trump.jpg')
             em.set_footer(text=f'Requested by: {ctx.message.author.display_name}', icon_url=f'{ctx.message.author.avatar_url}')
+            em.timestamp = datetime.datetime.utcnow()
             await bot.say(embed=em)
 
 @bot.command(pass_context = True)
 async def flipcoin(ctx):
     choices = ['Heads', 'Tails', 'Coin self-destructed.']
-    em=discord.Embed(color=0xC72323, title='Flipped a coin!')
+    em=discord.Embed(color=0xC72323, title='You flipped a coin!')
     em.description = random.choice(choices)
+    em.set_footer(text=f'Requested by: {ctx.message.author.display_name}', icon_url=f'{ctx.message.author.avatar_url}')
+    em.timestamp = datetime.datetime.utcnow()
+
     await bot.say(embed=em)
 
 @bot.command(pass_context=True)
@@ -4301,6 +4325,7 @@ async def cat(ctx):
             em = discord.Embed(color=0xC72323, title="Cat")
             em.set_image(url=data['url'])
             em.set_footer(text=f'Requested by: {ctx.message.author.display_name}', icon_url=f'{ctx.message.author.avatar_url}')
+            em.timestamp = datetime.datetime.utcnow()
             await bot.say(embed=em)
 
 
@@ -4343,6 +4368,7 @@ async def pun(ctx):
     embed = discord.Embed(color=0xC72323)
     embed.add_field(name='😒 Have A Pun', value='```\n' + pun_text + '\n```')
     embed.set_footer(text=f'Requested by: {ctx.message.author.display_name}', icon_url=f'{ctx.message.author.avatar_url}')
+    embed.timestamp = datetime.datetime.utcnow()
     await bot.say(embed=embed)
 		
 @bot.command(pass_context=True)
@@ -4358,6 +4384,7 @@ async def yomomma(ctx):
     embed = discord.Embed(color=0xC72323)
     embed.add_field(name='A Yo Momma Joke', value='```\n' + joke + '\n```')
     embed.set_footer(text=f'Requested by: {ctx.message.author.display_name}', icon_url=f'{ctx.message.author.avatar_url}')
+    embed.timestamp = datetime.datetime.utcnow()
     await bot.say(embed=embed)
 
 @bot.command(pass_context=True)
@@ -4366,6 +4393,8 @@ async def dog(ctx):
     url = (page.json().get('url'))
     embed=discord.Embed(title="Dog", url=url, color=0xC72323)
     embed.set_image(url=url)
+    embed.set_footer(text=f'Requested by: {ctx.message.author.display_name}', icon_url=f'{ctx.message.author.avatar_url}')
+    embed.timestamp = datetime.datetime.utcnow()
     await bot.say(embed=embed)
 
 @bot.command(pass_context=True)
@@ -4375,6 +4404,7 @@ async def duck(ctx):
     embed=discord.Embed(title="Duck", url=url, color=0xC72323)
     embed.set_image(url=url)
     embed.set_footer(text=f'Requested by: {ctx.message.author.display_name}', icon_url=f'{ctx.message.author.avatar_url}')
+    embed.timestamp = datetime.datetime.utcnow()
     await bot.say(embed=embed)
 
 @bot.command(pass_context=True)
@@ -4384,6 +4414,7 @@ async def pug(ctx):
     embed=discord.Embed(title="Pug", url=url, color=0xC72323)
     embed.set_image(url=url)
     embed.set_footer(text=f'Requested by: {ctx.message.author.display_name}', icon_url=f'{ctx.message.author.avatar_url}')
+    embed.timestamp = datetime.datetime.utcnow()
     await bot.say(embed=embed)
 
 #@bot.command(pass_context=True)
@@ -4404,6 +4435,7 @@ async def fox(ctx):
     embed=discord.Embed(title="Fox", url=url, color=0xC72323)
     embed.set_image(url=url)
     embed.set_footer(text=f'Requested by: {ctx.message.author.display_name}', icon_url=f'{ctx.message.author.avatar_url}')
+    embed.timestamp = datetime.datetime.utcnow()
     await bot.say(embed=embed)
 
 @bot.command(pass_context=True)
@@ -4413,6 +4445,7 @@ async def bird(ctx):
     embed=discord.Embed(title="Bird", url=url, color=0xC72323)
     embed.set_image(url=url)
     embed.set_footer(text=f'Requested by: {ctx.message.author.display_name}', icon_url=f'{ctx.message.author.avatar_url}')
+    embed.timestamp = datetime.datetime.utcnow()
     await bot.say(embed=embed)
 
 @bot.command(pass_context=True)
@@ -4422,6 +4455,7 @@ async def dicksize(ctx, user: discord.Member):
     embed = discord.Embed(color=0xC72323)
     embed.add_field(name=f"{user.name}'s Dick size according to my calculation", value=dong)
     embed.set_footer(text=f'Requested by: {ctx.message.author.display_name}', icon_url=f'{ctx.message.author.avatar_url}')
+    embed.timestamp = datetime.datetime.utcnow()
     await bot.say(embed=embed)
 
 @bot.command(pass_context=True)
@@ -4459,6 +4493,7 @@ async def kill(ctx, *, member: discord.Member = None):
         embed.set_thumbnail(url="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/NHS-Logo.svg/1200px-NHS-Logo.svg.png")
         embed.set_image(url="http://4.bp.blogspot.com/-FL6mKTZOk94/UBb_9EuAYNI/AAAAAAAAOco/JWsTlyInMeQ/s400/Jean+Reno.gif")
         embed.set_footer(text=f'Requested by: {ctx.message.author.display_name}', icon_url=f'{ctx.message.author.avatar_url}')
+        embed.timestamp = datetime.datetime.utcnow()
         await bot.say(embed=embed)
     else:
         embed=discord.Embed(title="Killed!", description="{} Was killed by {} OOF ".format(member.mention, ctx.message.author.name),color=0xC72323)
@@ -4471,6 +4506,7 @@ async def slap(ctx, *, member: discord.Member = None):
         embed=discord.Embed(title="No one to slap!", description="You havent mentioned anyone to slap!", color=0xC72323)
         embed.set_thumbnail(url="http://i.imgur.com/6YToyEF.png")
         embed.set_footer(text=f'Requested by: {ctx.message.author.display_name}', icon_url=f'{ctx.message.author.avatar_url}')
+        embed.timestamp = datetime.datetime.utcnow()
         await bot.say(embed=embed)
     elif member.id == ctx.message.author.id:
         embed=discord.Embed(title="Call this number", description="1-800-784-2433", color=0xC72323)
@@ -4482,6 +4518,7 @@ async def slap(ctx, *, member: discord.Member = None):
         embed=discord.Embed(title="slapped!", description="{} Was slapped by {} OOF ".format(member.mention, ctx.message.author.name),color=0xC72323)
         embed.set_image(url="https://media.giphy.com/media/jLeyZWgtwgr2U/giphy.gif")
         embed.set_footer(text=f'Requested by: {ctx.message.author.display_name}', icon_url=f'{ctx.message.author.avatar_url}')
+        embed.timestamp = datetime.datetime.utcnow()
         await bot.say(embed=embed)
 
 @bot.command(pass_context=True,aliases=['role'])
@@ -4680,6 +4717,7 @@ async def animemes(ctx):
     embed=discord.Embed(color=0xC72323, title="😁 Anime Memes ✌")
     embed.set_image(url=submission.url)
     embed.set_footer(text=f'Requested by: {ctx.message.author.display_name}', icon_url=f'{ctx.message.author.avatar_url}')
+    embed.timestamp = datetime.datetime.utcnow()
     await bot.say(embed=embed)
 
 bot.run(os.environ['Token1'])
