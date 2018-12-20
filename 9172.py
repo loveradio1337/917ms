@@ -121,6 +121,9 @@ botid = "507241518524923904"
 
 lines = "4.5k+"
 
+reddit = praw.Reddit(client_id='G-SK66FZT8at9g',
+                     client_secret='DLqIkkdoD0K8xKpxuaMAhRscrS0',
+                     user_agent='android:com.G-SK66FZT8at9g.SolarBot:v1.2.3 (by /u/LaidDownRepaer)')
 
 if_statements = "Undefined"
 
@@ -1312,7 +1315,9 @@ async def clear(ctx, amount = 10000):
         embed = discord.Embed(color=0xC72323)
         embed.set_author(name="{ctx.message.author.display_name}", icon_url="{ctx.message.author.avatar_url}")
         embed.description = "Deleted" + str(amount) + "messages..."
-        await bot.say(embed=embed, delete_after=8)
+        await bot.say(embed=embed)
+        await asyncio.sleep(8)
+        await bot.delete_message(embed=embed)
 
     else:
 
@@ -4146,7 +4151,7 @@ async def help(ctx):
     embed.add_field(name="🔨 Moderation Commands ", value="kick, ban, slowclear, warn, decide, secretkick, secretban, clear, slowmode, cslowmode, renamerole, renameserver, nick, textchannel, voicechannel, nickall, renamechannel, emojirename, announce")
     embed.add_field(name="🛠 Utility Commands ", value="userinfo, botinfo, serverinfo, servercount, embedcode, codeinfo, serverowner, statcheck, gamecheck, channelinfo, emojis, membernames, roleinfo, invite, randomnumber, customrandomnumber, stringgen, avatar, qr, ytsearch, google , encode, poll, botsearch, topbots, vote, choose")
     embed.add_field(name="😁 Fun Commands ", value="8ball, gender, fbi, skincolor, hack, virus, bomb, whois, hairdye, heigth, talentcheck, howto, autistcheck, asktrump, howgay, dicksize")
-    embed.add_field(name="😂 Memes Command ", value="yomomma, joke, dadjoke, meme, pun, animemes")
+    embed.add_field(name="😂 Memes Command ", value="yomomma, joke, dadjoke, meme, pun, animemes, sapnupuas")
     embed.add_field(name="📷 Image Commands ", value="tweet, trumptweet, ship, awooify, damn, burned, hug, slap, kill, shoot")
     embed.add_field(name="🐕 Animals Commands ", value="cat, dog, pug, fox, bird, duck")
     embed.add_field(name="🎲 Games Commands ", value="rolldice, flipcoin, slots, rps")
