@@ -672,7 +672,6 @@ async def avatar(ctx, user: discord.Member):
 # Slow Clear
 
 
-# Slow Purge
 @bot.command(pass_context=True)
 async def slowclear(ctx):
     try:
@@ -1315,8 +1314,6 @@ async def clear(ctx, amount = 10000):
         embed.set_author(name="{ctx.message.author.display_name}", icon_url="{ctx.message.author.avatar_url}")
         embed.description = "Deleted" + str(amount) + "messages..."
         await bot.say(embed=embed)
-        await asyncio.sleep(8)
-        await bot.delete_message(embed=embed)
 
     else:
 
@@ -1351,7 +1348,7 @@ async def sapnupuas(ctx):
 @bot.command(pass_context=True)
 
 
-async def randomnumber(ctx):
+async def rn(ctx):
 
 
     embed = discord.Embed(color=0xC72323)
@@ -1375,7 +1372,7 @@ async def randomnumber(ctx):
 @bot.command(pass_context=True)
 
 
-async def customrandomnumber(ctx, first: int, second: int):
+async def customrn(ctx, first: int, second: int):
 
 
     embed = discord.Embed(color=0xC72323)
@@ -4054,10 +4051,10 @@ async def on_message(message):
 
 
 
-    if message.content == ">customint":
+    if message.content == ">customrn":
 
 
-        await bot.send_message(message.channel, "{} ```The proper usage is\n>customint <first number> <second number>```".format(message.author.mention))
+        await bot.send_message(message.channel, "{} ```The proper usage is\n>customrn <first number> <second number>```".format(message.author.mention))
 
 
 
@@ -4148,7 +4145,7 @@ async def help(ctx):
     embed.add_field(name="Invite Link:", value="[Here]( https://discordapp.com/api/oauth2/authorize?client_id=507241518524923904&,permissions=8&scope=bot)")
     embed.add_field(name="Wanna vote for Like?", value="[Here](https://discordbots.org/bot/507241518524923904/vote)")
     embed.add_field(name="🔨 Moderation Commands ", value="kick, ban, slowclear, warn, decide, secretkick, secretban, clear, slowmode, cslowmode, renamerole, renameserver, nick, textchannel, voicechannel, nickall, renamechannel, emojirename, announce")
-    embed.add_field(name="🛠 Utility Commands ", value="userinfo, botinfo, serverinfo, servercount, embedcode, codeinfo, serverowner, statcheck, gamecheck, channelinfo, emojis, membernames, roleinfo, invite, randomnumber, customrandomnumber, stringgen, avatar, qr, ytsearch, google , encode, poll, botsearch, topbots, vote, choose")
+    embed.add_field(name="🛠 Utility Commands ", value="userinfo, botinfo, serverinfo, servercount, embedcode, codeinfo, serverowner, statcheck, gamecheck, channelinfo, emojis, membernames, roleinfo, invite, rn, customrn, stringgen, avatar, qr, ytsearch, google , encode, poll, botsearch, topbots, vote, choose")
     embed.add_field(name="😁 Fun Commands ", value="8ball, gender, fbi, skincolor, hack, virus, bomb, whois, hairdye, heigth, talentcheck, howto, autistcheck, asktrump, howgay, dicksize")
     embed.add_field(name="😂 Memes Command ", value="yomomma, joke, dadjoke, meme, pun, animemes, sapnupuas")
     embed.add_field(name="📷 Image Commands ", value="tweet, trumptweet, ship, awooify, damn, burned, hug, slap, kill, shoot")
@@ -4663,6 +4660,9 @@ async def animemes():
     for i in range(0, post_to_pick):
         submission = next(x for x in animememes_submissions if not x.stickied)
 
-    await bot.say(submission.url)
+    embed=discord.Embed(color=0xC72323, title="😁 Anime Memes ✌")
+    embed.set_image(url=submission.url)
+    embed.set_footer(text=f'Requested by: {ctx.message.author.display_name}', icon_url=f'{ctx.message.author.avatar_url}')
+    await bot.say(embed=embed)
 
 bot.run(os.environ['Token1'])
