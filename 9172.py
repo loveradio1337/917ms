@@ -1290,6 +1290,7 @@ async def encode(ctx, *, encode_to: str):
 
         await bot.say(f"Could not encode.\n`{e}`")
 
+# clear
 @bot.command(pass_context=True)
 async def clear(ctx, amount = 10000):
 
@@ -1310,10 +1311,7 @@ async def clear(ctx, amount = 10000):
 
 
         await bot.delete_messages(mgs)
-        embed = discord.Embed(color=0xC72323)
-        embed.set_author(name="{ctx.message.author.display_name}", icon_url="{ctx.message.author.avatar_url}")
-        embed.description = "Deleted" + str(amount) + "messages..."
-        await bot.say(embed=embed)
+        await bot.say(str(amount) + "messages were deleted...", delete_after=4)
 
     else:
 
@@ -4161,7 +4159,7 @@ async def help(ctx):
     embed.add_field(name="😂 Memes Command ", value="yomomma, joke, dadjoke, meme, pun, animemes, sapnupuas")
     embed.add_field(name="📷 Image Commands ", value="tweet, trumptweet, ship, awooify, damn, burned, hug, slap, kill, shoot")
     embed.add_field(name="🐕 Animals Commands ", value="cat, dog, pug, fox, bird, duck")
-    embed.add_field(name="🎲 Games Commands ", value="rolldice, flipcoin, slots, rps")
+    embed.add_field(name="🎲 Games Commands ", value="rolldice, flipcoin, slot, rps")
     embed.add_field(name="🆗 Text Commands ", value="tableflip, say, embed, face")
     embed.set_footer(text="Use > before each commands!")
     embed.set_thumbnail(url=botavatar)
@@ -4301,21 +4299,27 @@ async def flipcoin(ctx):
 
     await bot.say(embed=em)
 
-@bot.command(pass_context=True)
-async def slots(ctx):
-    emojis = "💩🛡🎅🎃💗"
-    a = random.choice(emojis)
-    b = random.choice(emojis)
-    c = random.choice(emojis)
-
-    slotmachine = f"**[ {a} {b} {c} ]  **,"
-
-    if (a == b == c):
-        await bot.say(f"{slotmachine} `All matching!`  ")
-    elif (a == b) or (a == c) or (b == c):
-        await bot.say(f"{slotmachine} `2 in a row`  ")
-    else:
-        await bot.say(f"{slotmachine} `rip` ")
+@bot.command(aliases=["slots"], pass_context=True)
+async def slot(ctx):
+	emojis = "🍎🍊🍐🍋🍉🍇🍓🍒"
+	a = random.choice(emojis)
+	b = random.choice(emojis)
+	c = random.choice(emojis)
+	user=ctx.message.author.mention
+        
+	embed=discord.Embed(color=0xC72323)
+	slot=f"**[ {a} {b} {c} ]**"
+		
+		
+	if (a == b == c):
+		embed.add_field( name=slot, value= f"**{user}**, All matching, Jackpot! <a:shake:475305983195742211> ")
+	elif (a == b) or (a == c) or (b == c):
+		embed.add_field( name= slot, value= f"**{user}**, 2 in a row, you won! <a:grin:475304794958069760> ")
+	else:
+		embed.add_field( name= slot, value= f"**{user}**, No match, you lost <a:triggered:475838149692751873> ")
+    embed.set_thumbnail(url"https://previews.123rf.com/images/happyvector071/happyvector0711806/happyvector071180600693/103170071-creative-vector-illustration-of-3d-gambling-reel-casino-slot-machine-isolated-on-transparent-backgro.jpg")
+    embed.timestamp = datetime.datetime.utcnow()
+	await bot.say(embed=embed)
 
 @bot.command(pass_context=True)
 async def cat(ctx):
