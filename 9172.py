@@ -119,8 +119,6 @@ noperm = "Sorry but you do not have permission to use this command..."
 
 botid = "507241518524923904"
 
-reddit = praw.Reddit(client_id='G-SK66FZT8at9g'
-
 lines = "4.5k+"
 
 
