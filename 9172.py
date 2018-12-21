@@ -1311,7 +1311,7 @@ async def clear(ctx, amount = 10000):
 
 
         await bot.delete_messages(mgs)
-        await bot.say(str(amount) + "messages were deleted...", delete_after=4)
+        await bot.say(str(amount) + " messages were deleted...", delete_after=4)
 
     else:
 
@@ -2650,19 +2650,19 @@ async def channelinfo(ctx):
         embed = discord.Embed(title=f"Information about {ctx.message.channel.name}", color=0xC72323)
 
 
-        embed.add_field(name="🕺 __Name__ 👤", value=ctx.message.channel.name)
+        embed.add_field(name="👤 __Name__ ", value=ctx.message.channel.name)
 
 
-        embed.add_field(name="💠 __Server__ 💠", value=ctx.message.channel.server)
+        embed.add_field(name="💠 __Server__ ", value=ctx.message.channel.server)
 
 
-        embed.add_field(name="🎫 __ID__ 🎫", value=ctx.message.channel.id)
+        embed.add_field(name="🎫 __ID__ ", value=ctx.message.channel.id)
 
 
-        embed.add_field(name="📋 __Position__ 📋", value=ctx.message.channel.position)
+        embed.add_field(name="📋 __Position__ ", value=ctx.message.channel.position)
 
 
-        embed.add_field(name="📆 __Created__ 📆", value=ctx.message.channel.created_at.strftime("%d %b %Y %H:%M"))
+        embed.add_field(name="📆 __Created__ ", value=ctx.message.channel.created_at.strftime("%d %b %Y %H:%M"))
 
 
         embed.set_thumbnail(url=ctx.message.server.icon_url)
@@ -2744,10 +2744,6 @@ async def nick(ctx, user: discord.Member = None, *, changed: str = None):
 
 
                 await bot.say(f"{ctx.message.author.mention} ```The proper usage is\n >nick <mention a user> <new nickname>```")
-
-
-
-
 
             else:
 
@@ -3857,7 +3853,7 @@ async def announce(ctx, *, xdd: str = None):
                 try:
 
 
-                    await bot.send_message(member, xdd)
+                    await bot.send_message(member, "message from {ctx.message.author.name}", xdd)
 
 
                     print('Successfully sent a message to {}'.format(member.name))
@@ -3943,8 +3939,8 @@ async def on_message(message):
         await bot.send_message(message.channel, "{} ```The proper usage is\n>userinfo <mention a user>```".format(message.author.mention))
     if message.content == ">8ball":
         await bot.send_message(message.channel, "{} ```The proper usage is\n>8ball <question>```".format(message.author.mention))
-    if message.content == ">magik":
-        await bot.send_message(message.channel, "{} ```The proper usage is\n>magik <mention a user>```".format(message.author.mention))
+    if message.content == ">dicksie":
+        await bot.send_message(message.channel, "{} ```The proper usage is\n>dicksize <mention a user>```".format(message.author.mention))
 
 
 
@@ -4110,7 +4106,7 @@ async def poll(ctx, question, *options: str):
         if len(options) == 2 and options[0] == 'yes' and options[1] == 'no':
             reactions = ['☑', '❎']
         else:
-            reactions = [ '1\u20e3', '2\u20e3', '3\u20e3', '4\u20e3', '5\u20e3', '6\u20e3', '7\u20e3', '8\u20e3', '9\u20e3', '\U0001f51f']
+            reactions = ['1\u20e3', '2\u20e3', '3\u20e3', '4\u20e3', '5\u20e3', '6\u20e3', '7\u20e3', '8\u20e3', '9\u20e3', '\U0001f51f']
 
         description = []
         for x, option in enumerate(options):
@@ -4128,24 +4124,18 @@ async def poll(ctx, question, *options: str):
 async def on_member_join(member):
     for channel in member.server.channels:
         if channel.name == '》welcome♤':
-            embed = discord.Embed(title=f'🎉Welcome {member.name} to {member.server.name}🎉', description='Please 🙏 do not forget to read the rules and dont try to break any one of them👼', color=0xC72323)
-            embed.add_field(name='__Thanks for joining__', value='**I hope you will be active here.😉**', inline=True)
-            embed.set_thumbnail(url='https://media.giphy.com/media/OkJat1YNdoD3W/giphy.gif') 
-            embed.set_image(url = member.avatar_url)
-            embed.add_field(name='__Join position__', value='{}'.format(str(member.server.member_count)), inline=True)
-            await bot.send_message(channel, embed=embed) 
-            nickname= '✴🔆 ' + member.name + ' 🔆✴'
-            await bot.change_nickname(member, nickname)
-
+annels(), server__name="BC GAMER'S", name='🎉-welcome-🎊')
+    embed = discord.Embed(title=f'🎀{member.name} welcome to {member.server.name} 🎀', description='Do not forget to respect each others. 😉', color = 0xC72323)
+    embed.set_image(url = 'https://media.giphy.com/media/OkJat1YNdoD3W/giphy.gif')
 @bot.event
 async def on_member_remove(member):
     for channel in member.server.channels:
         if channel.name == '》left♤':
-            embed = discord.Embed(title=f'{member.name} just left {member.server.name}', description='Good bye 👋! We will gonna miss you 😢', color=0xC72323)
-            embed.add_field(name='__User left__', value='**We hope you will be back soon 🙋.**', inline=True)
+            embed = discord.Embed(color=0xC72323)
+            embed.set_author(name=f'😢 {member.name} has left the {member.server.name} 😢')
+            embed.description='Good bye 👋! We will gonna miss you.'
             embed.set_thumbnail(url=member.avatar_url)
             await bot.send_message(channel, embed=embed)
-
 # help
 @bot.command(pass_context=True)
 async def help(ctx):
@@ -4153,14 +4143,14 @@ async def help(ctx):
     embed = discord.Embed(title="Like Command List", description="Use > before each commands.", color=0xC72323)
     embed.add_field(name="Invite Link:", value="[Here]( https://discordapp.com/api/oauth2/authorize?client_id=507241518524923904&,permissions=8&scope=bot)")
     embed.add_field(name="Wanna vote for Like?", value="[Here](https://discordbots.org/bot/507241518524923904/vote)")
-    embed.add_field(name="🔨 Moderation Commands ", value="kick, ban, slowclear, warn, decide, secretkick, secretban, clear, slowmode, cslowmode, renamerole, renameserver, nick, textchannel, voicechannel, nickall, renamechannel, emojirename, announce")
-    embed.add_field(name="🛠 Utility Commands ", value="userinfo, botinfo, serverinfo, servercount, embedcode, codeinfo, serverowner, statcheck, gamecheck, channelinfo, emojis, membernames, roleinfo, invite, rn, customrn, stringgen, avatar, qr, ytsearch, google , encode, poll, botsearch, topbots, vote, choose")
-    embed.add_field(name="😁 Fun Commands ", value="8ball, gender, fbi, skincolor, hack, virus, bomb, whois, hairdye, heigth, talentcheck, howto, autistcheck, asktrump, howgay, dicksize")
-    embed.add_field(name="😂 Memes Command ", value="yomomma, joke, dadjoke, meme, pun, animemes, sapnupuas")
-    embed.add_field(name="📷 Image Commands ", value="tweet, trumptweet, ship, awooify, damn, burned, hug, slap, kill, shoot")
-    embed.add_field(name="🐕 Animals Commands ", value="cat, dog, pug, fox, bird, duck")
-    embed.add_field(name="🎲 Games Commands ", value="rolldice, flipcoin, slot, rps")
-    embed.add_field(name="🆗 Text Commands ", value="tableflip, say, embed, face")
+    embed.add_field(name="🔨 Moderation Commands ", value="kick, ban, slowclear, warn, decide, secretkick, secretban, clear, slowmode, cslowmode, renamerole, renameserver, nick, textchannel, voicechannel, nickall, renamechannel, emojirename, announce\n\n ")
+    embed.add_field(name="🛠 Utility Commands ", value="userinfo, botinfo, serverinfo, servercount, embedcode, codeinfo, serverowner, statcheck, gamecheck, channelinfo, emojis, membernames, roleinfo, invite, rn, customrn, stringgen, avatar, qr, ytsearch, google , encode, poll, botsearch, topbots, vote, choose\n\n ")
+    embed.add_field(name="😁 Fun Commands ", value="8ball, gender, fbi, skincolor, hack, virus, bomb, whois, hairdye, heigth, talentcheck, howto, autistcheck, asktrump, howgay, dicksize\n\n ")
+    embed.add_field(name="😂 Memes Command ", value="yomomma, joke, dadjoke, meme, pun, animemes, sapnupuas\n\n ")
+    embed.add_field(name="📷 Image Commands ", value="tweet, trumptweet, ship, awooify, damn, burned, hug, slap, kill, shoot\n\n ")
+    embed.add_field(name="🐕 Animals Commands ", value="cat, dog, pug, fox, bird, duck\n\n ")
+    embed.add_field(name="🎲 Games Commands ", value="rolldice, flipcoin, slot, rps\n\n ")
+    embed.add_field(name="🆗 Text Commands ", value="tableflip, say, embed, face\n\n ")
     embed.set_footer(text="Use > before each commands!")
     embed.set_thumbnail(url=botavatar)
     embed.timestamp = datetime.datetime.utcnow()
@@ -4174,7 +4164,7 @@ async def ping(ctx):
     t1 = time.perf_counter()
     await bot.send_typing(channel)
     t2 = time.perf_counter()
-    embed = discord.Embed(title="Ping!\nPong!", description= "{}ms 🏓".format(round((t2-t1)*1000)), color=0xC72323)
+    embed = discord.Embed(title="Pong!", description= "{}ms 🏓".format(round((t2-t1)*1000)), color=0xC72323)
     embed.set_footer(text=f'Requested by: {ctx.message.author.display_name}', icon_url=f'{ctx.message.author.avatar_url}')
     embed.timestamp = datetime.datetime.utcnow()
     await bot.say(embed=embed)
@@ -4723,5 +4713,27 @@ async def animemes(ctx):
     embed.set_footer(text=f'Requested by: {ctx.message.author.display_name}', icon_url=f'{ctx.message.author.avatar_url}')
     embed.timestamp = datetime.datetime.utcnow()
     await bot.say(embed=embed)
+
+@bot.command(aliases=["diceroll"], pass_context=True)
+async def rolldice(ctx):
+	die_faces = [
+		'https://cdn.discordapp.com/attachments/478623413032976386/480018302568103946/1.png',
+		'https://cdn.discordapp.com/attachments/478623413032976386/480018301926506505/2.png',
+		'https://cdn.discordapp.com/attachments/478623413032976386/480018301926506506/3.png',
+		'https://cdn.discordapp.com/attachments/478623413032976386/480018302568103948/4.png',
+		'https://cdn.discordapp.com/attachments/478623413032976386/480018303314558977/5.png',
+		'https://cdn.discordapp.com/attachments/478623413032976386/480018302568103947/6.png'
+		]
+		
+	init = discord.Embed(description= "Rolling it ... <a:loading:479264910744748054> ", colour=COLOUR)
+	init.set_thumbnail(url = "https://cdn.discordapp.com/attachments/478623413032976386/480005385252503562/lg.gambling-rotating-dice.gif")
+		
+	send= await bot.say(embed=init)
+	await asyncio.sleep(3)
+		
+	resp = discord.Embed(description= "Rolled the Dice! <a:cyclone:475304980132397066>  ", color=0xC72323)
+	resp.set_thumbnail(url = random.choice(die_faces))
+
+	await bot.edit_message(send, embed=resp)
 
 bot.run(os.environ['Token1'])
