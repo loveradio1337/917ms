@@ -111,7 +111,7 @@ copyright = "Copyright © 2018 Like and Coco"
 
 
 OwnerBotID = "351390806101327883"
-NeedPerm = title="❎ __Permission Denied__", description="`1)` Please check if you have permission to perform this command. \n`2)` Please check if my role has permission to perform this command in this channel. \n`3)` Please check my role position."
+NeedPerm = title='❎ __Permission Denied__", description="`1)` Please check if you have permission to perform this command. \n`2)` Please check if my role has permission to perform this command in this channel. \n`3)` Please check my role position.'
 
 
 botid = "507241518524923904"
