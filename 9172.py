@@ -4485,7 +4485,7 @@ async def roleinfo(ctx, *, role:discord.Role=None):
     em.description += f':door: Creation Date: `{role.created_at.strftime("%m/%d/%Y, %H:%M:%S")}`\n'
     em.description += f':books: Role Position Number: `{role.position} `\n'
     em.description += f':bell: Mentionable: `{"Yes" if role.mentionable else "No"}`\n'
-    em.description += f':busts_in_silhouette: Has Role Count: `{len(role.members)}`\n'
+
     em.description += '**'
 
     choice = random.choice([['members of', 'hasrole'], ['permissions for', 'permissions']])
