@@ -4124,9 +4124,15 @@ async def poll(ctx, question, *options: str):
 async def on_member_join(member):
     for channel in member.server.channels:
         if channel.name == '》welcome♤':
-annels(), server__name="BC GAMER'S", name='🎉-welcome-🎊')
-    embed = discord.Embed(title=f'🎀{member.name} welcome to {member.server.name} 🎀', description='Do not forget to respect each others. 😉', color = 0xC72323)
-    embed.set_image(url = 'https://media.giphy.com/media/OkJat1YNdoD3W/giphy.gif')
+           embed = discord.Embed(color=0xC72323)
+            embed.set_author(name=f':tada: Welcome **{member.name}** to **{member.server.name}** :tada:')
+            embed.description='Please 🙏 do not forget to respect each others.'
+            embed.set_thumbnail(url=member.avatar_url) 
+            embed.set_footer(text='We now have {} members'.format(str(member.server.member_count)))
+            await bot.send_message(channel, embed=embed) 
+            nickname= '🔰♈ ' + member.name + ' ♈🔰'
+            await bot.change_nickname(member, nickname)
+
 @bot.event
 async def on_member_remove(member):
     for channel in member.server.channels:
