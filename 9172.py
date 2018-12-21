@@ -1291,7 +1291,7 @@ async def encode(ctx, *, encode_to: str):
 
 # clear
 @bot.command(pass_context=True)
-async def clear(ctx, likenumbers: int):
+async def clear(ctx, number: int):
 
 
     if ctx.message.author.server_permissions.manage_messages or ctx.message.author.id == OwnerBotID:
@@ -1299,14 +1299,14 @@ async def clear(ctx, likenumbers: int):
 
         LikeMSG = []
 
-        async for x in bot.logs_from(ctx.message.channel, limit=likenumbers):
+        async for x in bot.logs_from(ctx.message.channel, limit=number):
 
 
             mgs.append(x)
 
 
         await bot.delete_messages(LikeMSG)
-        await bot.say("I deleted ``" + str(likenumbera) + "``` messages for {ctx.message.author.mention}", delete_after=5)
+        await bot.say("I deleted ``" + int(number) + "``` messages for {ctx.message.author.mention}", delete_after=5)
 
     else:
 
