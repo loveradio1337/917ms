@@ -4475,8 +4475,7 @@ async def slap(ctx, *, member: discord.Member = None):
         await bot.say(embed=embed)
 
 @bot.command(pass_context=True,aliases=['role'])
-async def roleinfo(ctx, *, role: str):
-    role = await bot.funcs.find_role(role)
+async def roleinfo(ctx, *, role:discord.Role=None):
     if not role:
         return
     em = discord.Embed()
