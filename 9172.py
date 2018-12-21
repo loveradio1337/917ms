@@ -4517,7 +4517,7 @@ async def roleinfo(ctx, *, role:discord.Role):
     em.description += '**'
 
     choice = random.choice([['members of', 'hasrole'], ['permissions for', 'permissions']])
-    em.set_footer(icon_url=f"{ctx.message.author.avatar_url}", text=f'{}')
+    em.set_footer(icon_url=f"{ctx.message.author.avatar_url}", text=f'{ctx.message.author.display_name}#{discriminator}')
     em.color = role.color
     em.timestamp = datetime.datetime.utcnow()
     await bot.say(embed=em)
