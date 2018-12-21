@@ -1302,7 +1302,7 @@ async def clear(ctx, number: int):
         async for x in bot.logs_from(ctx.message.channel, limit=number):
 
 
-            mgs.append(x)
+            LikeMSG.append(x)
 
 
         await bot.delete_messages(LikeMSG)
