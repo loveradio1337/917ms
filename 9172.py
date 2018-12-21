@@ -4458,7 +4458,7 @@ async def spam2(ctx, count: int, *, mspam: str):
         await bot.delete_message(ctx.message)
         for i in range(count):
             await asyncio.sleep(0.60)
-            await bot.say("{ctx.message.author.name}#{ctx.message.author.discriminator} told me to spam \n" + mspam)
+            await bot.say(f"{ctx.message.author.name}#{ctx.message.author.discriminator} told me to spam \n" + mspam)
     else:
         embed = discord.Embed(title=NeedPerm, description=NeedPermDesc, color=0xC72323)
         await bot.say(embed=embed)
