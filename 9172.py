@@ -4722,16 +4722,9 @@ async def animemes(ctx):
 
 @bot.command(aliases=["diceroll"], pass_context=True)
 async def rolldice(ctx):
-	die_faces = [
-		'https://cdn.discordapp.com/attachments/478623413032976386/480018302568103946/1.png',
-		'https://cdn.discordapp.com/attachments/478623413032976386/480018301926506505/2.png',
-		'https://cdn.discordapp.com/attachments/478623413032976386/480018301926506506/3.png',
-		'https://cdn.discordapp.com/attachments/478623413032976386/480018302568103948/4.png',
-		'https://cdn.discordapp.com/attachments/478623413032976386/480018303314558977/5.png',
-		'https://cdn.discordapp.com/attachments/478623413032976386/480018302568103947/6.png'
-		]
+	die_faces = ['https://cdn.discordapp.com/attachments/478623413032976386/480018302568103946/1.png', 'https://cdn.discordapp.com/attachments/478623413032976386/480018301926506505/2.png', 'https://cdn.discordapp.com/attachments/478623413032976386/480018301926506506/3.png', 'https://cdn.discordapp.com/attachments/478623413032976386/480018302568103948/4.png', 'https://cdn.discordapp.com/attachments/478623413032976386/480018303314558977/5.png', 'https://cdn.discordapp.com/attachments/478623413032976386/480018302568103947/6.png']
 		
-	init = discord.Embed(description= "Rolling it ... <a:loading:479264910744748054> ", color=0xC72323)
+	init = discord.Embed(description= "Rolling it ... ", color=0xC72323)
 	init.set_thumbnail(url = "https://cdn.discordapp.com/attachments/478623413032976386/480005385252503562/lg.gambling-rotating-dice.gif")
 		
 	send= await bot.say(embed=init)
