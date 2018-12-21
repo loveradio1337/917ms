@@ -4598,7 +4598,7 @@ async def animemes(ctx):
 async def rolldice(ctx):
 	die_faces = ['https://cdn.discordapp.com/attachments/478623413032976386/480018302568103946/1.png', 'https://cdn.discordapp.com/attachments/478623413032976386/480018301926506505/2.png', 'https://cdn.discordapp.com/attachments/478623413032976386/480018301926506506/3.png', 'https://cdn.discordapp.com/attachments/478623413032976386/480018302568103948/4.png', 'https://cdn.discordapp.com/attachments/478623413032976386/480018303314558977/5.png', 'https://cdn.discordapp.com/attachments/478623413032976386/480018302568103947/6.png']
 		
-	init = discord.Embed(description= "Rolling it ... ", color=0xC72323)
+	init = discord.Embed(description= "Rolling the dice ... ", color=0xC72323)
 	init.set_thumbnail(url = "https://cdn.discordapp.com/attachments/478623413032976386/480005385252503562/lg.gambling-rotating-dice.gif")
 		
 	send= await bot.say(embed=init)
@@ -4608,5 +4608,45 @@ async def rolldice(ctx):
 	resp.set_thumbnail(url = random.choice(die_faces))
 
 	await bot.edit_message(send, embed=resp)
+
+
+@roleinfo.command(aliases=['role'],pass_context=True)
+async def permissions(ctx, *, role:discord.Role=None):
+
+    if not role:
+        return
+    perms_value = []
+    perms_bool = dict(role.permissions)
+    for i in perms_bool:
+        perms_value.append(i)
+    em = discord.Embed()
+    em.title = f"Permissions for {role}"
+    em.description = ''
+    for i in perms_value:
+        em.description += f'{unblock(i)}: **{perms_bool.pop(i).upper()}\n**'
+    em.color = role.color
+
+    await bot.say(embed=em)
+
+@roleinfo.command(pass_context=True,aliases=['role'])
+async def hasrole(ctx, *, role:discord.Role=None):
+    if not role:
+        return
+    list_of_members_w_role = []
+    num = 1
+    for i in role.members:
+    list_of_members_w_role.append(f'{num}. <@{i.id}>')
+        num += 1
+    em = discord.Embed()
+
+    em.title = f"Members with `{role.name}`:"
+    em.description = '**'
+    em.description += '\n'.join(list_of_members_w_role)
+    em.description += '\n**'
+    if len(em.description) > 6000:
+        await bot.say("holy shit, thats alot of members with that role, I can't actually show you the list due to discords embed text limit, lo siento.")
+        return
+    em.color = role.color
+    await bot.say(embed=em)
 
 bot.run(os.environ['Token1'])
