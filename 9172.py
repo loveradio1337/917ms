@@ -111,7 +111,7 @@ copyright = "Copyright © 2018 Like and Coco"
 
 
 OwnerBotID = "351390806101327883"
-NeedPerm = '❎ __Permission Denied__'
+NeedPerm = '❎ Permission Denied.'
 NeedPermDesc = '`1)` Please check if you have permission to perform this command. \n`2)` Please check if my role has permission to perform this command in this channel. \n`3)` Please check my role position.'
 
 
@@ -1291,7 +1291,7 @@ async def encode(ctx, *, encode_to: str):
 
 # clear
 @bot.command(pass_context=True)
-async def clear(ctx, Like:int):
+async def clear(ctx, likenumbers: int):
 
 
     if ctx.message.author.server_permissions.manage_messages or ctx.message.author.id == OwnerBotID:
@@ -1299,14 +1299,14 @@ async def clear(ctx, Like:int):
 
         LikeMSG = []
 
-        async for x in bot.logs_from(ctx.message.channel, limit=number):
+        async for x in bot.logs_from(ctx.message.channel, limit=likenumbers):
 
 
             mgs.append(x)
 
 
         await bot.delete_messages(LikeMSG)
-        await bot.say("I deleted ``" + str(Like) + "``` messages for {ctx.message.author.mention}", delete_after=5)
+        await bot.say("I deleted ``" + str(likenumbera) + "``` messages for {ctx.message.author.mention}", delete_after=5)
 
     else:
 
@@ -1389,7 +1389,7 @@ async def howgay(ctx, user: discord.Member = None):
     random.seed(user.id)
     if user.id == OwnerBotID:
         embed = discord.Embed(color=0xC72323)
-        embed.add_field(name=f"{user.name}'s Howgay results", value="1% Gay")
+        embed.add_field(name=f"{user.name}'s Howgay results", value="0% Gay")
         await bot.say(embed=embed)
     else:
         if user.id == "335460741958336512":
@@ -1462,109 +1462,162 @@ async def codeinfo(ctx):
 async def hack(ctx, user: discord.Member):
 
 
-    discord_password = "qwerty1301MOANA"
+    discord_password = "MyCrushSSNIPERWOLF"
 
 
-    computer_login = "Satursay"
+    computer_login = "klimax"
 
 
-    facebook = "Dooms Day Date"
+    facebook = "Daniel X"
 
 
-    msg = await bot.say("Starting LEET Hack tool")
+    msg = await bot.say("Starting John The Ripper tool")
+
+
+    await asyncio.sleep(1)
+
+    filled_progbar = round(1 / 100 * 10)
+    1 = '█' * filled_progbar + '‍ ‍' * (10 - filled_progbar)
+
+    filled_progbar2 = round(3 / 100 * 10)
+    2 = '█' * filled_progbar2 + '‍ ‍' * (10 - filled_progbar)
+
+    filled_progbar3 = round(5 / 100 * 10)
+    3 = '█' * filled_progbar3 + '‍ ‍' * (10 - filled_progbar)
+
+    filled_progbar4 = round(6 / 100 * 10)
+    4 = '█' * filled_progbar4 + '‍ ‍' * (10 - filled_progbar)
+
+    filled_progbar5 = round(7 / 100 * 10)
+    5 = '█' * filled_progbar5 + '‍ ‍' * (10 - filled_progbar)
+
+    filled_progbar6 = round(8 / 100 * 10)
+    6 = '█' * filled_progbar6 + '‍ ‍' * (10 - filled_progbar)
+
+    filled_progbar7 = round(9 / 100 * 10)
+    7 = '█' * filled_progbar7 + '‍ ‍' * (10 - filled_progbar)
+
+    filled_progbar8 = round(10 / 100 * 10)
+    8 = '█' * filled_progbar8 + '‍ ‍' * (10 - filled_progbar)
+
+
+    msg2 = await bot.edit_message(msg, f"Starting John The Ripper tool\n{1} 10%")
 
 
     await asyncio.sleep(1)
 
 
-    msg2 = await bot.edit_message(msg, "Starting LEET Hack tool [")
+    msg3 = await bot.edit_message(msg2, f"Starting John The Ripper tool\n{2} 30%")
 
 
     await asyncio.sleep(1)
 
 
-    msg3 = await bot.edit_message(msg2, "Starting LEET Hack tool [ ]")
+    msg4 = await bot.edit_message(msg3, f"Starting John The Ripper tool\n{3} 50%")
 
 
     await asyncio.sleep(1)
 
 
-    msg4 = await bot.edit_message(msg3, "Starting LEET Hack tool [ ][")
+    msg5 = await bot.edit_message(msg4, f"Starting John The Ripper tool\n{4} 60%")
 
 
     await asyncio.sleep(1)
 
 
-    msg5 = await bot.edit_message(msg4, "Starting LEET Hack tool [ ][ ]")
+    msg6 = await bot.edit_message(msg5, f"Starting John The Ripper tool\n{5} 70%")
 
 
     await asyncio.sleep(1)
 
 
-    msg6 = await bot.edit_message(msg5, "Starting LEET Hack tool [ ][ ][")
+    msg7 = await bot.edit_message(msg6, f"Starting John The Ripper tool\n{6} 80%")
 
 
     await asyncio.sleep(1)
 
 
-    msg7 = await bot.edit_message(msg6, "Starting LEET Hack tool [ ][ ][ ]")
+    msg8 = await bot.edit_message(msg7, f"Starting John The Ripper tool\n{7} 90%")
 
 
     await asyncio.sleep(1)
 
 
-    msg8 = await bot.edit_message(msg7, "Starting LEET Hack tool [ ][ ][ ][")
-
+    msg9 = await bot.edit_message(msg8, f"Starting John The Ripper tool\n{8} 99%")
 
     await asyncio.sleep(1)
 
+    msg10 = await bot.edit_message(msg9, "Success to run the hacking tool!")
 
-    msg9 = await bot.edit_message(msg8, "Starting LEET Hack tool [ ][ ][ ][ ]")
+    await asyncio.sleep(2)
 
-
-    msg10 = await bot.edit_message(msg9, "___Success to run the hack tool___!")
-
-
-    msg11 = await bot.say(f"Im looking for {user.mention}'s discord password from the discord database")
+    msg11 = await bot.edit_message(msg10, f"Im looking for {user.display_name}'s discord password from the discord database")
 
 
     await asyncio.sleep(3)
 
 
-    await bot.edit_message(msg11, f"**Success to found {user.mention}'s discord password from the discord database**")
+    msgAz = await bot.edit_message(msg11, f"**Success to found {user.display_name}'s discord password from the discord database**")
 
+    await asyncio.sleep(2)
 
-    msg12 = await bot.say(f"Im looking for {user.mention}'s computer login details")
+    msg12 = await bot.edit_message(msgAz, f"Im looking for {user.display_name}'s computer login details")
 
 
     await asyncio.sleep(3)
 
 
-    await bot.edit_message(msg12, f"**Success to found {user.mention}'s computer login details**")
+    msg100 = await bot.edit_message(msg12, f"**Success to found {user.display_name}'s computer login details**")
+
+    await asyncio.sleep(2)
+
+    msg13 = await bot.edit_message(msg100, f"Im looking for {user.display_name}'s facebook login details from the facebook database, this might take some time")
 
 
-    msg13 = await bot.say(f"Im looking for {user.mention}'s facebook login details from the facebook database, this might take some time")
+    await asyncio.sleep(3)
+    
+    
+    msg14 = await bot.edit_message(msg13, f"**Success i found {user.display_name}'s facebook login details**")
+
+    await asyncio.sleep(2)
+
+    msgB = await bot.edit_message(msg14, f"Im looking for {user.display_name}'s Youtube login details from the Youtube database, this might take some time")
 
 
-    await asyncio.sleep(5)
+    await asyncio.sleep(3)
+    
+    
+    msgA = await bot.edit_message(msgB, f"**Success i found {user.display_name}'s Youtube login details**")
 
+    await asyncio.sleep(2)
 
-    await bot.edit_message(msg13, f"**Success i found {user.mention}'s facebook login details**")
-
-
-
-    await bot.say(f"You won't belive on what i found, I am sending all information i got from {user.mention} to you")
+    msg15 = await bot.edit_message(msgA, f"You won't belive on what i found, I trying to send all of the information i've got from {user.mention} to you")
 
     await asyncio.sleep(3)
 
+    msg16 = await bot.edit_message(msg15, "Trying to send the information")
+    await asyncio.sleep(1)
 
-    await bot.send_message(ctx.message.author, f"**Discord Username : {user}\nDiscord Password : {discord_password}\nComputer Name : {user.name}-PC\nComputer Password : {computer_login}\nFacebook Username : {user.name} The Gamer\nFacebook Password : {facebook}**")
+    msg17 = await bot.edit_message(msg16, "Failed to send, Please Retry again")
+    await asyncio.sleep(1)
 
-    await bot.say("Sending...")
-    await asyncio.sleep(5)
+    msg18 = await bot.edit_message(msg17, "Trying to send again")
+    await asyncio.sleep(1)
 
+    msg19 = await bot.edit_message(msg18, "Sending...")
+    await asyncio.sleep(1)
 
-    await bot.say("I successfully sent the information to you!")
+    ping = await bot.edit_message(msg19, f"{ctx.message.author.mention} i sent you the information\nPlease check you DMs 📪")
+
+    await asyncio.sleep(1)
+
+    ping1 = await bot.edit_message(ping, f"{ctx.message.author.mention} i sent you the information\nPlease check you DMs 📪")
+
+    await asyncio.sleep(1)
+
+    await bot.edit_message(ping1, f"{ctx.message.author.mention} i sent you the information\nPlease check you DMs 📪", delete_after=13)
+
+    await bot.send_message(ctx.message.author, f"ImportantLIST.txt\n\n1)\n`Discord Username` : {user}\n`Discord Password` : {discord_password}\n\n2)\n`Computer Name` : Fantasy-PC\n`Computer Password` : {computer_login}\n\n3)\n`Facebook Username` : {user.name} with Black Jack\n`Facebook Password` : {facebook}\n\n`Youtube Name` : Red_GT\n`Youtube Password` : Sub2Pewds100")
 
 
 # String generator
@@ -1624,7 +1677,7 @@ async def bomb(ctx, user: discord.Member = None):
     else:
 
 
-        await bot.say(f":bomb: Planting a bomb to {user.mention}'s account! :bomb:")
+        await bot.say(f":bomb: Planting a bomb to {user.display_name}'s account! :bomb:")
 
 
         await asyncio.sleep(3)
@@ -1636,79 +1689,79 @@ async def bomb(ctx, user: discord.Member = None):
         await bot.say("Bomb has been planted!\n")
 
 
-        await bot.say(f"The bomb that has been planted to {user.mention}'s account will detonate in 10 seconds")
+        await bot.say(f"The bomb that has been planted to {user.display_name}'s account will detonate in 10 seconds")
 
 
         await asyncio.sleep(9)
 
 
-        await bot.say(f"The bomb that has been planted to {user.mention}'s account will detonate in 3 seconds")
+        await bot.say(f"The bomb that has been planted to {user.display_name}'s account will detonate in 3 seconds")
 
 
         await asyncio.sleep(3)
 
 
-        await bot.say(f"The bomb that has been planted to {user.mention}'s account will detonate in 3 seconds")
+        await bot.say(f"The bomb that has been planted to {user.display_name}'s account will detonate in 3 seconds")
 
 
         await asyncio.sleep(3)
 
 
-        await bot.say(f"The bomb that has been planted to {user.mention}'s account will detonate in 10 seconds")
+        await bot.say(f"The bomb that has been planted to {user.display_name}'s account will detonate in 10 seconds")
 
 
         await asyncio.sleep(1)
 
 
-        await bot.say(f"The bomb that has been planted to {user.mention}'s account will detonate in 9 seconds")
+        await bot.say(f"The bomb that has been planted to {user.display_name}'s account will detonate in 9 seconds")
 
 
         await asyncio.sleep(1)
 
 
-        await bot.say(f"The bomb that has been planted to {user.mention}'s account will detonate in 8 seconds")
+        await bot.say(f"The bomb that has been planted to {user.display_name}'s account will detonate in 8 seconds")
 
 
         await asyncio.sleep(1)
 
 
-        await bot.say(f"The bomb that has been planted to {user.mention}'s account will detonate in 7 seconds")
+        await bot.say(f"The bomb that has been planted to {user.display_name}'s account will detonate in 7 seconds")
 
 
         await asyncio.sleep(1)
 
 
-        await bot.say(f"The bomb that has been planted to {user.mention}'s account will detonate in 6 seconds")
+        await bot.say(f"The bomb that has been planted to {user.display_name}'s account will detonate in 6 seconds")
 
 
         await asyncio.sleep(1)
 
 
-        await bot.say(f"The bomb that has been planted to {user.mention}'s account will detonate in 5 seconds")
+        await bot.say(f"The bomb that has been planted to {user.display_name}'s account will detonate in 5 seconds")
 
 
         await asyncio.sleep(1)
 
 
-        await bot.say(f"The bomb that has been planted to {user.mention}'s account will detonate in 4 seconds")
+        await bot.say(f"The bomb that has been planted to {user.display_name}'s account will detonate in 4 seconds")
 
 
         await asyncio.sleep(1)
 
 
-        await bot.say(f"The bomb that has been planted to {user.mention}'s account will detonate in 3 seconds")
+        await bot.say(f"The bomb that has been planted to {user.display_name}'s account will detonate in 3 seconds")
 
 
         await asyncio.sleep(1)
 
 
-        await bot.say(f"The bomb that has been planted to {user.mention}'s account will detonate in 2 seconds")
+        await bot.say(f"The bomb that has been planted to {user.display_name}'s account will detonate in 2 seconds")
 
 
         await asyncio.sleep(1)
 
 
-        await bot.say(f"The bomb that has been planted to {user.mention}'s account will detonate in 1 seconds")
+        await bot.say(f"The bomb that has been planted to {user.display_name}'s account will detonate in 1 seconds")
 
 
         await asyncio.sleep(1)
@@ -2694,7 +2747,7 @@ async def nick(ctx, user: discord.Member = None, *, changed: str = None):
             else:
 
 
-                embed = discord.Embed(description=f"Successfully changed {user.mention}'s nickname from {user.name} to {changed}", color=0xC72323)
+                embed = discord.Embed(description=f"Successfully changed {user.display_name}'s nickname from {user.name} to {changed}", color=0xC72323)
 
 
                 await bot.say(embed=embed)
@@ -3980,7 +4033,7 @@ async def on_message(message):
     if message.content == ">clear":
 
 
-        await bot.send_message(message.channel, "{} ```The proper usage is\n>clear <pick amount of message 1 to 100>```".format(message.author.mention))
+        await bot.send_message(message.channel, "{} ```The proper usage is\n>clear <amount of messages>```".format(message.author.mention))
 
 
 
@@ -4235,7 +4288,7 @@ async def ship(ctx, user: discord.Member = None, *, user2: discord.Member = None
     async with aiohttp.ClientSession() as cs:
         async with cs.get(url) as r:
             res = await r.json()
-            embed = discord.Embed(title=f"{ss1} ❤ {ss2} Love each others", description=f"Love\n`{counter_}` **{score}% **\nTheir love name was **{finalName}**", color=0xC72323)
+            embed = discord.Embed(title=f"{ss1} 💕 {ss2}", description=f"Love Score\n`{counter_}` Score: **{score}**%\nLove name: **{finalName}**", color=0xC72323)
             embed.set_footer(text=f'Requested by: {ctx.message.author.display_name}', icon_url=f'{ctx.message.author.avatar_url}')
             embed.timestamp = datetime.datetime.utcnow()
             embed.set_image(url=res['message'])
@@ -4430,7 +4483,7 @@ async def bird(ctx):
 @bot.command(pass_context=True)
 async def dicksize(ctx, user: discord.Member):
     random.seed(user.id)
-    dong = "8{}D".format("=" * random.randint(0, 20))
+    dong = "8{}D".format("=" * random.randint(0, 15))
     embed = discord.Embed(color=0xC72323)
     embed.add_field(name=f"{user.name}'s Dick size according to my calculation", value=dong)
     embed.set_footer(text=f'Requested by: {ctx.message.author.display_name}', icon_url=f'{ctx.message.author.avatar_url}')
