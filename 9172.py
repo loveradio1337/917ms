@@ -4610,8 +4610,8 @@ async def rolldice(ctx):
 	await bot.edit_message(send, embed=resp)
 
 
-@bot.command(pass_context=True)
-@roleinfo.command(name='permissions')
+@bot.command(aliases=['roleinfo permissions'],pass_context=True)
+
 async def permissions(ctx, *, role:discord.Role=None):
 
     if not role:
@@ -4629,8 +4629,7 @@ async def permissions(ctx, *, role:discord.Role=None):
 
     await bot.say(embed=em)
 
-@bot.command(pass_context=True)
-@roleinfo.command(name='hasrole')
+@bot.command(aliases=['roleinfo hasrole'],pass_context=True)
 async def hasrole(ctx, *, role:discord.Role=None):
     if not role:
         return
