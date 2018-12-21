@@ -3857,7 +3857,7 @@ async def announce(ctx, *, xdd: str = None):
                     embed.set_footer(text=f"Message from {ctx.message.author.name}#{ctx.message.author.discriminator}", icon_url=f'{ctx.message.author.avatar_url}')
                     embed.timestamp = datetime.datetime.utcnow()
                     embed.thumbnail(url=f"{ctx.message.author.avatar_url}")
-                    await bot.send_message(embed=embed, member)
+                    await bot.send_message(member, embed=embed)
 
 
                     print('Successfully sent a message to {}'.format(member.name))
