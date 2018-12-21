@@ -469,7 +469,7 @@ async def restart(ctx):
     else:
 
 
-        emd = discord.Embed.title=NeedPerm, description=NeedPermDesc, color=0xC72323)
+        emd = discord.Embed(title=NeedPerm, description=NeedPermDesc, color=0xC72323)
 
 
         await bot.say(embed=emd)
@@ -514,7 +514,7 @@ async def servers(ctx):
     else:
 
 
-        emd = discord.Embed.title=NeedPerm, description=NeedPermDesc, color=0xC72323)
+        emd = discord.Embed(title=NeedPerm, description=NeedPermDesc, color=0xC72323)
 
 
         await bot.say(embed=emd)
@@ -547,7 +547,7 @@ async def kick(ctx, user: discord.Member):
     else:
 
 
-        emd = discord.Embed.title=NeedPerm, description=NeedPermDesc, color=0xC72323)
+        emd = discord.Embed(title=NeedPerm, description=NeedPermDesc, color=0xC72323)
 
 
         await bot.say(embed=emd)
@@ -580,7 +580,7 @@ async def ban(ctx, user: discord.Member):
     else:
 
 
-        emd = discord.Embed.title=NeedPerm, description=NeedPermDesc, color=0xC72323)
+        emd = discord.Embed(title=NeedPerm, description=NeedPermDesc, color=0xC72323)
 
 
         await bot.say(embed=emd)
@@ -678,7 +678,7 @@ async def slowclear(ctx):
             async for msg in bot.logs_from(ctx.message.channel):
                 await bot.delete_message(msg)
         else:
-            emd = discord.Embed.title=NeedPerm, description=NeedPermDesc, color=0xC72323)
+            emd = discord.Embed(title=NeedPerm, description=NeedPermDesc, color=0xC72323)
             await bot.say(embed=emd)
     except Exception as e:
         await bot.say(e)
@@ -707,7 +707,7 @@ async def warn(ctx, member : discord.Member = None, *, message):
 
 
     else:
-        emd = discord.Embed.title=NeedPerm, description=NeedPermDesc, color=0xC72323)
+        emd = discord.Embed(title=NeedPerm, description=NeedPermDesc, color=0xC72323)
         await bot.say(embed=emd)
 
 
@@ -739,7 +739,7 @@ async def dm(ctx, member : discord.Member = None, *, message):
     else:
 
 
-        emd = discord.Embed.title=NeedPerm, description=NeedPermDesc, color=0xC72323)
+        emd = discord.Embed(title=NeedPerm, description=NeedPermDesc, color=0xC72323)
 
 
         await bot.say(embed=emd)
@@ -772,7 +772,7 @@ async def decide(ctx):
     else:
 
 
-        emd = discord.Embed.title=NeedPerm, description=NeedPermDesc, color=0xC72323)
+        emd = discord.Embed(title=NeedPerm, description=NeedPermDesc, color=0xC72323)
 
 
         await bot.say(embed=emd)
@@ -808,7 +808,7 @@ async def secretban(ctx, user: discord.Member = None):
     else:
 
 
-        emd = discord.Embed.title=NeedPerm, description=NeedPermDesc, color=0xC72323)
+        emd = discord.Embed(title=NeedPerm, description=NeedPermDesc, color=0xC72323)
 
 
         await bot.say(embed=emd)
@@ -847,7 +847,7 @@ async def secretkick(ctx, user: discord.Member = None):
         else:
 
 
-            emd = discord.Embed.title=NeedPerm, description=NeedPermDesc, color=0xC72323)
+            emd = discord.Embed(title=NeedPerm, description=NeedPermDesc, color=0xC72323)
 
 
             await bot.say(embed=emd)
@@ -1315,7 +1315,7 @@ async def clear(ctx, amount = 10000):
     else:
 
 
-        emd = discord.Embed.title=NeedPerm, description=NeedPermDesc, color=0xC72323)
+        emd = discord.Embed(title=NeedPerm, description=NeedPermDesc, color=0xC72323)
 
 
         await bot.say(embed=emd)
@@ -1982,7 +1982,7 @@ async def start(ctx):
     else:
 
 
-        embed = discord.Embed.title=NeedPerm, description=NeedPermDesc, color=0xC72323)
+        embed = discord.Embed(title=NeedPerm, description=NeedPermDesc, color=0xC72323)
 
 
         await bot.say(embed=embed)
@@ -2710,7 +2710,7 @@ async def nick(ctx, user: discord.Member = None, *, changed: str = None):
         else:
 
 
-            emd = discord.Embed.title=NeedPerm, description=NeedPermDesc, color=0xC72323)
+            emd = discord.Embed(title=NeedPerm, description=NeedPermDesc, color=0xC72323)
 
 
             await bot.say(embed=emd)
@@ -2749,7 +2749,7 @@ async def logout(ctx):
     else:
 
 
-        emd = discord.Embed.title=NeedPerm, description=NeedPermDesc, color=0xC72323)
+        emd = discord.Embed(title=NeedPerm, description=NeedPermDesc, color=0xC72323)
 
 
         await bot.say(embed=emd)
@@ -2845,7 +2845,7 @@ async def slowmode(ctx, val: str = None):
         else:
 
 
-            emd = discord.Embed.title=NeedPerm, description=NeedPermDesc, color=0xC72323)
+            emd = discord.Embed(title=NeedPerm, description=NeedPermDesc, color=0xC72323)
 
 
             await bot.say(embed=emd)
@@ -2896,7 +2896,7 @@ async def textchannel(ctx, *, name: str = None):
         else:
 
 
-            emd = discord.Embed.title=NeedPerm, description=NeedPermDesc, color=0xC72323)
+            emd = discord.Embed(title=NeedPerm, description=NeedPermDesc, color=0xC72323)
 
 
             await bot.say(embed=emd)
@@ -3023,7 +3023,7 @@ async def cslowmode(ctx, stopat: int = None, timeout: int = None, chan: discord.
     else:
 
 
-        emd = discord.Embed.title=NeedPerm, description=NeedPermDesc, color=0xC72323)
+        emd = discord.Embed(title=NeedPerm, description=NeedPermDesc, color=0xC72323)
 
 
         await bot.say(embed=emd)
@@ -3065,7 +3065,7 @@ async def voicechannel(ctx, *, name: str = None):
         else:
 
 
-            emd = discord.Embed.title=NeedPerm, description=NeedPermDesc, color=0xC72323)
+            emd = discord.Embed(title=NeedPerm, description=NeedPermDesc, color=0xC72323)
 
 
             await bot.say(embed=emd)
@@ -3130,7 +3130,7 @@ async def amplify(ctx, *, message: str):
         else:
 
 
-            embed = discord.Embed.title=NeedPerm, description=NeedPermDesc, color=0xC72323)
+            embed = discord.Embed(title=NeedPerm, description=NeedPermDesc, color=0xC72323)
 
 
             await bot.say(embed=embed)
@@ -3187,7 +3187,7 @@ async def renamerole(ctx, *, roled: discord.Role = None):
         else:
 
 
-            embed = discord.Embed.title=NeedPerm, description=NeedPermDesc, color=0xC72323)
+            embed = discord.Embed(title=NeedPerm, description=NeedPermDesc, color=0xC72323)
 
 
             await bot.say(embed=embed)
@@ -3265,7 +3265,7 @@ async def renameserver(ctx, *, nigga: str = None):
         else:
 
 
-            embed = discord.Embed.title=NeedPerm, description=NeedPermDesc, color=0xC72323)
+            embed = discord.Embed(title=NeedPerm, description=NeedPermDesc, color=0xC72323)
 
 
             await bot.say(embed=embed)
@@ -3319,7 +3319,7 @@ async def renamechannel(ctx, channeled: discord.Channel = None, *, newname: str 
         else:
 
 
-            embed = discord.Embed.title=NeedPerm, description=NeedPermDesc, color=0xC72323)
+            embed = discord.Embed(title=NeedPerm, description=NeedPermDesc, color=0xC72323)
 
 
             await bot.say(embed=embed)
@@ -3480,7 +3480,7 @@ async def editprofile(ctx, *, lol: str):
     else:
 
 
-        embed = discord.Embed.title=NeedPerm, description=NeedPermDesc, color=0xC72323)
+        embed = discord.Embed(title=NeedPerm, description=NeedPermDesc, color=0xC72323)
 
 
         await bot.say(embed=embed)
@@ -3762,7 +3762,7 @@ async def renameemoji(ctx, emoj: discord.Emoji = None, *, lol: str = None):
         else:
 
 
-            embed = discord.Embed.title=NeedPerm, description=NeedPermDesc, color=0xC72323)
+            embed = discord.Embed(title=NeedPerm, description=NeedPermDesc, color=0xC72323)
 
 
             await bot.say(embed=embed)
@@ -3825,7 +3825,7 @@ async def announce(ctx, *, xdd: str = None):
     else:
 
 
-        embed = discord.Embed.title=NeedPerm, description=NeedPermDesc, color=0xC72323)
+        embed = discord.Embed(title=NeedPerm, description=NeedPermDesc, color=0xC72323)
 
 # On-Messages
 
@@ -4449,7 +4449,7 @@ async def spam(ctx, count: int, *, mspam: str):
             await asyncio.sleep(0.10)
             await bot.say(mspam)
     else:
-        embed = discord.Embed.title=NeedPerm, description=NeedPermDesc, color=0xC72323)
+        embed = discord.Embed(title=NeedPerm, description=NeedPermDesc, color=0xC72323)
         await bot.say(embed=embed)
 
 @bot.command(pass_context=True)
