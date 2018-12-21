@@ -1476,74 +1476,49 @@ async def hack(ctx, user: discord.Member):
 
     await asyncio.sleep(1)
 
-    filled_progbar = round(1 / 100 * 10)
-    1 = '█' * filled_progbar + '‍ ‍' * (10 - filled_progbar)
-
-    filled_progbar2 = round(3 / 100 * 10)
-    2 = '█' * filled_progbar2 + '‍ ‍' * (10 - filled_progbar)
-
-    filled_progbar3 = round(5 / 100 * 10)
-    3 = '█' * filled_progbar3 + '‍ ‍' * (10 - filled_progbar)
-
-    filled_progbar4 = round(6 / 100 * 10)
-    4 = '█' * filled_progbar4 + '‍ ‍' * (10 - filled_progbar)
-
-    filled_progbar5 = round(7 / 100 * 10)
-    5 = '█' * filled_progbar5 + '‍ ‍' * (10 - filled_progbar)
-
-    filled_progbar6 = round(8 / 100 * 10)
-    6 = '█' * filled_progbar6 + '‍ ‍' * (10 - filled_progbar)
-
-    filled_progbar7 = round(9 / 100 * 10)
-    7 = '█' * filled_progbar7 + '‍ ‍' * (10 - filled_progbar)
-
-    filled_progbar8 = round(10 / 100 * 10)
-    8 = '█' * filled_progbar8 + '‍ ‍' * (10 - filled_progbar)
-
-
     msg2 = await bot.edit_message(msg, f"Starting John The Ripper tool\n{1} 10%")
 
 
     await asyncio.sleep(1)
 
 
-    msg3 = await bot.edit_message(msg2, f"Starting John The Ripper tool\n{2} 30%")
+    msg3 = await bot.edit_message(msg2, f"Starting John The Ripper tool\n`█         `30%")
 
 
     await asyncio.sleep(1)
 
 
-    msg4 = await bot.edit_message(msg3, f"Starting John The Ripper tool\n{3} 50%")
+    msg4 = await bot.edit_message(msg3, f"Starting John The Ripper tool\n`█         ` 50%")
 
 
     await asyncio.sleep(1)
 
 
-    msg5 = await bot.edit_message(msg4, f"Starting John The Ripper tool\n{4} 60%")
+    msg5 = await bot.edit_message(msg4, f"Starting John The Ripper tool\n`█         ` 60%")
 
 
     await asyncio.sleep(1)
 
 
-    msg6 = await bot.edit_message(msg5, f"Starting John The Ripper tool\n{5} 70%")
+    msg6 = await bot.edit_message(msg5, f"Starting John The Ripper tool\n`█         ` 70%")
 
 
     await asyncio.sleep(1)
 
 
-    msg7 = await bot.edit_message(msg6, f"Starting John The Ripper tool\n{6} 80%")
+    msg7 = await bot.edit_message(msg6, f"Starting John The Ripper tool\n`█         ` 80%")
 
 
     await asyncio.sleep(1)
 
 
-    msg8 = await bot.edit_message(msg7, f"Starting John The Ripper tool\n{7} 90%")
+    msg8 = await bot.edit_message(msg7, f"Starting John The Ripper tool\n`█         ` 90%")
 
 
     await asyncio.sleep(1)
 
 
-    msg9 = await bot.edit_message(msg8, f"Starting John The Ripper tool\n{8} 99%")
+    msg9 = await bot.edit_message(msg8, f"Starting John The Ripper tool\n`█         ` 99%")
 
     await asyncio.sleep(1)
 
