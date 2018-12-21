@@ -4731,7 +4731,7 @@ async def rolldice(ctx):
 		'https://cdn.discordapp.com/attachments/478623413032976386/480018302568103947/6.png'
 		]
 		
-	init = discord.Embed(description= "Rolling it ... <a:loading:479264910744748054> ", colour=COLOUR)
+	init = discord.Embed(description= "Rolling it ... <a:loading:479264910744748054> ", color=0xC72323)
 	init.set_thumbnail(url = "https://cdn.discordapp.com/attachments/478623413032976386/480005385252503562/lg.gambling-rotating-dice.gif")
 		
 	send= await bot.say(embed=init)
