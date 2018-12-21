@@ -2050,7 +2050,7 @@ async def height(ctx, user: discord.Member = None):
     except Exception as e:
 
 
-        await bot.say(f"``{e}``\nDM Coco#6429 to fix this." delete_after=10)
+        await bot.say(f"``{e}``\nDM Coco#6429 to fix this.", delete_after=10)
 
 # damn
 
@@ -2103,7 +2103,7 @@ async def talentcheck(ctx, user: discord.Member = None):
             except Exception as e:
 
 
-                await bot.say(f"``{e}``\nDM Coco#6429 to fix this." delete_after=10)
+                await bot.say(f"``{e}``\nDM Coco#6429 to fix this.", delete_after=10)
 
 
         else:
@@ -2127,7 +2127,7 @@ async def talentcheck(ctx, user: discord.Member = None):
                 except Exception as e:
 
 
-                    await bot.say(f"``{e}``\nDM Coco#6429 to fix this." delete_after=10)
+                    await bot.say(f"``{e}``\nDM Coco#6429 to fix this.", delete_after=10)
 
 
             else:
@@ -2157,7 +2157,7 @@ async def talentcheck(ctx, user: discord.Member = None):
                     except Exception as e:
 
 
-                        await bot.say(f"``{e}``\nDM Coco#6429 to fix this." delete_after=10)
+                        await bot.say(f"``{e}``\nDM Coco#6429 to fix this.", delete_after=10)
 
 # shoot
 
@@ -2221,7 +2221,7 @@ async def shoot(ctx, user: discord.Member = None):
     except Exception as e:
 
 
-        await bot.say(f"``{e}``\nDM Coco#6429 to fix this." delete_after=10)
+        await bot.say(f"``{e}``\nDM Coco#6429 to fix this.", delete_after=10)
 
 
 # lenny
@@ -2254,7 +2254,7 @@ async def lenny(ctx):
     except Exception as e:
 
 
-        await bot.say(f"``{e}``\nDM Coco#6429 to fix this." delete_after=10)
+        await bot.say(f"``{e}``\nDM Coco#6429 to fix this.", delete_after=10)
 
 
 
@@ -2293,7 +2293,7 @@ async def botsearch(ctx, *, sulta: str = None):
     except Exception as e:
 
 
-        await bot.say(f"``{e}``\nDM Coco#6429 to fix this." delete_after=10)
+        await bot.say(f"``{e}``\nDM Coco#6429 to fix this.", delete_after=10)
 
 
 
@@ -2343,7 +2343,7 @@ async def topbots(ctx):
     except Exception as e:
 
 
-        await bot.say(f"``{e}``\nDM Coco#6429 to fix this." delete_after=10)
+        await bot.say(f"``{e}``\nDM Coco#6429 to fix this.", delete_after=10)
 
 
 
@@ -2393,7 +2393,7 @@ async def thicccheck(ctx, user: discord.Member = None):
     except Exception as e:
 
 
-        await bot.say(f"``{e}``\nDM Coco#6429 to fix this." delete_after=10)
+        await bot.say(f"``{e}``\nDM Coco#6429 to fix this.", delete_after=10)
 
 
 
@@ -2492,7 +2492,7 @@ async def serverowner(ctx):
     except Exception as e:
 
 
-        await bot.say(f"``{e}``\nDM Coco#6429 to fix this." delete_after=10)
+        await bot.say(f"``{e}``\nDM Coco#6429 to fix this.", delete_after=10)
 
 
 @bot.command(pass_context=True)
@@ -2522,7 +2522,7 @@ async def statcheck(ctx, user: discord.Member = None):
     except Exception as e:
 
 
-        await bot.say(f"``{e}``\nDM Coco#6429 to fix this." delete_after=10)
+        await bot.say(f"``{e}``\nDM Coco#6429 to fix this.", delete_after=10)
 
 
 
@@ -2555,7 +2555,7 @@ async def gamecheck(ctx, user: discord.Member = None):
     except Exception as e:
 
 
-        await bot.say(f"``{e}``\nDM Coco#6429 to fix this." delete_after=10)
+        await bot.say(f"``{e}``\nDM Coco#6429 to fix this.", delete_after=10)
 
 
 
@@ -2582,7 +2582,7 @@ async def vote(ctx):
     except Exception as e:
 
 
-        await bot.say(f"``{e}``\nDM Coco#6429 to fix this." delete_after=10)
+        await bot.say(f"``{e}``\nDM Coco#6429 to fix this.", delete_after=10)
 
 
 
@@ -2623,7 +2623,7 @@ async def channelinfo(ctx):
     except Exception as e:
 
 
-        await bot.say(f"``{e}``\nDM Coco#6429 to fix this." delete_after=10)
+        await bot.say(f"``{e}``\nDM Coco#6429 to fix this.", delete_after=10)
 
 
 
@@ -2718,7 +2718,7 @@ async def nick(ctx, user: discord.Member = None, *, changed: str = None):
     except Exception as e:
 
 
-        await bot.say(f"``{e}``\nDM Coco#6429 to fix this." delete_after=10)
+        await bot.say(f"``{e}``\nDM Coco#6429 to fix this.", delete_after=10)
 
 
 
@@ -2856,7 +2856,7 @@ async def slowmode(ctx, val: str = None):
     except Exception as e:
 
 
-        await bot.say(f"``{e}``\nDM Coco#6429 to fix this." delete_after=10)
+        await bot.say(f"``{e}``\nDM Coco#6429 to fix this.", delete_after=10)
 
 
 
@@ -2907,7 +2907,7 @@ async def textchannel(ctx, *, name: str = None):
     except Exception as e:
 
 
-        await bot.say(f"``{e}``\nDM Coco#6429 to fix this." delete_after=10)
+        await bot.say(f"``{e}``\nDM Coco#6429 to fix this.", delete_after=10)
 
 
 
@@ -3073,7 +3073,7 @@ async def voicechannel(ctx, *, name: str = None):
     except Exception as e:
 
 
-        await bot.say(f"``{e}``\nDM Coco#6429 to fix this." delete_after=10)
+        await bot.say(f"``{e}``\nDM Coco#6429 to fix this.", delete_after=10)
 
 
 @bot.command(pass_context=True)
@@ -3138,7 +3138,7 @@ async def amplify(ctx, *, message: str):
     except Exception as e:
 
 
-        await bot.say(f"``{e}``\nDM Coco#6429 to fix this." delete_after=10)
+        await bot.say(f"``{e}``\nDM Coco#6429 to fix this.", delete_after=10)
 
 
 
@@ -3225,7 +3225,7 @@ async def emojis(ctx):
     except Exception as e:
 
 
-        await bot.say(f"``{e}``\nDM Coco#6429 to fix this." delete_after=10)
+        await bot.say(f"``{e}``\nDM Coco#6429 to fix this.", delete_after=10)
 
 
 
@@ -3273,7 +3273,7 @@ async def renameserver(ctx, *, nigga: str = None):
     except Exception as e:
 
 
-        await bot.say(f"``{e}``\nDM Coco#6429 to fix this." delete_after=10)
+        await bot.say(f"``{e}``\nDM Coco#6429 to fix this.", delete_after=10)
 
 
 @bot.command(pass_context=True)
@@ -3327,7 +3327,7 @@ async def renamechannel(ctx, channeled: discord.Channel = None, *, newname: str 
     except Exception as e:
 
 
-        await bot.say(f"``{e}``\nDM Coco#6429 to fix this." delete_after=10)
+        await bot.say(f"``{e}``\nDM Coco#6429 to fix this.", delete_after=10)
 
 @bot.command(pass_context=True)
 
@@ -3398,7 +3398,7 @@ async def autistcheck(ctx, user: discord.Member = None):
     except Exception as e:
 
 
-        await bot.say(f"``{e}``\nDM Coco#6429 to fix this." delete_after=10)
+        await bot.say(f"``{e}``\nDM Coco#6429 to fix this.", delete_after=10)
 
 
 
@@ -3454,7 +3454,7 @@ async def kickme(ctx, *, reason: str = None):
     except Exception as e:
 
 
-        await bot.say(f"``{e}``\nDM Coco#6429 to fix this." delete_after=10)
+        await bot.say(f"``{e}``\nDM Coco#6429 to fix this.", delete_after=10)
 
 
 
