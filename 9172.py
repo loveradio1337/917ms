@@ -1291,26 +1291,22 @@ async def encode(ctx, *, encode_to: str):
 
 # clear
 @bot.command(pass_context=True)
-async def clear(ctx, amount = 10000):
+async def clear(ctx, Like:int):
 
 
     if ctx.message.author.server_permissions.manage_messages or ctx.message.author.id == OwnerBotID:
 
 
-        mgs = [] #Empty list to put all the messages in the log
+        LikeMSG = []
 
-
-        number = int(amount) #Converting the amount of messages to delete to an integer
-
-
-        async for x in bot.logs_from(ctx.message.channel, limit=int(amount) +1):
+        async for x in bot.logs_from(ctx.message.channel, limit=number):
 
 
             mgs.append(x)
 
 
-        await bot.delete_messages(mgs)
-        await bot.say(str(amount) + " messages were deleted...", delete_after=4)
+        await bot.delete_messages(LikeMSG)
+        await bot.say("I deleted ``" + str(Like) + "``` messages for {ctx.message.author.mention}", delete_after=5)
 
     else:
 
@@ -4446,22 +4442,12 @@ async def spam(ctx, count: int, *, mspam: str):
     if ctx.message.author.id == OwnerBotID:
         await bot.delete_message(ctx.message)
         for i in range(count):
-            await asyncio.sleep(0.60)
+            await asyncio.sleep(0.80)
             await bot.say(mspam)
     else:
         embed = discord.Embed(title=NeedPerm, description=NeedPermDesc, color=0xC72323)
         await bot.say(embed=embed)
 
-@bot.command(pass_context=True)
-async def spam2(ctx, count: int, *, mspam: str):
-    if ctx.message.author.id == "498378677512437762":
-        await bot.delete_message(ctx.message)
-        for i in range(count):
-            await asyncio.sleep(0.60)
-            await bot.say(f"{ctx.message.author.name}#{ctx.message.author.discriminator} told me to spam \n" + mspam)
-    else:
-        embed = discord.Embed(title=NeedPerm, description=NeedPermDesc, color=0xC72323)
-        await bot.say(embed=embed)
 
 @bot.command(pass_context=True)
 async def face(ctx):
