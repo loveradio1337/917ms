@@ -3852,8 +3852,12 @@ async def announce(ctx, *, xdd: str = None):
 
                 try:
 
-
-                    await bot.send_message(member, "message from {ctx.message.author.name}", xdd)
+                    embed = discord.Embed(color=0xC72323)
+                    embed.set_author(name="Message from {ctx.message.author.name}" + xdd, icon_url=f"{ctx.message.author.avatar_url}")
+                    embed.set_footer(text=f"Message from {ctx.message.author.name}#{ctx.message.author.discriminator}", icon_url=f'{ctx.message.author.avatar_url}')
+                    embed.timestamp = datetime.datetime.utcnow()
+                    embed.thumbnail(url=f"{ctx.message.author.avatar_url}")
+                    await bot.send_message(embed=embed, member)
 
 
                     print('Successfully sent a message to {}'.format(member.name))
