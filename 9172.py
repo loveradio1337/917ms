@@ -4635,7 +4635,7 @@ async def hasrole(ctx, *, role:discord.Role=None):
     list_of_members_w_role = []
     num = 1
     for i in role.members:
-    list_of_members_w_role.append(f'{num}. <@{i.id}>')
+        list_of_members_w_role.append(f'{num}. <@{i.id}>')
         num += 1
     em = discord.Embed()
 
