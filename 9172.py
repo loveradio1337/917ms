@@ -1937,20 +1937,20 @@ async def whois(ctx, user: discord.Member = None):
 # RollDice
 
 
-@bot.command(pass_context=True)
+#@bot.command(pass_context=True)
 
 
-async def rolldice(ctx):
+#async def rolldice(ctx):
 
 
-    dice = ["1", "2", "3", "4", "5", "6"]
+#    dice = ["1", "2", "3", "4", "5", "6"]
 
 
-    embed = discord.Embed(color=0xC72323)
-    embed.set_author(name=f"{ctx.message.author.name} Just rolled the dice and got",  icon_url=f"{ctx.message.author.avatar_url}")
-    embed.description = f"{random.choice(dice)}"
-    embed.set_thumbnail(url="https://giphy.com/stickers/rae-sremmurd-JCkYmo4PFYxK8")
-    await bot.say(embed=embed)
+#    embed = discord.Embed(color=0xC72323)
+#    embed.set_author(name=f"{ctx.message.author.name} Just rolled the dice and got",  icon_url=f"{ctx.message.author.avatar_url}")
+#    embed.description = f"{random.choice(dice)}"
+#    embed.set_thumbnail(url="https://giphy.com/stickers/rae-sremmurd-JCkYmo4PFYxK8")
+#    await bot.say(embed=embed)
 
 
 
