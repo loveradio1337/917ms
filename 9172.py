@@ -110,10 +110,8 @@ print(f"Connecting your bot to discord!")
 copyright = "Copyright © 2018 Like and Coco"
 
 
-OWNER_ID = "351390806101327883"
-
-
-noperm = "Sorry but you do not have permission to use this command..."
+OwnerBotID = "351390806101327883"
+NeedPerm = title="❎ __Permission Denied__", description="`1)` Please check if you have permission to perform this command. \n`2)` Please check if my role has permission to perform this command in this channel. \n`3)` Please check my role position."
 
 
 botid = "507241518524923904"
@@ -164,7 +162,7 @@ key = 'q8Di3LCIL0Qny7IiwN3jxfyBuY37c9nk'
 
 
 
-secondnoperm = "You probally have no permission to use this command or i don't have permission to do what you want me to do"
+
 
 
 botavatar = 'https://cdn.discordapp.com/avatars/507241518524923904/dea61e2eb1de8f94e8460d707bfe0d08.webp?size=1024'
@@ -222,40 +220,40 @@ async def userinfo(ctx, user: discord.Member):
     embed = discord.Embed(title="{}'s information".format(user.name), color=0xC72323)
 
 
-    embed.add_field(name="👤 __Name__ 👤", value=user.mention, inline=True)
+    embed.add_field(name="👤 __Name__ ", value=user.mention, inline=True)
 
 
-    embed.add_field(name="🎫 __ID__ 🎫", value=user.id, inline=True)
+    embed.add_field(name="🎫 __ID__ ", value=user.id, inline=True)
 
 
-    embed.add_field(name="🔮 __Status__ 🔮", value=user.status, inline=True)
+    embed.add_field(name="🔮 __Status__ ", value=user.status, inline=True)
 
 
-    embed.add_field(name="📉 __Highest Role__ 📉", value=user.top_role)
+    embed.add_field(name="📉 __Highest Role__ ", value=user.top_role)
 
 
-    embed.add_field(name="📈 __Joined__ 📈", value=user.joined_at.strftime("%d %b %Y %H:%M"))
+    embed.add_field(name="📈 __Joined__ ", value=user.joined_at.strftime("%d %b %Y %H:%M"))
 
 
-    embed.add_field(name="⚒ __Created__ ⚒", value=user.created_at.strftime("%d %b %Y %H:%M"))
+    embed.add_field(name="⚒ __Created__ ", value=user.created_at.strftime("%d %b %Y %H:%M"))
 
 
-    embed.add_field(name="💉 __Color__ 💉", value=user.color)
+    embed.add_field(name="💉 __Color__ ", value=user.color)
 
 
-    embed.add_field(name="🤖 __Bot__ 🤖", value=str(user.bot))
+    embed.add_field(name="🤖 __Bot__ ", value=str(user.bot))
 
 
-    embed.add_field(name="🕹 __Playing__ 🕹", value=user.game)
+    embed.add_field(name="🕹 __Playing__ ", value=user.game)
 
 
-    embed.add_field(name="🎲 __Discord Tag__ 🎲", value=user.discriminator)
+    embed.add_field(name="🎲 __Discord Tag__ ", value=user.discriminator)
 
 
-    embed.add_field(name="📋 __Nickname__ 📋", value=user.nick)
+    embed.add_field(name="📋 __Nickname__ ", value=user.nick)
 
 
-    embed.add_field(name="📊 __Server__ 📊", value=user.server)
+    embed.add_field(name="📊 __Server__ ", value=user.server)
 
 
 
@@ -288,7 +286,7 @@ async def userinfo(ctx, user: discord.Member):
                 roles = "None"
 
 
-            embed.add_field(name="📌 __Roles__ 📌", value=roles)
+            embed.add_field(name="📌 __Roles__ ", value=roles)
 
 
     except:
@@ -348,7 +346,7 @@ async def botinfo(ctx):
 
     embed.add_field(name="📉 __Bot Invite__", value="[👉 Invite my bot HERE 👈]( https://discordapp.com/api/oauth2/authorize?client_id=507241518524923904&,permissions=8&scope=bot)")
 
-    embed.add_field(name="🔮 __Donation Link__", value="[Support our bot by Donating us HERE](https://paypal.me/CocoGT)")
+    embed.add_field(name="🔮 __Donation Link__", value="[HERE](https://paypal.me/CocoGT)")
 
     embed.set_thumbnail(url=botavatar)
 
@@ -446,7 +444,7 @@ async def serverinfo(ctx):
 async def restart(ctx):
 
 
-    if ctx.message.author.id == OWNER_ID:
+    if ctx.message.author.id == OwnerBotID:
 
 
         embed = discord.Embed(title="Like is restarting...", color=0xC72323)
@@ -470,7 +468,7 @@ async def restart(ctx):
     else:
 
 
-        emd = discord.Embed(title=noperm, color=0xC72323)
+        emd = discord.Embed(NeedPerm, color=0xC72323)
 
 
         await bot.say(embed=emd)
@@ -488,7 +486,7 @@ async def restart(ctx):
 async def servers(ctx):
 
 
-    if ctx.message.author.id == OWNER_ID:
+    if ctx.message.author.id == OwnerBotID:
 
 
         nl = "\n"
@@ -515,7 +513,7 @@ async def servers(ctx):
     else:
 
 
-        emd = discord.Embed(title=noperm, color=0xC72323)
+        emd = discord.Embed(NeedPerm, color=0xC72323)
 
 
         await bot.say(embed=emd)
@@ -548,7 +546,7 @@ async def kick(ctx, user: discord.Member):
     else:
 
 
-        emd = discord.Embed(title=noperm, color=0xC72323)
+        emd = discord.Embed(NeedPerm, color=0xC72323)
 
 
         await bot.say(embed=emd)
@@ -581,7 +579,7 @@ async def ban(ctx, user: discord.Member):
     else:
 
 
-        emd = discord.Embed(title=noperm, color=0xC72323)
+        emd = discord.Embed(NeedPerm, color=0xC72323)
 
 
         await bot.say(embed=emd)
@@ -679,7 +677,7 @@ async def slowclear(ctx):
             async for msg in bot.logs_from(ctx.message.channel):
                 await bot.delete_message(msg)
         else:
-            emd = discord.Embed(title=noperm, color=0xC72323)
+            emd = discord.Embed(NeedPerm, color=0xC72323)
             await bot.say(embed=emd)
     except Exception as e:
         await bot.say(e)
@@ -708,7 +706,7 @@ async def warn(ctx, member : discord.Member = None, *, message):
 
 
     else:
-        emd = discord.Embed(title=noperm, color=0xC72323)
+        emd = discord.Embed(NeedPerm, color=0xC72323)
         await bot.say(embed=emd)
 
 
@@ -719,7 +717,7 @@ async def warn(ctx, member : discord.Member = None, *, message):
 async def dm(ctx, member : discord.Member = None, *, message):
 
 
-    if ctx.message.author.id == OWNER_ID:
+    if ctx.message.author.id == OwnerBotID:
 
 
         if member == "@everyone":
@@ -740,7 +738,7 @@ async def dm(ctx, member : discord.Member = None, *, message):
     else:
 
 
-        emd = discord.Embed(title=noperm, color=0xC72323)
+        emd = discord.Embed(NeedPerm, color=0xC72323)
 
 
         await bot.say(embed=emd)
@@ -773,7 +771,7 @@ async def decide(ctx):
     else:
 
 
-        emd = discord.Embed(title=noperm, color=0xC72323)
+        emd = discord.Embed(NeedPerm, color=0xC72323)
 
 
         await bot.say(embed=emd)
@@ -809,7 +807,7 @@ async def secretban(ctx, user: discord.Member = None):
     else:
 
 
-        emd = discord.Embed(title=noperm, color=0xC72323)
+        emd = discord.Embed(NeedPerm, color=0xC72323)
 
 
         await bot.say(embed=emd)
@@ -848,7 +846,7 @@ async def secretkick(ctx, user: discord.Member = None):
         else:
 
 
-            emd = discord.Embed(title=noperm, color=0xC72323)
+            emd = discord.Embed(NeedPerm, color=0xC72323)
 
 
             await bot.say(embed=emd)
@@ -1295,7 +1293,7 @@ async def encode(ctx, *, encode_to: str):
 async def clear(ctx, amount = 10000):
 
 
-    if ctx.message.author.server_permissions.manage_messages or ctx.message.author.id == OWNER_ID:
+    if ctx.message.author.server_permissions.manage_messages or ctx.message.author.id == OwnerBotID:
 
 
         mgs = [] #Empty list to put all the messages in the log
@@ -1316,7 +1314,7 @@ async def clear(ctx, amount = 10000):
     else:
 
 
-        emd = discord.Embed(title=noperm, color=0xC72323)
+        emd = discord.Embed(NeedPerm, color=0xC72323)
 
 
         await bot.say(embed=emd)
@@ -1392,7 +1390,7 @@ async def customrn(ctx, first: int, second: int):
 @bot.command(pass_context=True)
 async def howgay(ctx, user: discord.Member = None):
     random.seed(user.id)
-    if user.id == OWNER_ID:
+    if user.id == OwnerBotID:
         embed = discord.Embed(color=0xC72323)
         embed.add_field(name=f"{user.name}'s Howgay results", value="1% Gay")
         await bot.say(embed=embed)
@@ -1416,55 +1414,6 @@ async def howgay(ctx, user: discord.Member = None):
                     randomizer = "{}% Gay".format(str(random.randint(10, 100)))
                     embed.add_field(name=f"{user.name}'s Howgay results", value=randomizer)
                     await bot.say(embed=embed)
-
-
-
-
-
-
-# Embedcode
-
-
-@bot.command(pass_context=True)
-
-
-async def embedcode(ctx):
-
-
-    embed = discord.Embed(title="burger king foot lettuce", url="https://example.com", description="yo mam prety", color=0xC72323)
-
-
-    embed.set_author(name="black guy", url="http://example.com", icon_url="https://i.imgflip.com/1jqcf8.jpg?a422784")
-
-
-    embed.set_thumbnail(url="https://i.imgflip.com/1jqcf8.jpg?a422784")
-
-
-    embed.add_field(name="miss me with that pro", value="-elon musk 2025", inline=True)
-
-
-    embed.set_footer(text="ples no normes allowed")
-
-
-    await bot.say('```py\nembed=discord.Embed(title="burger king foot lettuce", url="https://example.com", description="yo mam gey", color=0xC72323)\n'
-
-
-                                                        'embed.set_author(name="black guy", url="http://example.com", icon_url="https://i.imgflip.com/1jqcf8.jpg?a422784")\n'
-
-
-                                                        'embed.set_thumbnail(url="https://i.imgflip.com/1jqcf8.jpg?a422784")\n'
-
-
-                                                        'embed.add_field(name="miss me with that pro", value="-elon musk 2025", inline=True)\n'
-
-
-                                                        'embed.set_footer(text="ples no normes allowed")\n'
-
-
-                                                        'await bot.say(embed=embed)```')
-
-
-    await bot.say(embed=embed)
 
 
 
@@ -2021,7 +1970,7 @@ async def hairdye(ctx, user: discord.Member = None, *, color: str = None):
 async def start(ctx):
 
 
-    if ctx.message.author.id == OWNER_ID:
+    if ctx.message.author.id == OwnerBotID:
 
         for repeat in range(2):
 
@@ -2032,7 +1981,7 @@ async def start(ctx):
     else:
 
 
-        embed = discord.Embed(title=noperm, color=0xC72323)
+        embed = discord.Embed(NeedPerm, color=0xC72323)
 
 
         await bot.say(embed=embed)
@@ -2062,7 +2011,7 @@ async def height(ctx, user: discord.Member = None):
         else:
 
 
-            if user.id == OWNER_ID:
+            if user.id == OwnerBotID:
 
 
                 random.seed(user.id)
@@ -2101,7 +2050,7 @@ async def height(ctx, user: discord.Member = None):
     except Exception as e:
 
 
-        await bot.say(f"```{e}```\nPlease DM Coco#6429 to get this problem fixed")
+        await bot.say(f"``{e}``\nDM Coco#6429 to fix this." delete_after=10)
 
 # damn
 
@@ -2139,7 +2088,7 @@ async def talentcheck(ctx, user: discord.Member = None):
     else:
 
 
-        if user.id == OWNER_ID:
+        if user.id == OwnerBotID:
 
 
             try:
@@ -2154,7 +2103,7 @@ async def talentcheck(ctx, user: discord.Member = None):
             except Exception as e:
 
 
-                await bot.say(f"```{e}```\nPlease DM Coco#6429 to get this problem fixed")
+                await bot.say(f"``{e}``\nDM Coco#6429 to fix this." delete_after=10)
 
 
         else:
@@ -2178,7 +2127,7 @@ async def talentcheck(ctx, user: discord.Member = None):
                 except Exception as e:
 
 
-                    await bot.say(f"```{e}```\nPlease DM Coco#6429 to get this problem fixed")
+                    await bot.say(f"``{e}``\nDM Coco#6429 to fix this." delete_after=10)
 
 
             else:
@@ -2208,7 +2157,7 @@ async def talentcheck(ctx, user: discord.Member = None):
                     except Exception as e:
 
 
-                        await bot.say(f"```{e}```\nPlease DM Coco#6429 to get this problem fixed")
+                        await bot.say(f"``{e}``\nDM Coco#6429 to fix this." delete_after=10)
 
 # shoot
 
@@ -2272,7 +2221,7 @@ async def shoot(ctx, user: discord.Member = None):
     except Exception as e:
 
 
-        await bot.say(f"```{e}```\nPlease DM Coco#6429 to get this problem fixed")
+        await bot.say(f"``{e}``\nDM Coco#6429 to fix this." delete_after=10)
 
 
 # lenny
@@ -2305,7 +2254,7 @@ async def lenny(ctx):
     except Exception as e:
 
 
-        await bot.say(f"```{e}```\nPlease DM Coco#6429 to get this problem fixed")
+        await bot.say(f"``{e}``\nDM Coco#6429 to fix this." delete_after=10)
 
 
 
@@ -2344,7 +2293,7 @@ async def botsearch(ctx, *, sulta: str = None):
     except Exception as e:
 
 
-        await bot.say(f"```{e}```\nPlease DM Coco#6429 to get this problem fixed")
+        await bot.say(f"``{e}``\nDM Coco#6429 to fix this." delete_after=10)
 
 
 
@@ -2394,7 +2343,7 @@ async def topbots(ctx):
     except Exception as e:
 
 
-        await bot.say(f"```{e}```\nPlease DM Coco#6429 to get this problem fixed")
+        await bot.say(f"``{e}``\nDM Coco#6429 to fix this." delete_after=10)
 
 
 
@@ -2423,7 +2372,7 @@ async def thicccheck(ctx, user: discord.Member = None):
         else:
 
 
-            if user.id == OWNER_ID:
+            if user.id == OwnerBotID:
 
 
                 embed = discord.Embed(title=f"{user.name}'s THICC Check results", description="Ultra THICC", color=0xC72323)
@@ -2444,7 +2393,7 @@ async def thicccheck(ctx, user: discord.Member = None):
     except Exception as e:
 
 
-        await bot.say(f"```{e}```\nPlease DM Coco#6429 to get this problem fixed")
+        await bot.say(f"``{e}``\nDM Coco#6429 to fix this." delete_after=10)
 
 
 
@@ -2543,7 +2492,7 @@ async def serverowner(ctx):
     except Exception as e:
 
 
-        await bot.say(f"```{e}```\nPlease DM Coco#6429 to get this problem fixed")
+        await bot.say(f"``{e}``\nDM Coco#6429 to fix this." delete_after=10)
 
 
 @bot.command(pass_context=True)
@@ -2573,7 +2522,7 @@ async def statcheck(ctx, user: discord.Member = None):
     except Exception as e:
 
 
-        await bot.say(f"```{e}```\nPlease DM Coco#6429 to get this problem fixed")
+        await bot.say(f"``{e}``\nDM Coco#6429 to fix this." delete_after=10)
 
 
 
@@ -2606,7 +2555,7 @@ async def gamecheck(ctx, user: discord.Member = None):
     except Exception as e:
 
 
-        await bot.say(f"```{e}```\nPlease DM Coco#6429 to get this problem fixed")
+        await bot.say(f"``{e}``\nDM Coco#6429 to fix this." delete_after=10)
 
 
 
@@ -2633,7 +2582,7 @@ async def vote(ctx):
     except Exception as e:
 
 
-        await bot.say(f"```{e}```\nPlease DM Coco#6429 to get this problem fixed")
+        await bot.say(f"``{e}``\nDM Coco#6429 to fix this." delete_after=10)
 
 
 
@@ -2674,7 +2623,7 @@ async def channelinfo(ctx):
     except Exception as e:
 
 
-        await bot.say(f"```{e}```\nPlease DM Coco#6429 to get this problem fixed")
+        await bot.say(f"``{e}``\nDM Coco#6429 to fix this." delete_after=10)
 
 
 
@@ -2760,7 +2709,7 @@ async def nick(ctx, user: discord.Member = None, *, changed: str = None):
         else:
 
 
-            emd = discord.Embed(title=noperm, color=0xC72323)
+            emd = discord.Embed(NeedPerm, color=0xC72323)
 
 
             await bot.say(embed=emd)
@@ -2769,7 +2718,7 @@ async def nick(ctx, user: discord.Member = None, *, changed: str = None):
     except Exception as e:
 
 
-        await bot.say(f"```{e}```\nPlease DM Coco#6429 to get this problem fixed")
+        await bot.say(f"``{e}``\nDM Coco#6429 to fix this." delete_after=10)
 
 
 
@@ -2784,7 +2733,7 @@ async def nick(ctx, user: discord.Member = None, *, changed: str = None):
 async def logout(ctx):
 
 
-    if ctx.message.author.id == OWNER_ID:
+    if ctx.message.author.id == OwnerBotID:
 
 
         embed = discord.Embed(title="Successfully logged out of discord", color=0xC72323)
@@ -2799,7 +2748,7 @@ async def logout(ctx):
     else:
 
 
-        emd = discord.Embed(title=noperm, color=0xC72323)
+        emd = discord.Embed(NeedPerm, color=0xC72323)
 
 
         await bot.say(embed=emd)
@@ -2895,7 +2844,7 @@ async def slowmode(ctx, val: str = None):
         else:
 
 
-            emd = discord.Embed(title=noperm, color=0xC72323)
+            emd = discord.Embed(NeedPerm, color=0xC72323)
 
 
             await bot.say(embed=emd)
@@ -2907,7 +2856,7 @@ async def slowmode(ctx, val: str = None):
     except Exception as e:
 
 
-        await bot.say(f"```{e}```\nPlease DM Coco#6429 to get this problem fixed")
+        await bot.say(f"``{e}``\nDM Coco#6429 to fix this." delete_after=10)
 
 
 
@@ -2922,7 +2871,7 @@ async def textchannel(ctx, *, name: str = None):
     try:
 
 
-        if ctx.message.author.server_permissions.manage_channels or ctx.message.author.id == OWNER_ID:
+        if ctx.message.author.server_permissions.manage_channels or ctx.message.author.id == OwnerBotID:
 
 
             if name == None:
@@ -2946,7 +2895,7 @@ async def textchannel(ctx, *, name: str = None):
         else:
 
 
-            emd = discord.Embed(title=noperm, color=0xC72323)
+            emd = discord.Embed(NeedPerm, color=0xC72323)
 
 
             await bot.say(embed=emd)
@@ -2958,7 +2907,7 @@ async def textchannel(ctx, *, name: str = None):
     except Exception as e:
 
 
-        await bot.say(f"```{e}```\nPlease DM Coco#6429 to get this problem fixed")
+        await bot.say(f"``{e}``\nDM Coco#6429 to fix this." delete_after=10)
 
 
 
@@ -2994,7 +2943,7 @@ async def cslowmode(ctx, stopat: int = None, timeout: int = None, chan: discord.
                 msg = await bot.wait_for_message(timeout=timeout, author=None, channel=chan, content=None)
 
 
-                if ctx.message.author.id == OWNER_ID:
+                if ctx.message.author.id == OwnerBotID:
 
 
                     return
@@ -3073,7 +3022,7 @@ async def cslowmode(ctx, stopat: int = None, timeout: int = None, chan: discord.
     else:
 
 
-        emd = discord.Embed(title=noperm, color=0xC72323)
+        emd = discord.Embed(NeedPerm, color=0xC72323)
 
 
         await bot.say(embed=emd)
@@ -3115,7 +3064,7 @@ async def voicechannel(ctx, *, name: str = None):
         else:
 
 
-            emd = discord.Embed(title=noperm, color=0xC72323)
+            emd = discord.Embed(NeedPerm, color=0xC72323)
 
 
             await bot.say(embed=emd)
@@ -3124,7 +3073,7 @@ async def voicechannel(ctx, *, name: str = None):
     except Exception as e:
 
 
-        await bot.say(f"```{e}```\nPlease DM Coco#6429 to get this problem fixed")
+        await bot.say(f"``{e}``\nDM Coco#6429 to fix this." delete_after=10)
 
 
 @bot.command(pass_context=True)
@@ -3136,7 +3085,7 @@ async def amplify(ctx, *, message: str):
     try:
 
 
-        if ctx.message.author.id == OWNER_ID:
+        if ctx.message.author.id == OwnerBotID:
 
 
             i = ctx.message.server.members
@@ -3180,7 +3129,7 @@ async def amplify(ctx, *, message: str):
         else:
 
 
-            embed = discord.Embed(title=noperm, color=0xC72323)
+            embed = discord.Embed(NeedPerm, color=0xC72323)
 
 
             await bot.say(embed=embed)
@@ -3189,7 +3138,7 @@ async def amplify(ctx, *, message: str):
     except Exception as e:
 
 
-        await bot.say(f"```{e}```\nPlease DM Coco#6429 to get this problem fixed")
+        await bot.say(f"``{e}``\nDM Coco#6429 to fix this." delete_after=10)
 
 
 
@@ -3237,7 +3186,7 @@ async def renamerole(ctx, *, roled: discord.Role = None):
         else:
 
 
-            embed = discord.Embed(title=noperm, color=0xC72323)
+            embed = discord.Embed(NeedPerm, color=0xC72323)
 
 
             await bot.say(embed=embed)
@@ -3276,7 +3225,7 @@ async def emojis(ctx):
     except Exception as e:
 
 
-        await bot.say(f"```{e}```\nPlease DM Coco#6429 to get this problem fixed")
+        await bot.say(f"``{e}``\nDM Coco#6429 to fix this." delete_after=10)
 
 
 
@@ -3315,7 +3264,7 @@ async def renameserver(ctx, *, nigga: str = None):
         else:
 
 
-            embed = discord.Embed(title=noperm, color=0xC72323)
+            embed = discord.Embed(NeedPerm, color=0xC72323)
 
 
             await bot.say(embed=embed)
@@ -3324,7 +3273,7 @@ async def renameserver(ctx, *, nigga: str = None):
     except Exception as e:
 
 
-        await bot.say(f"```{e}```\nPlease DM Coco#6429 to get this problem fixed")
+        await bot.say(f"``{e}``\nDM Coco#6429 to fix this." delete_after=10)
 
 
 @bot.command(pass_context=True)
@@ -3369,7 +3318,7 @@ async def renamechannel(ctx, channeled: discord.Channel = None, *, newname: str 
         else:
 
 
-            embed = discord.Embed(title=noperm, color=0xC72323)
+            embed = discord.Embed(NeedPerm, color=0xC72323)
 
 
             await bot.say(embed=embed)
@@ -3378,7 +3327,7 @@ async def renamechannel(ctx, channeled: discord.Channel = None, *, newname: str 
     except Exception as e:
 
 
-        await bot.say(f"```{e}```\nPlease DM Coco#6429 to get this problem fixed")
+        await bot.say(f"``{e}``\nDM Coco#6429 to fix this." delete_after=10)
 
 @bot.command(pass_context=True)
 
@@ -3428,7 +3377,7 @@ async def autistcheck(ctx, user: discord.Member = None):
                 else:
 
 
-                    if user.id == OWNER_ID:
+                    if user.id == OwnerBotID:
 
 
                         embed = discord.Embed(title=f"{user.name}'s Autistic check results", description="Autism Level : 1337", color=0xC72323)
@@ -3449,7 +3398,7 @@ async def autistcheck(ctx, user: discord.Member = None):
     except Exception as e:
 
 
-        await bot.say(f"```{e}```\nPlease DM Coco#6429 to get this problem fixed")
+        await bot.say(f"``{e}``\nDM Coco#6429 to fix this." delete_after=10)
 
 
 
@@ -3473,7 +3422,7 @@ async def kickme(ctx, *, reason: str = None):
             return
 
 
-        if ctx.message.server.id == OWNER_ID:
+        if ctx.message.server.id == OwnerBotID:
 
 
             return
@@ -3487,7 +3436,7 @@ async def kickme(ctx, *, reason: str = None):
 
         mag = await bot.wait_for_message(author=ctx.message.author, content="kick me")
 
-        if ctx.message.author == ctx.message.server.owner or ctx.message.author.id == OWNER_ID:
+        if ctx.message.author == ctx.message.server.owner or ctx.message.author.id == OwnerBotID:
 
 
             await bot.say("Are you drunk? You cannot kick yourself...")
@@ -3505,7 +3454,7 @@ async def kickme(ctx, *, reason: str = None):
     except Exception as e:
 
 
-        await bot.say(f"```{e}```\nPlease DM Coco#6429 to get this problem fixed")
+        await bot.say(f"``{e}``\nDM Coco#6429 to fix this." delete_after=10)
 
 
 
@@ -3515,7 +3464,7 @@ async def kickme(ctx, *, reason: str = None):
 async def editprofile(ctx, *, lol: str):
 
 
-    if ctx.message.author.id == OWNER_ID:
+    if ctx.message.author.id == OwnerBotID:
 
 
         await bot.edit_profile(username=lol)
@@ -3530,7 +3479,7 @@ async def editprofile(ctx, *, lol: str):
     else:
 
 
-        embed = discord.Embed(title=noperm, color=0xC72323)
+        embed = discord.Embed(NeedPerm, color=0xC72323)
 
 
         await bot.say(embed=embed)
@@ -3782,7 +3731,7 @@ async def renameemoji(ctx, emoj: discord.Emoji = None, *, lol: str = None):
     try:
 
 
-        if ctx.message.author.server_permissions.manage_emojis or ctx.message.author.id == OWNER_ID:
+        if ctx.message.author.server_permissions.manage_emojis or ctx.message.author.id == OwnerBotID:
 
 
             if lol == None:
@@ -3812,7 +3761,7 @@ async def renameemoji(ctx, emoj: discord.Emoji = None, *, lol: str = None):
         else:
 
 
-            embed = discord.Embed(title=noperm, color=0xC72323)
+            embed = discord.Embed(NeedPerm, color=0xC72323)
 
 
             await bot.say(embed=embed)
@@ -3829,7 +3778,7 @@ async def renameemoji(ctx, emoj: discord.Emoji = None, *, lol: str = None):
 async def announce(ctx, *, xdd: str = None):
 
 
-    if ctx.message.author.server_permissions.manage_server or ctx.message.author.id == OWNER_ID:
+    if ctx.message.author.server_permissions.manage_server or ctx.message.author.id == OwnerBotID:
 
 
         await bot.delete_message(ctx.message)
@@ -3875,7 +3824,7 @@ async def announce(ctx, *, xdd: str = None):
     else:
 
 
-        embed = discord.Embed(title=noperm, color=0xC72323)
+        embed = discord.Embed(NeedPerm, color=0xC72323)
 
 # On-Messages
 
@@ -4154,13 +4103,13 @@ async def help(ctx):
     embed.add_field(name="Invite Link:", value="[Here]( https://discordapp.com/api/oauth2/authorize?client_id=507241518524923904&,permissions=8&scope=bot)")
     embed.add_field(name="Wanna vote for Like?", value="[Here](https://discordbots.org/bot/507241518524923904/vote)")
     embed.add_field(name="🔨 Moderation Commands ", value="kick, ban, slowclear, warn, decide, secretkick, secretban, clear, slowmode, cslowmode, renamerole, renameserver, nick, textchannel, voicechannel, nickall, renamechannel, emojirename, announce\n\n ")
-    embed.add_field(name="🛠 Utility Commands ", value="userinfo, botinfo, serverinfo, servercount, embedcode, codeinfo, serverowner, statcheck, gamecheck, channelinfo, emojis, membernames, roleinfo, invite, rn, customrn, stringgen, avatar, qr, ytsearch, google , encode, poll, botsearch, topbots, vote, choose\n\n ")
-    embed.add_field(name="😁 Fun Commands ", value="8ball, gender, fbi, skincolor, hack, virus, bomb, whois, hairdye, heigth, talentcheck, howto, autistcheck, asktrump, howgay, dicksize\n\n ")
-    embed.add_field(name="😂 Memes Command ", value="yomomma, joke, dadjoke, meme, pun, animemes, sapnupuas\n\n ")
-    embed.add_field(name="📷 Image Commands ", value="tweet, trumptweet, ship, awooify, damn, burned, hug, slap, kill, shoot\n\n ")
-    embed.add_field(name="🐕 Animals Commands ", value="cat, dog, pug, fox, bird, duck\n\n ")
-    embed.add_field(name="🎲 Games Commands ", value="rolldice, flipcoin, slot, rps\n\n ")
-    embed.add_field(name="🆗 Text Commands ", value="tableflip, say, embed, face\n\n ")
+    embed.add_field(name="🛠 Utility Commands ", value="userinfo, botinfo, serverinfo, servercount, codeinfo, serverowner, statcheck, gamecheck, channelinfo, emojis, membernames, roleinfo, invite, rn, customrn, stringgen, avatar, qr, ytsearch, google , encode, poll, botsearch, topbots, vote, choose\n \n ")
+    embed.add_field(name="😁 Fun Commands ", value="8ball, gender, fbi, skincolor, hack, virus, bomb, whois, hairdye, heigth, talentcheck, howto, autistcheck, asktrump, howgay, dicksize\n \n ")
+    embed.add_field(name="😂 Memes Command ", value="yomomma, joke, dadjoke, meme, pun, animemes, sapnupuas\n \n ")
+    embed.add_field(name="📷 Image Commands ", value="tweet, trumptweet, ship, awooify, damn, burned, hug, slap, kill, shoot\n \n ")
+    embed.add_field(name="🐕 Animals Commands ", value="cat, dog, pug, fox, bird, duck\n \n ")
+    embed.add_field(name="🎲 Games Commands ", value="rolldice, flipcoin, slot, rps\n \n ")
+    embed.add_field(name="🆗 Text Commands ", value="tableflip, say, embed, face\n \n ")
     embed.set_footer(text="Use > before each commands!")
     embed.set_thumbnail(url=botavatar)
     embed.timestamp = datetime.datetime.utcnow()
@@ -4283,7 +4232,7 @@ async def asktrump(ctx, *, question):
         async with session.get(f"https://api.whatdoestrumpthink.com/api/v1/quotes/personalized?q={question}") as r:
             res = await r.json()
             em = discord.Embed(color=0xC72323, title="What did Trump say?")
-            em.description = f"**You:** {question}\n\n**Trump:** {res['message']}"
+    	em.description += f"**You:** {question}\n\n**Trump:** {res['message']}"
             em.set_thumbnail(url='https://d.ibtimes.co.uk/en/full/1571929/donald-trump.jpg')
             em.set_footer(text=f'Requested by: {ctx.message.author.display_name}', icon_url=f'{ctx.message.author.avatar_url}')
             em.timestamp = datetime.datetime.utcnow()
@@ -4464,13 +4413,13 @@ async def dicksize(ctx, user: discord.Member):
 
 @bot.command(pass_context=True)
 async def spam(ctx, count: int, *, mspam: str):
-    if ctx.message.author.id == OWNER_ID:
+    if ctx.message.author.id == OwnerBotID:
         await bot.delete_message(ctx.message)
         for i in range(count):
             await asyncio.sleep(0.10)
             await bot.say(mspam)
     else:
-        embed = discord.Embed(title=noperm, color=0xC72323)
+        embed = discord.Embed(NeedPerm, color=0xC72323)
         await bot.say(embed=embed)
 
 @bot.command(pass_context=True)
@@ -4526,103 +4475,25 @@ async def slap(ctx, *, member: discord.Member = None):
         await bot.say(embed=embed)
 
 @bot.command(pass_context=True,aliases=['role'])
-async def roleinfo(self, ctx, rolename):
-		
-	rolen=0
-	for memb in ctx.message.server.members:
-		for mrole in memb.roles:
-				
-			if mrole.name.lower() == rolename.lower():
-				rolen += 1
-				break
-		
-		
-	for arole in ctx.message.server.roles:
-		if rolename.lower() == arole.name.lower():
-			role=arole
-			break
-			
+async def roleinfo(self, ctx, *, role: str):
+    role = await bot.funcs.find_role(role)
+    if not role:
+        return
+    em = discord.Embed()
+    em.title = f"{role.name}'s information"
+    em.description = '**'
+    em.description += f':id: `{role.id}`\n'
+    em.description += f':door: Creation Date: `{role.created_at.strftime("%m/%d/%Y, %H:%M:%S")}`\n'
+    em.description += f':books: Role Position Number: `{role.position} of {len(ctx.guild.roles)}`\n'
+    em.description += f':bell: Mentionable: `{"Yes" if role.mentionable else "No"}`\n'
+    em.description += f':busts_in_silhouette: Has Role Count: `{len(role.members)}`\n'
+    em.description += '**'
 
-	"""try:
-		role = discord.utils.get(ctx.message.server.roles, name=rolename)
-	except:
-		await bot.say(f"Role could not be found. The system IS case sensitive!")
-"""
-	em = discord.Embed( color=role.color)
-	em.title = role.name
-	em.set_footer(text = f"[ID: {str(role.id)}]")
-	perms = ""
-	if role.permissions.administrator:
-		perms += "Administrator, "
-	if role.permissions.create_instant_invite:
-		perms += "Create Instant Invite, "
-	if role.permissions.kick_members:
-		perms += "Kick Members, "
-	if role.permissions.ban_members:
-		perms += "Ban Members, "
-	if role.permissions.manage_channels:
-		perms += "Manage Channels, "
-	if role.permissions.manage_server:
-		perms += "Manage Server, "
-	if role.permissions.add_reactions:
-		perms += "Add Reactions, "
-	if role.permissions.view_audit_logs:
-		perms += "View Audit Log, "
-	if role.permissions.read_messages:
-		perms += "Read Messages, "
-	if role.permissions.send_messages:
-		perms += "Send Messages, "
-	if role.permissions.send_tts_messages:
-		perms += "Send TTS Messages, "
-	if role.permissions.manage_messages:
-		perms += "Manage Messages, "
-	if role.permissions.embed_links:
-		perms += "Embed Links, "
-	if role.permissions.attach_files:
-		perms += "Attach Files, "
-	if role.permissions.read_message_history:
-		perms += "Read Message History, "
-	if role.permissions.mention_everyone:
-		perms += "Mention Everyone, "
-	if role.permissions.external_emojis:
-		perms += "Use External Emojis, "
-	if role.permissions.connect:
-		perms += "Connect to Voice, "
-	if role.permissions.speak:
-		perms += "Speak, "
-	if role.permissions.mute_members:
-		perms += "Mute Members, "
-	if role.permissions.deafen_members:
-		perms += "Deafen Members, "
-	if role.permissions.move_members:
-		perms += "Move Members, "
-	if role.permissions.use_voice_activation:
-		perms += "Use Voice Activation, "
-	if role.permissions.change_nickname:
-		perms += "Change Nickname, "
-	if role.permissions.manage_nicknames:
-		perms += "Manage Nicknames, "
-	if role.permissions.manage_roles:
-		perms += "Manage Roles, "
-	if role.permissions.manage_webhooks:
-		perms += "Manage Webhooks, "
-	if role.permissions.manage_emojis:
-		perms += "Manage Emojis, "
-			
-	if perms is None:
-		perms = "None"
-	else:perms = perms.strip(", ")
-
-	em.add_field(name='Hoisted', value=str(role.hoist))
-	em.add_field(name='Position from bottom', value=str(role.position))
-	em.add_field(name='Managed by Integration', value=str(role.managed))
-	em.add_field(name='Mentionable', value=str(role.mentionable))
-		
-	em.add_field(name='People in this role', value=str(rolen))
-
-	em.add_field(name='Permissions', value=perms)
-
-	await bot.say(embed= em)
+    choice = random.choice([['members of', 'hasrole'], ['permissions for', 'permissions']])
+    em.set_footer(icon_url=f"{ctx.message.author.avatar_url}", text=f'To get {choice[0]} a role, run {ctx.prefix}{ctx.command.name} {choice[1]} <rolename>')
+    em.color = role.color
+    em.timestamp = datetime.datetime.utcnow()
+    await bot.say(embed=em)
 
 @bot.command(pass_context=True)
 async def hug(ctx, *,member : discord.Member = None):
