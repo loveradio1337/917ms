@@ -3159,7 +3159,7 @@ async def renamerole(ctx, *, roled: discord.Role = None):
             if roled == None:
 
 
-                await bot.say(f"{ctx.message.author.mention} ```The proper usage is\n>renamerole <mention a role>\n\nMake sure capitalization and everything else is correct```")
+                await bot.say(f"{ctx.message.author.mention} ```The proper usage is\n>renamerole <mention a role>\nMake sure capitalization and everything else is correct```")
 
 
             else:
@@ -4039,6 +4039,11 @@ async def on_message(message):
 
         await bot.send_message(message.channel, '{} ```The proper usage is\n>choose apple,orange,girl\nThe bot will pick like apple```'.format(message.author.mention))
 
+    if message.content == ">choose":
+
+
+        await bot.send_message(message.channel, '{} ```The proper usage is\n>roleinfo <the role name>\nMake sure capitalization and everything else is correct```'.format(message.author.mention))
+
     if message.content == ">rps":
 
 
@@ -4063,7 +4068,7 @@ async def poll(ctx, question, *options: str):
 
         description = []
         for x, option in enumerate(options):
-            description += '\n {} {}'.format(reactions[x], option)
+            description += '\n{} {}'.format(reactions[x], option)
         embed = discord.Embed(title=question, description=''.join(description), color=0xC72323)
         react_message = await bot.say(embed=embed)
         for reaction in reactions[:len(options)]:
@@ -4078,7 +4083,7 @@ async def on_member_join(member):
     for channel in member.server.channels:
         if channel.name == '》welcome♤':
            embed = discord.Embed(color=0xC72323)
-           embed.set_author(name=f':tada: Welcome **{member.name}** to **{member.server.name}** :tada:')
+           embed.set_author(name=f'🎉 Welcome **{member.name}** to **{member.server.name}** 🎉')
            embed.description = 'Please 🙏 do not forget to respect each others.'
            embed.set_thumbnail(url=member.avatar_url) 
            embed.set_footer(text='We now have {} members'.format(str(member.server.member_count)))
@@ -4095,6 +4100,30 @@ async def on_member_remove(member):
             embed.description='Good bye 👋! We will gonna miss you.'
             embed.set_thumbnail(url=member.avatar_url)
             await bot.send_message(channel, embed=embed)
+
+@bot.event
+async def on_member_join(member):
+    for channel in member.server.channels:
+        if channel.name == 'welcome':
+           embed = discord.Embed(color=0xC72323)
+           embed.set_author(name=f'🎉 Welcome **{member.name}** to **{member.server.name}** 🎉')
+           embed.description = 'Please 🙏 do not forget to respect each others.'
+           embed.set_thumbnail(url=member.avatar_url) 
+           embed.set_footer(text='We now have {} members 🎉'.format(str(member.server.member_count)))
+           await bot.send_message(channel, embed=embed) 
+           nickname= '🆕 ' + member.name
+           await bot.change_nickname(member, nickname)
+
+@bot.event
+async def on_member_remove(member):
+    for channel in member.server.channels:
+        if channel.name == 'welcome':
+            embed = discord.Embed(color=0xC72323)
+            embed.set_author(name=f'😢 {member.name} has left the {member.server.name} 😢')
+            embed.description='Good bye 👋! We will gonna miss you.'
+            embed.set_thumbnail(url=member.avatar_url)
+            await bot.send_message(channel, embed=embed)
+
 # help
 @bot.command(pass_context=True)
 async def help(ctx):
@@ -4475,21 +4504,20 @@ async def slap(ctx, *, member: discord.Member = None):
         await bot.say(embed=embed)
 
 @bot.command(pass_context=True,aliases=['role'])
-async def roleinfo(ctx, *, role:discord.Role=None):
-    if not role:
-        return
+async def roleinfo(ctx, *, role:discord.Role):
+
     em = discord.Embed()
-    em.title = f"{role.name}'s information"
+    em.title = f"{role.name}"
     em.description = '**'
-    em.description += f':id: `{role.id}`\n'
-    em.description += f':door: Creation Date: `{role.created_at.strftime("%m/%d/%Y, %H:%M:%S")}`\n'
-    em.description += f':books: Role Position Number: `{role.position} `\n'
-    em.description += f':bell: Mentionable: `{"Yes" if role.mentionable else "No"}`\n'
+    em.description += f':id:  `{role.id}`\n'
+    em.description += f':door: Creation Date:  `{role.created_at.strftime("%m/%d/%Y, %H:%M:%S")}`\n'
+    em.description += f':books: Role Position Number:  `{role.position} `\n'
+    em.description += f':bell: Mentionable:  `{"Yes" if role.mentionable else "No"}`\n'
 
     em.description += '**'
 
     choice = random.choice([['members of', 'hasrole'], ['permissions for', 'permissions']])
-    em.set_footer(icon_url=f"{ctx.message.author.avatar_url}", text=f'To get {choice[0]} a role, run {ctx.prefix}{ctx.command.name} {choice[1]} <rolename>')
+    em.set_footer(icon_url=f"{ctx.message.author.avatar_url}", text=f'{}')
     em.color = role.color
     em.timestamp = datetime.datetime.utcnow()
     await bot.say(embed=em)
@@ -4608,46 +4636,5 @@ async def rolldice(ctx):
 	resp.set_thumbnail(url = random.choice(die_faces))
 
 	await bot.edit_message(send, embed=resp)
-
-
-@bot.command(aliases=['roleinfo permissions'],pass_context=True)
-
-async def permissions(ctx, *, role:discord.Role=None):
-
-    if not role:
-        return
-    perms_value = []
-    perms_bool = dict(role.permissions)
-    for i in perms_bool:
-        perms_value.append(i)
-    em = discord.Embed()
-    em.title = f"Permissions for {role}"
-    em.description = ''
-    for i in perms_value:
-        em.description += f'{unblock(i)}: **{perms_bool.pop(i).upper()}\n**'
-    em.color = role.color
-
-    await bot.say(embed=em)
-
-@bot.command(aliases=['roleinfo hasrole'],pass_context=True)
-async def hasrole(ctx, *, role:discord.Role=None):
-    if not role:
-        return
-    list_of_members_w_role = []
-    num = 1
-    for i in role.members:
-        list_of_members_w_role.append(f'{num}. <@{i.id}>')
-        num += 1
-    em = discord.Embed()
-
-    em.title = f"Members with `{role.name}`:"
-    em.description = '**'
-    em.description += '\n'.join(list_of_members_w_role)
-    em.description += '\n**'
-    if len(em.description) > 6000:
-        await bot.say("holy shit, thats alot of members with that role, I can't actually show you the list due to discords embed text limit, lo siento.")
-        return
-    em.color = role.color
-    await bot.say(embed=em)
 
 bot.run(os.environ['Token1'])
