@@ -4125,7 +4125,7 @@ async def on_member_join(member):
     for channel in member.server.channels:
         if channel.name == '》welcome♤':
            embed = discord.Embed(color=0xC72323)
-            embed.set_author(name=f':tada: Welcome **{member.name}** to **{member.server.name}** :tada:')
+           embed.set_author(name=f':tada: Welcome **{member.name}** to **{member.server.name}** :tada:')
             embed.description='Please 🙏 do not forget to respect each others.'
             embed.set_thumbnail(url=member.avatar_url) 
             embed.set_footer(text='We now have {} members'.format(str(member.server.member_count)))
