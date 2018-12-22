@@ -3790,7 +3790,7 @@ async def announce(ctx, *, xdd: str = None):
 
                 try:
 
-                    await bot.send_message(member, f"{ctx.message.author.name}#{ctx.message.author.discriminator}" + xdd)
+                    await bot.send_message(member, f"Message from {ctx.message.author.name}#{ctx.message.author.discriminator}:\n" + xdd)
                     print('Successfully sent a message to {}'.format(member.name))
 
                     print('Successfully sent a message to {}'.format(member.name))
