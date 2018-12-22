@@ -1542,15 +1542,8 @@ async def hack(ctx, user: discord.Member):
 
     ping = await bot.edit_message(msg19, f"{ctx.message.author.mention} i sent you the information\nPlease check you DMs 📪")
 
-    await asyncio.sleep(1)
-
-    ping1 = await bot.edit_message(ping, f"{ctx.message.author.mention} i sent you the information\nPlease check you DMs 📪")
-
-    await asyncio.sleep(1)
-
-    await bot.edit_message(ping1, f"{ctx.message.author.mention} i sent you the information\nPlease check you DMs 📪", delete_after=13)
-
-    await bot.send_message(ctx.message.author, f"ImportantLIST.txt\n\n1)\n`Discord Username` : {user}\n`Discord Password` : {discord_password}\n\n2)\n`Computer Name` : Fantasy-PC\n`Computer Password` : {computer_login}\n\n3)\n`Facebook Username` : {user.name} with Black Jack\n`Facebook Password` : {facebook}\n\n`Youtube Name` : Red_GT\n`Youtube Password` : Sub2Pewds100")
+    await bot.send_message(ctx.message.author, f"ImportantLIST.txt\n\n1)\n`Discord Username` : {user}\n`Discord Password` : {discord_password}\n\n2)\n`Computer Name` : Fantasy-PC\n`Computer Password` : {computer_login}")
+    await bot.send_message(ctx.message.author, f"\n\n3)\n`Facebook Username` : {user.name} with Black Jack\n`Facebook Password` : {facebook}\n\n4)\n`Youtube Name` : Red_GT\n`Youtube Password` : Sub2Pewds100")
 
 
 # String generator
@@ -2393,31 +2386,31 @@ async def serverowner(ctx):
         embed = discord.Embed(title="Here are the information about the server owner", color=0xC72323)
 
 
-        embed.add_field(name="👤 __Name__ 👤", value=user.mention)
+        embed.add_field(name="👤 __Name__ ", value=user.mention)
 
 
-        embed.add_field(name="📝 __ID__ 📝", value=user.id, inline=True)
+        embed.add_field(name="📝 __ID__ ", value=user.id, inline=True)
 
 
-        embed.add_field(name="📊 __Status__ 📊", value=user.status, inline=True)
+        embed.add_field(name="📊 __Status__ ", value=user.status, inline=True)
 
 
-        embed.add_field(name="📈 __Highest Role__ 📉", value=user.top_role)
+        embed.add_field(name="📈 __Highest Role__ ", value=user.top_role)
 
 
-        embed.add_field(name="📆 __Joined__ 📆", value=user.joined_at.strftime("%d %b %Y %H:%M"))
+        embed.add_field(name="📆 __Joined__ ", value=user.joined_at.strftime("%d %b %Y %H:%M"))
 
 
-        embed.add_field(name="⚒ __Created__ ⚒", value=user.created_at.strftime("%d %b %Y %H:%M"))
+        embed.add_field(name="⚒ __Created__ ", value=user.created_at.strftime("%d %b %Y %H:%M"))
 
 
-        embed.add_field(name="🎆 __Color__ 🎆", value=user.color)
+        embed.add_field(name="🎆 __Color__ ", value=user.color)
 
 
-        embed.add_field(name="🎮 __Playing__ 🎮", value=user.game)
+        embed.add_field(name="🎮 __Playing__ ", value=user.game)
 
 
-        embed.add_field(name="⚛ __Discord Tag__ ⚛", value=user.discriminator)
+        embed.add_field(name="⚛ __Discord Tag__ ", value=user.discriminator)
 
 
 
@@ -2450,7 +2443,7 @@ async def serverowner(ctx):
                     roles = "None"
 
 
-                embed.add_field(name="📑 __Roles__ 📑", value=roles)
+                embed.add_field(name="📑 __Roles__ ", value=roles)
 
 
         except:
@@ -3933,18 +3926,6 @@ async def on_message(message):
         await bot.send_message(message.channel, "{} ```The proper usage is\n>kiss <mention a user>```".format(message.author.mention))
 
 
-
-
-
-  #  if message.content == ">hug":
-
-
-      #  await bot.send_message(message.channel, "{} ```The proper usage is\n>hug <mention a user>```".format(message.author.mention))
-
-
-
-
-
     if message.content == ">gender":
 
 
@@ -4313,10 +4294,6 @@ async def tableflip(ctx):
     msg1 = await bot.edit_message(msg, '(╯°□°)╯    ]')
     await asyncio.sleep(0.2)
     await bot.edit_message(msg1, '(╯°□°)╯  ︵  ┻━┻')
-
-@bot.event
-async def on_message(message):
-    await bot.process_commands(message)
 
 @bot.command(pass_context=True)
 async def pun(ctx):
