@@ -1291,14 +1291,14 @@ async def encode(ctx, *, encode_to: str):
 
 # clear
 @bot.command(pass_context=True)
-async def clear(ctx, number):
+async def clear(ctx, number:str):
     if ctx.message.author.server_permissions.manage_messages or ctx.message.author.id == OWNER_ID:
         mgs = []
         number = int(number)
-        async for x in bot.logs_from(ctx.message.channel, limit = number):
+        async for x in bot.logs_from(ctx.message.channel, limit = 100):
             mgs.append(x)
         await bot.delete_messages(mgs)
-        await bot.say("I deleted ``" + number + "``` messages for {ctx.message.author.mention}", delete_after=5)
+        await bot.say("I deleted `" + str(number) + "` messages for {ctx.message.author.mention}", delete_after=5)
 
     else:
 
@@ -3935,20 +3935,7 @@ async def on_message(message):
     if message.content == ">clear":
 
 
-        await bot.send_message(message.channel, "{} ```The proper usage is\n>clear <amount of messages>```".format(message.author.mention))
-
-
-
-
-
-    if message.content == ">startdox":
-
-
-        await bot.send_message(message.channel, "{} ```The proper usage is\n>startdox <mention a user>```".format(message.author.mention))
-
-
-
-
+        await bot.send_message(message.channel, "{} ```The proper usage is\n>clear <amount of messages> pick between 1 and 100```".format(message.author.mention))
 
     if message.content == ">customrn":
 
