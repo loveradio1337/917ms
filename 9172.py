@@ -1292,7 +1292,7 @@ async def encode(ctx, *, encode_to: str):
 # clear
 @bot.command(pass_context=True)
 async def clear(ctx, number:str):
-    if ctx.message.author.server_permissions.manage_messages or ctx.message.author.id == OWNER_ID:
+    if ctx.message.author.server_permissions.manage_messages or ctx.message.author.id == OwnerBotID:
         mgs = []
         number = int(number)
         async for x in bot.logs_from(ctx.message.channel, limit = 100):
@@ -4592,7 +4592,7 @@ async def removerole(ctx, user:discord.User, roles: discord.Role):
 @bot.command(pass_context=True)
 async def nickall(ctx, *, nickname0: str = None):
     try:
-        if ctx.message.author == ctx.message.server.owner or ctx.message.author.id == OWNER_ID:
+        if ctx.message.author == ctx.message.server.owner or ctx.message.author.id == OwnerBotID:
             await bot.say(f"Renaming {len(ctx.message.server.members)} users to {nickname0}, this might take some time, i will notify you once everything is done")
             for member in ctx.message.server.members:
                 if member is ctx.message.server.owner:
