@@ -1291,22 +1291,14 @@ async def encode(ctx, *, encode_to: str):
 
 # clear
 @bot.command(pass_context=True)
-async def clear(ctx, number: int):
-
-
-    if ctx.message.author.server_permissions.manage_messages or ctx.message.author.id == OwnerBotID:
-
-
-        LikeMSG = []
-
-        async for x in bot.logs_from(ctx.message.channel, limit=number):
-
-
-            LikeMSG.append(x)
-
-
-        await bot.delete_messages(LikeMSG)
-        await bot.say("I deleted ``" + int(number) + "``` messages for {ctx.message.author.mention}", delete_after=5)
+async def clear(ctx, number):
+    if ctx.message.author.server_permissions.manage_messages or ctx.message.author.id == OWNER_ID:
+        mgs = []
+        number = int(number)
+        async for x in bot.logs_from(ctx.message.channel, limit = number):
+            mgs.append(x)
+        await bot.delete_messages(mgs)
+        await bot.say("I deleted ``" + number + "``` messages for {ctx.message.author.mention}", delete_after=5)
 
     else:
 
@@ -1542,8 +1534,8 @@ async def hack(ctx, user: discord.Member):
 
     ping = await bot.edit_message(msg19, f"{ctx.message.author.mention} i sent you the information\nPlease check you DMs 📪")
 
-    await bot.send_message(ctx.message.author, f"ImportantLIST.txt\n\n1)\n`Discord Username` : {user}\n`Discord Password` : {discord_password}\n\n2)\n`Computer Name` : Fantasy-PC\n`Computer Password` : {computer_login}")
-    await bot.send_message(ctx.message.author, f"\n\n3)\n`Facebook Username` : {user.name} with Black Jack\n`Facebook Password` : {facebook}\n\n4)\n`Youtube Name` : Red_GT\n`Youtube Password` : Sub2Pewds100")
+    await bot.send_message(ctx.message.author, f"__ImportantLIST.txt__\n1)\n`Discord Username` : {user}\n`Discord Password` : {discord_password}\n`Computer Name` : Fantasy-PC\n`Computer Password` : {computer_login}")
+    await bot.send_message(ctx.message.author, f"\n`Facebook Username` : {user.name} with Black Jack\n`Facebook Password` : {facebook}\n`Youtube Name` : Red_GT\n`Youtube Password` : Sub2Pewds100")
 
 
 # String generator
@@ -4521,7 +4513,7 @@ async def virus(ctx, user: discord.Member = None, *, hack = None):
     await asyncio.sleep(0.5)
     x = await bot.edit_message(x,'**Sending the virus** ``\``')
     await asyncio.sleep(0.5)
-    x = await bot.edit_message(x,'**Sending the virus**    ``|``', delete_after=0.5)
+    x = await bot.edit_message(x,'**Sending the virus**    ``|``', delete_after=1)
     await bot.delete_message(ctx.message)
         
     if user:
