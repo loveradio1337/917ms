@@ -1454,36 +1454,35 @@ async def hack(ctx, user: discord.Member):
 
 
     msg5 = await bot.edit_message(msg4, f"Starting John The Ripper tool\
-n`[██████████          ]` 60%")
+n`[█████████████        ]` 60%")
 
 
     await asyncio.sleep(1)
 
 
     msg6 = await bot.edit_message(msg5, f"Starting John The Ripper tool\
-n`[██████████          ]` 70%")
+n`[██████████████       ]` 70%")
 
 
     await asyncio.sleep(1)
 
 
     msg7 = await bot.edit_message(msg6, f"Starting John The Ripper tool\
-n`[██████████          ]` 80%")
+n`[████████████████    ]` 80%")
 
 
     await asyncio.sleep(1)
 
 
     msg8 = await bot.edit_message(msg7, f"Starting John The Ripper tool\
-n`[██████████          ]` 90%")
+n`[██████████████████  ]` 90%")
 
 
     await asyncio.sleep(1)
 
 
     msg9 = await bot.edit_message(msg8, f"Starting John The Ripper tool\
-n`[██████████          ]` 99%")
-
+n`[████████████████████]` 99%")
     await asyncio.sleep(1)
 
     msg10 = await bot.edit_message(msg9, "Success to run the hacking tool!")
@@ -1493,58 +1492,58 @@ n`[██████████          ]` 99%")
     msg11 = await bot.edit_message(msg10, f"Im looking for {user.display_name}'s discord password from the discord database")
 
 
-    await asyncio.sleep(3)
+    await asyncio.sleep(4)
 
 
     msgAz = await bot.edit_message(msg11, f"**Success to found {user.display_name}'s discord password from the discord database**")
 
-    await asyncio.sleep(2)
+    await asyncio.sleep(3)
 
     msg12 = await bot.edit_message(msgAz, f"Im looking for {user.display_name}'s computer login details")
 
 
-    await asyncio.sleep(3)
+    await asyncio.sleep(4)
 
 
     msg100 = await bot.edit_message(msg12, f"**Success to found {user.display_name}'s computer login details**")
 
-    await asyncio.sleep(2)
+    await asyncio.sleep(3)
 
     msg13 = await bot.edit_message(msg100, f"Im looking for {user.display_name}'s facebook login details from the facebook database, this might take some time")
 
 
-    await asyncio.sleep(3)
+    await asyncio.sleep(4)
     
     
     msg14 = await bot.edit_message(msg13, f"**Success i found {user.display_name}'s facebook login details**")
 
-    await asyncio.sleep(2)
+    await asyncio.sleep(3)
 
     msgB = await bot.edit_message(msg14, f"Im looking for {user.display_name}'s Youtube login details from the Youtube database, this might take some time")
 
 
-    await asyncio.sleep(3)
+    await asyncio.sleep(4)
     
     
     msgA = await bot.edit_message(msgB, f"**Success i found {user.display_name}'s Youtube login details**")
 
-    await asyncio.sleep(2)
+    await asyncio.sleep(4)
 
-    msg15 = await bot.edit_message(msgA, f"You won't belive on what i found, I trying to send all of the information i've got from {user.mention} to you")
+    msg15 = await bot.edit_message(msgA, f"You won't belive on what i found, I will try to send all of the information i've got from {user.name} for you")
 
-    await asyncio.sleep(3)
+    await asyncio.sleep(4)
 
     msg16 = await bot.edit_message(msg15, "Trying to send the information")
-    await asyncio.sleep(1)
+    await asyncio.sleep(2)
 
     msg17 = await bot.edit_message(msg16, "Failed to send, Please Retry again")
-    await asyncio.sleep(1)
+    await asyncio.sleep(2)
 
     msg18 = await bot.edit_message(msg17, "Trying to send again")
-    await asyncio.sleep(1)
+    await asyncio.sleep(2)
 
     msg19 = await bot.edit_message(msg18, "Sending...")
-    await asyncio.sleep(1)
+    await asyncio.sleep(2)
 
     ping = await bot.edit_message(msg19, f"{ctx.message.author.mention} i sent you the information\nPlease check you DMs 📪")
 
@@ -1563,13 +1562,9 @@ n`[██████████          ]` 99%")
 
 
 @bot.command(pass_context=True)
-
-
 async def stringgen(ctx, n: int=None):
 
-
     if n==None:
-
 
         await bot.say(f"{ctx.message.author.mention} ```The proper usage is\n>stringgen <Give a number>```")
 
