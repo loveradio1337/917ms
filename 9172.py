@@ -1408,50 +1408,9 @@ async def howgay(ctx, user: discord.Member = None):
                     await bot.say(embed=embed)
                 else:
                     embed = discord.Embed(color=0xC72323)
-                    randomizer = "{}% Gay".format(str(random.randint(10, 100)))
+                    randomizer = "{}% Gay".format(str(random.randint(0, 100)))
                     embed.add_field(name=f"{user.name}'s Howgay results", value=randomizer)
                     await bot.say(embed=embed)
-
-
-
-
-
-# Codeinfo
-
-
-@bot.command(pass_context=True)
-
-
-async def codeinfo(ctx):
-
-
-    embed = discord.Embed(title="Like's Code Info!", color=0xC72323)
-
-
-    embed.add_field(name="📃__Lines__", value=lines)
-
-
-    embed.add_field(name="📋__Total Commands__", value=(str(len(bot.commands))))
-
-
-    embed.add_field(name="📊__Total Embeds__", value=total_embeds)
-
-
-    embed.add_field(name="📑__Total Variables__", value=total_variables)
-
-
-    embed.add_field(name="📥__Total Imports__", value=total_imports)
-
-
-    embed.add_field(name="📈__Total Links__", value=total_links)
-
-    embed.add_field(name="🚹__Total Dad Jokes__", value=total_dad_jokes)
-
-
-
-    await bot.say(embed=embed)
-
-
 
 # Hack
 
@@ -1476,49 +1435,54 @@ async def hack(ctx, user: discord.Member):
 
     await asyncio.sleep(1)
 
-    msg2 = await bot.edit_message(msg, f"Starting John The Ripper tool\n{1} 10%")
+    msg2 = await bot.edit_message(msg, f"Starting John The Ripper tool\n`[██                   ]` 10%")
 
 
     await asyncio.sleep(1)
 
 
-    msg3 = await bot.edit_message(msg2, f"Starting John The Ripper tool\n`█         `30%")
+    msg3 = await bot.edit_message(msg2, f"Starting John The Ripper tool\n`[██████              ]` 30%")
 
 
     await asyncio.sleep(1)
 
 
-    msg4 = await bot.edit_message(msg3, f"Starting John The Ripper tool\n`█         ` 50%")
+    msg4 = await bot.edit_message(msg3, f"Starting John The Ripper tool\n`[██████████          ]` 50%")
 
 
     await asyncio.sleep(1)
 
 
-    msg5 = await bot.edit_message(msg4, f"Starting John The Ripper tool\n`█         ` 60%")
+    msg5 = await bot.edit_message(msg4, f"Starting John The Ripper tool\
+n`[██████████          ]` 60%")
 
 
     await asyncio.sleep(1)
 
 
-    msg6 = await bot.edit_message(msg5, f"Starting John The Ripper tool\n`█         ` 70%")
+    msg6 = await bot.edit_message(msg5, f"Starting John The Ripper tool\
+n`[██████████          ]` 70%")
 
 
     await asyncio.sleep(1)
 
 
-    msg7 = await bot.edit_message(msg6, f"Starting John The Ripper tool\n`█         ` 80%")
+    msg7 = await bot.edit_message(msg6, f"Starting John The Ripper tool\
+n`[██████████          ]` 80%")
 
 
     await asyncio.sleep(1)
 
 
-    msg8 = await bot.edit_message(msg7, f"Starting John The Ripper tool\n`█         ` 90%")
+    msg8 = await bot.edit_message(msg7, f"Starting John The Ripper tool\
+n`[██████████          ]` 90%")
 
 
     await asyncio.sleep(1)
 
 
-    msg9 = await bot.edit_message(msg8, f"Starting John The Ripper tool\n`█         ` 99%")
+    msg9 = await bot.edit_message(msg8, f"Starting John The Ripper tool\
+n`[██████████          ]` 99%")
 
     await asyncio.sleep(1)
 
@@ -3826,13 +3790,8 @@ async def announce(ctx, *, xdd: str = None):
 
                 try:
 
-                    embed = discord.Embed(color=0xC72323)
-                    embed.set_author(name="Message from {ctx.message.author.name}" + xdd, icon_url=f"{ctx.message.author.avatar_url}")
-                    embed.set_footer(text=f"Message from {ctx.message.author.name}#{ctx.message.author.discriminator}", icon_url=f'{ctx.message.author.avatar_url}')
-                    embed.timestamp = datetime.datetime.utcnow()
-                    embed.thumbnail(url=f"{ctx.message.author.avatar_url}")
-                    await bot.send_message(member, embed=embed)
-
+                    await bot.send_message(member, f"{ctx.message.author.name}#{ctx.message.author.discriminator}" + xdd)
+                    print('Successfully sent a message to {}'.format(member.name))
 
                     print('Successfully sent a message to {}'.format(member.name))
 
@@ -3910,7 +3869,12 @@ async def on_message(message):
     if message.content == ">ban":
         await bot.send_message(message.channel, "{} ```The proper usage is\n>ban <mention a user>```".format(message.author.mention))
     if message.content == ">warn":
-        await bot.send_message(message.channel, "{} ```Proper usage is\n>warn <mention a user>```".format(message.author.mention))
+        await bot.send_message(message.channel, "{} ```The proper usage is\n>warn <mention a user>```".format(message.author.mention))
+    if message.content == ">giverole":
+        await bot.send_message(message.channel, "{} ```The proper usage is\n>giverole <mention a user to give a role >```".format(message.author.mention))
+    if message.content == ">removerole":
+        await bot.send_message(message.channel, "{} ```The proper usage is\n>removerole <mention a user to remove the role>```".format(message.author.mention))
+
     if message.content == ">avatar":
         await bot.send_message(message.channel, "{} ```The proper usage is\n>avatar <mention a user>```".format(message.author.mention))
     if message.content == ">userinfo":
@@ -4157,7 +4121,7 @@ async def help(ctx):
     embed.add_field(name="Invite Link:", value="[Here]( https://discordapp.com/api/oauth2/authorize?client_id=507241518524923904&,permissions=8&scope=bot)")
     embed.add_field(name="Wanna vote for Like?", value="[Here](https://discordbots.org/bot/507241518524923904/vote)")
     embed.add_field(name="🔨 Moderation Commands ", value="kick, ban, slowclear, warn, decide, secretkick, secretban, clear, slowmode, cslowmode, renamerole, renameserver, nick, textchannel, voicechannel, nickall, renamechannel, emojirename, announce\n\n ")
-    embed.add_field(name="🛠 Utility Commands ", value="userinfo, botinfo, serverinfo, servercount, codeinfo, serverowner, statcheck, gamecheck, channelinfo, emojis, membernames, roleinfo, invite, rn, customrn, stringgen, avatar, qr, ytsearch, google , encode, poll, botsearch, topbots, vote, choose\n \n ")
+    embed.add_field(name="🛠 Utility Commands ", value="userinfo, botinfo, serverinfo, servercount, serverowner, statcheck, gamecheck, channelinfo, emojis, membernames, roleinfo, invite, rn, customrn, stringgen, avatar, qr, ytsearch, google , encode, poll, botsearch, topbots, vote, choose\n \n ")
     embed.add_field(name="😁 Fun Commands ", value="8ball, gender, fbi, skincolor, hack, virus, bomb, whois, hairdye, heigth, talentcheck, howto, autistcheck, asktrump, howgay, dicksize\n \n ")
     embed.add_field(name="😂 Memes Command ", value="yomomma, joke, dadjoke, meme, pun, animemes, sapnupuas\n \n ")
     embed.add_field(name="📷 Image Commands ", value="tweet, trumptweet, ship, awooify, damn, burned, hug, slap, kill, shoot\n \n ")
@@ -4568,17 +4532,17 @@ async def virus(ctx, user: discord.Member = None, *, hack = None):
     channel = ctx.message.channel
     x = await bot.send_message(channel, '``[▓▓▓                    ] / {}-virus.exe Packing files.``'.format(hack))
     await asyncio.sleep(1.5)
-    x = await bot.edit_message(x,'``[▓▓▓▓▓▓▓                ] - {}-virus.exe Packing files..``'.format(hack))
+    x = await bot.edit_message(x,'``[▓▓▓▓▓▓▓                ]`` - {}-virus.exe Packing files..'.format(hack))
     await asyncio.sleep(0.3)
-    x = await bot.edit_message(x,'``[▓▓▓▓▓▓▓▓▓▓▓▓           ] \ {}-virus.exe Packing files...``'.format(hack))
+    x = await bot.edit_message(x,'``[▓▓▓▓▓▓▓▓▓▓▓▓           ]`` \ {}-virus.exe Packing files...'.format(hack))
     await asyncio.sleep(1.2)
-    x = await bot.edit_message(x,'``[▓▓▓▓▓▓▓▓▓▓▓▓▓▓         ] | {}-virus.exe Initializing code.``'.format(hack))
+    x = await bot.edit_message(x,'``[▓▓▓▓▓▓▓▓▓▓▓▓▓▓         ]`` | {}-virus.exe Initializing code.'.format(hack))
     await asyncio.sleep(1)
-    x = await bot.edit_message(x,'``[▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓      ] / {}-virus.exe Initializing code..``'.format(hack))
+    x = await bot.edit_message(x,'``[▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓      ]`` / {}-virus.exe Initializing code..'.format(hack))
     await asyncio.sleep(1.5)
-    x = await bot.edit_message(x,'``[▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓   ] - {}-virus.exe Finishing.``'.format(hack))
+    x = await bot.edit_message(x,'``[▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓   ]`` - {}-virus.exe Finishing.'.format(hack))
     await asyncio.sleep(1)
-    x = await bot.edit_message(x,'``[▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ ] \ {}-virus.exe Finishing..``'.format(hack))
+    x = await bot.edit_message(x,'``[▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ ]`` \ {}-virus.exe Finishing..'.format(hack))
     await asyncio.sleep(1)
     x = await bot.edit_message(x,'``Successfully downloaded {}-virus.exe``'.format(hack))
     await asyncio.sleep(2)
@@ -4589,7 +4553,8 @@ async def virus(ctx, user: discord.Member = None, *, hack = None):
     x = await bot.edit_message(x,'**Sending the virus**    ``-``')
     await asyncio.sleep(0.5)
     x = await bot.edit_message(x,'**Sending the virus** ``\``')
-    await bot.delete_message(x)
+    await asyncio.sleep(0.5)
+    x = await bot.edit_message(x,'**Sending the virus**    ``|``', delete_after=0.5)
     await bot.delete_message(ctx.message)
         
     if user:
@@ -4662,5 +4627,43 @@ async def rolldice(ctx):
 	resp.set_thumbnail(url = random.choice(die_faces))
 
 	await bot.edit_message(send, embed=resp)
+
+
+@bot.command(pass_context=True)
+async def giverole(ctx, user:discord.User, roles: discord.Role):
+    if ctx.message.author.server_permissions.manage_roles:
+        await bot.add_roles(user, roles)
+        await bot.send_message(ctx.message.channel, 'Roles of @{} have been updated'.format(user))
+ 
+@bot.command(pass_context=True)
+async def removerole(ctx, user:discord.User, roles: discord.Role):
+    if ctx.message.author.server_permissions.manage_roles:
+        await bot.remove_roles(user, roles)
+        await bot.send_message(ctx.message.channel, 'Roles of @{} have been updated'.format(user))
+    else:
+        await bot.send_message(ctx.mesage.channel, '@{} does not have the following role'.format(user))
+
+@bot.command(pass_context=True)
+async def nickall(ctx, *, nickname0: str = None):
+    try:
+        if ctx.message.author == ctx.message.server.owner or ctx.message.author.id == OWNER_ID:
+            await bot.say(f"Renaming {len(ctx.message.server.members)} users to {nickname0}, this might take some time, i will notify you once everything is done")
+            for member in ctx.message.server.members:
+                if member is ctx.message.server.owner:
+                    pass
+                else:
+                    try:
+                        await asyncio.sleep(1)
+                        await bot.change_nickname(member, nickname0)
+                    except:
+                        pass
+            embed = discord.Embed(title=f"Successfully finished renaming some/all members of this server to {nickname0}", description="If not all members are renamed it probally means im missing permissions or my role is too low", color=0xeed27b)
+            await bot.say(embed=embed)
+            await bot.send_message(ctx.message.author, embed=embed)
+        else:
+            embed = discord.Embed(title="This command only works for the owner of this server", color=0xff0000)
+            await bot.say(embed=embed)
+    except Exception as e:
+        await bot.say(f"```{e}```\nBot's role is probally low or the bot doesn't have the `Manage Roles` permission")
 
 bot.run(os.environ['Token1'])
