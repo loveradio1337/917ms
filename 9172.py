@@ -3935,7 +3935,7 @@ async def on_message(message):
     if message.content == ">clear":
 
 
-        await bot.send_message(message.channel, "{} ```The proper usage is\n>clear <amount of messages> pick between 1 and 100```".format(message.author.mention))
+        await bot.send_message(message.channel, "{} ```The proper usage is\n>clear <amount of messages to delete.>```".format(message.author.mention))
 
     if message.content == ">customrn":
 
@@ -4022,7 +4022,7 @@ async def on_member_join(member):
     for channel in member.server.channels:
         if channel.name == '》welcome♤':
            embed = discord.Embed(color=0xC72323)
-           embed.set_author(name=f'🎉 Welcome **{member.name}** to **{member.server.name}** 🎉')
+           embed.set_author(name=f'🎉 Welcome {member.name} to {member.server.name} 🎉')
            embed.description = 'Please 🙏 do not forget to respect each others.'
            embed.set_thumbnail(url=member.avatar_url) 
            embed.set_footer(text='We now have {} members'.format(str(member.server.member_count)))
@@ -4045,7 +4045,7 @@ async def on_member_join(member):
     for channel in member.server.channels:
         if channel.name == 'welcome':
            embed = discord.Embed(color=0xC72323)
-           embed.set_author(name=f'🎉 Welcome **{member.name}** to **{member.server.name}** 🎉')
+           embed.set_author(name=f'🎉 Welcome {member.name} to {member.server.name} 🎉')
            embed.description = 'Please 🙏 do not forget to respect each others.'
            embed.set_thumbnail(url=member.avatar_url) 
            embed.set_footer(text='We now have {} members 🎉'.format(str(member.server.member_count)))
