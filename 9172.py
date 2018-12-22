@@ -1453,36 +1453,31 @@ async def hack(ctx, user: discord.Member):
     await asyncio.sleep(1)
 
 
-    msg5 = await bot.edit_message(msg4, f"Starting John The Ripper tool\
-n`[█████████████        ]` 60%")
+    msg5 = await bot.edit_message(msg4, f"Starting John The Ripper tool\n`[█████████████        ]` 60%")
 
 
     await asyncio.sleep(1)
 
 
-    msg6 = await bot.edit_message(msg5, f"Starting John The Ripper tool\
-n`[██████████████       ]` 70%")
+    msg6 = await bot.edit_message(msg5, f"Starting John The Ripper tool\n`[██████████████       ]` 70%")
 
 
     await asyncio.sleep(1)
 
 
-    msg7 = await bot.edit_message(msg6, f"Starting John The Ripper tool\
-n`[████████████████    ]` 80%")
+    msg7 = await bot.edit_message(msg6, f"Starting John The Ripper tool\n`[████████████████    ]` 80%")
 
 
     await asyncio.sleep(1)
 
 
-    msg8 = await bot.edit_message(msg7, f"Starting John The Ripper tool\
-n`[██████████████████  ]` 90%")
+    msg8 = await bot.edit_message(msg7, f"Starting John The Ripper tool\n`[██████████████████  ]` 90%")
 
 
     await asyncio.sleep(1)
 
 
-    msg9 = await bot.edit_message(msg8, f"Starting John The Ripper tool\
-n`[████████████████████]` 99%")
+    msg9 = await bot.edit_message(msg8, f"Starting John The Ripper tool\n`[████████████████████]` 99%")
     await asyncio.sleep(1)
 
     msg10 = await bot.edit_message(msg9, "Success to run the hacking tool!")
@@ -4429,7 +4424,7 @@ async def spam(ctx, count: int, *, mspam: str):
     if ctx.message.author.id == OwnerBotID:
         await bot.delete_message(ctx.message)
         for i in range(count):
-            await asyncio.sleep(0.80)
+            await asyncio.sleep(1.10)
             await bot.say(mspam)
     else:
         embed = discord.Embed(title=NeedPerm, description=NeedPermDesc, color=0xC72323)
