@@ -1298,7 +1298,7 @@ async def clear(ctx, number:str):
         async for x in bot.logs_from(ctx.message.channel, limit = 100):
             mgs.append(x)
         await bot.delete_messages(mgs)
-        await bot.say("I deleted `" + str(number) + "` messages for {ctx.message.author.mention}", delete_after=5)
+        await bot.say("I deleted `" + str(number) + f"` messages for {ctx.message.author.mention}", delete_after=5)
 
     else:
 
