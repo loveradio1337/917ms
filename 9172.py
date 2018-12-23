@@ -4053,6 +4053,29 @@ async def on_member_join(member):
            nickname= '🆕 ' + member.name
            await bot.change_nickname(member, nickname)
 
+
+🌠-welcome-🌠
+@bot.event
+async def on_member_join(member):
+    for channel in member.server.channels:
+        if channel.name == '🌠-welcome-🌠':
+           embed = discord.Embed(color=0xC72323)
+           embed.set_author(name=f'🎉 Welcome {member.name} to {member.server.name} 🎉')
+           embed.description = 'Please 🙏 do not forget to respect each others.'
+           embed.set_thumbnail(url=member.avatar_url) 
+           embed.set_footer(text='We now have {} members 🎉'.format(str(member.server.member_count)))
+           await bot.send_message(channel, embed=embed) 
+
+@bot.event
+async def on_member_remove(member):
+    for channel in member.server.channels:
+        if channel.name == '☹-leave-☹':
+            embed = discord.Embed(color=0xC72323)
+            embed.set_author(name=f'😢 {member.name} has left the {member.server.name} 😢')
+            embed.description='Good bye 👋! We will gonna miss you.'
+            embed.set_thumbnail(url=member.avatar_url)
+            await bot.send_message(channel, embed=embed)
+
 @bot.event
 async def on_member_remove(member):
     for channel in member.server.channels:
@@ -4071,6 +4094,7 @@ async def help(ctx):
     embed.add_field(name="Invite Link:", value="[Here]( https://discordapp.com/api/oauth2/authorize?client_id=507241518524923904&,permissions=8&scope=bot)")
     embed.add_field(name="Wanna vote for Like?", value="[Here](https://discordbots.org/bot/507241518524923904/vote)")
     embed.add_field(name="🔨 Moderation Commands ", value="kick, ban, slowclear, warn, decide, secretkick, secretban, clear, slowmode, cslowmode, renamerole, renameserver, nick, textchannel, voicechannel, nickall, renamechannel, emojirename, announce\n\n ")
+    embed.add_field(name="📍 Setup", value="setupwelcomer, setupleaving")
     embed.add_field(name="🛠 Utility Commands ", value="userinfo, botinfo, serverinfo, servercount, serverowner, statcheck, gamecheck, channelinfo, emojis, membernames, roleinfo, invite, rn, customrn, stringgen, avatar, qr, ytsearch, google , encode, poll, botsearch, topbots, vote, choose\n \n ")
     embed.add_field(name="😁 Fun Commands ", value="8ball, gender, fbi, skincolor, hack, virus, bomb, whois, hairdye, heigth, talentcheck, howto, autistcheck, asktrump, howgay, dicksize\n \n ")
     embed.add_field(name="😂 Memes Command ", value="yomomma, joke, dadjoke, meme, pun, animemes, sapnupuas\n \n ")
@@ -4498,9 +4522,9 @@ async def virus(ctx, user: discord.Member = None, *, hack = None):
     await asyncio.sleep(0.5)
     x = await bot.edit_message(x,'**Sending the virus**    ``-``')
     await asyncio.sleep(0.5)
-    x = await bot.edit_message(x,'**Sending the virus** ``\``')
+    x = await bot.edit_message(x,'**Sending the virus**    ``\``')
     await asyncio.sleep(0.5)
-    x = await bot.edit_message(x,'**Sending the virus**    ``|``', delete_after=1)
+    await bot.edit_message(x,'**Sending the virus**    ``|``', delete_after=1)
     await bot.delete_message(ctx.message)
         
     if user:
@@ -4611,5 +4635,27 @@ async def nickall(ctx, *, nickname0: str = None):
             await bot.say(embed=embed)
     except Exception as e:
         await bot.say(f"```{e}```\nBot's role is probally low or the bot doesn't have the `Manage Roles` permission")
+
+@bot.command(pass_context = True)
+@commands.has_permissions(administrator=True)
+async def setupwelcomer(ctx):
+    if ctx.message.author.bot:
+      return
+    else:
+      server = ctx.message.server
+      everyone_perms = discord.PermissionOverwrite(send_messages=False, read_messages=True)
+      everyone = discord.ChannelPermissions(target=server.default_role, overwrite=everyone_perms)
+      await bot.create_channel(server, '🌠-welcome-🌠',everyone)
+
+@bot.command(pass_context = True)
+@commands.has_permissions(administrator=True)
+async def setupleaving(ctx):
+    if ctx.message.author.bot:
+      return
+    else:
+      server = ctx.message.server
+      everyone_perms = discord.PermissionOverwrite(send_messages=False, read_messages=True)
+      everyone = discord.ChannelPermissions(target=server.default_role, overwrite=everyone_perms)
+      await bot.create_channel(server, '☹-leave-☹',everyone)
 
 bot.run(os.environ['Token1'])
