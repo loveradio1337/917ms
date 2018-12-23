@@ -4054,7 +4054,6 @@ async def on_member_join(member):
            await bot.change_nickname(member, nickname)
 
 
-🌠-welcome-🌠
 @bot.event
 async def on_member_join(member):
     for channel in member.server.channels:
