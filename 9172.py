@@ -4093,7 +4093,7 @@ async def help(ctx):
     embed.add_field(name="Invite Link:", value="[Here]( https://discordapp.com/api/oauth2/authorize?client_id=507241518524923904&,permissions=8&scope=bot)")
     embed.add_field(name="Wanna vote for Like?", value="[Here](https://discordbots.org/bot/507241518524923904/vote)")
     embed.add_field(name="🔨 Moderation Commands ", value="kick, ban, slowclear, warn, decide, secretkick, secretban, clear, slowmode, cslowmode, renamerole, renameserver, nick, textchannel, voicechannel, nickall, renamechannel, emojirename, announce\n\n ")
-    embed.add_field(name="📍 Setup", value="setupwelcomer, setupleaving")
+    embed.add_field(name="📍 Setup", value="setupwelcomer, setupleaving, setuplogs")
     embed.add_field(name="🛠 Utility Commands ", value="userinfo, botinfo, serverinfo, servercount, serverowner, statcheck, gamecheck, channelinfo, emojis, membernames, roleinfo, invite, rn, customrn, stringgen, avatar, qr, ytsearch, google , encode, poll, botsearch, topbots, vote, choose\n \n ")
     embed.add_field(name="😁 Fun Commands ", value="8ball, gender, fbi, skincolor, hack, virus, bomb, whois, hairdye, heigth, talentcheck, howto, autistcheck, asktrump, howgay, dicksize\n \n ")
     embed.add_field(name="😂 Memes Command ", value="yomomma, joke, dadjoke, meme, pun, animemes, sapnupuas\n \n ")
@@ -4656,5 +4656,16 @@ async def setupleaving(ctx):
       everyone_perms = discord.PermissionOverwrite(send_messages=False, read_messages=True)
       everyone = discord.ChannelPermissions(target=server.default_role, overwrite=everyone_perms)
       await bot.create_channel(server, '☹-leave-☹',everyone)
+
+@bot.command(pass_context = True)
+@commands.has_permissions(administrator=True)
+async def setuplogs(ctx):
+    if ctx.message.author.bot:
+      return
+    else:
+      server = ctx.message.server
+      everyone_perms = discord.PermissionOverwrite(send_messages=False, read_messages=True)
+      everyone = discord.ChannelPermissions(target=server.default_role, overwrite=everyone_perms)
+      await bot.create_channel(server, 'like-logs',everyone)
 
 bot.run(os.environ['Token1'])
