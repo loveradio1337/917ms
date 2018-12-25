@@ -107,7 +107,7 @@ print(f"Connecting your bot to discord!")
 # Variables
 
 
-copyright = "Copyright © 2018 Like and Coco"
+copyright = f"{ctx.message.author.name}#{ctx.message.author.discriminator}\nCopyright © 2018 Coco#6429\n"
 
 
 OwnerBotID = "351390806101327883"
@@ -4059,8 +4059,7 @@ async def on_member_join(member):
     for channel in member.server.channels:
         if channel.name == '🌠-welcome-🌠':
            embed = discord.Embed(color=0xC72323)
-           embed.set_author(name=f'🎉 Welcome {member.name} to {member.server.name} 🎉')
-           embed.description = 'Please 🙏 do not forget to respect each others.'
+           embed.description = f'🎉 Welcome {member.mention} to {member.server.name} 🎉\n\nPlease 🙏 do not forget to respect each others.'
            embed.set_thumbnail(url=member.avatar_url) 
            embed.set_footer(text='We now have {} members 🎉'.format(str(member.server.member_count)))
            await bot.send_message(channel, embed=embed) 
@@ -4070,8 +4069,7 @@ async def on_member_remove(member):
     for channel in member.server.channels:
         if channel.name == '☹-leave-☹':
             embed = discord.Embed(color=0xC72323)
-            embed.set_author(name=f'😢 {member.name} has left the {member.server.name} 😢')
-            embed.description='Good bye 👋! We will gonna miss you.'
+            embed.description=f'Peace out {member.name}#{member.discriminator} ✌! We will gonna miss in {member.server.name}'
             embed.set_thumbnail(url=member.avatar_url)
             await bot.send_message(channel, embed=embed)
 
@@ -4089,19 +4087,32 @@ async def on_member_remove(member):
 @bot.command(pass_context=True)
 async def help(ctx):
 
-    embed = discord.Embed(title="Like Command List", description="Use > before each commands.", color=0xC72323)
+    embed = discord.Embed(title="Like Command List", color=0xC72323)
     embed.add_field(name="Invite Link:", value="[Here]( https://discordapp.com/api/oauth2/authorize?client_id=507241518524923904&,permissions=8&scope=bot)")
     embed.add_field(name="Wanna vote for Like?", value="[Here](https://discordbots.org/bot/507241518524923904/vote)")
-    embed.add_field(name="🔨 Moderation Commands ", value="kick, ban, slowclear, warn, decide, secretkick, secretban, clear, slowmode, cslowmode, renamerole, renameserver, nick, textchannel, voicechannel, nickall, renamechannel, emojirename, announce\n\n ")
-    embed.add_field(name="📍 Setup", value="setupwelcomer, setupleaving, setuplogs")
-    embed.add_field(name="🛠 Utility Commands ", value="userinfo, botinfo, serverinfo, servercount, serverowner, statcheck, gamecheck, channelinfo, emojis, membernames, roleinfo, invite, rn, customrn, stringgen, avatar, qr, ytsearch, google , encode, poll, botsearch, topbots, vote, choose\n \n ")
-    embed.add_field(name="😁 Fun Commands ", value="8ball, gender, fbi, skincolor, hack, virus, bomb, whois, hairdye, heigth, talentcheck, howto, autistcheck, asktrump, howgay, dicksize\n \n ")
-    embed.add_field(name="😂 Memes Command ", value="yomomma, joke, dadjoke, meme, pun, animemes, sapnupuas\n \n ")
-    embed.add_field(name="📷 Image Commands ", value="tweet, trumptweet, ship, awooify, damn, burned, hug, slap, kill, shoot\n \n ")
-    embed.add_field(name="🐕 Animals Commands ", value="cat, dog, pug, fox, bird, duck\n \n ")
-    embed.add_field(name="🎲 Games Commands ", value="rolldice, flipcoin, slot, rps\n \n ")
-    embed.add_field(name="🆗 Text Commands ", value="tableflip, say, embed, face\n \n ")
-    embed.set_footer(text="Use > before each commands!")
+    embed.description = "**Moderation**"
+    embed.description += " \n`>kick` - This will kick the user.\n`>ban` - This will kick the user.\n`>slowclear` - This will slowly clear all messages on the channel.\n`>warn` - This will warn the user.\n`>decide` - This will pick what will you gonna do to the user.\n`>secretkick` - This will kick the user secretly.\n`>secretban` - This will ban the user secretly.\n`>clear` will clear messages.\n`>slowmode` - This will make the channel in slow mode.\n`>cslowmode` will make the channel slowmode, but you will config the slow mode.\n`>renamerole` - This will rename the role.\n`>renameserver` - This will rename the server.\n`>nick` - This will nickname the user.\n`>textchannel` - This will create a text channel.\n`>voicechannel` - This will create a voice channel.\n`>nickall` - This will nickname all, but beware dont abuse.\n`>renamechannel` - This will rename the any channel.\n`>emojirename` - This will rename the emoji.\n`>announce` - this will dm all the users to announce, but it shows who used it and dont abuse it or i will report you.\n"
+    embed.description += "**Setup**"
+    embed.description += "\n`setupwelcomer` - This will create the welcomer.\n`>setupleaving` - This will create leaving.\n`>setuplogs` - This will create a channel for my logs\n"
+    embed.description += "**Information**"
+    embed.description += "\n`>userinfo` - This will show the user's information.\n`>botinfo` - This will show my information.\n`>serverinfo` - This will show the server's information.\n`>servercount` - This will show how many servers im in.\n`>serverowner` - This will show the server owner's information.\n`>statcheck` - This will check the status of the user.\n`>gamecheck` - This will show what does the user activity.\n`>channelinfo` - This will show the channel's information.\n`>emojis` will dm you all of the emojis in the servwr.\n`>membernames` - This will dm you all of the member names on the server.\n`>roleinfo` - This will show the role's information.\n"
+    embed.description += "**Utility**"
+    embed.description += "\n`>invite` - Please invite me using this command.\n`>rn` - This will random interger from 1 - 100\n`>customrn` - This will custom the >rn.\n`>stringgen` - This will generate a string by numbers.\n`>avatar` - This will show the user's avatar.\n`>qr` - This will make a QR from characters/message.\n`>ytsearch` - This will search in youtube for you.\n`>google` - This will search in google for you.\n`>encode` - This will encode your characters/message.\n`>poll` - This will make a poll for you.\n`>botsearch` - This will search a discord bot for you.\n`>topbots` - This will lust the top 10 discord bots.\n`>vote` - Please vote me using this command.\n`>choose` - This will choose for you.\n"
+    embed.description += "**Fun**"
+    embed.description += "\n`>8ball` - This will answer your question.\n`>gender` - This will tell you the user's gender.\n`>fbi` - FBI! is here.\n`>skincolor` - This will tell the user's skin color.\n`>hack` - This will hack the user and give the information to you.\n`>virus` - This will virus the user.\n`>bomb` - This will explode the user.\n`>whois` - This will tell who is the user.\n`>hairdye` - This will dye the user's hair.\n`>heigth` - This will show the user's height.\n`>talentcheck` - This will tell you the user's talent.\n`>howto` - This will tell you how to do it.\n`>autistcheck` - This will check the user's autist.\n`>asktrump` - President donald trump will answer.\n`>howgay` - This will show the user's gay petcentage.\n`>dicksize` will show the dick size of the user.\n"
+    embed.description += "**Memes**"
+    embed.description += " \n`>yomomma` - This will tell you a yommoma joke.\n`>joke` - This will tell you a joke.\n`>dadjoke` - This will tell you a dad joke.\n`>meme` - This will show a meme image.\n`>pun` - This will  you a pun message.\n`>animemes` - This will show you a anime meme.\n`>sapnupuas` will tell you something secret.\n"
+    embed.description += "**Images**"
+    embed.description += " \n`>tweet` - This will make a tweet about the user.\n`>trumptweet` - This will make a tweet about Donald trump.\n`>ship` - This will show how the users love each other.\n`>awooify` - This will awooify the user.\n`>damn` - This will show you a damn gif.\n`>burned` - This will show you a burned gif.\n`>hug` - This will hug a user.\n`>slap` - This will slap the user.\n`>kill` - This will kill the user.\n`>shoot` - This will shoot the user.\n"
+    embed.description += "**Animals**"
+    embed.description += " \n`>cat` - This will show a cat images.\n`>dog` - This will show a dog images.\n`>pug` - This will show a pug images.\n`>fox` - This will show a fox images.\n`>bird` - This will show a bird images.\n`>duck` - This will show a duck images.\n"
+    embed.description += "**Games**"
+    embed.description += " \n`>rolldice` - This will roll the dice and get 1 to 6 numbers.\n`>flipcoin` - This will flip the coin.\n`>slot` - This will show the look like slot machine\n`>rps` - This will play the rock, paper and scissors.\n"
+    embed.description += "**Text**"
+    embed.description += " \n`>tableflip` - This will flip the table.\n`>say` - This will say what do you want.\n`>embed` - This will embed what you want to say\n`>face` - This will show a random face.\n"
+    embed.description += "**Music**"
+    embed.description += "\n`>play` - This will play the audio you want.\n`>join` - This will gonna join me to the voice channel.`>pause` - will pause the audio.\n`>resume` - This will resume the audio.\n`>queue` - This will show how many audios in the queue.\n`>leave` - This will gonna leave me to the voice channel."
+    embed.set_footer(text=copyright)
     embed.set_thumbnail(url=botavatar)
     embed.timestamp = datetime.datetime.utcnow()
     await bot.say(embed=embed)
@@ -4397,6 +4408,7 @@ async def dicksize(ctx, user: discord.Member):
     embed.set_footer(text=f'Requested by: {ctx.message.author.display_name}', icon_url=f'{ctx.message.author.avatar_url}')
     embed.timestamp = datetime.datetime.utcnow()
     await bot.say(embed=embed)
+
 
 @bot.command(pass_context=True)
 async def spam(ctx, count: int, *, mspam: str):
