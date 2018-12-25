@@ -4082,6 +4082,7 @@ async def help(ctx):
     if ctx.message.author.bot:
       return
     else:
+      
 
       embed = discord.Embed(color=0xC72323)
       embed.description = "🔨 **Moderation**"
@@ -4138,7 +4139,7 @@ async def help(ctx):
       embed.description += "📀 **Music**"
       embed.description += "\n`>play` - This will play the audio you want.\n`>join` - This will gonna join me to the voice channel.`>pause` - will pause the audio.\n"
       embed.description += "`>resume` - This will resume the audio.\n`>queue` - This will show how many audios in the queue.\n`>leave` - This will gonna leave me to the voice channel."
-      embed.set_footer(text="Copyright © 2018 Coco#6429\n")
+      embed.set_footer(text="Copyright © 2018 Coco#6429")
       embed.set_thumbnail(url=botavatar)
       embed.timestamp = datetime.datetime.utcnow()
       await bot.say(embed=embed)
