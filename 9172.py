@@ -4676,4 +4676,9 @@ async def setuplogs(ctx):
       everyone = discord.ChannelPermissions(target=server.default_role, overwrite=everyone_perms)
       await bot.create_channel(server, 'like-logs',everyone)
 
+@bot.command(pass_context=True)
+async def test2(ctx):
+    await bot.say(config.test)
+    await bot.say(config.test)
+
 bot.run(os.environ['Token1'])
