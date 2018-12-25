@@ -107,9 +107,6 @@ print(f"Connecting your bot to discord!")
 # Variables
 
 
-copyright = f"{ctx.message.author.name}#{ctx.message.author.discriminator}\nCopyright © 2018 Coco#6429\n"
-
-
 OwnerBotID = "351390806101327883"
 NeedPerm = '❎ Permission Denied.'
 NeedPermDesc = '`1)` Please check if you have permission to perform this command. \n`2)` Please check if my role has permission to perform this command in this channel. \n`3)` Please check my role position.'
@@ -4112,7 +4109,7 @@ async def help(ctx):
     embed.description += " \n`>tableflip` - This will flip the table.\n`>say` - This will say what do you want.\n`>embed` - This will embed what you want to say\n`>face` - This will show a random face.\n"
     embed.description += "**Music**"
     embed.description += "\n`>play` - This will play the audio you want.\n`>join` - This will gonna join me to the voice channel.`>pause` - will pause the audio.\n`>resume` - This will resume the audio.\n`>queue` - This will show how many audios in the queue.\n`>leave` - This will gonna leave me to the voice channel."
-    embed.set_footer(text=copyright)
+    embed.set_footer(text=f"{ctx.message.author.name}#{ctx.message.author.discriminator}\nCopyright © 2018 Coco#6429\n")
     embed.set_thumbnail(url=botavatar)
     embed.timestamp = datetime.datetime.utcnow()
     await bot.say(embed=embed)
