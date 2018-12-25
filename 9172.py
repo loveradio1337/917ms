@@ -88,9 +88,21 @@ import urllib.request
 import logging
 import colorsys
 import socket
+with open("json/config.json") as cfg:
+    config = json.load(cfg)
+# config
 
-
-
+ANIMALS = config["animals"]
+MODERATION = config["moderation"]
+MUSIC = config["music"]
+MEMES = config["memes"]
+FUN = config["fun"]
+SETUP = config["setup"]
+GAMES = config["games"]
+INFORMATION = config["information"]
+IMAGES = config["images"]
+UTILITY = config["utility"]
+TEXT = config["text"]
 
 # Prefix
 
@@ -4086,27 +4098,27 @@ async def help(ctx):
     embed.add_field(name="Invite our bot:", value="[Here]( https://discordapp.com/api/oauth2/authorize?client_id=507241518524923904&,permissions=8&scope=bot)")
 #    embed.add_field(name="Wanna vote for Like?", value="[Here](https://discordbots.org/bot/507241518524923904/vote)")
     embed.description = "**Moderation**"
-    embed.description += config.moderation
+    embed.description += MODERATION
     embed.description += "**Setup**"
-    embed.description += config.setup
+    embed.description += SETUP
     embed.description += "**Information**"
-    embed.description += config.information
+    embed.description += INFORMATION
     embed.description += "**Utility**"
-    embed.description += config.utility
+    embed.description += UTILITY
     embed.description += "**Fun**"
-    embed.description += config.fun
+    embed.description += FUN
     embed.description += "**Memes**"
-    embed.description += config.memes
+    embed.description += MEMES
     embed.description += "**Images**"
-    embed.description += config.images
+    embed.description += IMAGES
     embed.description += "**Animals**"
-    embed.description += config.animals
+    embed.description += ANIMALS
     embed.description += "**Games**"
-    embed.description += config.games
+    embed.description += GAMES
     embed.description += "**Text**"
-    embed.description += config.text
+    embed.description += TEXT
     embed.description += "**Music**"
-    embed.description += config.music
+    embed.description += MUSIC
     embed.set_footer(text=f"{ctx.message.author.name}#{ctx.message.author.discriminator}\nCopyright © 2018 Coco#6429\n")
     embed.set_thumbnail(url=botavatar)
     embed.timestamp = datetime.datetime.utcnow()
