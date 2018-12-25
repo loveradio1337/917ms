@@ -4110,9 +4110,8 @@ async def help(ctx):
       embed.description += "`>poll` - This will make a poll for you.\n`>botsearch` - This will search a discord bot for you.\n`>topbots` - This will lust the top 10 discord bots.\n"
       embed.description += "`>vote` - Please vote me using this command.\n`>choose` - This will choose for you.\n"
       await bot.say(embed=embed)
-      await asyncio.sleep(1)
       embed=discord.Embed(color=0xC72323)
-      embed.description += "😄 **Fun**"
+      embed.description = "😄 **Fun**"
       embed.description += "\n`>8ball` - This will answer your question.\n`>gender` - This will tell you the user's gender.\n`>fbi` - FBI! is here.\n`>skincolor` - This will tell the user's skin color.\n"
       embed.description += "`>hack` - This will hack the user and give the information to you.\n`>virus` - This will virus the user.\n"
       embed.description += "`>bomb` - This will explode the user.\n`>whois` - This will tell who is the user.\n`>hairdye` - This will dye the user's hair.\n"
