@@ -3830,10 +3830,6 @@ async def on_message(message):
 
 
         await bot.delete_message(message)
-    if message.content.startswith(">help"):
-
-
-        await bot.delete_message(message)
 
     if message.content == ">kick":
 
@@ -4084,6 +4080,8 @@ async def on_member_remove(member):
 @bot.command(pass_context=True)
 async def help(ctx):
 
+    self = ctx.message.author
+
     embed = discord.Embed(title="Like Command List", color=0xC72323)
     embed.add_field(name="Invite Link:", value="[Here]( https://discordapp.com/api/oauth2/authorize?client_id=507241518524923904&,permissions=8&scope=bot)")
     embed.add_field(name="Wanna vote for Like?", value="[Here](https://discordbots.org/bot/507241518524923904/vote)")
@@ -4128,7 +4126,8 @@ async def help(ctx):
     embed.set_footer(text=f"{ctx.message.author.name}#{ctx.message.author.discriminator}\nCopyright © 2018 Coco#6429\n")
     embed.set_thumbnail(url=botavatar)
     embed.timestamp = datetime.datetime.utcnow()
-    await bot.say(embed=embed)
+    await bot.send_message(self, embed=embed)
+    await bot.say(f"{self.mention} Check your dms because i wrote you the help command list.", delete_after=10)
 
 @bot.command(pass_context = True)
 async def ping(ctx):
