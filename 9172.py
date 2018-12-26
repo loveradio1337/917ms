@@ -4082,7 +4082,6 @@ async def help(ctx):
     if ctx.message.author.bot:
       return
     else:
-      
 
       embed = discord.Embed(color=0xC72323)
       embed.description = "🔨 **Moderation**"
@@ -4102,6 +4101,8 @@ async def help(ctx):
       embed.description += "`>serverowner` - This will show the server owner's information.\n`>statcheck` - This will check the status of the user.\n"
       embed.description += "`>gamecheck` - This will show what does the user activity.\n`>channelinfo` - This will show the channel's information.\n"
       embed.description += "`>emojis` will dm you all of the emojis in the servwr.\n`>membernames` - This will dm you all of the member names on the server.\n`>roleinfo` - This will show the role's information.\n"
+      await bot.say(embed=embed)
+      embed=discord.Embed(color=0xC72323)
       embed.description += "🛠 **Utility**"
       embed.description += "\n`>invite` - Please invite me using this command.\n`>rn` - This will random interger from 1 - 100\n`>customrn` - This will custom the >rn.\n"
       embed.description += "`>stringgen` - This will generate a string by numbers.\n`>avatar` - This will show the user's avatar.\n"
@@ -4126,6 +4127,8 @@ async def help(ctx):
       embed.description += "`>ship` - This will show how the users love each other.\n`>awooify` - This will awooify the user.\n`>damn` - This will show you a damn gif.\n"
       embed.description += "`>burned` - This will show you a burned gif.\n`>hug` - This will hug a user.\n`>slap` - This will slap the user.\n"
       embed.description += "`>kill` - This will kill the user.\n`>shoot` - This will shoot the user.\n"
+      await bot.say(embed=embed)
+      embed=discord.Embed(color=0xC72323)
       embed.description += "🐶 **Animals**"
       embed.description += " \n`>cat` - This will show a cat images.\n`>dog` - This will show a dog images.\n`>pug` - This will show a pug images.\n"
       embed.description += "`>fox` - This will show a fox images.\n`>bird` - This will show a bird images.\n`>duck` - This will show a duck images.\n"
@@ -4135,6 +4138,8 @@ async def help(ctx):
       embed.description += "🔠 **Text**"
       embed.description += " \n`>tableflip` - This will flip the table.\n`>say` - This will say what do you want.\n"
       embed.description += "`>embed` - This will embed what you want to say\n`>face` - This will show a random face.\n"
+      await bot.say(embed=embed)
+      embed=discord.Embed(color=0xC72323)
       embed.description += "📀 **Music**"
       embed.description += "\n`>play` - This will play the audio you want.\n`>join` - This will gonna join me to the voice channel.`>pause` - will pause the audio.\n"
       embed.description += "`>resume` - This will resume the audio.\n`>queue` - This will show how many audios in the queue.\n`>leave` - This will gonna leave me to the voice channel."
