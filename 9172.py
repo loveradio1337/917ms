@@ -4285,7 +4285,7 @@ async def flipcoin(ctx):
 
 @bot.command(aliases=["slots"], pass_context=True)
 async def slot(ctx):
-    emojis = ""
+    emojis = "🌭🍔🍟🥙🌮🍕"
     a = random.choice(emojis)
     b = random.choice(emojis)
     c = random.choice(emojis)
