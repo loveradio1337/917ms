@@ -4119,8 +4119,10 @@ async def help(ctx):
       embed.description += "`>heigth` - This will show the user's height.\n`>talentcheck` - This will tell you the user's talent.\n`>howto` - This will tell you how to do it.\n"
       embed.description += "`>autistcheck` - This will check the user's autist.\n`>asktrump` - President donald trump will answer.\n"
       embed.description += "`>howgay` - This will show the user's gay petcentage.\n`>dicksize` will show the dick size of the user.\n"
-      embed.description += "😂 **Memes**"
-      embed.description = " \n`>yomomma` - This will tell you a yommoma joke.\n`>joke` - This will tell you a joke.\n`>dadjoke` - This will tell you a dad joke.\n"
+      await bot.say(embed=embed)
+      embed=discord.Embed(color=0xC72323)
+      embed.description = "😂 **Memes**"
+      embed.description += " \n`>yomomma` - This will tell you a yommoma joke.\n`>joke` - This will tell you a joke.\n`>dadjoke` - This will tell you a dad joke.\n"
       embed.description += "`>meme` - This will show a meme image.\n`>pun` - This will  you a pun message.\n`>animemes` - This will show you a anime meme.\n`>sapnupuas` will tell you something secret.\n"
       embed.description += "📷 **Images**"
       embed.description += " \n`>tweet` - This will make a tweet about the user.\n`>trumptweet` - This will make a tweet about Donald trump.\n"
@@ -4141,7 +4143,7 @@ async def help(ctx):
       await bot.say(embed=embed)
       embed=discord.Embed(color=0xC72323)
       embed.description = "📀 **Music**"
-      embed.description += "\n`>play` - This will play the audio you want.\n`>join` - This will gonna join me to the voice channel.`>pause` - will pause the audio.\n"
+      embed.description += "\n`>play` - This will play the audio you want.\n`>join` - This will gonna join me to the voice channel.\n`>pause` - will pause the audio.\n"
       embed.description += "`>resume` - This will resume the audio.\n`>queue` - This will show how many audios in the queue.\n`>leave` - This will gonna leave me to the voice channel."
       embed.set_footer(text="Copyright © 2018 Coco#6429")
       embed.set_thumbnail(url=botavatar)
