@@ -4573,7 +4573,7 @@ async def virus(ctx, user: discord.Member = None, *, hack = None):
     await bot.delete_message(ctx.message)
         
     if user:
-        await bot.say('`{}-virus.exe` \n is successfully sent into **{}**'s system.'.format(hack,user.name))
+        await bot.say("`{}-virus.exe` \n is successfully sent into **{}**'s system.".format(hack,user.name))
         await bot.send_message(user,'**Alert!**\n``You may have been hacked. {}-virus.exe has been found in your system\'s operating system.\nYour data may have been compromised. Please re-install your OS immediately.``'.format(hack))
     else:
         await bot.say('**{}** hacked itself ▄︻̷̿┻̿═━一'.format(name.name))
