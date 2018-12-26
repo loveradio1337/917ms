@@ -1081,7 +1081,7 @@ async def fbi(ctx):
     await asyncio.sleep(2)
 
 
-    await bot.edit_message(msg2, "```Successfully found the home address``|")
+    await bot.edit_message(msg2, "**Successfully** found the home address")
 
 
     msg3 = await bot.say(f"Sending the FBI to {ctx.message.author.mention}'s house")
@@ -4263,7 +4263,7 @@ async def meme(ctx):
 
 @bot.command(pass_context=True)
 async def asktrump(ctx, *, question):
-     async with aiohttp.ClientSession() as session:
+    async with aiohttp.ClientSession() as session:
         async with session.get(f"https://api.whatdoestrumpthink.com/api/v1/quotes/personalized?q={question}") as r:
             res = await r.json()
             em = discord.Embed(color=0xC72323, title="What did Trump say?")
@@ -4285,7 +4285,7 @@ async def flipcoin(ctx):
 
 @bot.command(aliases=["slots"], pass_context=True)
 async def slot(ctx):
-    emojis = "🍎🍊🍐🍋🍉🍇🍓🍒"
+    emojis = ""
     a = random.choice(emojis)
     b = random.choice(emojis)
     c = random.choice(emojis)
@@ -4307,7 +4307,7 @@ async def slot(ctx):
 
 @bot.command(pass_context=True)
 async def cat(ctx):
-     async with aiohttp.ClientSession() as session:
+    async with aiohttp.ClientSession() as session:
         async with session.get("https://catapi.glitch.me/") as r:
             data = await r.json()
             em = discord.Embed(color=0xC72323, title="Cat")
@@ -4319,7 +4319,7 @@ async def cat(ctx):
 
 @bot.command(pass_context=True)
 async def meme2(ctx):
-     async with aiohttp.ClientSession() as session:
+    async with aiohttp.ClientSession() as session:
         async with session.get("https://www.reddit.com/r/dankmemes/top.json?sort=top&t=day&limit=500") as r:
             r = await r.json()
             data = random.choice(r.data.children).data
@@ -4544,21 +4544,21 @@ async def virus(ctx, user: discord.Member = None, *, hack = None):
     else:
         hack = hack.replace(' ','_')
     channel = ctx.message.channel
-    x = await bot.send_message(channel, '``[▓▓▓                    ] / {}-virus.exe Packing files.``'.format(hack))
+    x = await bot.send_message(channel, '``[▓▓▓                    ] \n {}-virus.exe Packing files.``'.format(hack))
     await asyncio.sleep(1.5)
-    x = await bot.edit_message(x,'``[▓▓▓▓▓▓▓                ]`` - {}-virus.exe Packing files..'.format(hack))
+    x = await bot.edit_message(x,'``[▓▓▓▓▓▓▓                ]`` \n {}-virus.exe Packing files..'.format(hack))
     await asyncio.sleep(0.3)
-    x = await bot.edit_message(x,'``[▓▓▓▓▓▓▓▓▓▓▓▓           ]`` \ {}-virus.exe Packing files...'.format(hack))
+    x = await bot.edit_message(x,'``[▓▓▓▓▓▓▓▓▓▓▓▓           ]`` \n {}-virus.exe Packing files...'.format(hack))
     await asyncio.sleep(1.2)
-    x = await bot.edit_message(x,'``[▓▓▓▓▓▓▓▓▓▓▓▓▓▓         ]`` | {}-virus.exe Initializing code.'.format(hack))
+    x = await bot.edit_message(x,'``[▓▓▓▓▓▓▓▓▓▓▓▓▓▓         ]`` \n {}-virus.exe Initializing code.'.format(hack))
     await asyncio.sleep(1)
-    x = await bot.edit_message(x,'``[▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓      ]`` / {}-virus.exe Initializing code..'.format(hack))
+    x = await bot.edit_message(x,'``[▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓      ]`` \n {}-virus.exe Initializing code..'.format(hack))
     await asyncio.sleep(1.5)
-    x = await bot.edit_message(x,'``[▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓   ]`` - {}-virus.exe Finishing.'.format(hack))
+    x = await bot.edit_message(x,'``[▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓   ]`` \n {}-virus.exe Finishing.'.format(hack))
     await asyncio.sleep(1)
-    x = await bot.edit_message(x,'``[▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ ]`` \ {}-virus.exe Finishing..'.format(hack))
+    x = await bot.edit_message(x,'``[▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ ]`` \n {}-virus.exe Finishing..'.format(hack))
     await asyncio.sleep(1)
-    x = await bot.edit_message(x,'``Successfully downloaded {}-virus.exe``'.format(hack))
+    x = await bot.edit_message(x,'**Successfully** \ndownloaded {}-virus.exe'.format(hack))
     await asyncio.sleep(2)
     x = await bot.edit_message(x,'**Sending the virus**    ``|``')
     await asyncio.sleep(0.5)
@@ -4568,11 +4568,12 @@ async def virus(ctx, user: discord.Member = None, *, hack = None):
     await asyncio.sleep(0.5)
     x = await bot.edit_message(x,'**Sending the virus**    ``\``')
     await asyncio.sleep(0.5)
-    await bot.edit_message(x,'**Sending the virus**    ``|``', delete_after=1)
+    x = await bot.edit_message(x,'**Sending the virus**    ``|``')
+    await bot.delete_message(x)
     await bot.delete_message(ctx.message)
         
     if user:
-        await bot.say('`{}-virus.exe` successfully sent into **{}**\'s system.'.format(hack,user.name))
+        await bot.say('`{}-virus.exe` \n is successfully sent into **{}**'s system.'.format(hack,user.name))
         await bot.send_message(user,'**Alert!**\n``You may have been hacked. {}-virus.exe has been found in your system\'s operating system.\nYour data may have been compromised. Please re-install your OS immediately.``'.format(hack))
     else:
         await bot.say('**{}** hacked itself ▄︻̷̿┻̿═━一'.format(name.name))
@@ -4614,7 +4615,7 @@ async def rps(ctx):
             elif botChoice == "paper":
                 await bot.say("I choose **{}**. You win!".format(botChoice))
 
-@bot.command(pass_context=True)
+@bot.command(aliases=["animeme"],pass_context=True)
 async def animemes(ctx):
     animememes_submissions = reddit.subreddit('Animemes').hot()
     post_to_pick = random.randint(1, 100)
