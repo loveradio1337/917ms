@@ -1,5 +1,5 @@
 
-# Like V2
+# Like V500
 
 # Import
 
@@ -3762,18 +3762,9 @@ async def announce(ctx, *, xdd: str = None):
 
                 try:
 
-                    await bot.send_message(member, f"Message from {ctx.message.author.name}#{ctx.message.author.discriminator}:\n" + xdd)
-                    print('Successfully sent a message to {}'.format(member.name))
-
-                    print('Successfully sent a message to {}'.format(member.name))
-
-
+                    await bot.send_message(member, f"Message from ``{ctx.message.author.name}#{ctx.message.author.discriminator}`` in the ``{ctx.message.server.name}`` server:\n\n" + xdd)
                 except:
-
-
                     pass
-
-
             await bot.send_message(ctx.message.author, "Successfully sent the announcement")
 
 
@@ -3782,7 +3773,7 @@ async def announce(ctx, *, xdd: str = None):
 
         embed = discord.Embed(title=NeedPerm, description=NeedPermDesc, color=0xC72323)
 
-# On-Messages
+# on_message
 
 
 @bot.event
@@ -3798,7 +3789,7 @@ async def on_message(message):
 
 
         print(f"{message.author.name} : {message.content}  (Server Name : {message.server.name} : {message.server.id}  {message.channel.id})")
-
+        print(f"{message.author.name} : {message.content}  (Server Name : {message.server.name} : {message.server.id}  {message.channel.id})")
 
 
 
@@ -4050,7 +4041,7 @@ async def on_member_join(member):
 @bot.event
 async def on_member_join(member):
     for channel in member.server.channels:
-        if channel.name == '🌠-welcome-🌠':
+        if channel.name == '🌟↪welcome↩🌟':
            embed = discord.Embed(color=0xC72323)
            embed.description = f'🎉 Welcome {member.mention} to {member.server.name} 🎉\n\nPlease 🙏 do not forget to respect each others.'
            embed.set_thumbnail(url=member.avatar_url) 
@@ -4060,7 +4051,7 @@ async def on_member_join(member):
 @bot.event
 async def on_member_remove(member):
     for channel in member.server.channels:
-        if channel.name == '☹-leave-☹':
+        if channel.name == '🌟↪leave↩🌟':
             embed = discord.Embed(color=0xC72323)
             embed.description=f'Peace out {member.name}#{member.discriminator} ✌! We will gonna miss in {member.server.name}'
             embed.set_thumbnail(url=member.avatar_url)
@@ -4094,7 +4085,7 @@ async def help(ctx):
       embed.description += "`>renamechannel` - This will rename the any channel.\n`>emojirename` - This will rename the emoji.\n"
       embed.description += "`>announce` - this will dm all the users to announce, but it shows who used it and dont abuse it or i will report you.\n\n"
       embed.description += "🎬 - **Setup**"
-      embed.description += "\n`setupwelcomer` - This will create the welcomer.\n`>setupleaving` - This will create leaving.\n`>setuplogs` - This will create a channel for my logs\n\n"
+      embed.description += "\n`setupwelcomer` - This will create the welcomer.\n`>setupleaving` - This will create leaving.\n\n"
       embed.description += "📥 - **Information**"
       embed.description += "\n`>userinfo` - This will show the user's information.\n`>botinfo` - This will show my information.\n"
       embed.description += "`>serverinfo` - This will show the server's information.\n`>servercount` - This will show how many servers im in.\n"
@@ -4578,7 +4569,7 @@ async def virus(ctx, user: discord.Member = None, *, hack = None):
         await bot.send_message(name,'__Alert!__\n**You may have been hacked. {}-virus.exe has been found in your system\'s operating system.\nYour data may have been compromised. Please re-install your OS immediately.**'.format(hack))
 	
 
-@bot.command(aliases=['rockpaperscissor'], pass_context=True)
+@bot.command(aliases=['rockpaperscissor', 'r p s'], pass_context=True)
 async def rps(ctx):
     userChoice = ctx.message.content.split(" ", 1)
     userChoice = userChoice[1].lower()
@@ -4688,7 +4679,7 @@ async def setupwelcomer(ctx):
       server = ctx.message.server
       everyone_perms = discord.PermissionOverwrite(send_messages=False, read_messages=True)
       everyone = discord.ChannelPermissions(target=server.default_role, overwrite=everyone_perms)
-      await bot.create_channel(server, '🌠-welcome-🌠',everyone)
+      await bot.create_channel(server, '🌟↪welcome↩🌟',everyone)
 
 @bot.command(pass_context = True)
 @commands.has_permissions(administrator=True)
@@ -4699,17 +4690,6 @@ async def setupleaving(ctx):
       server = ctx.message.server
       everyone_perms = discord.PermissionOverwrite(send_messages=False, read_messages=True)
       everyone = discord.ChannelPermissions(target=server.default_role, overwrite=everyone_perms)
-      await bot.create_channel(server, '☹-leave-☹',everyone)
-
-@bot.command(pass_context = True)
-@commands.has_permissions(administrator=True)
-async def setuplogs(ctx):
-    if ctx.message.author.bot:
-      return
-    else:
-      server = ctx.message.server
-      everyone_perms = discord.PermissionOverwrite(send_messages=False, read_messages=True)
-      everyone = discord.ChannelPermissions(target=server.default_role, overwrite=everyone_perms)
-      await bot.create_channel(server, 'like-logs',everyone)
+      await bot.create_channel(server, '🌟↪leave↩🌟',everyone)
 
 bot.run(os.environ['Token1'])
