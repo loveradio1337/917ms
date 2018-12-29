@@ -3905,8 +3905,7 @@ async def on_member_join(member):
            embed.set_thumbnail(url=member.avatar_url) 
            embed.set_footer(text='We now have {} members'.format(str(member.server.member_count)))
            await bot.send_message(channel, embed=embed) 
-           nickname= '🔰♈ ' + member.name + ' ♈🔰'
-           await bot.change_nickname(member, nickname)
+
 
 @bot.event
 async def on_member_remove(member):
@@ -3927,10 +3926,6 @@ async def on_member_join(member):
            embed.description = 'Please 🙏 do not forget to respect each others.'
            embed.set_thumbnail(url=member.avatar_url) 
            embed.set_footer(text='We now have {} members 🎉'.format(str(member.server.member_count)))
-           await bot.send_message(channel, embed=embed) 
-           nickname= '🆕 ' + member.name
-           await bot.change_nickname(member, nickname)
-
 
 @bot.event
 async def on_member_join(member):
@@ -3947,7 +3942,7 @@ async def on_member_remove(member):
     for channel in member.server.channels:
         if channel.name == '🌟↪leave↩🌟':
             embed = discord.Embed(color=0xC72323)
-            embed.description=f'Peace out {member.name}#{member.discriminator} ✌! We will gonna miss in {member.server.name}'
+            embed.description=f'Peace out {member.name}✌! We will gonna miss you in {member.server.name} server.'
             embed.set_thumbnail(url=member.avatar_url)
             await bot.send_message(channel, embed=embed)
 
@@ -3956,7 +3951,7 @@ async def on_member_remove(member):
     for channel in member.server.channels:
         if channel.name == 'welcome':
             embed = discord.Embed(color=0xC72323)
-            embed.set_author(name=f'😢 {member.name} has left the {member.server.name} 😢')
+            embed.set_author(name=f'{member.name} has left the {member.server.name} 😢')
             embed.description='Good bye 👋! We will gonna miss you.'
             embed.set_thumbnail(url=member.avatar_url)
             await bot.send_message(channel, embed=embed)
@@ -4028,7 +4023,7 @@ async def help(ctx):
       embed.description += "📀 - **Music**"
       embed.description += "\n`>play` - This will play the audio you want.\n`>join` - This will gonna join me to the voice channel.\n`>pause` - will pause the audio.\n"
       embed.description += "`>resume` - This will resume the audio.\n`>queue` - This will show how many audios in the queue.\n`>leave` - This will gonna leave me to the voice channel."
-      embed.set_footer(text="Copyright © 2018 Coco#6429")
+      embed.set_footer(text="`>invite` to invite me {ctx.message.name}")
       embed.set_thumbnail(url=botavatar)
       embed.timestamp = datetime.datetime.utcnow()
       await bot.say(embed=embed)
@@ -4531,15 +4526,15 @@ async def rolldice(ctx):
 async def giverole(ctx, user:discord.User, roles: discord.Role):
     if ctx.message.author.server_permissions.manage_roles:
         await bot.add_roles(user, roles)
-        await bot.send_message(ctx.message.channel, 'Roles of @{} have been updated'.format(user))
+        await bot.say(f'Roles of {user.mention} have been updated')
  
 @bot.command(pass_context=True)
 async def removerole(ctx, user:discord.User, roles: discord.Role):
     if ctx.message.author.server_permissions.manage_roles:
         await bot.remove_roles(user, roles)
-        await bot.send_message(ctx.message.channel, 'Roles of @{} have been updated'.format(user))
+        await bot.say(f'Roles of {user.mention} have been updated')
     else:
-        await bot.send_message(ctx.mesage.channel, '@{} does not have the following role'.format(user))
+        await bot.say(f'{user.mention} does not have the following role')
 
 @bot.command(pass_context=True)
 async def nickall(ctx, *, nickname0: str = None):
@@ -4561,8 +4556,6 @@ async def nickall(ctx, *, nickname0: str = None):
         else:
             embed = discord.Embed(title="This command only works for the owner of this server", color=0xC72323)
             await bot.say(embed=embed)
-    except Exception as e:
-        await bot.say(f"```{e}```\nBot's role is probally low or the bot doesn't have the `Manage Roles` permission")
 
 @bot.command(pass_context = True)
 @commands.has_permissions(administrator=True)
@@ -4574,6 +4567,7 @@ async def setupwelcomer(ctx):
       everyone_perms = discord.PermissionOverwrite(send_messages=False, read_messages=True)
       everyone = discord.ChannelPermissions(target=server.default_role, overwrite=everyone_perms)
       await bot.create_channel(server, '🌟↪welcome↩🌟',everyone)
+      await bot.say("I successfully setup the welcomer #🌟↪welcome↩🌟")
 
 @bot.command(pass_context = True)
 @commands.has_permissions(administrator=True)
@@ -4585,5 +4579,6 @@ async def setupleaving(ctx):
       everyone_perms = discord.PermissionOverwrite(send_messages=False, read_messages=True)
       everyone = discord.ChannelPermissions(target=server.default_role, overwrite=everyone_perms)
       await bot.create_channel(server, '🌟↪leave↩🌟',everyone)
+      await bot.say("I successfully setup the leaving #🌟↪leave↩🌟")
 
 bot.run(os.environ['Token1'])
