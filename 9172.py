@@ -1286,8 +1286,8 @@ async def encode(ctx, *, encode_to: str):
 async def clear(ctx, number:str):
     if ctx.message.author.server_permissions.manage_messages or ctx.message.author.id == OwnerBotID:
         mgs = []
-        number = int(number)
-        async for x in bot.logs_from(ctx.message.channel, limit = 1):
+        number = str(number)
+        async for x in bot.logs_from(ctx.message.channel, limit = 2):
             mgs.append(x)
         await bot.delete_messages(mgs)
         await bot.say("I deleted `" + str(number) + f"` messages for {ctx.message.author.mention}", delete_after=5)
