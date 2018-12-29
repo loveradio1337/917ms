@@ -1401,6 +1401,28 @@ async def howgay(ctx, user: discord.Member = None):
                     embed.add_field(name=f"{user.name}'s Howgay results", value=randomizer)
                     await bot.say(embed=embed)
 
+# hack2
+
+@bot.commans(pass_context=True)
+async def hack2(ctx, user: discord.Member):
+    msg = await ctx.send(f"Hacking! Target: {user.name}")
+    await asyncio.sleep(2)
+    await bot.edit_message(msg,"Accessing Discord Files... [▓▓    ]")
+    await asyncio.sleep(2)
+    await bot.edit_message(msg,"Accessing Discord Files... [▓▓▓   ]")
+    await asyncio.sleep(2)
+    await bot.edit_message(msg,"Accessing Discord Files... [▓▓▓▓▓ ]")
+    await asyncio.sleep(2)
+    await bot.edit_message(msg,"Accessing Discord Files COMPLETE! [▓▓▓▓▓▓]")
+    await asyncio.sleep(2)
+    await bot.edit_message(msg,"Retrieving Login Info... [▓▓▓    ]")
+    await asyncio.sleep(3)
+    await bot.edit_message(msg,"Retrieving Login Info... [▓▓▓▓▓ ]")
+    await asyncio.sleep(3)
+    await bot.edit_message(msg,"Retrieving Login Info... [▓▓▓▓▓▓ ]")
+    await asyncio.sleep(4)
+    await bot.edit_message(msg,f"An error has occurred hacking {user.name}'s account. Please try again later. ❌")
+
 # Hack
 
 
@@ -3449,129 +3471,6 @@ async def editprofile(ctx, *, lol: str):
 
 
 
-@bot.command(aliases=['userip'], pass_context=True)
-
-
-async def ipcheck(ctx, *, user: str = None):
-
-
-    if user == None:
-
-
-        await bot.say(f"{ctx.message.author.mention} ```The proper usage is\n>userip <name a user (do not mention)>``")
-
-
-        return
-
-
-
-
-
-    try:
-
-
-        up = user.upper().startswith
-
-
-        if user.upper().startswith('NADO'):
-
-
-            embed = discord.Embed(description="Nadohack's IP : 5.197.89.204", color=0xC72323) #god : 213.226.141.226
-
-
-            await bot.say(embed=embed)
-
-
-        elif user.upper().startswith('HAXRIN') or user.upper().startswith('DARKNO') or up('IHEK'):
-
-
-            embed = discord.Embed(description="Haxrin's IP : 84.42.161.126\nHaxrin is also known as DarkNoobz and iHek", color=0xC72323)
-
-
-            await bot.say(embed=embed)
-
-
-        elif up('ZTZ'):
-
-
-            embed = discord.Embed(description="ZTzTopia's IP : 139.228.105.1", color=0xC72323)
-
-
-            await bot.say(embed=embed)
-
-
-        elif up('NANO') or up('UNNAMED'):
-
-
-            embed = discord.Embed(description="Nanoteurz's IP : 41.232.137.189\nNanoteurz is also known as Unnamed GT", color=0xC72323)
-
-
-            await bot.say(embed=embed)
-
-
-        elif up('FINE') or up('REKTY') or up('STRIX') or up('RELUNG') or up('NABDOUCE') or up('RELUNG') or up('THEHUMAN'):
-
-
-            embed = discord.Embed(description="FineHax's IP : 36.75.114.251\nFineHax is also known as RelungGamer, NabDouce, StrixAgario, TheHumanGT and RektyGT", color=0xC72323)
-
-
-            await bot.say(embed=embed)
-
-
-        elif up('AYOVO'):
-
-
-            embed = discord.Embed(description="AYOVO's IP : 68.43.158.246", color=0xC72323)
-
-
-            await bot.say(embed=embed)
-
-
-        elif up('NOOB'):
-
-
-            embed = discord.Embed(description="NoobzGT's IP : 84.25.89.169\nNoobitaz's IP : 85.76.54.34\nNoobitaz is also known as Noobitas and noobhackz", color=0xC72323)
-
-
-            await bot.say(embed=embed)
-
-
-        elif up('HEX'):
-
-
-            embed = discord.Embed(description="Hexto Gaming's IP : 79.118.37.29", color=0xC72323)
-
-
-            await bot.say(embed=embed)
-
-
-        elif up('MRSHAK'):
-
-
-            embed = discord.Embed(description="MrShakoz's IP : 216.56.81.226", color=0xC72323)
-
-
-            await bot.say(embed=embed)
-
-
-        else:
-
-
-            embed = discord.Embed(description="Cannot find the name in the database\nMaybe check your spelling or do not mention the user you wanna check but instead type their name out", color=0xC72323)
-
-
-            await bot.say(embed=embed)
-
-
-    except:
-
-
-        await bot.say("Do not mention a user, Put in their name instead")
-
-
-
-
-
 @bot.command(aliases=['yudodis', 'yudothis'], pass_context=True)
 
 
@@ -3596,7 +3495,7 @@ async def whyudothis(ctx):
 
 
 
-#@bot.command(pass_context=True)
+@bot.command(pass_context=True)
 
 
 async def approved(ctx):
@@ -4104,7 +4003,7 @@ async def help(ctx):
 
       embed.description = "😄 - **Fun**"
       embed.description += "\n`>8ball` - This will answer your question.\n`>gender` - This will tell you the user's gender.\n`>fbi` - FBI! is here.\n`>skincolor` - This will tell the user's skin color.\n"
-      embed.description += "`>hack` - This will hack the user and give the information to you.\n`>virus` - This will virus the user.\n"
+      embed.description += "`>hack` - This will hack the user and give the information to you.\n`>hack2` - This will hack the user.\n`>virus` - This will virus the user.\n"
       embed.description += "`>bomb` - This will explode the user.\n`>whois` - This will tell who is the user.\n`>hairdye` - This will dye the user's hair.\n"
       embed.description += "`>heigth` - This will show the user's height.\n`>talentcheck` - This will tell you the user's talent.\n`>howto` - This will tell you how to do it.\n"
       embed.description += "`>autistcheck` - This will check the user's autist.\n`>asktrump` - President donald trump will answer.\n"
