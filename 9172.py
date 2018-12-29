@@ -179,9 +179,9 @@ async def status_task():
     while True:
         await bot.change_presence(game=discord.Game(name='>help | Coco#6429', type=2))
         await asyncio.sleep(5)
-        await bot.change_presence(game=discord.Game(name='with '+str(len(set(bot.get_all_members())))+' Users | >help'))
+        await bot.change_presence(game=discord.Game(name='with '+str(len(set(bot.get_all_members())))+' users | >help'))
         await asyncio.sleep(5)
-        await bot.change_presence(game=discord.Game(name='in '+str(len(bot.servers))+' Servers | >help', type=3))
+        await bot.change_presence(game=discord.Game(name='in '+str(len(bot.servers))+' servers | >help', type=3))
         await asyncio.sleep(5)
 
 
@@ -194,12 +194,7 @@ async def status_task():
 
 async def on_ready():
 
-
-
-
-
     print(f'Ready')
-    print(f"[][][][][][][][][][][][][][][][][][][][][][][][][][]")
     print(f'Like IS ONLINE')
     print(f'Lets play')
 
@@ -1403,9 +1398,9 @@ async def howgay(ctx, user: discord.Member = None):
 
 # hack2
 
-@bot.commans(pass_context=True)
+@bot.command(pass_context=True)
 async def hack2(ctx, user: discord.Member):
-    msg = await ctx.send(f"Hacking! Target: {user.name}")
+    msg = await bot.say(f"Hacking! Target: {user.name}")
     await asyncio.sleep(2)
     await bot.edit_message(msg,"Accessing Discord Files... [▓▓    ]")
     await asyncio.sleep(2)
