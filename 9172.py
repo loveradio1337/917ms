@@ -163,7 +163,7 @@ key = 'q8Di3LCIL0Qny7IiwN3jxfyBuY37c9nk'
 
 
 
-botavatar = 'https://cdn.discordapp.com/avatars/507241518524923904/dea61e2eb1de8f94e8460d707bfe0d08.webp?size=1024'
+botavatar = "https://cdn.discordapp.com/avatars/507241518524923904/dea61e2eb1de8f94e8460d707bfe0d08.webp?size=1024"
 
 dbl_url = "https://discordbots.org/api/bots/507241518524923904/stats"
 
@@ -4023,7 +4023,7 @@ async def help(ctx):
       embed.description += "📀 - **Music**"
       embed.description += "\n`>play` - This will play the audio you want.\n`>join` - This will gonna join me to the voice channel.\n`>pause` - will pause the audio.\n"
       embed.description += "`>resume` - This will resume the audio.\n`>queue` - This will show how many audios in the queue.\n`>leave` - This will gonna leave me to the voice channel."
-      embed.set_footer(text="`>invite` to invite me {ctx.message.name}")
+      embed.set_footer(text="``>invite`` to invite me.")
       embed.set_thumbnail(url=botavatar)
       embed.timestamp = datetime.datetime.utcnow()
       await bot.say(embed=embed)
@@ -4556,6 +4556,8 @@ async def nickall(ctx, *, nickname0: str = None):
         else:
             embed = discord.Embed(title="This command only works for the owner of this server", color=0xC72323)
             await bot.say(embed=embed)
+    except Exception as e:
+        await bot.say(f"```{e}```\nBot's role is probally low or the bot doesn't have the `Manage Roles` permission")
 
 @bot.command(pass_context = True)
 @commands.has_permissions(administrator=True)
