@@ -1287,7 +1287,7 @@ async def clear(ctx, number:str):
     if ctx.message.author.server_permissions.manage_messages or ctx.message.author.id == OwnerBotID:
         mgs = []
         number = int(number)
-        async for x in bot.logs_from(ctx.message.channel, limit = 100):
+        async for x in bot.logs_from(ctx.message.channel, limit = 1):
             mgs.append(x)
         await bot.delete_messages(mgs)
         await bot.say("I deleted `" + str(number) + f"` messages for {ctx.message.author.mention}", delete_after=5)
@@ -4023,7 +4023,7 @@ async def help(ctx):
       embed.description += "📀 - **Music**"
       embed.description += "\n`>play` - This will play the audio you want.\n`>join` - This will gonna join me to the voice channel.\n`>pause` - will pause the audio.\n"
       embed.description += "`>resume` - This will resume the audio.\n`>queue` - This will show how many audios in the queue.\n`>leave` - This will gonna leave me to the voice channel."
-      embed.set_footer(text="``>invite`` to invite me.")
+      embed.set_footer(text="`>invite` to invite me.")
       embed.set_thumbnail(url=botavatar)
       embed.timestamp = datetime.datetime.utcnow()
       await bot.say(embed=embed)
@@ -4569,7 +4569,7 @@ async def setupwelcomer(ctx):
       everyone_perms = discord.PermissionOverwrite(send_messages=False, read_messages=True)
       everyone = discord.ChannelPermissions(target=server.default_role, overwrite=everyone_perms)
       await bot.create_channel(server, '🌟↪welcome↩🌟',everyone)
-      await bot.say("I successfully setup the welcomer #🌟↪welcome↩🌟")
+      await bot.say("I successfully setup the welcomer #🌟↪welcome↩🌟 ")
 
 @bot.command(pass_context = True)
 @commands.has_permissions(administrator=True)
@@ -4581,6 +4581,6 @@ async def setupleaving(ctx):
       everyone_perms = discord.PermissionOverwrite(send_messages=False, read_messages=True)
       everyone = discord.ChannelPermissions(target=server.default_role, overwrite=everyone_perms)
       await bot.create_channel(server, '🌟↪leave↩🌟',everyone)
-      await bot.say("I successfully setup the leaving #🌟↪leave↩🌟")
+      await bot.say("I successfully setup the leaving #🌟↪leave↩🌟 ")
 
 bot.run(os.environ['Token1'])
