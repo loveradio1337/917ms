@@ -1286,7 +1286,7 @@ async def encode(ctx, *, encode_to: str):
 async def clear(ctx, number:str):
     if ctx.message.author.server_permissions.manage_messages or ctx.message.author.id == OwnerBotID:
         mgs = []
-        number = str(number)
+        number = int(number)
         async for x in bot.logs_from(ctx.message.channel, limit = number):
             mgs.append(x)
         await bot.delete_messages(mgs)
