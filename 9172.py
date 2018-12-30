@@ -3939,21 +3939,21 @@ async def on_member_join(member):
 async def on_member_remove(member):
     for channel in member.server.channels:
         if channel.name == '🌟↪welcome-goodbye↩🌟':
-            embed = discord.Embed(color=0xC72323)
-            embed.description=f'Peace out ``{member.name}#{member.discriminator}``✌! We will gonna miss you in {member.server.name} server.'
-            embed.set_thumbnail(url=member.avatar_url)
-            embed.timestamp = datetime.datetime.utcnow()
-            await bot.send_message(channel, embed=embed)
+           embed = discord.Embed(color=0xC72323)
+           embed.description=f'Peace out ``{member.name}#{member.discriminator}``✌! We will gonna miss you in {member.server.name} server.'
+           embed.set_thumbnail(url=member.avatar_url)
+           embed.timestamp = datetime.datetime.utcnow()
+           await bot.send_message(channel, embed=embed)
 
 @bot.event
 async def on_member_remove(member):
     for channel in member.server.channels:
         if channel.name == 'welcome':
-            embed = discord.Embed(color=0xC72323)
-            embed.description=f'Peace out ``{member.name}#{member.discriminator}``✌! We will gonna miss you in {member.server.name} server.'
-            embed.set_thumbnail(url=member.avatar_url)
-            embed.timestamp = datetime.datetime.utcnow()
-            await bot.send_message(channel, embed=embed)
+           embed = discord.Embed(color=0xC72323)
+           embed.description=f'Peace out ``{member.name}#{member.discriminator}``✌! We will gonna miss you in {member.server.name} server.'
+           embed.set_thumbnail(url=member.avatar_url)
+           embed.timestamp = datetime.datetime.utcnow()
+           await bot.send_message(channel, embed=embed)
 
 # help
 @bot.command(pass_context=True)
@@ -4560,7 +4560,7 @@ async def nickall(ctx, *, nickname0: str = None):
 
 @bot.command(pass_context = True)
 @commands.has_permissions(administrator=True)
-async def setupwelcomer(ctx):
+async def welcomer(ctx):
     if ctx.message.author.bot:
       return
     else:
