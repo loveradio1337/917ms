@@ -1287,7 +1287,7 @@ async def clear(ctx, number:str):
     if ctx.message.author.server_permissions.manage_messages or ctx.message.author.id == OwnerBotID:
         mgs = []
         number = int(number)
-        async for x in bot.logs_from(ctx.message.channel, limit = number):
+        async for x in bot.logs_from(ctx.message.channel, limit = 1000000000000000000000000000):
             mgs.append(x)
         await bot.delete_messages(mgs)
         await bot.say("I deleted ``" + str(number) + f" messages`` for {ctx.message.author.mention}", delete_after=5)
@@ -3548,18 +3548,12 @@ async def illegalize(ctx, *, legal:str = None):
 
 
     else:
-
-
-        """Make Stuff Illegal!"""
-
-
         xd = await bot.say(f"Making {legal} Illegal, Just hold on")
-
 
         legal = legal.upper()
 
 
-        url = "https://storage.googleapis.com/is-now-illegal.appspot.com/gifs/" + legal +".gif"
+        url = "https://storage.googleapis.com/is-now-illegal.appspot.com/gifs/" + legal + ".gif"
 
 
         em = discord.Embed(title="{} Successfully illegalized by president Donald Trump".format(legal), color=0xC72323)
@@ -3580,7 +3574,7 @@ async def illegalize(ctx, *, legal:str = None):
 @bot.command(pass_context=True)
 
 
-async def renameemoji(ctx, emoj: discord.Emoji = None, *, lol: str = None):
+async def rename_emoji(ctx, emoj: discord.Emoji = None, *, lol: str = None):
 
 
     try:
@@ -3592,13 +3586,13 @@ async def renameemoji(ctx, emoj: discord.Emoji = None, *, lol: str = None):
             if lol == None:
 
 
-                await bot.say(f"{ctx.message.author.mention} ```The proper usage is\n>emojirename <Emoji Name> <New Name>```")
+                await bot.say(f"{ctx.message.author.mention} ```The proper usage is\n>rename_emoji <Emoji Name> <New Name>```")
 
 
             elif emoj == None:
 
 
-                await bot.say(f"{ctx.message.author.mention} ```The proper usage is\n>emojirename <Emoji Name> <New Name>```")
+                await bot.say(f"{ctx.message.author.mention} ```The proper usage is\n>rename_emoji <Emoji Name> <New Name>```")
 
 
             else:
@@ -3922,28 +3916,33 @@ async def on_member_join(member):
     for channel in member.server.channels:
         if channel.name == 'welcome':
            embed = discord.Embed(color=0xC72323)
-           embed.set_author(name=f'🎉 Welcome {member.name} to {member.server.name} 🎉')
-           embed.description = 'Please 🙏 do not forget to respect each others.'
-           embed.set_thumbnail(url=member.avatar_url) 
-           embed.set_footer(text='We now have {} members 🎉'.format(str(member.server.member_count)))
+           embed.set_author(name="🎉 Player has joined 🎉")
+           embed.description = f'**Welcome ``{member.name}#{member.discriminator}`` to {member.server.name}**\n\nPlease 🙏 do not forget to respect each others or follow the rules.'
+           embed.set_thumbnail(url=member.avatar_url)
+           embed.timestamp = datetime.datetime.utcnow()
+           embed.set_footer(text='We now have {} members'.format(str(member.server.member_count)))
+           await bot.send_message(channel, embed=embed)
 
 @bot.event
 async def on_member_join(member):
     for channel in member.server.channels:
-        if channel.name == '🌟↪welcome↩🌟':
+        if channel.name == '🌟↪welcome-goodbye↩🌟':
            embed = discord.Embed(color=0xC72323)
-           embed.description = f'🎉 Welcome {member.mention} to {member.server.name} 🎉\n\nPlease 🙏 do not forget to respect each others.'
-           embed.set_thumbnail(url=member.avatar_url) 
-           embed.set_footer(text='We now have {} members 🎉'.format(str(member.server.member_count)))
+           embed.set_author(name="🎉 Player has joined 🎉")
+           embed.description = f'**Welcome ``{member.name}#{member.discriminator}`` to {member.server.name}**\n\nPlease 🙏 do not forget to respect each others or follow the rules.'
+           embed.set_thumbnail(url=member.avatar_url)
+           embed.timestamp = datetime.datetime.utcnow()
+           embed.set_footer(text='We now have {} members'.format(str(member.server.member_count)))
            await bot.send_message(channel, embed=embed) 
 
 @bot.event
 async def on_member_remove(member):
     for channel in member.server.channels:
-        if channel.name == '🌟↪leave↩🌟':
+        if channel.name == '🌟↪welcome-goodbye↩🌟':
             embed = discord.Embed(color=0xC72323)
-            embed.description=f'Peace out {member.name}✌! We will gonna miss you in {member.server.name} server.'
+            embed.description=f'Peace out ``{member.name}#{member.discriminator}``✌! We will gonna miss you in {member.server.name} server.'
             embed.set_thumbnail(url=member.avatar_url)
+            embed.timestamp = datetime.datetime.utcnow()
             await bot.send_message(channel, embed=embed)
 
 @bot.event
@@ -3951,9 +3950,9 @@ async def on_member_remove(member):
     for channel in member.server.channels:
         if channel.name == 'welcome':
             embed = discord.Embed(color=0xC72323)
-            embed.set_author(name=f'{member.name} has left the {member.server.name} 😢')
-            embed.description='Good bye 👋! We will gonna miss you.'
+            embed.description=f'Peace out ``{member.name}#{member.discriminator}``✌! We will gonna miss you in {member.server.name} server.'
             embed.set_thumbnail(url=member.avatar_url)
+            embed.timestamp = datetime.datetime.utcnow()
             await bot.send_message(channel, embed=embed)
 
 # help
@@ -3971,10 +3970,10 @@ async def help(ctx):
       embed.description += "`>cslowmode` will make the channel slowmode, but you will config the slow mode.\n`>renamerole` - This will rename the role.\n"
       embed.description += "`>renameserver` - This will rename the server.\n`>nick` - This will nickname the user.\n`>textchannel` - This will create a text channel.\n"
       embed.description += "`>voicechannel` - This will create a voice channel.\n`>nickall` - This will nickname all, but beware dont abuse.\n"
-      embed.description += "`>renamechannel` - This will rename the any channel.\n`>emojirename` - This will rename the emoji.\n"
+      embed.description += "`>renamechannel` - This will rename the any channel.\n`>rename_emoji` - This will rename the emoji.\n"
       embed.description += "`>announce` - this will dm all the users to announce, but it shows who used it and dont abuse it or i will report you.\n\n"
-      embed.description += "🎬 - **Setup**"
-      embed.description += "\n`setupwelcomer` - This will create the welcomer.\n`>setupleaving` - This will create leaving.\n\n"
+      embed.description += "🎬 - **Welcomer**"
+      embed.description += "\n`>welcomer` - This will create the welcomer.\n\n"
       embed.description += "📥 - **Information**"
       embed.description += "\n`>userinfo` - This will show the user's information.\n`>botinfo` - This will show my information.\n"
       embed.description += "`>serverinfo` - This will show the server's information.\n`>servercount` - This will show how many servers im in.\n"
@@ -4568,19 +4567,7 @@ async def setupwelcomer(ctx):
       server = ctx.message.server
       everyone_perms = discord.PermissionOverwrite(send_messages=False, read_messages=True)
       everyone = discord.ChannelPermissions(target=server.default_role, overwrite=everyone_perms)
-      await bot.create_channel(server, '🌟↪welcome↩🌟',everyone)
-      await bot.say("I successfully setup the welcomer #🌟↪welcome↩🌟 ")
-
-@bot.command(pass_context = True)
-@commands.has_permissions(administrator=True)
-async def setupleaving(ctx):
-    if ctx.message.author.bot:
-      return
-    else:
-      server = ctx.message.server
-      everyone_perms = discord.PermissionOverwrite(send_messages=False, read_messages=True)
-      everyone = discord.ChannelPermissions(target=server.default_role, overwrite=everyone_perms)
-      await bot.create_channel(server, '🌟↪leave↩🌟',everyone)
-      await bot.say("I successfully setup the leaving #🌟↪leave↩🌟 ")
+      await bot.create_channel(server, '🌟↪welcome-goodbye↩🌟',everyone)
+      await bot.say("I successfully created the welcomer.")
 
 bot.run(os.environ['Token1'])
