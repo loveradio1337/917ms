@@ -94,7 +94,7 @@ import socket
 
 # Prefixes
 
-BOT_PREFIX = (">", , "<@507241518524923904>", "<@507241518524923904> ")
+BOT_PREFIX = (">", "<@507241518524923904>", "<@507241518524923904> ")
 
 bot=commands.Bot(command_prefix=BOT_PREFIX)
 
