@@ -92,10 +92,12 @@ import socket
 
 
 
-# Prefix
+# Prefixes
 
+BOT_PREFIX = (">", , "<@507241518524923904>", "<@507241518524923904> ")
 
-bot = Bot(description="Like is best", command_prefix=commands.when_mentioned_or(">"))
+bot=commands.Bot(command_prefix=BOT_PREFIX)
+
 players = ()
 
 print(f"Connecting your bot to discord!")
@@ -194,8 +196,11 @@ async def status_task():
 
 async def on_ready():
 
+
     print(f'Ready')
+    await bot asyncio.sleep(2)
     print(f'Like IS ONLINE')
+    await bot asyncio.sleep(2)
     print(f'Lets play')
 
     bot.loop.create_task(status_task())
@@ -3928,7 +3933,7 @@ async def on_member_join(member):
     for channel in member.server.channels:
         if channel.name == '🌟↪welcome-goodbye↩🌟':
            embed = discord.Embed(color=0xC72323)
-           embed.set_author(name="🎉 Player has joined 🎉")
+           embed.set_author(name="🎉 New member has joined 🎉")
            embed.description = f'**Welcome ``{member.name}#{member.discriminator}`` to {member.server.name}**\n\nPlease 🙏 do not forget to respect each others or follow the rules.'
            embed.set_thumbnail(url=member.avatar_url)
            embed.timestamp = datetime.datetime.utcnow()
@@ -3939,21 +3944,22 @@ async def on_member_join(member):
 async def on_member_remove(member):
     for channel in member.server.channels:
         if channel.name == '🌟↪welcome-goodbye↩🌟':
-           embed = discord.Embed(color=0xC72323)
-           embed.description=f'Peace out ``{member.name}#{member.discriminator}``✌! We will gonna miss you in {member.server.name} server.'
-           embed.set_thumbnail(url=member.avatar_url)
-           embed.timestamp = datetime.datetime.utcnow()
-           await bot.send_message(channel, embed=embed)
+            embed = discord.Embed(description=f'Peace out ``{member.name}#{member.discriminator}``✌! We will gonna miss you in {member.server.name} server.', color=0xC72323)
+            embed.set_author(name="Member has left")
+            embed.set_thumbnail(url=member.avatar_url)
+            embed.timestamp = datetime.datetime.utcnow()
+            await bot.send_message(channel, embed=embed)
+
 
 @bot.event
 async def on_member_remove(member):
     for channel in member.server.channels:
         if channel.name == 'welcome':
-           embed = discord.Embed(color=0xC72323)
-           embed.description=f'Peace out ``{member.name}#{member.discriminator}``✌! We will gonna miss you in {member.server.name} server.'
-           embed.set_thumbnail(url=member.avatar_url)
-           embed.timestamp = datetime.datetime.utcnow()
-           await bot.send_message(channel, embed=embed)
+            embed = discord.Embed(color=0xC72323)
+            embed.description = f'Peace out ``{member.name}#{member.discriminator}``✌! We will gonna miss you in {member.server.name} server.'
+            embed.set_thumbnail(url=member.avatar_url)
+            embed.timestamp = datetime.datetime.utcnow()
+            await bot.send_message(channel, embed=embed)
 
 # help
 @bot.command(pass_context=True)
