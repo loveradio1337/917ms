@@ -198,9 +198,7 @@ async def on_ready():
 
 
     print(f'Ready')
-    await bot asyncio.sleep(2)
     print(f'Like IS ONLINE')
-    await bot asyncio.sleep(2)
     print(f'Lets play')
 
     bot.loop.create_task(status_task())
