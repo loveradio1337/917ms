@@ -3891,29 +3891,7 @@ async def poll(ctx, question, *options: str):
         embed.timestamp = datetime.datetime.utcnow()
         await bot.edit_message(react_message, embed=embed)
 
-
-@bot.event
-async def on_member_join(member):
-    for channel in member.server.channels:
-        if channel.name == '》welcome♤':
-           embed = discord.Embed(color=0xC72323)
-           embed.set_author(name=f'🎉 Welcome {member.name} to {member.server.name} 🎉')
-           embed.description = 'Please 🙏 do not forget to respect each others.'
-           embed.set_thumbnail(url=member.avatar_url) 
-           embed.set_footer(text='We now have {} members'.format(str(member.server.member_count)))
-           await bot.send_message(channel, embed=embed) 
-
-
-@bot.event
-async def on_member_remove(member):
-    for channel in member.server.channels:
-        if channel.name == '》left♤':
-            embed = discord.Embed(color=0xC72323)
-            embed.set_author(name=f'😢 {member.name} has left the {member.server.name} 😢')
-            embed.description='Good bye 👋! We will gonna miss you.'
-            embed.set_thumbnail(url=member.avatar_url)
-            await bot.send_message(channel, embed=embed)
-
+# greetings
 @bot.event
 async def on_member_join(member):
     for channel in member.server.channels:
@@ -3923,19 +3901,19 @@ async def on_member_join(member):
            embed.description = f'**Welcome ``{member.name}#{member.discriminator}`` to {member.server.name}**\n\nPlease 🙏 do not forget to respect each others or follow the rules.'
            embed.set_thumbnail(url=member.avatar_url)
            embed.timestamp = datetime.datetime.utcnow()
-           embed.set_footer(text='We now have {} members'.format(str(member.server.member_count)))
+           embed.set_footer(text='We are now {} members'.format(str(member.server.member_count)))
            await bot.send_message(channel, embed=embed)
 
 @bot.event
 async def on_member_join(member):
     for channel in member.server.channels:
-        if channel.name == '🌟-welcome-🌟':
+        if channel.name == '🌟welcome🌟':
            embed = discord.Embed(color=0xC72323)
            embed.set_author(name="🎉 New member has joined 🎉")
            embed.description = f'**Welcome ``{member.name}#{member.discriminator}`` to {member.server.name}**\n\nPlease 🙏 do not forget to respect each others or follow the rules.'
            embed.set_thumbnail(url=member.avatar_url)
            embed.timestamp = datetime.datetime.utcnow()
-           embed.set_footer(text='We are now have {} members'.format(str(member.server.member_count)))
+           embed.set_footer(text='We are now {} members'.format(str(member.server.member_count)))
            await bot.send_message(channel, embed=embed) 
 
 @bot.event
@@ -3947,14 +3925,14 @@ async def on_member_join(member):
            embed.description = f'**Welcome ``{member.name}#{member.discriminator}`` to {member.server.name}**\n\nPlease 🙏 do not forget to respect each others or follow the rules.'
            embed.set_thumbnail(url=member.avatar_url)
            embed.timestamp = datetime.datetime.utcnow()
-           embed.set_footer(text='We are now have {} members'.format(str(member.server.member_count)))
+           embed.set_footer(text='We are now {} members'.format(str(member.server.member_count)))
            await bot.send_message(channel, embed=embed) 
 
 
 @bot.event
 async def on_member_remove(member):
     for channel in member.server.channels:
-        if channel.name == '🌟-goodbye-🌟':
+        if channel.name == '🌟goodbye🌟':
             embed = discord.Embed(title="👋 Member has left 👋", description=f'Peace out ``{member.name}#{member.discriminator}``✌!\n\nWe will gonna miss you in the ``{member.server.name}`` server.', color=0xC72323)
             embed.set_thumbnail(url=member.avatar_url)
             embed.timestamp = datetime.datetime.utcnow()
@@ -4584,8 +4562,8 @@ async def welcomer(ctx):
       server = ctx.message.server
       everyone_perms = discord.PermissionOverwrite(send_messages=False, read_messages=True)
       everyone = discord.ChannelPermissions(target=server.default_role, overwrite=everyone_perms)
-      await bot.create_channel(server, '🌟-welcome-🌟',everyone)
-      await bot.create_channel(server, '🌟-goodbye-🌟',everyone)
+      await bot.create_channel(server, '🌟welcome🌟',everyone)
+      await bot.create_channel(server, '🌟goodbye🌟',everyone)
       await bot.say("I successfully created the welcomer.")
 
 bot.run(os.environ['Token1'])
