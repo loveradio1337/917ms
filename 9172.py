@@ -4531,4 +4531,4 @@ async def welcomer(ctx):
       await bot.create_channel(server, '🌟-goodbye-🌟',everyone)
       await bot.say("I successfully created the welcomer.")
 
-bot.run('Token1')
+bot.run(os.environ['Token1'])
