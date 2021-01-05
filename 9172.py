@@ -3097,58 +3097,58 @@ async def renameserver(ctx, *, nigga: str = None):
         await bot.say(f"``{e}``\nDM Coco#6429 to fix this.", delete_after=10)
 
 
-@bot.command(pass_context=True)
+#@bot.command(pass_context=True)
 
 
-async def renamechannel(ctx, channeled: discord.Channel = None, *, newname: str = None):
+#async def renamechannel(ctx, channeled: discord.Channel = None, *, newname: str = None):
 
 
-    try:
+ #   try:
 
 
-        if ctx.message.author.server_permissions.manage_channels:
+       # if ctx.message.author.server_permissions.manage_channels:
 
 
-            if channeled == None:
+         #   if channeled == None:
 
 
-                await bot.say(f"{ctx.message.author.mention} ```The proper usage is\n>renamechannel <mention a channel> <new name for the channel>```")
+           #     await bot.say(f"{ctx.message.author.mention} ```The proper usage is\n>renamechannel <mention a channel> <new name for the channel>```")
 
 
-            else:
+       #     else:
 
 
-                if newname == None:
+          #      if newname == None:
 
 
-                    await bot.say(f"{ctx.message.author.mention} ```The proper usage is\n>renamechannel <mention a channel> <new name for the channel>```")
+                #    await bot.say(f"{ctx.message.author.mention} ```The proper usage is\n>renamechannel <mention a channel> <new name for the channel>```")
 
 
-                else:
+         #       else:
 
 
-                    await bot.edit_channel(channel=channeled, name=newname)
+           #         await bot.edit_channel(channel=channeled, name=newname)
 
 
-                    embed = discord.Embed(description=f"Successfully renamed the channel to {channeled.mention}", color=0xC72323)
+             #       embed = discord.Embed(description=f"Successfully renamed the channel to {channeled.mention}", color=0xC72323)
 
 
-                    await bot.say(embed=embed)
+                #    await bot.say(embed=embed)
 
 
-        else:
+    #    else:
 
 
-            embed = discord.Embed(title=NeedPerm, description=NeedPermDesc, color=0xC72323)
+         #   embed = discord.Embed(title=NeedPerm, description=NeedPermDesc, color=0xC72323)
 
 
-            await bot.say(embed=embed)
+          #  await bot.say(embed=embed)
 
 
-    except Exception as e:
+   # except Exception as e:
 
 
-        await bot.say(f"``{e}``\nDM Coco#6429 to fix this.", delete_after=10)
+       # await bot.say(f"``{e}``\nDM Coco#6429 to fix this.", delete_after=10)
 
 @bot.command(pass_context=True)
 
