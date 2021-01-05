@@ -16,6 +16,6 @@ websockets
 BeautifulSoup4
 bs4
 datetime
-
+Discord
 praw
-
+Channel
