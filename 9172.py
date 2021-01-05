@@ -154,6 +154,7 @@ total_dad_jokes = "10k+"
 
 no_work = f"This command is currently not working, Please DM Coco#6429 about the command so he can fix this issue"
 
+BOT_TOKEN = os.environ.get('BOT_TOKEN')
 
 user = 'Coco#6429'
 
