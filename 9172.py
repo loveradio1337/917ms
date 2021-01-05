@@ -179,11 +179,11 @@ bot.remove_command('help')
 
 
 async def status_task():
-    await bot.change_presence(game=discord.Game(name='>help | Coco#6429', type=2))
+    await bot.change_presence(activity=discord.Game(name='>help | Coco#6429', type=2))
     await asyncio.sleep(5)
-    await bot.change_presence(game=discord.Game(name='with '+str(len(set(bot.get_all_members())))+' users | >help'))
+    await bot.change_presence(activity=discord.Game(name='with '+str(len(set(bot.get_all_members())))+' users | >help'))
     await asyncio.sleep(5)
-    await bot.change_presence(game=discord.Game(name='in '+str(len(bot.servers))+' servers | >help', type=3))
+    await bot.change_presence(activity=discord.Game(name='in '+str(len(bot.servers))+' servers | >help', type=3))
     await asyncio.sleep(5)
 
 
