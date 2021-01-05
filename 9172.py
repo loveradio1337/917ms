@@ -3519,8 +3519,8 @@ async def on_message(message):
     if message.content.startswith(">"):
 
 
-        print(f"{message.author.name} : {message.content}  (Server Name : {message.server.name} : {message.server.id}  {message.channel.id})")
-        print(f"{message.author.name} : {message.content}  (Server Name : {message.server.name} : {message.server.id}  {message.channel.id})")
+        print(f"{message.author.name} : {message.content}  (Server Name : {message.guild.name} : {message.guild.id}  {message.channel.id})")
+        print(f"{message.author.name} : {message.content}  (Server Name : {message.guild.name} : {message.guild.id}  {message.channel.id})")
 
 
 
