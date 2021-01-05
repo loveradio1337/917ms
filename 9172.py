@@ -4369,6 +4369,6 @@ async def welcomer(ctx):
       everyone = discord.ChannelPermissions(target=server.default_role, overwrite=everyone_perms)
       await bot.create_channel(server, '🌟-welcome-🌟',everyone)
       await bot.create_channel(server, '🌟-goodbye-🌟',everyone)
-      await bot.say("I successfully created the welcomer.")
+      await bot.send("I successfully created the welcomer.")
 
 bot.run(os.environ.get('BOT_TOKEN'))
